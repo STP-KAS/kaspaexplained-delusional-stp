@@ -2,8 +2,10 @@ import {transactionFlow} from './flow-diagrams.mjs';
 import {networkDiagram} from './network-diagram.mjs';
 import {mountCoordination} from './coordination.mjs';
 import {mountInstalledWallet} from './installed-wallets.mjs';
+import {mountDoors} from './doors.mjs';
 document.querySelectorAll('[data-coordination]').forEach(mountCoordination);
 mountInstalledWallet();
+mountDoors();
 import {networkState, spendState, miningState, vaultState, transactionState, formatKas} from './models.mjs';
 
 const all = (selector, root=document) => [...root.querySelectorAll(selector)];

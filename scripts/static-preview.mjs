@@ -4,7 +4,7 @@ import {resolve,extname,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 export function staticPreview(directory='dist-v1'){
-  const root=resolve(directory),mime={'.html':'text/html; charset=utf-8','.css':'text/css','.mjs':'text/javascript','.js':'text/javascript','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon','.pdf':'application/pdf','.xml':'application/xml','.json':'application/json'};
+  const root=resolve(directory),mime={'.html':'text/html; charset=utf-8','.css':'text/css','.mjs':'text/javascript','.js':'text/javascript','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon','.pdf':'application/pdf','.xml':'application/xml','.json':'application/json','.mp4':'video/mp4','.webm':'video/webm'};
   return createServer(async(req,res)=>{
     let path;try{path=decodeURIComponent(new URL(req.url,'http://localhost').pathname);}catch{res.writeHead(400);res.end();return;}
     let file=resolve(root,'.'+path),code=200;
