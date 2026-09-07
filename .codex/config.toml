@@ -1,0 +1,3 @@
+# Codex project configuration.
+# Durable repo instructions live in ../AGENTS.md.
+# Keep secrets, local paths, and personal machine settings out of committed config.

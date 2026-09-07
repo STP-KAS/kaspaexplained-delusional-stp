@@ -1,0 +1,377 @@
+{
+  "available": true,
+  "network": "Ethereum Sepolia \u2192 Kaspa Testnet-10",
+  "stage": "redeemed",
+  "busy": false,
+  "pending": false,
+  "message": "Round trip complete. Pip received all 100 source tokens after the Kaspa claim was burned.",
+  "error": false,
+  "source": {
+    "network": "Ethereum Sepolia",
+    "networkMode": "sepolia",
+    "chainId": 11155111,
+    "local": false,
+    "asset": "Pixie Test USD",
+    "symbol": "pUSD",
+    "decimals": 6,
+    "amountUnits": "100000000",
+    "ready": true,
+    "userAddress": "0x1eb6d7fe19E368e95F6a26F14bF6F98dB082C205",
+    "pipAddress": "0x2551091C286A3E062d86598d9b55BDD0bAE0eB78",
+    "oracleAddress": "0x116CF7ff34046284024d3B946E88050339815989",
+    "gasBalanceWei": "46224444116329955",
+    "oracleGasBalanceWei": "1875841744680457",
+    "tokenAddress": "0x4873dFf47925327FA031FADa3D0B117D0D23948d",
+    "vaultAddress": "0xB19c6a35db51390801FF67690489820E4396BC0C",
+    "balances": {
+      "user": "0",
+      "pip": "100000000",
+      "vault": "0"
+    },
+    "deposit": {
+      "id": "0x426c074c40bc641238ffffacf3572d2dce2ed604efc7cf0157ede406ac7c2824",
+      "transactionId": "0x3769d3b128d35a11b4024072e654f48aeb1813916c9a6cc004b4865eaee7f388",
+      "logIndex": 188,
+      "blockNumber": 11653547,
+      "blockHash": "0xc343319d2594b4a9c76112326da155e031dd1da5504196ddf2a525afff36f356",
+      "amountUnits": "100000000",
+      "kaspaRecipient": "0x238ab7d353d042a52db78693a339b0c11414bfd73af4904932593f27d47b9494",
+      "sourceChainId": 11155111,
+      "token": "0x4873dFf47925327FA031FADa3D0B117D0D23948d",
+      "vault": "0xB19c6a35db51390801FF67690489820E4396BC0C",
+      "finalized": true,
+      "released": true
+    },
+    "releaseIntent": {
+      "depositId": "0x426c074c40bc641238ffffacf3572d2dce2ed604efc7cf0157ede406ac7c2824",
+      "burnId": "dd0873f336d6392dab2754c936edcf2adee2b2b7597d2380a8b71588e06accf1",
+      "recipient": "0x2551091C286A3E062d86598d9b55BDD0bAE0eB78",
+      "amountUnits": "100000000"
+    },
+    "transactions": [
+      {
+        "key": "deploy-token",
+        "hash": "0xd64072da28f93f34c3945d52ef410dea23795b3b1eb452baea46ef23705530ef",
+        "from": "0x1eb6d7fe19E368e95F6a26F14bF6F98dB082C205",
+        "to": null,
+        "nonce": 0,
+        "preparedAt": "2026-09-07T10:11:32.363Z",
+        "receipt": {
+          "hash": "0xd64072da28f93f34c3945d52ef410dea23795b3b1eb452baea46ef23705530ef",
+          "blockNumber": 11653507,
+          "blockHash": "0xa37ec1d78f7257e9d48dd62cdd9583b37ba9c4dd71bd2a6370e31b4e31411599",
+          "status": 1,
+          "gasUsed": "513451",
+          "feeWei": "563307919783012",
+          "contractAddress": "0x4873dFf47925327FA031FADa3D0B117D0D23948d"
+        },
+        "explorer": "https://sepolia.etherscan.io/tx/0xd64072da28f93f34c3945d52ef410dea23795b3b1eb452baea46ef23705530ef"
+      },
+      {
+        "key": "deploy-vault",
+        "hash": "0x236a43f7abe3c87979be44b1fde5723172a80717dbc55daf20a7159339a031be",
+        "from": "0x1eb6d7fe19E368e95F6a26F14bF6F98dB082C205",
+        "to": null,
+        "nonce": 1,
+        "preparedAt": "2026-09-07T10:11:37.979Z",
+        "receipt": {
+          "hash": "0x236a43f7abe3c87979be44b1fde5723172a80717dbc55daf20a7159339a031be",
+          "blockNumber": 11653508,
+          "blockHash": "0xd73ef5f936a4746757086f56a03ccd4c7b4d89728960f2d5e36f4503bd99bf1a",
+          "status": 1,
+          "gasUsed": "843044",
+          "feeWei": "878267943852708",
+          "contractAddress": "0xB19c6a35db51390801FF67690489820E4396BC0C"
+        },
+        "explorer": "https://sepolia.etherscan.io/tx/0x236a43f7abe3c87979be44b1fde5723172a80717dbc55daf20a7159339a031be"
+      },
+      {
+        "key": "fund-test-oracle-gas",
+        "hash": "0x73b09e7c92288eb8fd0799b3b0e4a46be7866ac946fa7ed0ff2dad5fed9db0b9",
+        "from": "0x1eb6d7fe19E368e95F6a26F14bF6F98dB082C205",
+        "to": "0x116CF7ff34046284024d3B946E88050339815989",
+        "nonce": 2,
+        "preparedAt": "2026-09-07T10:11:50.940Z",
+        "receipt": {
+          "hash": "0x73b09e7c92288eb8fd0799b3b0e4a46be7866ac946fa7ed0ff2dad5fed9db0b9",
+          "blockNumber": 11653509,
+          "blockHash": "0x25168ec1231a0a6830c7b567598ee5e0c9e5c2ec80cd4f817beb2597b61ec650",
+          "status": 1,
+          "gasUsed": "21000",
+          "feeWei": "21151317978000",
+          "contractAddress": null
+        },
+        "explorer": "https://sepolia.etherscan.io/tx/0x73b09e7c92288eb8fd0799b3b0e4a46be7866ac946fa7ed0ff2dad5fed9db0b9"
+      },
+      {
+        "key": "faucet-test-usd",
+        "hash": "0x473b659d31b8b36df57e1b91359ae40a0d2335a1f5506439e614ce68e2c3f0f0",
+        "from": "0x1eb6d7fe19E368e95F6a26F14bF6F98dB082C205",
+        "to": "0x4873dFf47925327FA031FADa3D0B117D0D23948d",
+        "nonce": 3,
+        "preparedAt": "2026-09-07T10:12:03.805Z",
+        "receipt": {
+          "hash": "0x473b659d31b8b36df57e1b91359ae40a0d2335a1f5506439e614ce68e2c3f0f0",
+          "blockNumber": 11653511,
+          "blockHash": "0x8f81b0545e43c5d96b1338fa5ea0349d735fdf5c2068b282eee534a2a1395bf0",
+          "status": 1,
+          "gasUsed": "90406",
+          "feeWei": "97386154593850",
+          "contractAddress": null
+        },
+        "explorer": "https://sepolia.etherscan.io/tx/0x473b659d31b8b36df57e1b91359ae40a0d2335a1f5506439e614ce68e2c3f0f0"
+      },
+      {
+        "key": "approve-source-vault",
+        "hash": "0x5c1f0536369668f72d7f777bb1e924cc59cdee8d23f5c8278bd9a96505b96215",
+        "from": "0x1eb6d7fe19E368e95F6a26F14bF6F98dB082C205",
+        "to": "0x4873dFf47925327FA031FADa3D0B117D0D23948d",
+        "nonce": 4,
+        "preparedAt": "2026-09-07T10:19:52.741Z",
+        "receipt": {
+          "hash": "0x5c1f0536369668f72d7f777bb1e924cc59cdee8d23f5c8278bd9a96505b96215",
+          "blockNumber": 11653546,
+          "blockHash": "0x7a6c8fc86dcee49e22689cf8b9acb3acc38ec119dc9873daa1412f91cb160c84",
+          "status": 1,
+          "gasUsed": "46115",
+          "feeWei": "45823692236725",
+          "contractAddress": null
+        },
+        "explorer": "https://sepolia.etherscan.io/tx/0x5c1f0536369668f72d7f777bb1e924cc59cdee8d23f5c8278bd9a96505b96215"
+      },
+      {
+        "key": "lock-source-asset",
+        "hash": "0x3769d3b128d35a11b4024072e654f48aeb1813916c9a6cc004b4865eaee7f388",
+        "from": "0x1eb6d7fe19E368e95F6a26F14bF6F98dB082C205",
+        "to": "0xB19c6a35db51390801FF67690489820E4396BC0C",
+        "nonce": 5,
+        "preparedAt": "2026-09-07T10:20:01.770Z",
+        "receipt": {
+          "hash": "0x3769d3b128d35a11b4024072e654f48aeb1813916c9a6cc004b4865eaee7f388",
+          "blockNumber": 11653547,
+          "blockHash": "0xc343319d2594b4a9c76112326da155e031dd1da5504196ddf2a525afff36f356",
+          "status": 1,
+          "gasUsed": "151750",
+          "feeWei": "169618855225750",
+          "contractAddress": null
+        },
+        "explorer": "https://sepolia.etherscan.io/tx/0x3769d3b128d35a11b4024072e654f48aeb1813916c9a6cc004b4865eaee7f388"
+      },
+      {
+        "key": "release-source-asset",
+        "hash": "0x8c2ed80f15b8fb203e8c04b1eaf91bd932f56c605c6bfe5297879516f6e6e9f6",
+        "from": "0x116CF7ff34046284024d3B946E88050339815989",
+        "to": "0xB19c6a35db51390801FF67690489820E4396BC0C",
+        "nonce": 0,
+        "preparedAt": "2026-09-07T10:38:36.001Z",
+        "receipt": {
+          "hash": "0x8c2ed80f15b8fb203e8c04b1eaf91bd932f56c605c6bfe5297879516f6e6e9f6",
+          "blockNumber": 11653637,
+          "blockHash": "0x6e7bc82dede406da10e629bdebb15a039dfe5f1f53d9fc952d86d77f903a08eb",
+          "status": 1,
+          "gasUsed": "109607",
+          "feeWei": "124158255319543",
+          "contractAddress": null
+        },
+        "explorer": "https://sepolia.etherscan.io/tx/0x8c2ed80f15b8fb203e8c04b1eaf91bd932f56c605c6bfe5297879516f6e6e9f6"
+      }
+    ]
+  },
+  "kaspa": {
+    "network": "testnet-10",
+    "connected": true,
+    "busy": false,
+    "error": null,
+    "nodeCheckedAt": "2026-09-07T10:39:33.684Z",
+    "addresses": [
+      "kaspatest:qq3c4d7n20gy9ffdk7rf8geekrq3g99l6ua0fyzfxfvn7f750w2fggmukut0w",
+      "kaspatest:qqqq9fnz6xystlhgjestu0lpmg5trvfe7n08y0r75edaf5737zh0kzpzhzz97",
+      "kaspatest:qqe0nzx5mlarczkcdjltgz6vqf2u3cran7djgkewv93ucw06qvkngy85sh059"
+    ],
+    "owners": [
+      "238ab7d353d042a52db78693a339b0c11414bfd73af4904932593f27d47b9494",
+      "0002a662d18905fee89660be3fe1da28b1b139f4de723c7ea65bd4d3d1f0aefb",
+      "32f988d4dffa3c0ad86cbeb40b4c0255c8e07d9f9b245b2e6163cc39fa032d34"
+    ],
+    "accounts": [
+      {
+        "ownerIndex": 0,
+        "role": "You",
+        "address": "kaspatest:qq3c4d7n20gy9ffdk7rf8geekrq3g99l6ua0fyzfxfvn7f750w2fggmukut0w",
+        "publicKey": "238ab7d353d042a52db78693a339b0c11414bfd73af4904932593f27d47b9494",
+        "balanceSompi": "949722700"
+      },
+      {
+        "ownerIndex": 1,
+        "role": "Pip",
+        "address": "kaspatest:qqqq9fnz6xystlhgjestu0lpmg5trvfe7n08y0r75edaf5737zh0kzpzhzz97",
+        "publicKey": "0002a662d18905fee89660be3fe1da28b1b139f4de723c7ea65bd4d3d1f0aefb",
+        "balanceSompi": "0"
+      },
+      {
+        "ownerIndex": 2,
+        "role": "Trusted test oracle",
+        "address": "kaspatest:qqe0nzx5mlarczkcdjltgz6vqf2u3cran7djgkewv93ucw06qvkngy85sh059",
+        "publicKey": "32f988d4dffa3c0ad86cbeb40b4c0255c8e07d9f9b245b2e6163cc39fa032d34",
+        "balanceSompi": "0"
+      }
+    ],
+    "balancesSompi": [
+      "949722700",
+      "0",
+      "0"
+    ],
+    "stage": "burned",
+    "pending": false,
+    "asset": {
+      "name": "Oracle-wrapped TestUSD",
+      "symbol": "wTestUSD",
+      "decimals": 6,
+      "amountUnits": "100000000",
+      "capUnits": "1000000000",
+      "standard": "Custom experimental covenant token; not a token-standard implementation"
+    },
+    "trust": "The local test oracle verifies the external lock and authorizes minting. Kaspa does not independently verify the external chain.",
+    "covenantId": "787a42add9af47a47f75086f744ed61d2e5202c76461f392fb1ca676996e00d1",
+    "activeDepositId": "0x426c074c40bc641238ffffacf3572d2dce2ed604efc7cf0157ede406ac7c2824",
+    "issuerRemainingUnits": "900000000",
+    "holdings": [],
+    "init": {
+      "action": "init",
+      "depositId": null,
+      "transactionId": "a2cd8478551b58c4167d55b3486567b13b0b0a27febbe6822fa16bad6ff77a7f",
+      "acceptingBlock": "f7254324a7f1fffe54fe2107e16436ad23586421d62fd66ac1f08ec52d8676f3",
+      "covenantId": "787a42add9af47a47f75086f744ed61d2e5202c76461f392fb1ca676996e00d1",
+      "feeSompi": "277300",
+      "attempted": true,
+      "submitted": true,
+      "accepted": true,
+      "explorerUrl": "https://tn10.kaspa.stream/transactions/a2cd8478551b58c4167d55b3486567b13b0b0a27febbe6822fa16bad6ff77a7f"
+    },
+    "mint": {
+      "action": "mint",
+      "depositId": "0x426c074c40bc641238ffffacf3572d2dce2ed604efc7cf0157ede406ac7c2824",
+      "transactionId": "1095e9959dfc6b1540be8f73feed139a5fd6757b44d9f0b5f3a8623377c36f58",
+      "acceptingBlock": "345b04dda8a2f7fb4cc988b0764a8b38f97a98f8671c950ef63ac79e7dc1be19",
+      "covenantId": "787a42add9af47a47f75086f744ed61d2e5202c76461f392fb1ca676996e00d1",
+      "feeSompi": "581600",
+      "attempted": true,
+      "submitted": true,
+      "accepted": true,
+      "explorerUrl": "https://tn10.kaspa.stream/transactions/1095e9959dfc6b1540be8f73feed139a5fd6757b44d9f0b5f3a8623377c36f58"
+    },
+    "transfer": {
+      "action": "transfer",
+      "depositId": "0x426c074c40bc641238ffffacf3572d2dce2ed604efc7cf0157ede406ac7c2824",
+      "transactionId": "ae52bf28b18a39bed6d555997047e79984dd010d9b8f21955d4a6a8f032f5cdd",
+      "acceptingBlock": "c569df1e538a2ffef5f83f40c9e072d1d2a408c22cbc5836ff9fd457522d0d64",
+      "covenantId": "787a42add9af47a47f75086f744ed61d2e5202c76461f392fb1ca676996e00d1",
+      "feeSompi": "548000",
+      "attempted": true,
+      "submitted": true,
+      "accepted": true,
+      "explorerUrl": "https://tn10.kaspa.stream/transactions/ae52bf28b18a39bed6d555997047e79984dd010d9b8f21955d4a6a8f032f5cdd"
+    },
+    "burn": {
+      "action": "burn",
+      "depositId": "0x426c074c40bc641238ffffacf3572d2dce2ed604efc7cf0157ede406ac7c2824",
+      "transactionId": "dd0873f336d6392dab2754c936edcf2adee2b2b7597d2380a8b71588e06accf1",
+      "acceptingBlock": "c38f47376c33814070c47ced0126397be464cc6d098e5117d01e52717ca92859",
+      "covenantId": "787a42add9af47a47f75086f744ed61d2e5202c76461f392fb1ca676996e00d1",
+      "feeSompi": "1041200",
+      "attempted": true,
+      "submitted": true,
+      "accepted": true,
+      "explorerUrl": "https://tn10.kaspa.stream/transactions/dd0873f336d6392dab2754c936edcf2adee2b2b7597d2380a8b71588e06accf1"
+    },
+    "records": [
+      {
+        "action": "init",
+        "depositId": null,
+        "transactionId": "a2cd8478551b58c4167d55b3486567b13b0b0a27febbe6822fa16bad6ff77a7f",
+        "acceptingBlock": "f7254324a7f1fffe54fe2107e16436ad23586421d62fd66ac1f08ec52d8676f3",
+        "covenantId": "787a42add9af47a47f75086f744ed61d2e5202c76461f392fb1ca676996e00d1",
+        "feeSompi": "277300",
+        "attempted": true,
+        "submitted": true,
+        "accepted": true,
+        "explorerUrl": "https://tn10.kaspa.stream/transactions/a2cd8478551b58c4167d55b3486567b13b0b0a27febbe6822fa16bad6ff77a7f"
+      },
+      {
+        "action": "mint",
+        "depositId": "0x426c074c40bc641238ffffacf3572d2dce2ed604efc7cf0157ede406ac7c2824",
+        "transactionId": "1095e9959dfc6b1540be8f73feed139a5fd6757b44d9f0b5f3a8623377c36f58",
+        "acceptingBlock": "345b04dda8a2f7fb4cc988b0764a8b38f97a98f8671c950ef63ac79e7dc1be19",
+        "covenantId": "787a42add9af47a47f75086f744ed61d2e5202c76461f392fb1ca676996e00d1",
+        "feeSompi": "581600",
+        "attempted": true,
+        "submitted": true,
+        "accepted": true,
+        "explorerUrl": "https://tn10.kaspa.stream/transactions/1095e9959dfc6b1540be8f73feed139a5fd6757b44d9f0b5f3a8623377c36f58"
+      },
+      {
+        "action": "transfer",
+        "depositId": "0x426c074c40bc641238ffffacf3572d2dce2ed604efc7cf0157ede406ac7c2824",
+        "transactionId": "ae52bf28b18a39bed6d555997047e79984dd010d9b8f21955d4a6a8f032f5cdd",
+        "acceptingBlock": "c569df1e538a2ffef5f83f40c9e072d1d2a408c22cbc5836ff9fd457522d0d64",
+        "covenantId": "787a42add9af47a47f75086f744ed61d2e5202c76461f392fb1ca676996e00d1",
+        "feeSompi": "548000",
+        "attempted": true,
+        "submitted": true,
+        "accepted": true,
+        "explorerUrl": "https://tn10.kaspa.stream/transactions/ae52bf28b18a39bed6d555997047e79984dd010d9b8f21955d4a6a8f032f5cdd"
+      },
+      {
+        "action": "burn",
+        "depositId": "0x426c074c40bc641238ffffacf3572d2dce2ed604efc7cf0157ede406ac7c2824",
+        "transactionId": "dd0873f336d6392dab2754c936edcf2adee2b2b7597d2380a8b71588e06accf1",
+        "acceptingBlock": "c38f47376c33814070c47ced0126397be464cc6d098e5117d01e52717ca92859",
+        "covenantId": "787a42add9af47a47f75086f744ed61d2e5202c76461f392fb1ca676996e00d1",
+        "feeSompi": "1041200",
+        "attempted": true,
+        "submitted": true,
+        "accepted": true,
+        "explorerUrl": "https://tn10.kaspa.stream/transactions/dd0873f336d6392dab2754c936edcf2adee2b2b7597d2380a8b71588e06accf1"
+      }
+    ]
+  },
+  "oracle": {
+    "trusted": true,
+    "policy": "Finalized source deposit before issuance; accepted Kaspa burn before source release.",
+    "custody": "This local test service controls the oracle and both demonstration users. No external wallet authorization is claimed.",
+    "priceFeed": false
+  },
+  "actions": [
+    {
+      "id": "setup",
+      "label": "Prepare free test funds",
+      "disabled": true
+    },
+    {
+      "id": "lock",
+      "label": "Lock 100 pUSD",
+      "disabled": true
+    },
+    {
+      "id": "mint",
+      "label": "Oracle: verify deposit & issue",
+      "disabled": true
+    },
+    {
+      "id": "transfer",
+      "label": "Transfer claim to Pip",
+      "disabled": true
+    },
+    {
+      "id": "redeem",
+      "label": "Release source tokens to Pip",
+      "disabled": true
+    },
+    {
+      "id": "check",
+      "label": "Refresh both networks",
+      "disabled": false
+    }
+  ],
+  "verifiedAt": "2026-09-07T10:39:33.855759+00:00"
+}

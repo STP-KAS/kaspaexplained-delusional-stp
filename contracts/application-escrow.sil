@@ -1,0 +1,28 @@
+pragma silverscript ^0.1.0;
+// Local Testnet-10 application example. Unaudited.
+contract ApplicationEscrow(pubkey buyer, pubkey seller, pubkey arbiter, temporal refundAfter, int principal, int maxFee) {
+    function payout(pubkey recipient) {
+        require(principal > 0 && principal <= 100000000);
+        require(maxFee >= 0 && maxFee <= 1000000);
+        require(tx.inputs.length == 1 && tx.outputs.length == 1);
+        require(tx.inputs[0].value == principal);
+        int fee = principal - tx.outputs[0].value;
+        require(fee >= 0 && fee <= maxFee);
+        require(tx.outputs[0].value > 0);
+        byte[36] destination = new ScriptPubKeyP2PK(recipient);
+        require(tx.outputs[0].scriptPubKey == byte[](destination));
+    }
+    entry release(sig authorization) {
+        require(checkSig(authorization, buyer));
+        payout(seller);
+    }
+    entry resolve(sig authorization, bool paySeller) {
+        require(checkSig(authorization, arbiter));
+        if(paySeller) { payout(seller); } else { payout(buyer); }
+    }
+    entry refund(sig authorization) {
+        require(checkSig(authorization, buyer));
+        require(tx.time >= refundAfter);
+        payout(buyer);
+    }
+}

@@ -1,0 +1,29 @@
+pragma silverscript ^0.1.0;
+
+// Experimental Testnet-10 example. Exact one-tKAS deposits only.
+contract PaymentSplit(pubkey sender, pubkey recipientA, pubkey recipientB, int shareABps, int maxFee) {
+    entry distribute(sig senderSignature) {
+        require(checkSig(senderSignature, sender));
+        require(tx.inputs.length == 1);
+        require(tx.outputs.length == 2);
+        require(tx.inputs[0].value == 100000000);
+        require(shareABps > 0);
+        require(shareABps < 10000);
+        require(maxFee >= 0);
+        require(maxFee <= 1000000);
+        int distributable = tx.outputs[0].value + tx.outputs[1].value;
+        int fee = tx.inputs[0].value - distributable;
+        require(fee >= 0);
+        require(fee <= maxFee);
+        int amountA = distributable * shareABps / 10000;
+        int amountB = distributable - amountA;
+        require(amountA > 0);
+        require(amountB > 0);
+        byte[36] scriptA = new ScriptPubKeyP2PK(recipientA);
+        byte[36] scriptB = new ScriptPubKeyP2PK(recipientB);
+        require(tx.outputs[0].scriptPubKey == byte[](scriptA));
+        require(tx.outputs[1].scriptPubKey == byte[](scriptB));
+        require(tx.outputs[0].value == amountA);
+        require(tx.outputs[1].value == amountB);
+    }
+}

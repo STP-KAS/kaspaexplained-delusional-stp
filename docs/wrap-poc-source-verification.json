@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-09-07T10:24:58.293Z",
+  "scope": "Independent read-only public Sepolia RPC verification. No signing, faucet requests or transactions.",
+  "rpcUrl": "https://ethereum-sepolia-rpc.publicnode.com",
+  "chainId": 11155111,
+  "transactionId": "0x3769d3b128d35a11b4024072e654f48aeb1813916c9a6cc004b4865eaee7f388",
+  "transactionStatus": 1,
+  "blockNumber": 11653547,
+  "blockHash": "0xc343319d2594b4a9c76112326da155e031dd1da5504196ddf2a525afff36f356",
+  "canonical": true,
+  "token": {
+    "address": "0x4873dFf47925327FA031FADa3D0B117D0D23948d",
+    "symbol": "pUSD",
+    "decimals": 6,
+    "runtimeCodeHash": "0xd714398b1d1f2b8f68a9fe13f16554bc047fe7231d1816e19699ef1042556e06",
+    "exactCompiledRuntimeMatch": true
+  },
+  "vault": {
+    "address": "0xB19c6a35db51390801FF67690489820E4396BC0C",
+    "configuredToken": "0x4873dFf47925327FA031FADa3D0B117D0D23948d",
+    "oracle": "0x116CF7ff34046284024d3B946E88050339815989",
+    "runtimeCodeHash": "0xfed2558efef4cccb1ca681e1758f24c12853819ebd90e1f57b1bc489a7552f38",
+    "compiledRuntimeMatchIgnoringImmutableSlots": true
+  },
+  "deposit": {
+    "id": "0x426c074c40bc641238ffffacf3572d2dce2ed604efc7cf0157ede406ac7c2824",
+    "logIndex": 188,
+    "depositor": "0x1eb6d7fe19E368e95F6a26F14bF6F98dB082C205",
+    "amountUnits": "100000000",
+    "kaspaRecipient": "0x238ab7d353d042a52db78693a339b0c11414bfd73af4904932593f27d47b9494",
+    "released": false
+  },
+  "balances": {
+    "vaultUnits": "100000000",
+    "depositorUnits": "0"
+  },
+  "finalization": {
+    "finalizedBlockNumber": 11653497,
+    "finalizedBlockHash": "0x92f98d1e4a09535aec8c5f4ac2abae0c129dca7a3a6e2e24c96017c7f241b581",
+    "depositFinalized": false
+  }
+}

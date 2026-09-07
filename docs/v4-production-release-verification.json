@@ -1,0 +1,1232 @@
+{
+  "release": "88ee48d188577bcad22ad52c4b3a16db3317d6e9",
+  "checked": 1788771486.6197739,
+  "count": 173,
+  "passed": true,
+  "results": [
+    {
+      "path": ".nojekyll",
+      "status": 200,
+      "matches": true,
+      "contentType": "application/octet-stream",
+      "url": "https://kaspaexplained.com/.nojekyll"
+    },
+    {
+      "path": "404.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/404.html"
+    },
+    {
+      "path": "CNAME",
+      "status": 200,
+      "matches": true,
+      "contentType": "application/octet-stream",
+      "url": "https://kaspaexplained.com/CNAME"
+    },
+    {
+      "path": "LICENSE.md",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/markdown; charset=utf-8",
+      "url": "https://kaspaexplained.com/LICENSE.md"
+    },
+    {
+      "path": "THIRD_PARTY.md",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/markdown; charset=utf-8",
+      "url": "https://kaspaexplained.com/THIRD_PARTY.md"
+    },
+    {
+      "path": "about.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/about.html"
+    },
+    {
+      "path": "adoption-metrics.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/adoption-metrics.html"
+    },
+    {
+      "path": "ai-guidance.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/ai-guidance.html"
+    },
+    {
+      "path": "analyze-any-coin.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/analyze-any-coin.html"
+    },
+    {
+      "path": "application-layer.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/application-layer.html"
+    },
+    {
+      "path": "applications.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/applications.html"
+    },
+    {
+      "path": "argent-explained.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/argent-explained.html"
+    },
+    {
+      "path": "assets/app.css",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/css; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/app.css"
+    },
+    {
+      "path": "assets/app.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/app.mjs"
+    },
+    {
+      "path": "assets/coordination.css",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/css; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/coordination.css"
+    },
+    {
+      "path": "assets/coordination.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/coordination.mjs"
+    },
+    {
+      "path": "assets/flow-diagrams.css",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/css; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/flow-diagrams.css"
+    },
+    {
+      "path": "assets/flow-diagrams.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/flow-diagrams.mjs"
+    },
+    {
+      "path": "assets/kaspa/LICENSE",
+      "status": 200,
+      "matches": true,
+      "contentType": "application/octet-stream",
+      "url": "https://kaspaexplained.com/assets/kaspa/LICENSE"
+    },
+    {
+      "path": "assets/kaspa/kaspa.js",
+      "status": 200,
+      "matches": true,
+      "contentType": "application/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/kaspa/kaspa.js"
+    },
+    {
+      "path": "assets/kaspa/kaspa_bg.wasm",
+      "status": 200,
+      "matches": true,
+      "contentType": "application/wasm",
+      "url": "https://kaspaexplained.com/assets/kaspa/kaspa_bg.wasm"
+    },
+    {
+      "path": "assets/mechanism-diagrams.css",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/css; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/mechanism-diagrams.css"
+    },
+    {
+      "path": "assets/mechanism-diagrams.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/mechanism-diagrams.mjs"
+    },
+    {
+      "path": "assets/models.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/models.mjs"
+    },
+    {
+      "path": "assets/money-app.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/money-app.mjs"
+    },
+    {
+      "path": "assets/money-models.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/money-models.mjs"
+    },
+    {
+      "path": "assets/network-diagram.css",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/css; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/network-diagram.css"
+    },
+    {
+      "path": "assets/network-diagram.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/network-diagram.mjs"
+    },
+    {
+      "path": "assets/public-acceptance.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-acceptance.mjs"
+    },
+    {
+      "path": "assets/public-apps.css",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/css; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-apps.css"
+    },
+    {
+      "path": "assets/public-apps.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-apps.mjs"
+    },
+    {
+      "path": "assets/public-argent-protocol.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-argent-protocol.mjs"
+    },
+    {
+      "path": "assets/public-argent-templates.json",
+      "status": 200,
+      "matches": true,
+      "contentType": "application/json; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-argent-templates.json"
+    },
+    {
+      "path": "assets/public-argent-ui.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-argent-ui.mjs"
+    },
+    {
+      "path": "assets/public-asset-recovery.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-asset-recovery.mjs"
+    },
+    {
+      "path": "assets/public-asset-signing.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-asset-signing.mjs"
+    },
+    {
+      "path": "assets/public-assets-ui.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-assets-ui.mjs"
+    },
+    {
+      "path": "assets/public-contracts.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-contracts.mjs"
+    },
+    {
+      "path": "assets/public-receipt.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-receipt.mjs"
+    },
+    {
+      "path": "assets/public-recovery.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-recovery.mjs"
+    },
+    {
+      "path": "assets/public-templates.json",
+      "status": 200,
+      "matches": true,
+      "contentType": "application/json; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-templates.json"
+    },
+    {
+      "path": "assets/public-token.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-token.mjs"
+    },
+    {
+      "path": "assets/public-transaction.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-transaction.mjs"
+    },
+    {
+      "path": "assets/public-v4-composed.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-v4-composed.mjs"
+    },
+    {
+      "path": "assets/public-v4-extra.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-v4-extra.mjs"
+    },
+    {
+      "path": "assets/public-v4-protocol.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-v4-protocol.mjs"
+    },
+    {
+      "path": "assets/public-v4-ui.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/public-v4-ui.mjs"
+    },
+    {
+      "path": "assets/v4-activity-view.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-activity-view.mjs"
+    },
+    {
+      "path": "assets/v4-app-explainer.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-app-explainer.mjs"
+    },
+    {
+      "path": "assets/v4-contract-source.json",
+      "status": 200,
+      "matches": true,
+      "contentType": "application/json; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-contract-source.json"
+    },
+    {
+      "path": "assets/v4-dag-3d.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-dag-3d.mjs"
+    },
+    {
+      "path": "assets/v4-dag-view.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-dag-view.mjs"
+    },
+    {
+      "path": "assets/v4-game.css",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/css; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-game.css"
+    },
+    {
+      "path": "assets/v4-game.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-game.mjs"
+    },
+    {
+      "path": "assets/v4-legacy-services.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-legacy-services.mjs"
+    },
+    {
+      "path": "assets/v4-live-story.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-live-story.mjs"
+    },
+    {
+      "path": "assets/v4-mining-model.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-mining-model.mjs"
+    },
+    {
+      "path": "assets/v4-mining-ui.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-mining-ui.mjs"
+    },
+    {
+      "path": "assets/v4-preview.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-preview.mjs"
+    },
+    {
+      "path": "assets/v4-showcase-page.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-showcase-page.mjs"
+    },
+    {
+      "path": "assets/v4-showcase.css",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/css; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-showcase.css"
+    },
+    {
+      "path": "assets/v4-technical-map.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-technical-map.mjs"
+    },
+    {
+      "path": "assets/v4-world-3d.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-world-3d.mjs"
+    },
+    {
+      "path": "assets/v4-world-model.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-world-model.mjs"
+    },
+    {
+      "path": "assets/v4-world-props.mjs",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/v4-world-props.mjs"
+    },
+    {
+      "path": "assets/vendor/three/LICENSE",
+      "status": 200,
+      "matches": true,
+      "contentType": "application/octet-stream",
+      "url": "https://kaspaexplained.com/assets/vendor/three/LICENSE"
+    },
+    {
+      "path": "assets/vendor/three/README.md",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/markdown; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/vendor/three/README.md"
+    },
+    {
+      "path": "assets/vendor/three/three.core.min.js",
+      "status": 200,
+      "matches": true,
+      "contentType": "application/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/vendor/three/three.core.min.js"
+    },
+    {
+      "path": "assets/vendor/three/three.module.min.js",
+      "status": 200,
+      "matches": true,
+      "contentType": "application/javascript; charset=utf-8",
+      "url": "https://kaspaexplained.com/assets/vendor/three/three.module.min.js"
+    },
+    {
+      "path": "build-on-kaspa.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/build-on-kaspa.html"
+    },
+    {
+      "path": "build-this-now.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/build-this-now.html"
+    },
+    {
+      "path": "builder-evidence.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/builder-evidence.html"
+    },
+    {
+      "path": "builder-fit-survey.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/builder-fit-survey.html"
+    },
+    {
+      "path": "builder-guide.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/builder-guide.html"
+    },
+    {
+      "path": "carnot-local-brownian-global.pdf",
+      "status": 200,
+      "matches": true,
+      "contentType": "application/pdf",
+      "url": "https://kaspaexplained.com/carnot-local-brownian-global.pdf"
+    },
+    {
+      "path": "claims-reference.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/claims-reference.html"
+    },
+    {
+      "path": "coin-atlas.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/coin-atlas.html"
+    },
+    {
+      "path": "command-line.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/command-line.html"
+    },
+    {
+      "path": "contracts.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/contracts.html"
+    },
+    {
+      "path": "covenants.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/covenants.html"
+    },
+    {
+      "path": "crypto-from-scratch.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/crypto-from-scratch.html"
+    },
+    {
+      "path": "crypto-from-zero.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/crypto-from-zero.html"
+    },
+    {
+      "path": "crypto-history.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/crypto-history.html"
+    },
+    {
+      "path": "demos/argent-pipeline.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/argent-pipeline.html"
+    },
+    {
+      "path": "demos/attack-cost.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/attack-cost.html"
+    },
+    {
+      "path": "demos/collision-sim.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/collision-sim.html"
+    },
+    {
+      "path": "demos/confirmation-risk.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/confirmation-risk.html"
+    },
+    {
+      "path": "demos/covenant-breaker.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/covenant-breaker.html"
+    },
+    {
+      "path": "demos/dag-time.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/dag-time.html"
+    },
+    {
+      "path": "demos/emission-schedule.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/emission-schedule.html"
+    },
+    {
+      "path": "demos/fair-launch.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/fair-launch.html"
+    },
+    {
+      "path": "demos/fee-market.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/fee-market.html"
+    },
+    {
+      "path": "demos/ghostdag-playground.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/ghostdag-playground.html"
+    },
+    {
+      "path": "demos/index.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/index.html"
+    },
+    {
+      "path": "demos/live-network.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/live-network.html"
+    },
+    {
+      "path": "demos/mass-calculator.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/mass-calculator.html"
+    },
+    {
+      "path": "demos/node-cost.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/node-cost.html"
+    },
+    {
+      "path": "demos/parameterless.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/parameterless.html"
+    },
+    {
+      "path": "demos/shared-state.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/shared-state.html"
+    },
+    {
+      "path": "demos/supply-split.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/supply-split.html"
+    },
+    {
+      "path": "demos/utxo-vs-accounts.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/utxo-vs-accounts.html"
+    },
+    {
+      "path": "demos/zk-boundary.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/demos/zk-boundary.html"
+    },
+    {
+      "path": "experiment/board.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/experiment/board.html"
+    },
+    {
+      "path": "experiment/discover.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/experiment/discover.html"
+    },
+    {
+      "path": "experiment/index.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/experiment/index.html"
+    },
+    {
+      "path": "experiment/polls.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/experiment/polls.html"
+    },
+    {
+      "path": "experiment/tipjar.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/experiment/tipjar.html"
+    },
+    {
+      "path": "experiment/vault.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/experiment/vault.html"
+    },
+    {
+      "path": "faq.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/faq.html"
+    },
+    {
+      "path": "favicon.ico",
+      "status": 200,
+      "matches": true,
+      "contentType": "image/vnd.microsoft.icon",
+      "url": "https://kaspaexplained.com/favicon.ico"
+    },
+    {
+      "path": "favicon.png",
+      "status": 200,
+      "matches": true,
+      "contentType": "image/png",
+      "url": "https://kaspaexplained.com/favicon.png"
+    },
+    {
+      "path": "favicon.svg",
+      "status": 200,
+      "matches": true,
+      "contentType": "image/svg+xml",
+      "url": "https://kaspaexplained.com/favicon.svg"
+    },
+    {
+      "path": "ghostdag-explained.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/ghostdag-explained.html"
+    },
+    {
+      "path": "glossary.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/glossary.html"
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/index.html"
+    },
+    {
+      "path": "investor-supporter-survey.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/investor-supporter-survey.html"
+    },
+    {
+      "path": "kaspa-app-ideas.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-app-ideas.html"
+    },
+    {
+      "path": "kaspa-claims-checker.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-claims-checker.html"
+    },
+    {
+      "path": "kaspa-confirmations-finality.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-confirmations-finality.html"
+    },
+    {
+      "path": "kaspa-coordination-markets.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-coordination-markets.html"
+    },
+    {
+      "path": "kaspa-covenants-explained.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-covenants-explained.html"
+    },
+    {
+      "path": "kaspa-developments.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-developments.html"
+    },
+    {
+      "path": "kaspa-for-fintech-founders.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-for-fintech-founders.html"
+    },
+    {
+      "path": "kaspa-founder-investor-matching.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-founder-investor-matching.html"
+    },
+    {
+      "path": "kaspa-hackathon-challenges.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-hackathon-challenges.html"
+    },
+    {
+      "path": "kaspa-in-one-screen.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-in-one-screen.html"
+    },
+    {
+      "path": "kaspa-mining-cycle-visuals.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-mining-cycle-visuals.html"
+    },
+    {
+      "path": "kaspa-mining-cycle.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-mining-cycle.html"
+    },
+    {
+      "path": "kaspa-mining.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-mining.html"
+    },
+    {
+      "path": "kaspa-origin-story.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-origin-story.html"
+    },
+    {
+      "path": "kaspa-smart-contracts-status.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-smart-contracts-status.html"
+    },
+    {
+      "path": "kaspa-status-check-may-2026.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-status-check-may-2026.html"
+    },
+    {
+      "path": "kaspa-status-updates.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-status-updates.html"
+    },
+    {
+      "path": "kaspa-toccata-use-cases.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-toccata-use-cases.html"
+    },
+    {
+      "path": "kaspa-tps-explained.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-tps-explained.html"
+    },
+    {
+      "path": "kaspa-vprogs-explained.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-vprogs-explained.html"
+    },
+    {
+      "path": "kaspa-vs-ethereum-apps.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-vs-ethereum-apps.html"
+    },
+    {
+      "path": "kaspa-vs-solana-builders.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kaspa-vs-solana-builders.html"
+    },
+    {
+      "path": "kips.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/kips.html"
+    },
+    {
+      "path": "knowledge-map.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/knowledge-map.html"
+    },
+    {
+      "path": "money.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/money.html"
+    },
+    {
+      "path": "moose.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/moose.html"
+    },
+    {
+      "path": "og-kaspa-explained.png",
+      "status": 200,
+      "matches": true,
+      "contentType": "image/png",
+      "url": "https://kaspaexplained.com/og-kaspa-explained.png"
+    },
+    {
+      "path": "overview.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/overview.html"
+    },
+    {
+      "path": "playground.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/playground.html"
+    },
+    {
+      "path": "reality-check.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/reality-check.html"
+    },
+    {
+      "path": "robots.txt",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/plain; charset=utf-8",
+      "url": "https://kaspaexplained.com/robots.txt"
+    },
+    {
+      "path": "search.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/search.html"
+    },
+    {
+      "path": "sitemap.xml",
+      "status": 200,
+      "matches": true,
+      "contentType": "application/xml",
+      "url": "https://kaspaexplained.com/sitemap.xml"
+    },
+    {
+      "path": "skeptical-case.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/skeptical-case.html"
+    },
+    {
+      "path": "solo-mining-guide.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/solo-mining-guide.html"
+    },
+    {
+      "path": "sources.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/sources.html"
+    },
+    {
+      "path": "split.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/split.html"
+    },
+    {
+      "path": "start-here.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/start-here.html"
+    },
+    {
+      "path": "status.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/status.html"
+    },
+    {
+      "path": "testnet.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/testnet.html"
+    },
+    {
+      "path": "the-instrument.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/the-instrument.html"
+    },
+    {
+      "path": "the-instrument.pdf",
+      "status": 200,
+      "matches": true,
+      "contentType": "application/pdf",
+      "url": "https://kaspaexplained.com/the-instrument.pdf"
+    },
+    {
+      "path": "toccata-essay.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/toccata-essay.html"
+    },
+    {
+      "path": "toccata-explained.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/toccata-explained.html"
+    },
+    {
+      "path": "toccata-expressiveness-upgrade-part-2.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/toccata-expressiveness-upgrade-part-2.html"
+    },
+    {
+      "path": "toccata-expressiveness-upgrade-part-3.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/toccata-expressiveness-upgrade-part-3.html"
+    },
+    {
+      "path": "toccata-expressiveness-upgrade.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/toccata-expressiveness-upgrade.html"
+    },
+    {
+      "path": "toccata-status.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/toccata-status.html"
+    },
+    {
+      "path": "tradeoff-map.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/tradeoff-map.html"
+    },
+    {
+      "path": "utxo-vs-accounts.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/utxo-vs-accounts.html"
+    },
+    {
+      "path": "what-crypto-is-good-for.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/what-crypto-is-good-for.html"
+    },
+    {
+      "path": "what-is-kaspa.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/what-is-kaspa.html"
+    },
+    {
+      "path": "what-still-has-to-be-built.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/what-still-has-to-be-built.html"
+    },
+    {
+      "path": "where-kaspa-fits.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/where-kaspa-fits.html"
+    },
+    {
+      "path": "why-are-there-so-many-coins.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/why-are-there-so-many-coins.html"
+    },
+    {
+      "path": "why-crypto-has-value.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/why-crypto-has-value.html"
+    },
+    {
+      "path": "why-kaspa-matters.html",
+      "status": 200,
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "url": "https://kaspaexplained.com/why-kaspa-matters.html"
+    }
+  ],
+  "restore": {
+    "diagnostic": "restore only; no covenant action",
+    "before": {
+      "label": "Explore freely \u00b7 optional",
+      "message": "Ready. Choose what you want to try next."
+    },
+    "after": {
+      "label": "Explore freely \u00b7 optional",
+      "records": 19,
+      "pending": 0,
+      "accepted": 19
+    }
+  }
+}

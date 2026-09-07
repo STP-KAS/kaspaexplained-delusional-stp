@@ -1,0 +1,28 @@
+name: Stale or wrong claim
+description: Report a status, source, or wording issue in Kaspa Explained.
+title: "[Claim]: "
+labels: ["claim-check"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page or file
+      description: Link the page, section, or file where the issue appears.
+      placeholder: "https://kaspaexplained.com/status.html#..."
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What is wrong or stale?
+      description: Explain the claim, wording, broken link, or missing status label.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Strongest source you found
+      description: Prefer code, releases, KIPs, protocol docs, research papers, or direct technical contributor posts.
+      placeholder: "Primary or near-primary links..."
+    validations:
+      required: false

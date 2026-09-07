@@ -1,0 +1,20 @@
+// Independently compiled actor app. Generated SilverScript is never edited.
+state CreatureState {
+    pubkey owner;
+    cov_id controller_id;
+    int energy;
+}
+actor Creature owns CreatureState {
+    entry feed(int next_energy, sig owner_sig) emits { creature: Creature, } {
+        require(controller_id.co_spent());
+        require(checkSig(owner_sig, owner));
+        require(next_energy > energy && next_energy <= energy + 3);
+        CreatureState next = { owner: owner, controller_id: controller_id, energy: next_energy, };
+        require(creature.value == self.value);
+        become creature <- Creature(next);
+    }
+    entry retire(sig owner_sig) emits none {
+        require(checkSig(owner_sig, owner));
+    }
+}
+app CreatureApp { actor Creature; }

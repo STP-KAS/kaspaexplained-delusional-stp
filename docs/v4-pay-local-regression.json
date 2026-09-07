@@ -1,0 +1,120 @@
+{
+  "checkedAt": "2026-09-07T06:25:55.918Z",
+  "scope": "Synthetic unfunded UTXOs; real UI/SDK signing; mock RPC only. No live network transactions.",
+  "reports": [
+    {
+      "mode": "accepted",
+      "busy": false,
+      "events": [
+        {
+          "type": "save",
+          "id": "e80f35f2fecc9ae953ce8d48bfaeabee322dea448f489c773e856e2273e1a725",
+          "attempted": false,
+          "signed": true
+        },
+        {
+          "type": "save",
+          "id": "26a373cc6bc9a1e71c288d0aec63c71988e7360bdaa9da40fc136f0b393f998d",
+          "attempted": false,
+          "signed": true
+        },
+        {
+          "type": "save",
+          "id": "26a373cc6bc9a1e71c288d0aec63c71988e7360bdaa9da40fc136f0b393f998d",
+          "attempted": true,
+          "signed": true
+        },
+        {
+          "type": "submit",
+          "id": "26a373cc6bc9a1e71c288d0aec63c71988e7360bdaa9da40fc136f0b393f998d",
+          "persisted": true,
+          "signed": true
+        },
+        {
+          "type": "save",
+          "id": "26a373cc6bc9a1e71c288d0aec63c71988e7360bdaa9da40fc136f0b393f998d",
+          "attempted": true,
+          "signed": true
+        },
+        {
+          "type": "save",
+          "id": "26a373cc6bc9a1e71c288d0aec63c71988e7360bdaa9da40fc136f0b393f998d",
+          "attempted": true,
+          "signed": true
+        }
+      ],
+      "submits": 1,
+      "count": 3,
+      "pending": false,
+      "last": "agent",
+      "operation": 0
+    },
+    {
+      "mode": "error",
+      "visibleError": true,
+      "noSubmitAfterRetry": true,
+      "busy": false,
+      "events": [
+        {
+          "type": "save",
+          "id": "e80f35f2fecc9ae953ce8d48bfaeabee322dea448f489c773e856e2273e1a725",
+          "attempted": false,
+          "signed": true
+        }
+      ],
+      "submits": 0,
+      "count": 2,
+      "pending": false,
+      "last": "agent",
+      "operation": null
+    },
+    {
+      "mode": "pending",
+      "busy": false,
+      "events": [
+        {
+          "type": "save",
+          "id": "e80f35f2fecc9ae953ce8d48bfaeabee322dea448f489c773e856e2273e1a725",
+          "attempted": false,
+          "signed": true
+        },
+        {
+          "type": "save",
+          "id": "26a373cc6bc9a1e71c288d0aec63c71988e7360bdaa9da40fc136f0b393f998d",
+          "attempted": false,
+          "signed": true
+        },
+        {
+          "type": "save",
+          "id": "26a373cc6bc9a1e71c288d0aec63c71988e7360bdaa9da40fc136f0b393f998d",
+          "attempted": true,
+          "signed": true
+        },
+        {
+          "type": "submit",
+          "id": "26a373cc6bc9a1e71c288d0aec63c71988e7360bdaa9da40fc136f0b393f998d",
+          "persisted": true,
+          "signed": true
+        },
+        {
+          "type": "save",
+          "id": "26a373cc6bc9a1e71c288d0aec63c71988e7360bdaa9da40fc136f0b393f998d",
+          "attempted": true,
+          "signed": true
+        },
+        {
+          "type": "save",
+          "id": "26a373cc6bc9a1e71c288d0aec63c71988e7360bdaa9da40fc136f0b393f998d",
+          "attempted": true,
+          "signed": true
+        }
+      ],
+      "submits": 1,
+      "count": 3,
+      "pending": true,
+      "last": "agent",
+      "operation": 0,
+      "reloadPending": true
+    }
+  ]
+}

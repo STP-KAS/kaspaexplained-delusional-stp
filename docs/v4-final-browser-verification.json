@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-09-06T21:11:29.402Z",
+  "scope": "Existing wallet restore, local habitat supply, free play, unfunded Argent entry, source viewer, PoW disclosure. No new transactions or faucet requests.",
+  "reports": [
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "win": true,
+      "argentEntry": true,
+      "source": true,
+      "network": true,
+      "errors": []
+    },
+    {
+      "engine": "chromium",
+      "width": 628,
+      "win": true,
+      "argentEntry": true,
+      "source": true,
+      "network": true,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "win": true,
+      "argentEntry": true,
+      "source": true,
+      "network": true,
+      "errors": []
+    }
+  ]
+}

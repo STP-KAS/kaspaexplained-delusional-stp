@@ -1,0 +1,46 @@
+pragma silverscript ^0.1.0;
+// Testnet-10 delayed recovery vault. Relative DAA age belongs to the prepared
+// output itself; a browser timestamp cannot shorten the cancellation window.
+contract RecoveryVault(byte[32] initialWorldId, byte[32] initialOwner, byte[32] initialRecovery, byte[32] initialRecipient, int initialDelayDaa, int initialMaxFee, bool initialPending) {
+    byte[32] worldId = initialWorldId;
+    byte[32] owner = initialOwner;
+    byte[32] recovery = initialRecovery;
+    byte[32] recipient = initialRecipient;
+    int delayDaa = initialDelayDaa;
+    int maxFee = initialMaxFee;
+    bool pending = initialPending;
+    #[covenant(binding = cov, from = 1, to = 1)]
+    function move(State[] prevStates, State[] newStates, int operation, sig authorization) {
+        require(prevStates.length == 1 && tx.inputs.length == 1);
+        require(OpCovInputIdx(OpInputCovenantId(this.activeInputIndex), 0) == 0);
+        require(delayDaa > 0 && delayDaa <= 10000);
+        require(maxFee > 0 && maxFee <= 3000000);
+        require(tx.inputs[0].value > 0 && tx.inputs[0].value <= 100000000);
+        require(tx.outputs.length == 1 && tx.outputs[0].value > 0);
+        int fee = tx.inputs[0].value - tx.outputs[0].value;
+        require(fee > 0 && fee <= maxFee);
+        if(operation == 0) {
+            require(checkSig(authorization, pubkey(owner)));
+            require(!pending && newStates.length == 1);
+            require(newStates[0].worldId == worldId);
+            require(newStates[0].owner == owner && newStates[0].recovery == recovery);
+            require(newStates[0].recipient == recipient && newStates[0].delayDaa == delayDaa);
+            require(newStates[0].maxFee == maxFee && newStates[0].pending);
+            require(OpCovOutputIdx(OpInputCovenantId(this.activeInputIndex), 0) == 0);
+        } else if(operation == 1) {
+            require(checkSig(authorization, pubkey(recovery)));
+            require(newStates.length == 0);
+            byte[36] destination = new ScriptPubKeyP2PK(pubkey(recovery));
+            require(tx.outputs[0].scriptPubKey == byte[](destination));
+        } else {
+            require(operation == 2);
+            require(checkSig(authorization, pubkey(owner)));
+            require(pending && newStates.length == 0);
+            require(this.ageDaa >= delayDaa);
+            byte[36] destination = new ScriptPubKeyP2PK(pubkey(recipient));
+            require(tx.outputs[0].scriptPubKey == byte[](destination));
+        }
+    }
+    #[covenant.delegate]
+    function authorizeDelegate(sig authorization) { require(checkSig(authorization, pubkey(owner))); }
+}

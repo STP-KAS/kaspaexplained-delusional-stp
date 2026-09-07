@@ -1,0 +1,18 @@
+pragma silverscript ^0.1.0;
+// A single-use tKAS receipt, not a dollar peg or fungible token.
+// Full principal is returned; a separate locked reserve pays the fee.
+contract ReserveReceipt(pubkey holder, pubkey depositor, int principal, int feeReserve) {
+    entry redeem(sig authorization) {
+        require(checkSig(authorization, holder));
+        require(principal > 0 && principal <= 99000000);
+        require(feeReserve > 0 && feeReserve <= 1000000);
+        require(tx.inputs.length == 1 && tx.outputs.length == 2);
+        require(tx.inputs[0].value == principal + feeReserve);
+        byte[36] holderDestination = new ScriptPubKeyP2PK(holder);
+        byte[36] changeDestination = new ScriptPubKeyP2PK(depositor);
+        require(tx.outputs[0].scriptPubKey == byte[](holderDestination));
+        require(tx.outputs[0].value == principal);
+        require(tx.outputs[1].scriptPubKey == byte[](changeDestination));
+        require(tx.outputs[1].value > 0 && tx.outputs[1].value <= feeReserve);
+    }
+}

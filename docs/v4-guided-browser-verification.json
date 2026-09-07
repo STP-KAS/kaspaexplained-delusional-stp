@@ -1,0 +1,128 @@
+{
+  "checkedAt": "2026-09-06T20:38:08.113Z",
+  "origin": "http://127.0.0.1:8904",
+  "claimRequestId": null,
+  "transactions": [
+    {
+      "step": "shop",
+      "transactionId": "5ce3a014e6fdc13b945a3ea80b5bdd1fb0d456368586bbaac7adb34fa88d9265",
+      "acceptingBlock": "9e9f033e7e1c70abd6429d2d3a77a57fa4e2c5e2946a103088b28a17dd81b070",
+      "localReject": false
+    },
+    {
+      "step": "budget",
+      "transactionId": "2c70a9bc2fb72355017148ac6f5e118ac02bada0f121f36a96ae9803b2082e82",
+      "acceptingBlock": "46064636fd6d7e303aa397d94c4b2dec70b4c5ea09da3d1c07c9c1de79957dcb",
+      "localReject": false
+    },
+    {
+      "step": "overspend",
+      "transactionId": null,
+      "acceptingBlock": null,
+      "localReject": true
+    },
+    {
+      "step": "pay",
+      "transactionId": "33b9164ada50e2c7823c6383b756f80addceb0a38971b48615f4a68f14a5de4c",
+      "acceptingBlock": "65fe9aa2a49e69a67194b31a2332815536a6fa42c55a646c3111fb0af8d14fde",
+      "localReject": false
+    },
+    {
+      "step": "buy",
+      "transactionId": "aacfcfa277955018bab72d111a2edf3e457c9cce74c61572ff6a085f5e225b64",
+      "acceptingBlock": "9a986992dcd628217662c51c532c74f68d35593c2ee74c050218cecef32fc25b",
+      "localReject": false
+    },
+    {
+      "step": "parts-refund",
+      "transactionId": "42c12315c667d47aa66c47f896d9a9bcb189698f1ec40c8df4c8263cf0360afc",
+      "acceptingBlock": "24c2e67af88ae93b5d4a65601ad8d7267d202811e0197fcea24dacdd44b778b7",
+      "localReject": false
+    },
+    {
+      "step": "recover",
+      "transactionId": "f0cf6315cc9e33ce96d3fab0751278d2b669ae5f03baf40e7dfec7b3ba742ffe",
+      "acceptingBlock": "4ae5cfd1eca77432123622f777dafa25afcb62b4b4f7dc9674e6978b69c530fb",
+      "localReject": false
+    },
+    {
+      "step": "habitat",
+      "transactionId": "5893cca82fd25f9e7951e376587cbd2a5c52fee3721c0af2fa258abcabd590b2",
+      "acceptingBlock": "64a0886402b54a223efa2e2d76dd2ea06f2eb8a628c4d3f0f2f2449e27fce0fd",
+      "localReject": false
+    },
+    {
+      "step": "move-1",
+      "transactionId": "fa2e4e593e4db4a3b4c910bba8f53719ce0427ffecd24d8b7b9a010fe61fc4cf",
+      "acceptingBlock": "06866f6323d6d615ad4bd6ec1e43c3323ffc0db4b0478a928f1a7491691c4fd0",
+      "localReject": false
+    },
+    {
+      "step": "move-2",
+      "transactionId": "1cbfe6928d6969bb8e931d3b285ed2b62cf6713e4f73da523517e1e1690c7668",
+      "acceptingBlock": "7e0bd6b14298708a375be3111040250b1ba3c0723a42c2cf854a440d9f81c3af",
+      "localReject": false
+    },
+    {
+      "step": "move-3",
+      "transactionId": "b1b4523adae1096443f2b685fd4781141870ef368d8916dcbffc40d571530ad5",
+      "acceptingBlock": "d420f02089797ac266447971fd90be68b8c0c636b14e8e1e560d75732d6fc753",
+      "localReject": false
+    },
+    {
+      "step": "habitat-refund",
+      "transactionId": "9ee3a1a45201872a849db4501f35e810f742d066e7e99f8e1a69ac76889c3058",
+      "acceptingBlock": "551da4c3a7917b63f89bb46583622d75809cf6ffe04b6244969b2952668147d2",
+      "localReject": false
+    },
+    {
+      "step": "factory",
+      "transactionId": "4bc002b424cc0ffac09083d914c93da1212fca621d99bc7543fc2a30d1d7c232",
+      "acceptingBlock": "4a667bf61e43de571380553cf158bec919177f5ecb3fff8dc93d21d8a3073c89",
+      "localReject": false
+    },
+    {
+      "step": "approve-main",
+      "transactionId": "32a99e3141b5f295ca2eab35d254a4f2be9298b90f53f4004629054537fa1df5",
+      "acceptingBlock": "257da666704a8c20728ffe84a0e5f7bf6f0a7d0d495b2bf5c42a1466911be012",
+      "localReject": false
+    },
+    {
+      "step": "approve-pip",
+      "transactionId": "6e52b69f283d37b91bbb482a923d122bc8de7e7983ff66e4840d2b644929ee40",
+      "acceptingBlock": "6f0f04e6911b260cddc7ebc21cfeae6c8cbf2e0ac1a7dbe633b2127ce420d6fc",
+      "localReject": false
+    },
+    {
+      "step": "approve-third",
+      "transactionId": "9ca62b431b53311a0ee3bc050ac87397207f37259712f60682f26e58d4369d55",
+      "acceptingBlock": "7523bfb9ceef514133562b22a6191f7f2bfb9c0b60f061ad872fbde7c5a2519f",
+      "localReject": false
+    },
+    {
+      "step": "factory-pay",
+      "transactionId": "ef233593647489e03a4d981798743e744b90467aeb7e6da1166b589801d06ea2",
+      "acceptingBlock": "44b5f02df6326cc2578d73630cd2bf1fcdeabde9a3cfeda8e543cd392f9a8ea4",
+      "localReject": false
+    },
+    {
+      "step": "compute",
+      "transactionId": "3362e06b87a9edd794c8a72bb3c959382f3ee1eb775ac1b57a10c647a8990479",
+      "acceptingBlock": "48bb8c361eca27aa680ae49208e260a68b558b411f9816ea8ec91ac5b14b9900",
+      "localReject": false
+    },
+    {
+      "step": "compute-pay",
+      "transactionId": "e7a1ea3f3b86eb4b267401fe262676a3f9ebc15b78dd8cc5f9b8f4eb6878f0e9",
+      "acceptingBlock": "1076af94f6394d8e767423ddfbf0f63716c94158dcbb6942b392cfaa3aac994c",
+      "localReject": false
+    },
+    {
+      "step": "compute-refund",
+      "transactionId": "d21cbec4c12e019cff97a4a4c098b0ccae8e5a5302659858c98a4da6327a97b6",
+      "acceptingBlock": "11626203251f420dd42386ecb11fef6f1ee8b82bd22f69a3b9d033513be7102d",
+      "localReject": false
+    }
+  ],
+  "errors": []
+}

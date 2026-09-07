@@ -1,0 +1,25 @@
+# Sprout Harbor initial release — historical record
+
+This records the initial 19-transaction town release. The later economic guide has 21 transactions and a purchased-food delivery; see [current economic release notes](economy-release.md). Counts and deployed revision claims below are historical observations.
+
+Published September 7, 2026 at https://kaspaexplained.com/covenants. Release commit `88ee48d188577bcad22ad52c4b3a16db3317d6e9` passed workflow `34101849128`; all 173 public artifact files match the locally generated release byte for byte. Production wallet restoration re-observed all 19 transactions as accepted, with zero pending, and retained the completed guide and supplied habitat.
+
+The guided town-builder connects restricted robot spending, an atomic purchase, creature state, greenhouse pledges and a verified work payment. Its first goal is a running greenhouse and a supplied habitat; the final game care action persists in encrypted recovery. Free play retains the previously released Testnet applications through town service desks.
+
+The local mining workshop explains candidate commitments, work participation and independent rule checks. Its seeded lottery is not real mining and creates no network blocks or rewards. The separate live blockDAG uses connected-node observations. Hashdag’s design arguments retain their honest-majority, network and bribery limitations.
+
+## Evidence
+
+A fresh shared-origin browser run completed the 20-step guide with 19 distinct Testnet transactions, each with a recorded accepting-block ID. The oversized request was rejected locally without a transaction. Habitat supply and completed-state reload passed, with no recorded browser errors. This new live run is recorded in `v4-release-final-live-verification.json`; it is separate from restoration of the earlier accepted route. The release has 72 native VM fixtures, including 41 rejected adversarial cases. Current responsive rendering covers 170 page/viewport/theme combinations with zero automated findings. Three-browser empty-wallet checks and saved-wallet restoration, local completion, keyboard, mining, source and service-entry checks are recorded in the V4 verification files. The release workflow also executes the V4 VM and protocol gates.
+
+## Public boundary
+
+The optional Argent workshop is experimental: compiler and local VM checks passed, but its live five-transaction lifecycle remains unverified. New Argent deposits and feed actions are disabled on public origins. Source inspection, observation and owner recovery of existing records remain available. Loopback retains the integration for separately authorized testing.
+
+The new escrow service adapter was inspected without spending; the underlying contract/signing flow was verified in the previous public release. The fresh guided run does not verify a new escrow lifecycle or the gated Argent lifecycle. Physical-device performance and independent multi-user participation remain unverified; this tour controls all three test keys. Game production and food are not claims of real-world verification, and no ZK proof or KCC conformance is claimed.
+
+CI run `34093806696` passed the preceding VM, protocol, browser, copy and journey checks, then stopped on 10 blockDAG touch-target findings across the five viewport widths and two themes. The affected pages returned HTTP 200 with no script errors or horizontal overflow. The final shipped-world smoke check and Pages publication were skipped. The button sizes were corrected and the full 170-state local render check then passed. Subsequent user review found unclear habitat progress and completion, plus animation that stayed paused after switching tabs. The updated flow numbers the three distinct habitat moves, preserves guided navigation, identifies completed sessions and makes restarts optional. Integrated synthetic guide and habitat checks passed at desktop/mobile widths, and the full V2 local render gate passed all 170 states. The publishing workflow now includes the unfunded full-flow checks, and the local push guard checks both V1 and V2 layouts. The subsequent successful publication and public verification are recorded above.
+
+A later publication attempt, `34098151313`, passed the contract and full-flow checks but was cancelled before deployment to include the user-requested clarification of the visitor, Pip, supplier role and movement-rule demonstration. The final corrections also make schedule validity update as workers change, show the accepted schedule and payment outcome, explain four food produced and two delivered, and list accepted accomplishments with access to wallet history. Nearby objects now show their purpose and action; furniture collision bounds include tall desks. Responsive Activity rows retain readable labels and usable targets. The full guide passed at phone, tablet and desktop sizes without additional sends from navigation or completion controls.
+
+Use the canonical `/covenants` URL. The trailing-slash `/covenants/` URL returns 404 on the current static host; internal links use the canonical address.

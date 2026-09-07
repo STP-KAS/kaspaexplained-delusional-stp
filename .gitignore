@@ -1,0 +1,16 @@
+.DS_Store
+Thumbs.db
+node_modules/
+.cache/
+.local/
+.wrangler/
+.dev.vars
+.env
+dist/
+dist-v1/
+*.log
+exports/
+visual-audit/
+_preview-site/
+.claude/worktrees/
+.freebuff/

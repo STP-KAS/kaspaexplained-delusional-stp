@@ -1,0 +1,52 @@
+{
+  "checkedAt": "2026-09-07T11:24:22.842Z",
+  "origin": "http://127.0.0.1:8904",
+  "sourceOverride": true,
+  "scope": "Synthetic scene events on built page; no wallet, funding or live transaction sends.",
+  "reports": [
+    {
+      "width": 1440,
+      "reduced": false,
+      "pendingOutside": true,
+      "requiresAcceptingHash": true,
+      "actualAcceptingHash": "1111111111111111111111111111111111111111111111111111111111111111",
+      "returned": true,
+      "compactRestored": false,
+      "cargo": true,
+      "pageErrors": []
+    },
+    {
+      "width": 1440,
+      "reduced": true,
+      "pendingOutside": true,
+      "requiresAcceptingHash": true,
+      "actualAcceptingHash": "1111111111111111111111111111111111111111111111111111111111111111",
+      "returned": true,
+      "compactRestored": false,
+      "cargo": true,
+      "pageErrors": []
+    },
+    {
+      "width": 390,
+      "reduced": false,
+      "pendingOutside": true,
+      "requiresAcceptingHash": true,
+      "actualAcceptingHash": "1111111111111111111111111111111111111111111111111111111111111111",
+      "returned": true,
+      "compactRestored": true,
+      "cargo": true,
+      "pageErrors": []
+    },
+    {
+      "width": 390,
+      "reduced": true,
+      "pendingOutside": true,
+      "requiresAcceptingHash": true,
+      "actualAcceptingHash": "1111111111111111111111111111111111111111111111111111111111111111",
+      "returned": true,
+      "compactRestored": true,
+      "cargo": true,
+      "pageErrors": []
+    }
+  ]
+}

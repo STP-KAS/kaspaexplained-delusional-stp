@@ -1,0 +1,33 @@
+[
+  {
+    "width": 1440,
+    "firstOrderTransactions": 21,
+    "repeatOrderTransactions": 11,
+    "exactWageSpent": true,
+    "pendingPurchaseNotCredited": true,
+    "pendingDeliveryNotCredited": true,
+    "bridgeFourReadOnlySteps": true,
+    "pendingRepeatReloadNoReplay": true,
+    "reloadNoReplay": true,
+    "walletAddressRetained": true,
+    "actualWalletPersistence": true,
+    "inspector": true,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "firstOrderTransactions": 21,
+    "repeatOrderTransactions": 11,
+    "exactWageSpent": true,
+    "pendingPurchaseNotCredited": true,
+    "pendingDeliveryNotCredited": true,
+    "bridgeFourReadOnlySteps": true,
+    "pendingRepeatReloadNoReplay": true,
+    "reloadNoReplay": true,
+    "walletAddressRetained": true,
+    "actualWalletPersistence": true,
+    "inspector": true,
+    "errors": [],
+    "pendingPrimaryDisabled": true
+  }
+]

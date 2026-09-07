@@ -1,0 +1,73 @@
+name: Publish verified app update
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Require the previously verified contract and SDK sources
+        run: git diff --exit-code 88ee48d188577bcad22ad52c4b3a16db3317d6e9 HEAD -- contracts/public scripts/setup-testnet.mjs scripts/build-public-templates.mjs scripts/public-token-fixtures.mjs scripts/public-receipt-fixtures.mjs src/public-argent-templates.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run setup:testnet
+      - name: Reuse the exact previously published contract templates
+        run: |
+          node --input-type=module <<'JS'
+          import {createHash} from 'node:crypto';
+          import {mkdir,writeFile,readFile} from 'node:fs/promises';
+          import assert from 'node:assert/strict';
+          const response=await fetch('https://kaspaexplained.com/assets/public-templates.json');
+          assert(response.ok);
+          const bytes=Buffer.from(await response.arrayBuffer());
+          assert.equal(createHash('sha256').update(bytes).digest('hex'),'472cde98659f070bba4b2572bb7d87a2f4b494a75b3b73bdd8a7cf20334149d7');
+          await mkdir('.cache/public-templates',{recursive:true});
+          await writeFile('.cache/public-templates/templates.json',bytes);
+          const live=JSON.parse(await readFile('docs/economy-live-verification.json','utf8'));
+          assert(live.complete&&live.reloadVerified&&live.exactWageSpent);
+          assert.equal(live.records.length,21);
+          assert(live.records.every(r=>r.acceptingBlock));
+          const browser=JSON.parse(await readFile('docs/economy-browser-verification.json','utf8'));
+          assert(browser.some(r=>r.width===390)&&browser.some(r=>r.width===1440));
+          assert(browser.every(r=>r.exactWageSpent&&r.reloadNoReplay&&r.walletAddressRetained&&r.errors.length===0));
+          JS
+      - run: npm run build
+      - name: Verify changed pages and shipped module graph
+        run: |
+          node --input-type=module <<'JS'
+          import {readFile} from 'node:fs/promises';
+          import {resolve,dirname} from 'node:path';
+          import assert from 'node:assert/strict';
+          const visited=new Set();
+          async function imports(file){if(visited.has(file))return;visited.add(file);const source=await readFile(file,'utf8');for(const match of source.matchAll(/(?:from\s*|import\s*\()\s*['"](\.[^'"]+)['"]/g))await imports(resolve(dirname(file),match[1]));}
+          await imports(resolve('dist/assets/public-apps.mjs'));
+          for(const file of ['index.html','build-on-kaspa.html','playground.html','applications.html'])assert((await readFile('dist/'+file,'utf8')).includes('href="/covenants"'));
+          assert((await readFile('dist/covenants.html','utf8')).includes('A KAS economy'));
+          const bridge=JSON.parse(await readFile('dist/assets/wrap-poc-roundtrip.json','utf8'));
+          assert.equal(bridge.stage,'redeemed');
+          assert.equal(bridge.source.balances.pip,'100000000');
+          assert.equal(bridge.source.balances.vault,'0');
+          console.log('Changed app artifact and integration links verified. Unchanged contract tests are not repeated.');
+          JS
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Deploy verified app artifact
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,132 @@
+{
+  "network": "testnet-10",
+  "checkedAt": "2026-09-06T19:43:44.601Z",
+  "method": "Fresh accepted-chain scan from each original pre-submission checkpoint. No transaction submitted.",
+  "transactions": [
+    {
+      "name": "habitat create",
+      "transactionId": "c7f5a7b50a648c8a0194807b8408692da69037f1ca43a4e1ee2217d9b0bc2c41",
+      "acceptingBlock": "3843fbf5cc32102dec670210322b3832a454c50095e77e1dfa6ab90526e24d4f"
+    },
+    {
+      "name": "habitat move",
+      "transactionId": "4e86e7326140e9b5c13db39066d6b93e060fa554c6869f13140341f1126e34b5",
+      "acceptingBlock": "896e76e8fd6a728a69e1259bd800886fbfb6b0e451f2517c36a3050c8970ced2"
+    },
+    {
+      "name": "habitat refund",
+      "transactionId": "94325a2284b4424a2659ef47fbcca3ece8b73edc83d9975c0a60fcdbe5b50e53",
+      "acceptingBlock": "7cf8ccdba71888254e94d210370bded4be26ec2e147f88f4595647a57d2ab379"
+    },
+    {
+      "name": "factory create",
+      "transactionId": "ce7d05af884a2d58d917c65bed4da0dedc419db4b91e509eebc8c99c92c420c2",
+      "acceptingBlock": "015fc29295e455bb248aae2613fff77974f86f39e58a0f3674b9dac184b68d0e"
+    },
+    {
+      "name": "backer 0 ready",
+      "transactionId": "597650381d6cd4b7fa590565d53aa547dcaaf98f75b633df70e6ba3b0f2e8ddf",
+      "acceptingBlock": "8a2af317cbe780c13b6ae1728e2246db7ef0287b090abe58e8a52317ffd2f5e7"
+    },
+    {
+      "name": "backer 1 ready",
+      "transactionId": "bd0ef8f422606799d75b78f22e8b36c9b141331673de0cffcc4c8bf5e2e6cc79",
+      "acceptingBlock": "de566fbc66bbe80394283edb1d7712f4bc7817416f317d71c18d0b9a1d43ccab"
+    },
+    {
+      "name": "backer 2 ready",
+      "transactionId": "3dc60982e069f231862482d96442ebb79019fae094ca2e051b9345f011980d3a",
+      "acceptingBlock": "6de4ccb4c8e78bdf394347ad5667189a7dcda75566d4b8e2b3747fa64ac81ea2"
+    },
+    {
+      "name": "factory funded",
+      "transactionId": "683c25ec1fd727b3018c1a72430ca2bf272aacd5272c6709f749b937bae68ce1",
+      "acceptingBlock": "d0d003b2fe82ef5b243a59a6324defbc2aa3d99c9284e2f00d3c543efacb6100"
+    },
+    {
+      "name": "compute create",
+      "transactionId": "85cc8dec0c7529b2e5336dd256fad6dd6f14d8a3201cabfb1c4ab1f462b54118",
+      "acceptingBlock": "be326c896265efcfa8138c57f6256059878b838b9bdb9bc8cee6ba7c60ace94a"
+    },
+    {
+      "name": "compute solve",
+      "transactionId": "79ea55ffeecea52e2a50defde3a7e548b2007a9e09b88420b2f7cec6b00f5c83",
+      "acceptingBlock": "3792236e6b5e23d5834c848ce82ed34ecfd14423381e0c8c3c0b3a38d7084133"
+    },
+    {
+      "name": "compute refund",
+      "transactionId": "98d29ffce67ef5ec0edb880afc398caa8f2fd18dad713d2654e52253b67b9f31",
+      "acceptingBlock": "76d19d68c2df2672286f897c7a26460a8a269bfb79cc558a49944d47fb2cc6f3"
+    },
+    {
+      "name": "market create",
+      "transactionId": "50dfe0c727b49a56d4d3cf413183638e5fb1b2e19873260bd89c30eda205f453",
+      "acceptingBlock": "df24c904a61d0c3a324ebfe9692d2f210a4f28e387327d590810fbdee2b87ce2"
+    },
+    {
+      "name": "agent create",
+      "transactionId": "47716b6253ad261f91d6144f473fa8a463742d880e57789543015e82ea6c35d5",
+      "acceptingBlock": "5ce5e5ea6e5637003fe80dfc83d756d38ddcde67d200eba14c6f0da2569e0480"
+    },
+    {
+      "name": "old agent revoke",
+      "transactionId": "da08e36f8b1fe40697b7bb8781cb25dbb981954b29e0136d5e363aea4707b4e3",
+      "acceptingBlock": "0efa39ec198c31746fd661379934f0b6fabe83efed26fbb9a743acaa81034579"
+    },
+    {
+      "name": "old market retire",
+      "transactionId": "7006aa060b941759689d2c927a740be4a9ac47596d1dfe07d0ad5aad64efa486",
+      "acceptingBlock": "e9dec621d2bcf1512488f5d13a82e9907b1d774e2a914b0f5ab06e8aed588280"
+    },
+    {
+      "name": "market create viable payment",
+      "transactionId": "65836e483c8c75ac27981b426eff81a1c107722ab8aa5b6c79e59aacdea40a6b",
+      "acceptingBlock": "8e839952b8cbfb002329d38980e4512aa79a7004ae59085dd3e5d2a380c08889"
+    },
+    {
+      "name": "agent create viable payment",
+      "transactionId": "a03ba2ece476a3b43dc3b743dcbde6e267ef942c76e01cb30054bd134d657f2f",
+      "acceptingBlock": "8a43913ece5fb04ce427d90013b77e186b6e79849e02c4e38ca443603f78e99b"
+    },
+    {
+      "name": "old agent revoke 17",
+      "transactionId": "fff543c9185d0fc98a50d9700fb32961142e75d4da07bfdca30e9ae7f514a855",
+      "acceptingBlock": "a449543a26ccfdc0f01ac78733b0b1ed221460990f219435b25c100a96fec820"
+    },
+    {
+      "name": "old market retire 18",
+      "transactionId": "1877ae1d2eb1c1077b38100ca33f1947e73bf7a9b7a08ddae24ade2252ea4e2e",
+      "acceptingBlock": "9b35cd6cc2e6fb4a253ef642345023aff6d9e0203e82adf28b667069d8848464"
+    },
+    {
+      "name": "market create viable payment",
+      "transactionId": "6f447b7fd05e7efff2367a802d157a0c0d88370bee798271ac81ac3a3f992361",
+      "acceptingBlock": "e2abd697c3446ae548fe8111bf988b69321279061ea85989a97f90d6452be1db"
+    },
+    {
+      "name": "agent create viable payment",
+      "transactionId": "c76d44fb5b45274a455630bf43fd296ad07241830a7f115148168a07d64cc9c6",
+      "acceptingBlock": "cad216828b9803767a9433b91622ca5b360fad0a6c0f78f162b5c33b1af89265"
+    },
+    {
+      "name": "agent payment",
+      "transactionId": "b500d5886476624dd6c76f7dcb01c2856e3a71e688dc7da03087be57cb99e9be",
+      "acceptingBlock": "b6ba8b7b00041912538b4a14fecada523eafbe5a857e8bd28070412d7b0bb79f"
+    },
+    {
+      "name": "composed purchase",
+      "transactionId": "206698fcc39a2234df65b2b1e2339036437846a5ddacc8184028f512b184a66a",
+      "acceptingBlock": "ff47bccc8e482499eb439d7477611f053d5270c71d7f04f82aeb8d4c98d6dcc5"
+    },
+    {
+      "name": "agent revoke",
+      "transactionId": "692e799bf8a7a691477b57dca65e485b754d1901d9603f1125d711a6f0695c1f",
+      "acceptingBlock": "da447e132dd2410d4a4b907b523597d0b7d6a09c7c46040ec01c547af54f66b5"
+    },
+    {
+      "name": "market refund",
+      "transactionId": "77d6713a4e34a759d4997ef16f600dc1c3449e206e1ab7cb695f77dceef6cf41",
+      "acceptingBlock": "cdf3edf5eec414796ba175df6e89c64ede342f8cf14fb8a964f7d360cdf76816"
+    }
+  ]
+}

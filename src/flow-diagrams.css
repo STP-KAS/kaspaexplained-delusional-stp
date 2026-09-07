@@ -1,0 +1,27 @@
+/* A restrained drawing surface makes states and connections carry the detail. */
+:root{--radius:16px;--shadow:0 12px 40px -30px #17384930}
+.experiment,.workshop{border-radius:16px;box-shadow:var(--shadow)}
+.payment-scene,.spend-scene,.vault-scene,.transaction-equation{background-image:radial-gradient(var(--rule) .65px,transparent .65px);background-size:18px 18px}
+.document-object,.receipt-object,.front-block,.unspent-object,.vault-balance,.transaction-outputs>div,.spend-attempt{border-radius:3px;box-shadow:none;background:var(--paper)}
+.front-block{transform:none;border-top:3px solid var(--green)}
+.back-block{inset:-8px 2px 8px 18px;border-radius:2px;transform:none;background:var(--soft)}
+.payment[data-stage="3"] .back-block{transform:translate(6px,-6px)}
+.transaction-line{border-radius:1px;text-align:left;border-width:0 0 1px;padding-left:10px}
+.transaction-line.is-selected{border-left:3px solid var(--green)}
+.ledger-glyph{display:block;width:64px;height:64px;margin:0 auto;color:var(--green);fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter}
+.ledger-glyph .glyph-frame{stroke:var(--rule)}
+.front-block .ledger-glyph{width:44px;height:44px;float:right;margin-top:-6px}
+.document-object{padding:18px;gap:8px}.document-object .signature-mark{display:none}
+.receiver-object .receipt-object{border-top:3px solid var(--green)}
+.payment[data-stage="0"] .receiver-object .receipt-object,.payment[data-stage="1"] .receiver-object .receipt-object{border-top-color:var(--rule)}
+.spend-attempt{border-left:3px solid var(--danger);box-shadow:none!important}.spend-attempt[data-valid=true]{border-left-color:var(--green)}
+.unspent-object,.vault-balance{border-top:3px solid var(--text)}
+.vault-rules>div{position:relative;padding-left:8px}.vault-rules>div::before{content:'';height:1px;width:16px;background:var(--rule);position:absolute;left:-18px;top:50%}
+.vault-rules [data-check-mark]{display:grid;place-items:center;flex:0 0 26px;height:26px;border:1px solid currentColor;font-size:1rem}
+.value-flow{display:block;width:calc(100% - 64px);height:130px;margin:0 32px 24px;overflow:visible}.value-flow path{fill:none}.value-flow .flow-guide{stroke:var(--rule);stroke-dasharray:2 5}.value-flow .flow-input{stroke:var(--text);opacity:.12}.value-flow .flow-payment{stroke:var(--green);opacity:.65}.value-flow .flow-change{stroke:var(--muted);opacity:.3}.value-flow .flow-fee{stroke:var(--text);stroke-width:2}.value-flow .flow-boundary{stroke:var(--text);stroke-width:1}.value-flow .flow-rejected{stroke:var(--danger);stroke-width:2}.value-flow text{fill:var(--danger);font:16px system-ui}
+.transaction-equation{padding-bottom:20px}.transaction-outputs>div{border-top:3px solid var(--muted)}.transaction-outputs>div:first-child{border-top-color:var(--green)}
+.flow-scale-note{margin:0 32px 20px;font-size:.75rem;color:var(--muted)}
+.mining-grid i{border-radius:0;box-shadow:none!important}.mining-grid i[data-yours=true]{outline-offset:0}
+@media(max-width:700px){.value-flow{width:calc(100% - 32px);margin:0 16px 16px;height:90px}.flow-scale-note{margin-inline:16px}.ledger-glyph{width:42px;height:42px}.front-block .ledger-glyph{display:none}.document-object{padding:12px}.vault-rules>div::before{display:none}}
+@media(max-width:760px){.wallet-object .ledger-glyph{grid-row:span 2;width:32px;height:40px}.wallet-object .document-object small{grid-column:2}.wallet-object{gap:12px}.wallet-object>.object-label{min-width:52px}.payment-scene{padding-block:20px}.receipt-object .ledger-glyph{display:none}.receipt-object{min-height:175px;padding:12px 10px}.payment-scene .object-label{font-size:.8125rem}.transaction[data-guided=true] .transaction-equation{padding-block:20px;gap:12px}.transaction[data-guided=true] .transaction-outputs>div{padding-block:10px}}
+.model-walkthrough button{scroll-margin-top:100px}

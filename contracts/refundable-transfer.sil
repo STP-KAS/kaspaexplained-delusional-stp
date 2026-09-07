@@ -1,0 +1,14 @@
+// Testnet experiment. Not audited. Never intended for mainnet use.
+// Adapted from kaspanet/silverscript v1-rc1 TransferWithTimeout.
+// Preserve the ISC and CashScript MIT notices in THIRD_PARTY.md.
+pragma silverscript ^0.1.0;
+
+contract RefundableTransfer(pubkey sender, pubkey recipient, temporal refundAfter) {
+    entry claim(sig recipientSignature) {
+        require(checkSig(recipientSignature, recipient));
+    }
+    entry refund(sig senderSignature) {
+        require(checkSig(senderSignature, sender));
+        require(tx.time >= refundAfter);
+    }
+}

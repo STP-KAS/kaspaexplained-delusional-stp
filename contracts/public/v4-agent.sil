@@ -1,0 +1,71 @@
+pragma silverscript ^0.1.0;
+// Testnet-10 demonstration: a spending key has a fixed payee and per-payment cap.
+// The separate recovery key can revoke the complete remaining budget.
+contract AgentBudget(byte[32] initialWorldId, byte[32] initialMarketId, byte[32] initialOwner, byte[32] initialRecovery, byte[32] initialPayee, int initialLimit, int initialMaxFee) {
+    byte[32] worldId = initialWorldId;
+    byte[32] marketId = initialMarketId;
+    byte[32] owner = initialOwner;
+    byte[32] recovery = initialRecovery;
+    byte[32] payee = initialPayee;
+    int limit = initialLimit;
+    int maxFee = initialMaxFee;
+    #[covenant(binding = cov, from = 1, to = 1)]
+    function move(State[] prevStates, State[] newStates, int operation, sig authorization) {
+        require(prevStates.length == 1);
+        byte[32] ownCovId = OpInputCovenantId(this.activeInputIndex);
+        int budgetIndex = OpCovInputIdx(ownCovId, 0);
+        require(limit > 0 && limit <= 100000000);
+        require(maxFee > 0 && maxFee <= 3000000);
+        require(tx.inputs[budgetIndex].value > 0 && tx.inputs[budgetIndex].value <= 100000000);
+        if(operation == 0) {
+            require(tx.inputs.length == 1 && budgetIndex == 0);
+            require(checkSig(authorization, pubkey(owner)));
+            require(newStates.length == 1 && tx.outputs.length == 2);
+            require(newStates[0].worldId == worldId && newStates[0].marketId == marketId);
+            require(newStates[0].owner == owner && newStates[0].recovery == recovery);
+            require(newStates[0].payee == payee && newStates[0].limit == limit && newStates[0].maxFee == maxFee);
+            require(OpCovOutputIdx(OpInputCovenantId(this.activeInputIndex), 0) == 0);
+            require(tx.outputs[0].value > 0);
+            byte[36] destination = new ScriptPubKeyP2PK(pubkey(payee));
+            require(tx.outputs[1].scriptPubKey == byte[](destination));
+            require(tx.outputs[1].value > 0 && tx.outputs[1].value <= limit);
+            int fee = tx.inputs[0].value - tx.outputs[0].value - tx.outputs[1].value;
+            require(fee > 0 && fee <= maxFee);
+        } else if(operation == 2) {
+            // The approved market independently checks its three voucher states.
+            // This group checks its own spending policy in the same transaction.
+            require(checkSig(authorization, pubkey(owner)));
+            require(tx.inputs.length == 4 && tx.outputs.length == 5 && budgetIndex == 3);
+            require(newStates.length == 1);
+            require(newStates[0].worldId == worldId && newStates[0].marketId == marketId);
+            require(newStates[0].owner == owner && newStates[0].recovery == recovery);
+            require(newStates[0].payee == payee && newStates[0].limit == limit && newStates[0].maxFee == maxFee);
+            require(marketId != ownCovId);
+            require(OpCovOutputIdx(ownCovId, 0) == 4);
+            require(tx.outputs[4].value > 0);
+            for(i, 0, 3, 3) {
+                require(OpInputCovenantId(i) == marketId);
+                require(OpCovInputIdx(marketId, i) == i);
+                require(OpCovOutputIdx(marketId, i) == i);
+                require(tx.outputs[i].value == tx.inputs[i].value);
+            }
+            byte[36] destination = new ScriptPubKeyP2PK(pubkey(payee));
+            require(tx.outputs[3].scriptPubKey == byte[](destination));
+            require(tx.outputs[3].value > 0 && tx.outputs[3].value <= limit);
+            int fee = tx.inputs[3].value - tx.outputs[3].value - tx.outputs[4].value;
+            require(fee > 0 && fee <= maxFee);
+        } else {
+            require(operation == 1);
+            require(tx.inputs.length == 1 && budgetIndex == 0);
+            require(checkSig(authorization, pubkey(recovery)));
+            require(newStates.length == 0 && tx.outputs.length == 1);
+            byte[36] destination = new ScriptPubKeyP2PK(pubkey(recovery));
+            require(tx.outputs[0].scriptPubKey == byte[](destination));
+            require(tx.outputs[0].value > 0);
+            int fee = tx.inputs[0].value - tx.outputs[0].value;
+            require(fee > 0 && fee <= maxFee);
+        }
+    }
+    #[covenant.delegate]
+    function authorizeDelegate(sig authorization) { require(checkSig(authorization, pubkey(owner))); }
+}

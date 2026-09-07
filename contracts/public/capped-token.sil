@@ -1,0 +1,75 @@
+// Experimental Testnet-10 teaching contract. Unaudited; never for mainnet.
+// Verify genesis separately: one minter, owned by issuer, quantity equal to cap.
+// Minter quantity is remaining lifetime issuance allowance, not holder balance.
+contract CappedToken(
+    byte[32] initialIssuer,
+    int initialCap,
+    byte[32] initialOwner,
+    int initialQuantity,
+    bool initialIsMinter
+) {
+    byte[32] issuer = initialIssuer;
+    int cap = initialCap;
+    byte[32] owner = initialOwner;
+    int quantity = initialQuantity;
+    bool isMinter = initialIsMinter;
+
+    function checkedTotal(State[] states) : int {
+        require(cap > 0 && cap <= 1000000000);
+        require(states.length >= 1 && states.length <= 2);
+        int total = 0;
+        for(i, 0, states.length, 2) {
+            require(states[i].issuer == issuer);
+            require(states[i].cap == cap);
+            require(states[i].quantity >= 0);
+            require(states[i].quantity <= cap);
+            if(states[i].isMinter) {
+                require(states[i].owner == issuer);
+            } else {
+                require(states[i].quantity > 0);
+            }
+            total = total + states[i].quantity;
+        }
+        require(total <= cap);
+        return total;
+    }
+
+    #[covenant(binding = cov, from = 2, to = 2)]
+    function move(State[] prevStates, State[] newStates, int operation, sig authorization) {
+        require(checkSig(authorization, pubkey(owner)));
+        int previousTotal = checkedTotal(prevStates);
+        int nextTotal = checkedTotal(newStates);
+        if(operation == 0) {
+            // Holder transfer, split, or merge conserves token units.
+            require(!isMinter);
+            for(i, 0, prevStates.length, 2) { require(!prevStates[i].isMinter); }
+            for(i, 0, newStates.length, 2) { require(!newStates[i].isMinter); }
+            require(previousTotal == nextTotal);
+        } else if(operation == 1) {
+            // Mint consumes allowance; exactly one minter continues.
+            require(isMinter);
+            require(prevStates.length == 1);
+            require(newStates.length == 2);
+            require(prevStates[0].isMinter);
+            require(newStates[0].isMinter);
+            require(!newStates[1].isMinter);
+            require(previousTotal == nextTotal);
+        } else if(operation == 2) {
+            // Issuer and holder jointly burn a holder output without reissuance.
+            require(isMinter);
+            require(prevStates.length == 2);
+            require(newStates.length == 1);
+            require(prevStates[0].isMinter);
+            require(!prevStates[1].isMinter);
+            require(newStates[0].isMinter);
+            require(newStates[0].quantity == prevStates[0].quantity);
+        } else {
+            require(false);
+        }
+    }
+
+    #[covenant.delegate]
+    function authorizeDelegate(sig authorization) {
+        require(checkSig(authorization, pubkey(owner)));
+    }
+}

@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-09-07T08:31:05.844Z",
+  "scope": "Synthetic unfunded UTXOs; real UI and SDK signing; mock RPC only. No live network transactions.",
+  "reports": [
+    {
+      "width": 1440,
+      "steps": 20,
+      "signedMockSubmissions": 19,
+      "delayedCoinsAutoStart": true,
+      "localChoicesDoNotSpend": true,
+      "partialFreeplayRestore": true,
+      "roomNavigationPreservesGuide": true,
+      "completedExplorationAndReloadDoNotSpend": true,
+      "causalAcceptance": true,
+      "pendingPreservesState": true,
+      "rejectedSchedulePreservesState": true,
+      "localReject": true,
+      "win": true,
+      "reload": true,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "steps": 20,
+      "signedMockSubmissions": 19,
+      "delayedCoinsAutoStart": true,
+      "localChoicesDoNotSpend": true,
+      "partialFreeplayRestore": true,
+      "roomNavigationPreservesGuide": true,
+      "completedExplorationAndReloadDoNotSpend": true,
+      "causalAcceptance": true,
+      "pendingPreservesState": true,
+      "rejectedSchedulePreservesState": true,
+      "localReject": true,
+      "win": true,
+      "reload": true,
+      "errors": []
+    }
+  ]
+}

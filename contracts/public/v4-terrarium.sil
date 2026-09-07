@@ -1,0 +1,38 @@
+// Experimental Testnet-10 grid state. Genesis configuration must be checked separately.
+contract V4Terrarium(byte[32] initialWorldId, byte[32] initialOwner, int initialX, int initialY, int initialEnergy, int initialMaxFee) {
+    byte[32] worldId = initialWorldId;
+    byte[32] owner = initialOwner;
+    int x = initialX;
+    int y = initialY;
+    int energy = initialEnergy;
+    int maxFee = initialMaxFee;
+
+    #[covenant(binding = cov, from = 1, to = 1)]
+    function move(State[] prevStates, State[] newStates, int operation, sig authorization) {
+        require(checkSig(authorization, pubkey(owner)));
+        require(prevStates.length == 1);
+        if(operation == 1) {
+            require(newStates.length == 0);
+            byte[36] destination = new ScriptPubKeyP2PK(pubkey(owner));
+            require(tx.outputs[0].scriptPubKey == byte[](destination));
+        } else {
+        require(operation == 0 && newStates.length == 1);
+        require(x >= 0 && x <= 2 && y >= 0 && y <= 2);
+        require(energy > 0 && energy <= 12);
+        require(newStates[0].worldId == worldId);
+        require(newStates[0].owner == owner && newStates[0].maxFee == maxFee);
+        require(newStates[0].x >= 0 && newStates[0].x <= 2);
+        require(newStates[0].y >= 0 && newStates[0].y <= 2);
+        bool horizontal = newStates[0].y == y && (newStates[0].x == x + 1 || newStates[0].x == x - 1);
+        bool vertical = newStates[0].x == x && (newStates[0].y == y + 1 || newStates[0].y == y - 1);
+        require(horizontal || vertical);
+        require(newStates[0].energy == energy - 1);
+        }
+        require(tx.inputs.length == 1 && tx.outputs.length == 1);
+        require(maxFee > 0 && maxFee <= 3000000);
+        int fee = tx.inputs[0].value - tx.outputs[0].value;
+        require(fee > 0 && fee <= maxFee && tx.outputs[0].value > 0);
+    }
+    #[covenant.delegate]
+    function authorizeDelegate(sig authorization) { require(checkSig(authorization, pubkey(owner))); }
+}

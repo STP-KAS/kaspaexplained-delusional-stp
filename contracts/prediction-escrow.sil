@@ -1,0 +1,41 @@
+pragma silverscript ^0.1.0;
+// Oracle decides the outcome. This contract cannot establish real-world truth.
+contract PredictionEscrow(pubkey yesOwner, pubkey noOwner, pubkey oracle, temporal resolveAfter, temporal refundAfter, int principal, int maxFee) {
+    function checkDeposit() {
+        require(yesOwner != noOwner);
+        require(resolveAfter < refundAfter);
+        require(principal > 0 && principal <= 100000000);
+        require(maxFee >= 0 && maxFee <= 1000000);
+        require(tx.inputs.length == 1 && tx.inputs[0].value == principal);
+    }
+    entry settle(sig authorization, bool yesWins) {
+        checkDeposit();
+        require(checkSig(authorization, oracle));
+        require(tx.time >= resolveAfter);
+        require(tx.outputs.length == 1);
+        int fee = principal - tx.outputs[0].value;
+        require(fee >= 0 && fee <= maxFee && tx.outputs[0].value > 0);
+        if(yesWins) {
+            byte[36] destination = new ScriptPubKeyP2PK(yesOwner);
+            require(tx.outputs[0].scriptPubKey == byte[](destination));
+        } else {
+            byte[36] destination = new ScriptPubKeyP2PK(noOwner);
+            require(tx.outputs[0].scriptPubKey == byte[](destination));
+        }
+    }
+    entry refund(sig authorization) {
+        checkDeposit();
+        require(checkSig(authorization, yesOwner) || checkSig(authorization, noOwner));
+        require(tx.time >= refundAfter);
+        require(tx.outputs.length == 2);
+        int net = tx.outputs[0].value + tx.outputs[1].value;
+        int fee = principal - net;
+        require(fee >= 0 && fee <= maxFee);
+        require(tx.outputs[0].value == net / 2 && tx.outputs[1].value == net - net / 2);
+        require(tx.outputs[0].value > 0 && tx.outputs[1].value > 0);
+        byte[36] yesDestination = new ScriptPubKeyP2PK(yesOwner);
+        byte[36] noDestination = new ScriptPubKeyP2PK(noOwner);
+        require(tx.outputs[0].scriptPubKey == byte[](yesDestination));
+        require(tx.outputs[1].scriptPubKey == byte[](noDestination));
+    }
+}
