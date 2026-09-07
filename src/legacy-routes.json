@@ -77,5 +77,9 @@
   "demos/supply-split": "/playground",
   "demos/utxo-vs-accounts": "/playground",
   "demos/zk-boundary": "/playground",
-  "wallets": "/wallet"
+  "wallets": "/wallet",
+  "peg": "/peglab",
+  "door": "/",
+  "doors": "/",
+  "who": "/"
 }

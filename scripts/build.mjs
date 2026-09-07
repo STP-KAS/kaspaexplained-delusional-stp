@@ -1,4 +1,6 @@
-import {mkdir,writeFile,readFile,copyFile,cp,mkdtemp,rename} from 'node:fs/promises';
+import {mkdir,writeFile,readFile,copyFile,cp,mkdtemp,rename,access} from 'node:fs/promises';
+import {dirname,resolve} from 'node:path';
+import {homedir} from 'node:os';
 import {documents,standalone} from '../src/page-registry.mjs';
 import {site} from '../src/site.mjs';
 import {escape} from '../src/components.mjs';
@@ -11,11 +13,22 @@ const output=await mkdtemp('.cache/site-build-');
 const destination=standalone?'dist-v1':'dist';
 await mkdir(`${output}/assets`,{recursive:true});
 export const shell=page=>`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}${page.title===site.title?'':' · '+site.title}</title><meta name="description" content="${escape(page.description)}"><link rel="canonical" href="${site.domain}/${page.file==='index.html'?'':page.file.replace('.html','')}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:image" content="${site.domain}/og-kaspa-explained.png"><link rel="stylesheet" href="/assets/app.css"><link rel="stylesheet" href="/assets/network-diagram.css"><link rel="stylesheet" href="/assets/mechanism-diagrams.css"><link rel="stylesheet" href="/assets/flow-diagrams.css"><script>try{const t=new URLSearchParams(location.search).get('theme')||localStorage.getItem('kaspa-theme');if(t==='dark')document.documentElement.dataset.theme='dark';}catch{}</script><script type="module" src="/assets/app.mjs"></script></head><body${page.file==='covenants.html'?' class="covenant-world-page"':''}><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="/"><img src="/favicon.svg" width="28" height="28" alt="">Kaspa Explained</a><nav class="main-nav" id="main-nav" aria-label="Main navigation">${site.navigation.map(([title,href])=>`<a href="${href}"${page.file===href.slice(1)+'.html'?' aria-current="page"':''}>${title}</a>`).join('')}<a href="/playground">Playground</a></nav><div class="header-tools"><a href="/search" aria-label="Search explanations">Search</a><button class="theme-button" data-theme-toggle aria-label="Dark appearance" aria-pressed="false">◐</button><button class="menu-button" data-menu aria-expanded="false" aria-controls="main-nav">Menu</button></div></div></header><main class="main" id="main">${withContents(page)}</main><footer class="site-footer"><p>Independent education about Kaspa.<br>Models explain. Sources let you check.</p><nav aria-label="Footer"><a href="/sources">Sources</a><a href="/status">Current status</a><a href="/search">Search</a></nav></footer></body></html>`;
-for(const page of documents)await writeFile(`${output}/${page.file}`,shell(page));
-for(const name of ['app.mjs','network-diagram.mjs','models.mjs','app.css','money-app.mjs','money-models.mjs','coordination.mjs','coordination.css','network-diagram.css','mechanism-diagrams.mjs','mechanism-diagrams.css','flow-diagrams.mjs','flow-diagrams.css','wallet-holdings.mjs','installed-wallets.mjs'])await copyFile(`src/${name}`,`${output}/assets/${name}`);
+for(const page of documents){
+  await mkdir(resolve(output, dirname(page.file)),{recursive:true});
+  await writeFile(`${output}/${page.file}`,shell(page));
+}
+await mkdir(`${output}/media`,{recursive:true});
+const filmDest=`${output}/media/kaspa-roots.mp4`;
+const filmSources=[resolve('media/kaspa-roots.mp4'),resolve(homedir(),'Documents/kaspa/EB3LbxCt7_h_jf4u.mp4')];
+let filmCopied=false;
+for(const source of filmSources){
+  try{await access(source);await copyFile(source,filmDest);filmCopied=true;break;}catch{}
+}
+if(!filmCopied)console.warn('Kaspa film not found. Door pages will miss /media/kaspa-roots.mp4');
+for(const name of ['app.mjs','network-diagram.mjs','models.mjs','app.css','money-app.mjs','money-models.mjs','coordination.mjs','coordination.css','network-diagram.css','mechanism-diagrams.mjs','mechanism-diagrams.css','flow-diagrams.mjs','flow-diagrams.css','wallet-holdings.mjs','installed-wallets.mjs','doors.mjs'])await copyFile(`src/${name}`,`${output}/assets/${name}`);
 if(!standalone){
   await copyFile('docs/wrap-poc-roundtrip-verification.json',`${output}/assets/wrap-poc-roundtrip.json`);
-  for(const name of ['wrap-ui.mjs','wrap-local-client.mjs','wrap.css','public-apps.mjs','public-apps.css','public-contracts.mjs','public-recovery.mjs','public-assets-ui.mjs','public-token.mjs','public-receipt.mjs','public-asset-signing.mjs','public-asset-recovery.mjs','public-acceptance.mjs','public-transaction.mjs'])await copyFile(`src/${name}`,`${output}/assets/${name}`);
+  for(const name of ['wrap-ui.mjs','wrap-local-client.mjs','wrap.css','public-apps.mjs','public-apps.css','public-contracts.mjs','public-recovery.mjs','public-assets-ui.mjs','public-token.mjs','public-receipt.mjs','public-asset-signing.mjs','public-asset-recovery.mjs','public-acceptance.mjs','public-transaction.mjs','peglab-engine.mjs','peglab-ui.mjs','peglab.css'])await copyFile(`src/${name}`,`${output}/assets/${name}`);
   for(const name of ['v4-economy-story.mjs','v4-economy-protocol.mjs','v4-economy-model.mjs','v4-world-props.mjs','v4-activity-view.mjs','v4-mining-model.mjs','v4-mining-ui.mjs','public-argent-ui.mjs','public-argent-protocol.mjs','public-argent-templates.json','v4-game.mjs','v4-technical-map.mjs','v4-live-story.mjs','v4-legacy-services.mjs','v4-world-model.mjs','v4-world-3d.mjs','v4-showcase-page.mjs','v4-showcase.css','v4-game.css','public-v4-ui.mjs','public-v4-protocol.mjs','public-v4-extra.mjs','public-v4-composed.mjs','v4-dag-view.mjs','v4-dag-3d.mjs'])await copyFile(`src/${name}`,`${output}/assets/${name}`);
   const v4Sources={};for(const kind of ['agent','bundle','compute','launch','terrarium','vault'])v4Sources[`contracts/public/v4-${kind}.sil`]=await readFile(`contracts/public/v4-${kind}.sil`,'utf8');for(const name of ['capped-token','backed-receipt','application-escrow','shared-treasury','prediction-escrow','proof-payout'])v4Sources[`contracts/public/${name}.sil`]=await readFile(`contracts/public/${name}.sil`,'utf8');for(const name of ['warden','creature'])for(const ext of ['ag','sil']){const path=ext==='ag'?`contracts/public/argent-habitat/${name}.ag`:`contracts/public/argent-habitat/generated/${name[0].toUpperCase()+name.slice(1)}.sil`;v4Sources[path]=await readFile(path,'utf8');}await writeFile(`${output}/assets/v4-contract-source.json`,JSON.stringify(v4Sources));
   await cp('src/vendor/three',`${output}/assets/vendor/three`,{recursive:true});

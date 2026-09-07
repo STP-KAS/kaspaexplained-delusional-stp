@@ -1,6 +1,7 @@
 import { payment, network, spend, mining, vault, transaction, inspector, section, rows, detail, link, note, walletLesson, tradeoffComparison, evidenceSteps } from './components.mjs';
 import { sources, snapshot } from './site.mjs';
 import {coordinationMarkup} from './coordination-view.mjs';
+import {kaspaFilm} from './doors.mjs';
 
 const source = key => link(...sources[key]);
 const routes = items => `<nav class="topic-list" aria-label="Related explanations">${items.map(([title, text, url])=>`<a href="${url}"><div><strong>${title}</strong><p>${text}</p></div><span aria-hidden="true">↗</span></a>`).join('')}</nav>`;
@@ -10,11 +11,38 @@ export const pages = [
   {
     file:'index.html', title:'Kaspa Explained', description:'Explore how Kaspa payments, parallel blocks, and spending rules work through interactive explanations.',
     body: `<p class="home-ethos">Crypto started with proof of work, for decentralized money and ownership.<br>Proof of stake left that idea.<br>Kaspa goes back to the roots: fast, programmable proof of work.</p>
-      <div class="home-introduction"><p class="eyebrow">Kaspa Explained</p><h1>Send money.<br>Let the network verify it.</h1><p>Kaspa lets people send coins without a central payment operator.<br>See why its miners can add blocks in parallel, then follow a payment through the network.</p><a href="#first-look">See how it works <span aria-hidden="true">↓</span></a></div>
+      <section class="doors" aria-label="Choose an intel door">
+        <p class="eyebrow">Four doors</p>
+        <h1>Who is reading.</h1>
+        <p>Knowledge first. Each door is its own page: text and one film. The demos stay the same.</p>
+        ${kaspaFilm()}
+        <div class="door-row" aria-label="Knowledge doors">
+          <a href="/door-1">Door 1<br><span>New to crypto</span></a>
+          <a href="/door-2">Door 2<br><span>Crypto, not Kaspa</span></a>
+          <a href="/door-3">Door 3<br><span>Knows Kaspa</span></a>
+          <a href="/door-4">Door 4<br><span>Thinks they know</span></a>
+        </div>
+        <p class="small">I am…</p>
+        <div class="door-people" aria-label="People">
+          <a href="/who/new">New to crypto</a>
+          <a href="/who/crypto-not-kaspa">Knows crypto, not Kaspa</a>
+          <a href="/who/kaspa">Knows Kaspa</a>
+          <a href="/who/crypto-and-kaspa">Knows crypto and Kaspa</a>
+          <a href="/who/thinks">Thinks they know crypto</a>
+          <a href="/who/moonboy">Moonboy crypto bro</a>
+          <a href="/who/institution">Institution (speculative)</a>
+          <a href="/who/influencer-tech">Tech influencer</a>
+          <a href="/who/influencer-moon">Moonboy influencer</a>
+          <a href="/who/cyberpunk">Cyberpunk</a>
+          <a href="/who/other-chain">High-tech, other chain</a>
+          <a href="/who/other">Other</a>
+        </div>
+      </section>
+      <div class="home-introduction"><p class="eyebrow">Kaspa Explained</p><h2>Send money.<br>Let the network verify it.</h2><p>Kaspa lets people send coins without a central payment operator.<br>See why its miners can add blocks in parallel, then follow a payment through the network.</p><a href="#first-look">See how it works <span aria-hidden="true">↓</span></a></div>
       <div id="first-look" class="home-demonstration">${network({introductory:true})}</div>
       <div class="under-experiment">${link('Follow the blocks and the information between them', '/what-is-kaspa')}</div>
       ${section('explore','Explore Kaspa',routes([
-        ...(process.env.KASPA_RELEASE==='v1'?[]:[['Play a KAS economy','Build a greenhouse, hire Pip, sell the harvest and follow the money. Uses free test coins.','/covenants']]),
+        ...(process.env.KASPA_RELEASE==='v1'?[]:[['Play a KAS economy','Build a greenhouse, hire Pip, sell the harvest and follow the money. Uses free test coins.','/covenants'],['PegLab','A Testnet-10 toy that looks like a dollar, then depegs. Not USD. Tiny pool.','/peglab']]),
         ['How the network agrees','Change what miners know. See why parallel blocks happen.','/what-is-kaspa'],
         ['Using KAS','Wallets, sending, receiving, and reading a transaction.','/why-kaspa-matters'],
         ['The tradeoffs','Security assumptions, mining concentration, and what speed does not solve.','/skeptical-case'],
