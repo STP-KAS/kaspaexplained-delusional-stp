@@ -1,0 +1,49 @@
+// Direct verification of a three-job assignment. No oracle or zero-knowledge claim.
+contract V4Compute(byte[32] initialWorldId, byte[32] initialOwner, byte[32] initialWorker, int initialA, int initialB, int initialC, int initialCeiling, int initialReward, int initialMaxFee) {
+    byte[32] worldId = initialWorldId;
+    byte[32] owner = initialOwner;
+    byte[32] worker = initialWorker;
+    int a = initialA;
+    int b = initialB;
+    int c = initialC;
+    int ceiling = initialCeiling;
+    int reward = initialReward;
+    int maxFee = initialMaxFee;
+    #[covenant(binding = cov, from = 1, to = 1)]
+    function move(State[] prevStates, State[] newStates, int operation, sig authorization) {
+        require(checkSig(authorization, pubkey(owner)));
+        require(prevStates.length == 1);
+        if(operation == 1) {
+            require(newStates.length == 0 && tx.inputs.length == 1 && tx.outputs.length == 1);
+            byte[36] destination = new ScriptPubKeyP2PK(pubkey(owner));
+            require(tx.outputs[0].scriptPubKey == byte[](destination));
+            require(maxFee > 0 && maxFee <= 3000000);
+            int refundFee = tx.inputs[0].value - tx.outputs[0].value;
+            require(refundFee > 0 && refundFee <= maxFee && tx.outputs[0].value > 0);
+        } else {
+        require(operation == 0 && newStates.length == 1);
+        require(a == 3 && b == 3 && c == 3);
+        require(newStates[0].worldId == worldId && newStates[0].owner == owner);
+        require(newStates[0].worker == worker && newStates[0].ceiling == ceiling);
+        require(newStates[0].reward == reward && newStates[0].maxFee == maxFee);
+        int x = newStates[0].a;
+        int y = newStates[0].b;
+        int z = newStates[0].c;
+        require(x >= 0 && x < 3 && y >= 0 && y < 3 && z >= 0 && z < 3);
+        require(x != y && y != z && x != z);
+        int costA = x == 0 ? 7 : (x == 1 ? 2 : 5);
+        int costB = y == 0 ? 3 : (y == 1 ? 8 : 4);
+        int costC = z == 0 ? 6 : (z == 1 ? 5 : 1);
+        require(ceiling > 0 && ceiling <= 30 && costA + costB + costC <= ceiling);
+        require(tx.inputs.length == 1 && tx.outputs.length == 2);
+        byte[36] workerScript = new ScriptPubKeyP2PK(pubkey(worker));
+        require(tx.outputs[1].scriptPubKey == byte[](workerScript));
+        require(reward > 0 && reward <= 10000000 && tx.outputs[1].value == reward);
+        require(maxFee > 0 && maxFee <= 3000000);
+        int fee = tx.inputs[0].value - tx.outputs[0].value - reward;
+        require(fee > 0 && fee <= maxFee && tx.outputs[0].value > 0);
+        }
+    }
+    #[covenant.delegate]
+    function authorizeDelegate(sig authorization) { require(checkSig(authorization, pubkey(owner))); }
+}

@@ -1,0 +1,59 @@
+// Three numbered vouchers can change hands only together for the stated payment.
+contract V4Bundle(byte[32] initialWorldId, byte[32] initialOwner, byte[32] initialSeller, byte[32] initialBuyer, int initialItem, int initialPrice, int initialMaxFee) {
+    byte[32] worldId = initialWorldId;
+    byte[32] owner = initialOwner;
+    byte[32] seller = initialSeller;
+    byte[32] buyer = initialBuyer;
+    int item = initialItem;
+    int price = initialPrice;
+    int maxFee = initialMaxFee;
+
+    #[covenant(binding = cov, from = 3, to = 3)]
+    function move(State[] prevStates, State[] newStates, int operation, sig authorization) {
+        require(checkSig(authorization, pubkey(owner)));
+        if(operation == 2) {
+            require(prevStates.length == 3 && newStates.length == 0);
+            require(tx.inputs.length == 3 && tx.outputs.length == 1);
+            int total = 0;
+            byte[32] groupId = OpInputCovenantId(this.activeInputIndex);
+            for(i, 0, 3, 3) {
+                require(prevStates[i].worldId == worldId && prevStates[i].owner == owner);
+                require(prevStates[i].seller == seller && prevStates[i].buyer == buyer);
+                require(prevStates[i].item == i && prevStates[i].price == price && prevStates[i].maxFee == maxFee);
+                require(OpCovInputIdx(groupId, i) == i);
+                total = total + tx.inputs[i].value;
+            }
+            byte[36] destination = new ScriptPubKeyP2PK(pubkey(owner));
+            require(tx.outputs[0].scriptPubKey == byte[](destination));
+            int fee = total - tx.outputs[0].value;
+            require(maxFee > 0 && maxFee <= 3000000 && fee > 0 && fee <= maxFee && tx.outputs[0].value > 0);
+        } else {
+        require((operation == 0 || operation == 1) && prevStates.length == 3 && newStates.length == 3);
+        require(owner == seller && seller != buyer);
+        require(price > 0 && price <= 100000000);
+        require(maxFee > 0 && maxFee <= 3000000);
+        require(tx.inputs.length == 4 && tx.outputs.length == 5);
+        byte[32] covId = OpInputCovenantId(this.activeInputIndex);
+        for(i, 0, 3, 3) {
+            require(prevStates[i].worldId == worldId && newStates[i].worldId == worldId);
+            require(prevStates[i].owner == seller && prevStates[i].seller == seller && prevStates[i].buyer == buyer);
+            require(prevStates[i].item == i && prevStates[i].price == price && prevStates[i].maxFee == maxFee);
+            require(newStates[i].owner == buyer && newStates[i].seller == seller && newStates[i].buyer == buyer);
+            require(newStates[i].item == i && newStates[i].price == price && newStates[i].maxFee == maxFee);
+            require(OpCovInputIdx(covId, i) == i && OpCovOutputIdx(covId, i) == i);
+            require(tx.outputs[i].value == tx.inputs[i].value);
+        }
+        byte[36] buyerScript = new ScriptPubKeyP2PK(pubkey(buyer));
+        byte[36] sellerScript = new ScriptPubKeyP2PK(pubkey(seller));
+        if(operation == 0) { require(tx.inputs[3].scriptPubKey == byte[](buyerScript)); }
+        else { require(OpCovInputCount(OpInputCovenantId(3)) == 1); require(OpOutputCovenantId(4) == OpInputCovenantId(3)); }
+        require(tx.outputs[3].scriptPubKey == byte[](sellerScript) && tx.outputs[3].value == price);
+        if(operation == 0) { require(tx.outputs[4].scriptPubKey == byte[](buyerScript)); }
+        require(tx.outputs[4].value > 0);
+        int fee = tx.inputs[3].value - price - tx.outputs[4].value;
+        require(fee > 0 && fee <= maxFee);
+        }
+    }
+    #[covenant.delegate]
+    function authorizeDelegate(sig authorization) { require(checkSig(authorization, pubkey(owner))); }
+}

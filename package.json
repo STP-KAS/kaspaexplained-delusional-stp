@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "setup:testnet": "node scripts/setup-testnet.mjs",
+    "check:contracts": "node scripts/compile-contract.mjs",
+    "check:contracts:vm": "node scripts/check-contract-vm.mjs",
+    "build:v1": "KASPA_RELEASE=v1 node scripts/build.mjs",
+    "check:v1": "npm run build:v1 && KASPA_RELEASE=v1 node --test tests/routes.test.mjs && node --test tests/release-build.test.mjs tests/legacy-links.test.mjs",
+    "check": "npm run build && node --test tests/models.test.mjs tests/network-diagram.test.mjs tests/contract-signature.test.mjs tests/local-server.test.mjs tests/acceptance.test.mjs tests/money-models.test.mjs tests/routes.test.mjs tests/split-fee.test.mjs tests/wallet-load.test.mjs tests/submission-journal.test.mjs tests/setup-integrity.test.mjs tests/native-payment.test.mjs tests/public-recovery.test.mjs tests/public-asset-recovery.test.mjs tests/public-assets-state.test.mjs tests/coordination.test.mjs",
+    "check:copy": "node scripts/lint-copy.mjs",
+    "check:posts": "node scripts/check-x-posts.mjs",
+    "check:render": "node scripts/check-render.mjs",
+    "serve": "node server/index.mjs",
+    "check:journeys": "node scripts/check-journeys.mjs",
+    "check:public": "npm run build && node --test tests/public-release-build.test.mjs tests/public-transaction.test.mjs tests/public-acceptance.test.mjs tests/public-recovery.test.mjs tests/public-asset-recovery.test.mjs tests/public-assets-state.test.mjs && node scripts/check-public-asset-signing.mjs",
+    "check:public:browser": "npm run build && node scripts/check-public-browser.mjs chromium && node scripts/check-public-browser.mjs firefox && node scripts/check-public-browser.mjs webkit",
+    "check:faucet": "node --test tests/faucet.test.mjs",
+    "check:guided": "npm run build:v1 && node scripts/check-guided-education.mjs",
+    "check:v4": "npm run build && node --test tests/public-v4-protocol.test.mjs tests/public-v4-state.test.mjs tests/v4-dag-view.test.mjs tests/v4-dag-animation.test.mjs tests/v4-world-navigation.test.mjs tests/public-argent-protocol.test.mjs tests/v4-mining-model.test.mjs tests/faucet.test.mjs tests/v4-economy-model.test.mjs tests/v4-economy-protocol.test.mjs tests/v4-economy-story.test.mjs",
+    "check:v4:vm": "node scripts/v4-fixtures.mjs --check-vm && node scripts/v4-composed-fixtures.mjs --check-vm && node scripts/argent-fixtures.mjs --check-vm",
+    "check:v4:browser": "npm run check:v4:flows",
+    "check:v4:flows": "npm run build && node scripts/check-v4-economy-native-browser.mjs",
+    "setup:wrap": "node scripts/setup-wrap-poc.mjs",
+    "serve:wrap": "npm run build && node server/wrap-poc.mjs",
+    "check:wrap": "node --test tests/wrap-evm.test.mjs tests/wrap-evm-adapter.test.mjs tests/wrap-poc.test.mjs && node scripts/check-wrap-kaspa-adapter.mjs && node scripts/check-wrap-assets-api.mjs",
+    "check:economy": "node --test tests/v4-economy-model.test.mjs tests/v4-economy-protocol.test.mjs && node scripts/check-v4-economy-vm.mjs",
+    "check:v4:recovery": "node scripts/check-v4-recovery-browser.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1",
+    "wrangler": "^4.129.0"
+  }
+}

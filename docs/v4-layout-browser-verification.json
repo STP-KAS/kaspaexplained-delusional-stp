@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-09-07T11:23:27.897Z",
+  "scope": "No-wallet layout interactions only",
+  "sourceOverride": false,
+  "reports": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "drag": true,
+      "keyboard": true,
+      "persistence": true,
+      "collapse": true,
+      "menu": true,
+      "blocksToggle": true,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "drag": false,
+      "keyboard": false,
+      "persistence": false,
+      "collapse": true,
+      "menu": true,
+      "blocksToggle": true,
+      "errors": []
+    }
+  ]
+}

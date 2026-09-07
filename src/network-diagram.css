@@ -1,0 +1,26 @@
+/* Flat ledger geometry: header references above a schematic transaction body. */
+.network .ledger-drawing{color:var(--green);font-family:var(--font-sans, sans-serif)}
+.network .ledger-reference{fill:none;stroke:var(--green);stroke-width:1.4;opacity:.8}
+.network .ledger-port{fill:var(--paper);stroke:var(--green);stroke-width:1.2}
+.network .ledger-block .ledger-stack{fill:none;stroke:var(--rule);stroke-width:1}
+.network .ledger-block .ledger-sheet{fill:var(--paper);stroke:var(--muted);stroke-width:1;filter:none}
+.network .ledger-block .ledger-header{fill:var(--soft);stroke:var(--muted);stroke-width:.8}
+.network .ledger-block .ledger-id{font-size:25px;font-weight:550;fill:var(--text)}
+.network .ledger-block .ledger-type{font-size:8px;font-weight:600;letter-spacing:1.5px;fill:var(--muted)}
+.network .ledger-block .ledger-parent{font-size:13px;fill:var(--green);font-family:ui-monospace,monospace}
+.network .ledger-block .ledger-row-label{font-size:7px;letter-spacing:.8px;fill:var(--muted)}
+.network .ledger-transactions{fill:none;stroke:var(--muted);stroke-width:.8;opacity:.6}
+.network .ledger-transactions .ledger-row-end{stroke:var(--green);stroke-width:1.6}
+.network .ledger-block .ledger-owner{font-size:13px;fill:var(--muted);font-weight:400}
+.network .ledger-block[role=button]{cursor:pointer}
+.network .ledger-block[aria-pressed=true] .ledger-header,.network .ledger-block[role=button]:hover .ledger-header{fill:var(--green-soft)}
+.network .ledger-block[aria-pressed=true] .ledger-sheet{stroke:var(--green);stroke-width:2}
+.network .ledger-block:focus-visible{outline:none}
+.network .ledger-block:focus-visible .ledger-sheet{stroke:var(--green);stroke-width:3}
+.network .dag-result .ledger-drawing{max-height:none}
+.network .ledger-drawing.drawing-small .ledger-owner{font-size:14px}
+@media(max-width:700px){
+.network[data-guided=true] .dag-result .ledger-drawing.drawing-small{height:auto;max-height:none;min-height:0;width:100%}
+.network .ledger-drawing.drawing-small .ledger-owner{font-size:16px}
+.network .ledger-drawing.drawing-small .ledger-parent{font-size:14px}
+}

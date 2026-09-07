@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="A blockDAG with one block marked red. The red block keeps its place, its parents and its transactions.">
+<rect width="1200" height="630" fill="#0a0b0b"/>
+<g stroke="#3b403d" stroke-width="5" fill="none">
+<path d="M184 328 C249 328 249 249 314 249"/>
+<path d="M184 328 C249 328 249 407 314 407"/>
+<path d="M418 249 C483 249 483 170 548 170"/>
+<path d="M418 249 C483 249 483 328 548 328"/>
+<path d="M418 407 C483 407 483 328 548 328"/>
+<path d="M418 407 C483 407 483 486 548 486"/>
+<path d="M652 170 C717 170 717 249 782 249"/>
+<path d="M652 328 C717 328 717 249 782 249"/>
+<path d="M886 249 C951 249 951 328 1016 328"/>
+</g>
+<g stroke="#ef8f84" stroke-width="9" fill="none">
+<path d="M652 486 C717 486 717 407 782 407"/>
+<path d="M886 407 C951 407 951 328 1016 328"/>
+</g>
+<rect x="80" y="291" width="104" height="74" rx="18" fill="#6fc7ba"/>
+<rect x="314" y="212" width="104" height="74" rx="18" fill="#6fc7ba"/>
+<rect x="314" y="370" width="104" height="74" rx="18" fill="#6fc7ba"/>
+<rect x="548" y="133" width="104" height="74" rx="18" fill="#6fc7ba"/>
+<rect x="548" y="291" width="104" height="74" rx="18" fill="#6fc7ba"/>
+<rect x="548" y="449" width="104" height="74" rx="18" fill="#6fc7ba"/>
+<rect x="782" y="212" width="104" height="74" rx="18" fill="#6fc7ba"/>
+<rect x="782" y="370" width="104" height="74" rx="18" fill="#ef8f84"/>
+<rect x="1016" y="291" width="104" height="74" rx="18" fill="#6fc7ba"/>
+</svg>

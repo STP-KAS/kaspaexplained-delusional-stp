@@ -1,0 +1,86 @@
+{
+  "checkedAt": "2026-09-07T08:25:56.960Z",
+  "scope": "Synthetic unfunded fixture. Real5-room keyboard controls; no spending. Read-only test wrapper observes collision bounds.",
+  "reports": [
+    {
+      "width": 1440,
+      "room": "terrarium",
+      "motion": "no-preference",
+      "idleStationary": true,
+      "keyboardSteps": 12,
+      "obstacleClear": true
+    },
+    {
+      "width": 1440,
+      "room": "agent",
+      "motion": "no-preference",
+      "idleStationary": true,
+      "keyboardSteps": 12,
+      "obstacleClear": true
+    },
+    {
+      "width": 1440,
+      "room": "market",
+      "motion": "no-preference",
+      "idleStationary": true,
+      "keyboardSteps": 12,
+      "obstacleClear": true
+    },
+    {
+      "width": 1440,
+      "room": "coordination",
+      "motion": "no-preference",
+      "idleStationary": true,
+      "keyboardSteps": 12,
+      "obstacleClear": true
+    },
+    {
+      "width": 1440,
+      "room": "computation",
+      "motion": "no-preference",
+      "idleStationary": true,
+      "keyboardSteps": 12,
+      "obstacleClear": true
+    },
+    {
+      "width": 390,
+      "room": "terrarium",
+      "motion": "no-preference",
+      "idleStationary": true,
+      "keyboardSteps": 12,
+      "obstacleClear": true
+    },
+    {
+      "width": 390,
+      "room": "agent",
+      "motion": "no-preference",
+      "idleStationary": true,
+      "keyboardSteps": 12,
+      "obstacleClear": true
+    },
+    {
+      "width": 390,
+      "room": "market",
+      "motion": "no-preference",
+      "idleStationary": true,
+      "keyboardSteps": 12,
+      "obstacleClear": true
+    },
+    {
+      "width": 390,
+      "room": "coordination",
+      "motion": "no-preference",
+      "idleStationary": true,
+      "keyboardSteps": 12,
+      "obstacleClear": true
+    },
+    {
+      "width": 390,
+      "room": "computation",
+      "motion": "no-preference",
+      "idleStationary": true,
+      "keyboardSteps": 12,
+      "obstacleClear": true
+    }
+  ]
+}

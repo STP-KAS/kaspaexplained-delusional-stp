@@ -1,0 +1,70 @@
+{
+  "checkedAt": "2026-09-06T20:16:16.245Z",
+  "origin": "http://127.0.0.1:8904",
+  "profile": "main",
+  "mode": "factory-market",
+  "transactions": [
+    {
+      "name": "factory create",
+      "transactionId": "2bf74a8cca2f977792cc51ebc0fbe026f6510d428fa1e7a21c8f385d8f7da933",
+      "acceptingBlock": "843c72d40ebd37d0ce486083e722921d551acaf87f9cc9a4ea32435fe904bee3"
+    },
+    {
+      "name": "factory approve one",
+      "transactionId": "0c64069a6a80fb25ce7c25a542f6c2fbf3b56c109f4582f340e03fc0474f577c",
+      "acceptingBlock": "917be9111b3a2bebadb09997467522344b499ee06295c62ea6e89d03e9f217fc"
+    },
+    {
+      "name": "factory approve two",
+      "transactionId": "74714375349a3ab10731ab969d85e07b0096dbb96e745958ffae5df5e907a034",
+      "acceptingBlock": "b81a457bef1b38786b950289606c82c854d559347fa71be9c2d33185a212be60"
+    },
+    {
+      "name": "factory approve three",
+      "transactionId": "816c2f17a6ba6e3e69fddfb75332d7d9029744e05f67b6f82533b4f5841f9fb4",
+      "acceptingBlock": "7bf68677b942312b0df121464b299b149131ce4457a6c95f14c8dcd256f4f20c"
+    },
+    {
+      "name": "factory payout",
+      "transactionId": "4003e2dc366ed87a76353b1cca3c36b032772ff69926cdd4cf00e3318f630be8",
+      "acceptingBlock": "f144a6b1c965ebd504936da684b0334dee92b17e603d24e9ae51a585ac43245d"
+    },
+    {
+      "name": "market create",
+      "transactionId": "e344d2140e2f1942b62f167fbf33a4a8a77b48a0b89897d648d304581dfbaae8",
+      "acceptingBlock": "f083a26bd2e52d95abb3baccd9255334e49b018ac63238d689910cd6a80b6e35"
+    },
+    {
+      "name": "agent create",
+      "transactionId": "999fe7bd0662e64e3be79e512547f863e3e581e01bfd4c2a6e16a042bc7a7c58",
+      "acceptingBlock": "5d38329b785dde6effa3fe4b1d65f3a00a5d44b44823402a60337a544d936164"
+    },
+    {
+      "name": "agent payment",
+      "transactionId": "22f25bf6f5a061d39e321928f6f589b98857680fd03e13834164aedcb06c8880",
+      "acceptingBlock": "699fb725cba72e876ce56ccd90aed4e897c5b4ad269a7832aae6524f7deccd13"
+    },
+    {
+      "name": "composed purchase",
+      "transactionId": "4c994bbb3e322b69b4ef6d50cdd5407d6df296ff2542ced7d25c551d743ec334",
+      "acceptingBlock": "f8aab16370805768354b63c1038fb7e10ea19335257343e0c74bfda609816104"
+    },
+    {
+      "name": "market refund",
+      "transactionId": "d9cf7bf13c5621750b4ad6f5d9d973c05a2444bb385b6611ac56012846655608",
+      "acceptingBlock": "a5b936159e8d5112bc2fde9d459109376d34f592d3e04c00cfc31c3044e1ddee"
+    },
+    {
+      "name": "agent revoke",
+      "transactionId": "d3650687996a9e9113346fc2457e54a7784f99dd7b72bb01b866acf202013d97",
+      "acceptingBlock": "7dae7e294906df6715b04f43ffe3bd49c2f011c8d01876d54302ffa24ea52a85"
+    }
+  ],
+  "recovery": "Reload and encrypted import restored all accepted records",
+  "viewports": [
+    390,
+    768,
+    1440
+  ],
+  "errors": []
+}

@@ -1,0 +1,29 @@
+pragma silverscript ^0.1.0;
+// Public Testnet-10 template. Instance configuration is encoded only in State.
+// Unaudited; never for mainnet. No server signer is required.
+contract PublicTreasury(pubkey initialMemberA, pubkey initialMemberB, pubkey initialMemberC, int initialPrincipal, int initialMaxFee) {
+    pubkey memberA = initialMemberA;
+    pubkey memberB = initialMemberB;
+    pubkey memberC = initialMemberC;
+    int principal = initialPrincipal;
+    int maxFee = initialMaxFee;
+    entry spend(sig first, sig second, int pair, pubkey beneficiary) {
+        require(memberA != memberB && memberA != memberC && memberB != memberC);
+        if(pair == 0) {
+            require(checkSig(first, memberA)); require(checkSig(second, memberB));
+        } else if(pair == 1) {
+            require(checkSig(first, memberA)); require(checkSig(second, memberC));
+        } else {
+            require(pair == 2);
+            require(checkSig(first, memberB)); require(checkSig(second, memberC));
+        }
+        require(principal > 0 && principal <= 100000000);
+        require(maxFee >= 0 && maxFee <= 1000000);
+        require(tx.inputs.length == 1 && tx.outputs.length == 1);
+        require(tx.inputs[0].value == principal);
+        int fee = principal - tx.outputs[0].value;
+        require(fee >= 0 && fee <= maxFee && tx.outputs[0].value > 0);
+        byte[36] destination = new ScriptPubKeyP2PK(beneficiary);
+        require(tx.outputs[0].scriptPubKey == byte[](destination));
+    }
+}

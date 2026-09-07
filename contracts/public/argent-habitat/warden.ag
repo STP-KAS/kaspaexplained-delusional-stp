@@ -1,0 +1,25 @@
+// Real closed inter-contract communication across separately compiled Argent apps.
+import app CreatureApp from "./creature.ag";
+state WardenState { pubkey owner; int food; }
+actor Warden owns WardenState {
+    entry feed(cov_id creature_id, int amount, sig owner_sig)
+    observes habitat by creature_id {
+        inputs { creature: CreatureApp::Creature, }
+        outputs { creature: CreatureApp::Creature, }
+    }
+    emits { warden: Warden, } {
+        CreatureState previous = state(habitat.inputs.creature);
+        require(checkSig(owner_sig, owner));
+        require(amount > 0 && amount <= 3 && food >= amount);
+        require(previous.owner == owner);
+        require(previous.controller_id == self.cov_id);
+        CreatureState next_creature = { owner: previous.owner, controller_id: self.cov_id, energy: previous.energy + amount, };
+        require habitat.outputs become { creature <- CreatureApp::Creature(next_creature), };
+        WardenState next = { owner: owner, food: food - amount, };
+        require(warden.value > 0);
+        require(warden.value >= self.value - 3000000 && warden.value < self.value);
+        become warden <- Warden(next);
+    }
+    entry retire(sig owner_sig) emits none { require(checkSig(owner_sig, owner)); }
+}
+app WardenApp { actor Warden; }

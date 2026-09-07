@@ -1,0 +1,55 @@
+{
+  "checkedAt": "2026-09-06T20:14:28.240Z",
+  "origin": "http://127.0.0.1:8904",
+  "profile": "second",
+  "mode": "habitat-compute",
+  "transactions": [
+    {
+      "name": "habitat create",
+      "transactionId": "b918987724a6e7d8c4756ce3cc1559102c13b3c227ae4bdeab8915754bd61c74",
+      "acceptingBlock": "6a01d3a2c6f5dbe343c6348ca6446bcbc459a720e8b1e674c2ff1fbf8a263bd8"
+    },
+    {
+      "name": "habitat move one",
+      "transactionId": "db0fad6a3b4e4f024b7d6b9bca3dd693c17d1f97a680f37b1386bf8af6bb6f24",
+      "acceptingBlock": "2d970331294a24f8397dc4e5207e95924985e8488d9287e88a0cf721902c5dba"
+    },
+    {
+      "name": "habitat move two",
+      "transactionId": "7d4382e70d396ec23f3f8e1d3ce6f69f95d795f6d7bc0832362219eb6d3bf18e",
+      "acceptingBlock": "b45b24f5ec6544b9296bb2975849449ea505e7d74a110f92427e8cc216afecbd"
+    },
+    {
+      "name": "habitat move three",
+      "transactionId": "9e1ba0be1cc51364c4c769df7314763cd124fe52c8c497761b794d9e49935775",
+      "acceptingBlock": "ca67e8b0ff7351ff64e95edc444ca87972ec222b673a6e08e6a589f5c9ec1bc3"
+    },
+    {
+      "name": "habitat refund",
+      "transactionId": "d773151f5e783be5e806a9ead7f6bc6a73ce67ec938a5c4d3055d69f4b0e976a",
+      "acceptingBlock": "1cac7d2e31e3ce6657608eff2f7f259476f32dde1f98f2167ce42ae4062d6c13"
+    },
+    {
+      "name": "compute create",
+      "transactionId": "c06178654e270cec662338b5da7552af1708ce1258d1bc4297a771ad7383dc15",
+      "acceptingBlock": "b710567cc92653d1f14d8f736a0cd133d7c6a0809ee0955c4bc2290fbd5eb1e1"
+    },
+    {
+      "name": "compute solve",
+      "transactionId": "5dc3d754083c52492cfc2a8571e42fdfc1986b092182150bfdf1931e40d33c98",
+      "acceptingBlock": "c08d2306b0c2e79ce3c09d5d7a60a8736ca88fcf8585bef387f9036d7504daac"
+    },
+    {
+      "name": "compute refund",
+      "transactionId": "505b45f2b6580153918f5c01adee6844427078bdf2a0d2ecc996e15af0669aa3",
+      "acceptingBlock": "24f455a9c3764df4d0495b71563f704cf0376d2402d5f1d7196a1516c8b5c690"
+    }
+  ],
+  "recovery": "Reload and encrypted import restored all accepted records",
+  "viewports": [
+    390,
+    768,
+    1440
+  ],
+  "errors": []
+}

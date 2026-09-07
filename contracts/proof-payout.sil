@@ -1,0 +1,16 @@
+pragma silverscript ^0.1.0;
+// Published proof fixture verification, not newly generated private computation.
+contract ProofPayout(pubkey owner, byte[] verifyingKey, byte[32] input0, byte[32] input1, byte[32] input2, byte[32] input3, byte[32] input4, int principal, int maxFee) {
+    entry verify(sig authorization, byte[] proof) {
+        require(checkSig(authorization, owner));
+        require(principal > 0 && principal <= 100000000);
+        require(maxFee >= 0 && maxFee <= 1000000);
+        require(tx.inputs.length == 1 && tx.outputs.length == 1);
+        require(tx.inputs[0].value == principal);
+        int fee = principal - tx.outputs[0].value;
+        require(fee >= 0 && fee <= maxFee && tx.outputs[0].value > 0);
+        byte[36] destination = new ScriptPubKeyP2PK(owner);
+        require(tx.outputs[0].scriptPubKey == byte[](destination));
+        g16.verify(verifyingKey, proof, input0, input1, input2, input3, input4);
+    }
+}

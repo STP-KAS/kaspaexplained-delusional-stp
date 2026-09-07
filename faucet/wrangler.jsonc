@@ -1,0 +1,11 @@
+{
+  "name": "kaspa-demo-faucet",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-09-06",
+  "account_id": "12418158839e0c1880a7f3fa8678bcfd",
+  "workers_dev": true,
+  "durable_objects": {"bindings": [{"name": "FAUCET", "class_name": "FaucetWallet"}]},
+  "migrations": [{"tag": "v1", "new_sqlite_classes": ["FaucetWallet"]}],
+  "vars": {"ENABLED": "true", "MAX_CLAIMS": "1000"},
+  "observability": {"enabled": false}
+}

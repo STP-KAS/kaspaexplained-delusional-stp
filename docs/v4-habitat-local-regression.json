@@ -1,0 +1,38 @@
+{
+  "checkedAt": "2026-09-07T08:31:10.476Z",
+  "scope": "Real UI and SDK; synthetic unfunded UTXOs and mock RPC. No live transactions.",
+  "reports": [
+    {
+      "width": 1440,
+      "acceptedPositions": [
+        "Square 1,1 · 3 energy",
+        "Square 2,1 · 2 energy",
+        "Square 2,2 · 1 energy",
+        "Square 1,2 · 0 energy"
+      ],
+      "threeMoves": true,
+      "pendingKeepsState": true,
+      "pendingRepeatBlocked": true,
+      "returnedDeposit": true,
+      "completeHidesRequiredAction": true,
+      "optionalRestartDoesNotSpend": true,
+      "reloadDoesNotSpend": true
+    },
+    {
+      "width": 390,
+      "acceptedPositions": [
+        "Square 1,1 · 3 energy",
+        "Square 2,1 · 2 energy",
+        "Square 2,2 · 1 energy",
+        "Square 1,2 · 0 energy"
+      ],
+      "threeMoves": true,
+      "pendingKeepsState": true,
+      "pendingRepeatBlocked": true,
+      "returnedDeposit": true,
+      "completeHidesRequiredAction": true,
+      "optionalRestartDoesNotSpend": true,
+      "reloadDoesNotSpend": true
+    }
+  ]
+}

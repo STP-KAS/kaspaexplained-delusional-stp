@@ -1,0 +1,130 @@
+{
+  "habitatSupplied": true,
+  "completedStateReloaded": true,
+  "checkedAt": "2026-09-07T06:59:20.582Z",
+  "origin": "https://rico-watts-estimation-downloaded.trycloudflare.com",
+  "claimRequestId": "5ac38ba6-2d60-4a4c-b547-1c84db4413bd",
+  "transactions": [
+    {
+      "step": "shop",
+      "transactionId": "0bae09fabb6e5be7b2ae2379a6cebc3992e4c869282ab42c533e30cc42a7913a",
+      "acceptingBlock": "bf2f04a9f5ff4a13923822987be993f976761f2ee7e6ee545984da192759657a",
+      "localReject": false
+    },
+    {
+      "step": "budget",
+      "transactionId": "2cb7e32a430d6763be6287353b5893ff68f1302350ce7dca00889039e05bad78",
+      "acceptingBlock": "db33b1b6526abebea1ee103bf6623ddec5f136984572f1b08075cd198255780c",
+      "localReject": false
+    },
+    {
+      "step": "overspend",
+      "transactionId": null,
+      "acceptingBlock": null,
+      "localReject": true
+    },
+    {
+      "step": "pay",
+      "transactionId": "3691f0d99dd5bd63a806c08f36dd8361f3b72aa9c8fa5865513761ad53b3f7b7",
+      "acceptingBlock": "e7df2e5befd39523ecbb86b2ff6415d058a6477a282c4bf4fc4916570874aa74",
+      "localReject": false
+    },
+    {
+      "step": "buy",
+      "transactionId": "29a4b034bec5de9d4721e31d7511659c3f3ce6f6beb6abb3da0433ba56dcbd88",
+      "acceptingBlock": "42ea353a009804247c4049691c4ff88c34f619b1f578977d02a49569ec9d1518",
+      "localReject": false
+    },
+    {
+      "step": "parts-refund",
+      "transactionId": "95847602c62b51af04ae1f5279dd60f3534000e339fab8c0242e1c5e8afa81aa",
+      "acceptingBlock": "bbab1236bf5513a851f3f58a6295b80dcfa2b60b95fd9579afb8d6747615013b",
+      "localReject": false
+    },
+    {
+      "step": "recover",
+      "transactionId": "c0d4f2ab1fa479d97d655b70b10d1b1054b18aacf4dfc18f18209a3d166c68d0",
+      "acceptingBlock": "5b68bd5574db732ca6ed89e94ffaba8f65acf53fbbab7eabeb17d43348c9c769",
+      "localReject": false
+    },
+    {
+      "step": "habitat",
+      "transactionId": "8576bcb3610eee6469300c7d2cb252dec158dc92c851b5a9a42b7835432dc404",
+      "acceptingBlock": "3fc79c88f92af0a1445fe5df9d119a5c5d534ff8aa056c58b14142bc0f820ace",
+      "localReject": false
+    },
+    {
+      "step": "move-1",
+      "transactionId": "dd88dffbf73a113983bc10e5a8278fcf2b03c54a2c7c0669f53339e700c2717c",
+      "acceptingBlock": "fe00ce9ac77325836418010bc90552569d8d7c9e2d021be7e8406fa7aa129bea",
+      "localReject": false
+    },
+    {
+      "step": "move-2",
+      "transactionId": "9094866f8e663f68882af97bad9bb865d47d6bbf361c448dc3c9dc3290e31378",
+      "acceptingBlock": "770da4b52d685b4fdc56ef74d378dfbec845ed1f83c14b8c09e971defdec939e",
+      "localReject": false
+    },
+    {
+      "step": "move-3",
+      "transactionId": "88d43260d7d1ea2823a7dce0929b5f413d2ec3916e1fecd0d7df606fdf8c4bb0",
+      "acceptingBlock": "c25a2d638a09d4270dd74b3d8452228f046e2b10829ffbb8764d9f8b4bcc5dc1",
+      "localReject": false
+    },
+    {
+      "step": "habitat-refund",
+      "transactionId": "ce7e54a80b9fff37829669c9248c3a0d6613d647a7dc96d076b4a59497dea0ef",
+      "acceptingBlock": "f4f762f4de7094dd7e3af7b79ac5c1b25ff5a776bf2c2ed8fd93e7069c1a783c",
+      "localReject": false
+    },
+    {
+      "step": "factory",
+      "transactionId": "1e9e3e6e6bf2d40c18c5f63fee9cdc3e87f61c5a0b5e66c84765f2db9b79ad7f",
+      "acceptingBlock": "17f422be412991f09a00276a3ec7dd0f40cb5f942faae237edba05294fe1bbd6",
+      "localReject": false
+    },
+    {
+      "step": "approve-main",
+      "transactionId": "8f3593b85b8f5333e50b317c0b756728775e9beed26ab949711b9f6a2e107408",
+      "acceptingBlock": "1ea78b5baccc140f251c37146b627279376cd66b4ae0b8c9c6b849017abb2c54",
+      "localReject": false
+    },
+    {
+      "step": "approve-pip",
+      "transactionId": "8cf13ae15ba10ca34e5ced6d6b389f17e085a9c3575d4d2913727d782221b8cc",
+      "acceptingBlock": "d0b2767a6bf6a44949ad7667716b94eaccb188505bb59229d516cd04ea0b3da7",
+      "localReject": false
+    },
+    {
+      "step": "approve-third",
+      "transactionId": "6efd9dbcabea15c306fad59306db8943cf0b9412432a900effb2408f45382de6",
+      "acceptingBlock": "cc424ba6bb2c3edb7f5c5b16cb7b6d0a4555ee8d2a5d6231810ba50a249b6099",
+      "localReject": false
+    },
+    {
+      "step": "factory-pay",
+      "transactionId": "141fb2433b27cba4bb4e0beac365cc12ccb3ada05b87e0841ef799a7b5a48da2",
+      "acceptingBlock": "c4efeb7661fb2e6a1e285f3c25c8b068769be5421665b233979e12d66b4bc616",
+      "localReject": false
+    },
+    {
+      "step": "compute",
+      "transactionId": "65fc4c6fe00bba6fff4ef394abc91102278387ae1aa8b2cc8484ab7204aa423e",
+      "acceptingBlock": "9b7a8b3b90cb5e3e0b143ff32a037390a5b732be5ec6c697c145583478778904",
+      "localReject": false
+    },
+    {
+      "step": "compute-pay",
+      "transactionId": "83dd498c947a8913f3972be362bff271c4de508b9d48d0cab1630bc475f4219f",
+      "acceptingBlock": "ec35debb8e547ba49ac61e7feda1abcacb16414be7dbfc998d11b58b7ec2ea39",
+      "localReject": false
+    },
+    {
+      "step": "compute-refund",
+      "transactionId": "7b6e657a267b23fbd610206797c74fd3f4d2b19a3900dd2a0a9d55138cce909d",
+      "acceptingBlock": "66faa51b79bdbf29fb09722fe946beb580c5e4a609b15688593c33250aafc716",
+      "localReject": false
+    }
+  ],
+  "errors": []
+}

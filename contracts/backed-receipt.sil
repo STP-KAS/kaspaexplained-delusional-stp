@@ -1,0 +1,68 @@
+pragma silverscript ^0.1.0;
+
+// Experimental Testnet-10 backed claims. One unit is one locked sompi.
+// This does not represent USD, off-chain reserves, or an issuer promise.
+contract BackedReceipt(byte[32] series, int maxFee, byte[32] initialOwner, int initialQuantity) {
+    byte[32] owner = initialOwner;
+    int quantity = initialQuantity;
+    byte[32] seriesId = series;
+
+    #[covenant(binding = cov, from = 2, to = 2)]
+    function move(State[] prevStates, State[] newStates, int operation, pubkey sponsor, sig authorization) {
+        require(checkSig(authorization, pubkey(owner)));
+        require(maxFee > 0 && maxFee <= 3000000);
+        require(prevStates.length >= 1 && prevStates.length <= 2);
+        require(newStates.length <= 2);
+        byte[32] covId = OpInputCovenantId(this.activeInputIndex);
+        int previousTotal = 0;
+        int nextTotal = 0;
+        for(i, 0, prevStates.length, 2) {
+            require(prevStates[i].seriesId == series);
+            require(prevStates[i].quantity > 0 && prevStates[i].quantity <= 1000000000);
+            // All receipt inputs lead; exactly one plain sponsor follows.
+            require(OpCovInputIdx(covId, i) == i);
+            require(tx.inputs[i].value == prevStates[i].quantity);
+            previousTotal = previousTotal + prevStates[i].quantity;
+        }
+        require(previousTotal <= 1000000000);
+        for(i, 0, newStates.length, 2) {
+            require(newStates[i].seriesId == series);
+            require(newStates[i].quantity > 0 && newStates[i].quantity <= 1000000000);
+            require(OpCovOutputIdx(covId, i) == i);
+            require(tx.outputs[i].value == newStates[i].quantity);
+            nextTotal = nextTotal + newStates[i].quantity;
+        }
+        require(nextTotal <= 1000000000);
+        require(tx.inputs.length == prevStates.length + 1);
+        byte[36] sponsorScript = new ScriptPubKeyP2PK(sponsor);
+        require(tx.inputs[prevStates.length].scriptPubKey == byte[](sponsorScript));
+
+        int changeIndex = newStates.length;
+        if(operation == 0) {
+            // Transfer, split, and merge cannot consume backing for fees.
+            require(newStates.length >= 1);
+            require(previousTotal == nextTotal);
+        } else {
+            require(operation == 1);
+            // Redemption has one holder, no ambiguous multi-owner payout.
+            require(prevStates.length == 1);
+            require(newStates.length <= 1);
+            require(nextTotal < previousTotal);
+            if(newStates.length == 1) { require(newStates[0].owner == owner); }
+            byte[36] recipient = new ScriptPubKeyP2PK(pubkey(owner));
+            require(tx.outputs[newStates.length].scriptPubKey == byte[](recipient));
+            require(tx.outputs[newStates.length].value == previousTotal - nextTotal);
+            changeIndex = changeIndex + 1;
+        }
+        require(tx.outputs.length == changeIndex + 1);
+        require(tx.outputs[changeIndex].scriptPubKey == byte[](sponsorScript));
+        require(tx.outputs[changeIndex].value > 0);
+        int fee = tx.inputs[prevStates.length].value - tx.outputs[changeIndex].value;
+        require(fee > 0 && fee <= maxFee);
+    }
+
+    #[covenant.delegate]
+    function authorizeDelegate(sig authorization) {
+        require(checkSig(authorization, pubkey(owner)));
+    }
+}
