@@ -40,7 +40,7 @@ export function localFilm(src, caption) {
     <video controls playsinline preload="metadata" src="${src}">
       Your browser cannot play this film. <a href="${src}">Open the file</a>.
     </video>
-    <figcaption class="small">${caption}</figcaption>
+    ${caption ? `<figcaption class="small">${caption}</figcaption>` : ''}
   </figure>`;
 }
 

@@ -11,40 +11,18 @@ mountDoors();
   if (welcome) {
     const video = welcome.querySelector('video');
     const closed = () => welcome.hidden;
-    const start = () => {
-      if (!video || closed() || !video.paused || video.ended) return;
-      video.muted = true;
-      video.defaultMuted = true;
-      video.playsInline = true;
-      video.volume = 1;
-      video.play()?.catch(() => {});
-    };
-    const soundOn = () => {
-      if (!video || closed()) return;
-      video.volume = 1;
-      video.muted = false;
-      video.defaultMuted = false;
-    };
     const close = () => {
       video?.pause();
       welcome.hidden = true;
     };
     welcome.querySelector('[data-welcome-close]')?.addEventListener('click', close);
     welcome.addEventListener('pointerdown', event => {
-      if (closed()) return;
-      if (event.target.closest('[data-welcome-close]')) return;
-      if (event.target.closest('.welcome-card')) {
-        soundOn();
-        return;
-      }
+      if (closed() || event.target.closest('.welcome-card')) return;
       close();
     });
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape' && !closed()) close();
     });
-    video?.addEventListener('playing', () => video.classList.add('is-ready'));
-    video?.addEventListener('canplay', start);
-    start();
   }
 }
 import {networkState, spendState, miningState, vaultState, transactionState, formatKas} from './models.mjs';
