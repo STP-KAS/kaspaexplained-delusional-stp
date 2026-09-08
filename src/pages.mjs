@@ -11,7 +11,17 @@ const intro = (eyebrow, title, lead) => `<div class="page-intro intro-${eyebrow.
 export const pages = [
   {
     file:'index.html', title:'Kaspa Explained', description:'Explore how Kaspa payments, parallel blocks, and spending rules work through interactive explanations.',
-    body: `<p class="home-ethos">Crypto started with proof of work, for decentralized money and ownership.<br>Proof of stake left that idea.<br>Kaspa goes back to the roots: fast, programmable proof of work.</p>
+    body: `<dialog class="welcome" data-welcome>
+        <div class="welcome-card">
+          <p class="eyebrow">Kaspa Explained</p>
+          <video class="welcome-film" controls playsinline autoplay muted preload="auto" src="/media/kaspa-roots.mp4">
+            Your browser cannot play this film. <a href="/media/kaspa-roots.mp4">Open the file</a>.
+          </video>
+          <p class="welcome-copy">Crypto started with Bitcoin proof of work, for decentralized money and ownership.<br>Proof of stake left that idea.<br>Kaspa follows the ethos of Satoshi and delivers: fast, programmable proof of work.</p>
+          <button class="primary-button" type="button" data-welcome-close>Continue</button>
+        </div>
+      </dialog>
+      <p class="home-ethos">Crypto started with Bitcoin proof of work, for decentralized money and ownership.<br>Proof of stake left that idea.<br>Kaspa follows the ethos of Satoshi and delivers: fast, programmable proof of work.</p>
       <section class="doors" aria-label="Choose an intel door">
         <p class="eyebrow">Four doors</p>
         <h1>Who is reading.</h1>

@@ -6,6 +6,24 @@ import {mountDoors} from './doors.mjs';
 document.querySelectorAll('[data-coordination]').forEach(mountCoordination);
 mountInstalledWallet();
 mountDoors();
+{
+  const dialog = document.querySelector('[data-welcome]');
+  if (dialog) {
+    const video = dialog.querySelector('video');
+    const close = () => {
+      video?.pause();
+      if (dialog.open) dialog.close();
+    };
+    dialog.querySelector('[data-welcome-close]')?.addEventListener('click', close);
+    dialog.addEventListener('cancel', event => {
+      event.preventDefault();
+      close();
+    });
+    if (typeof dialog.showModal === 'function') dialog.showModal();
+    else dialog.setAttribute('open', '');
+    video?.play()?.catch(() => {});
+  }
+}
 import {networkState, spendState, miningState, vaultState, transactionState, formatKas} from './models.mjs';
 
 const all = (selector, root=document) => [...root.querySelectorAll(selector)];
