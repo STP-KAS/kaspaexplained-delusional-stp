@@ -3,11 +3,15 @@ export const site = {
   domain: 'https://kaspaexplained.com',
   checked: '2026-09-06',
   navigation: [
-    ['Understand', '/what-is-kaspa'], ['Use KAS', '/why-kaspa-matters'],
-    ['Evaluate', '/skeptical-case'], ['Build', '/build-on-kaspa'],
-    ['Explore', '/explore'], ['PegLab', '/peglab'],
-    ['Moonboy', '/moonboy'], ['Practices', '/best-practices'],
-    ['Help', '/help'], ['X', '/x-handles'],
+    ['Playground', '/playground'],
+    ['Use KAS', '/why-kaspa-matters'],
+    ['Build', '/build-on-kaspa'],
+    ['Explore', '/explore'],
+    ['PegLab', '/peglab'],
+    ['Moonboy', '/moonboy'],
+    ['Practices', '/best-practices'],
+    ['Help', '/help'],
+    ['X', '/x-handles'],
   ],
 };
 
