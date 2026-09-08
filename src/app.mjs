@@ -11,35 +11,30 @@ mountDoors();
   if (welcome) {
     const video = welcome.querySelector('video');
     const closed = () => welcome.hidden;
-    const withSound = () => {
+    const start = () => {
+      if (!video || closed() || !video.paused || video.ended) return;
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+      video.volume = 1;
+      video.play()?.catch(() => {});
+    };
+    const soundOn = () => {
       if (!video || closed()) return;
       video.volume = 1;
       video.muted = false;
       video.defaultMuted = false;
     };
-    const kick = () => {
-      if (!video || closed() || video.ended) return;
-      video.playsInline = true;
-      video.autoplay = true;
-      withSound();
-      if (!video.paused) return;
-      video.play()?.catch(() => {
-        video.muted = true;
-        video.play()?.then(() => withSound()).catch(() => {});
-      });
-    };
     const close = () => {
       video?.pause();
       welcome.hidden = true;
-      clearInterval(timer);
     };
     welcome.querySelector('[data-welcome-close]')?.addEventListener('click', close);
     welcome.addEventListener('pointerdown', event => {
       if (closed()) return;
       if (event.target.closest('[data-welcome-close]')) return;
       if (event.target.closest('.welcome-card')) {
-        withSound();
-        video.play()?.catch(() => {});
+        soundOn();
         return;
       }
       close();
@@ -47,10 +42,8 @@ mountDoors();
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape' && !closed()) close();
     });
-    video?.addEventListener('canplay', kick);
-    video?.addEventListener('playing', withSound);
-    kick();
-    const timer = setInterval(kick, 250);
+    video?.addEventListener('canplay', start);
+    start();
   }
 }
 import {networkState, spendState, miningState, vaultState, transactionState, formatKas} from './models.mjs';
