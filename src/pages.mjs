@@ -14,16 +14,19 @@ export const pages = [
     body: `<div class="welcome" data-welcome role="dialog" aria-modal="true" aria-label="Kaspa Explained STP">
         <div class="welcome-card">
           <p class="eyebrow">Kaspa Explained STP</p>
-          <video class="welcome-film" muted autoplay playsinline preload="auto" src="/media/kaspa-roots.mp4">
-            Your browser cannot play this film. <a href="/media/kaspa-roots.mp4">Open the file</a>.
-          </video>
+          <div class="welcome-stage">
+            <video class="welcome-film" muted autoplay playsinline preload="auto" poster="/media/kaspa-roots.jpg" src="/media/kaspa-roots.mp4" disablepictureinpicture>
+              Your browser cannot play this film. <a href="/media/kaspa-roots.mp4">Open the file</a>.
+            </video>
+          </div>
           <script>
             (() => {
-              const video = document.currentScript.previousElementSibling;
-              if (!video || video.tagName !== 'VIDEO') return;
+              const video = document.currentScript.previousElementSibling.querySelector('video');
+              if (!video) return;
               video.muted = true;
               video.defaultMuted = true;
               video.playsInline = true;
+              video.addEventListener('playing', () => video.classList.add('is-ready'), {once:true});
               if (video.paused && video.play) video.play().catch(() => {});
             })();
           </script>
