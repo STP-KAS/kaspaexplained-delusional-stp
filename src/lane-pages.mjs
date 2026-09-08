@@ -92,6 +92,6 @@ export const lanePages = [
           `<tr><th>${name}</th><td><a href="${url}" target="_blank" rel="noopener noreferrer">${handle}</a></td><td>${role}</td></tr>`
         ).join('')}</tbody>
       </table></div>
-      <p class="small">Source: Kaspa master file, freeze 7 Sep 2026. @StppStp / STP-KAS. Not Kaspa core. Not official KNS.</p>`,
+      <p class="small">Source: Kaspa master file, freeze 7 Sep 2026. Not Kaspa core. Not official KNS.</p>`,
   },
 ];
