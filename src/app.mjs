@@ -10,15 +10,38 @@ mountDoors();
   const welcome = document.querySelector('[data-welcome]');
   if (welcome) {
     const video = welcome.querySelector('video');
+    let soundUnlocked = false;
     let triedSound = false;
     const closed = () => welcome.hidden;
     const kick = () => {
       if (!video || closed() || !video.paused || video.ended) return;
-      video.muted = true;
-      video.defaultMuted = true;
       video.playsInline = true;
       video.autoplay = true;
+      video.volume = 1;
+      if (soundUnlocked) {
+        video.muted = false;
+        video.defaultMuted = false;
+        video.play()?.catch(() => {
+          video.muted = true;
+          video.play()?.catch(() => {});
+        });
+        return;
+      }
+      video.muted = true;
+      video.defaultMuted = true;
       video.play()?.catch(() => {});
+    };
+    const giveSound = () => {
+      if (!video || closed()) return;
+      video.volume = 1;
+      video.muted = false;
+      video.defaultMuted = false;
+      video.play()?.then(() => {
+        if (!video.paused && !video.muted) soundUnlocked = true;
+      }).catch(() => {
+        video.muted = true;
+        video.play()?.catch(() => {});
+      });
     };
     const close = () => {
       video?.pause();
@@ -26,6 +49,15 @@ mountDoors();
       clearInterval(timer);
     };
     welcome.querySelector('[data-welcome-close]')?.addEventListener('click', close);
+    welcome.addEventListener('pointerdown', event => {
+      if (closed()) return;
+      if (event.target.closest('[data-welcome-close]')) return;
+      if (event.target.closest('.welcome-card')) {
+        giveSound();
+        return;
+      }
+      close();
+    });
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape' && !closed()) close();
     });
@@ -33,14 +65,9 @@ mountDoors();
     video?.addEventListener('loadeddata', kick);
     video?.addEventListener('stalled', kick);
     video?.addEventListener('timeupdate', () => {
-      if (!video || closed() || triedSound || video.currentTime < 1.5) return;
+      if (!video || closed() || triedSound || video.currentTime < 0.4) return;
       triedSound = true;
-      video.volume = 1;
-      video.muted = false;
-      video.play()?.catch(() => {
-        video.muted = true;
-        kick();
-      });
+      giveSound();
     });
     kick();
     const timer = setInterval(kick, 250);

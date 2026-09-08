@@ -152,7 +152,7 @@ function renderHoldings(session, holdings, status) {
 function paint(root, session, holdings, status) {
   const open = root.querySelector('[data-wallet-open]');
   if (open) {
-    open.textContent = session.address ? shortAddress(session.address) : 'Wallet';
+    open.textContent = session.address ? shortAddress(session.address) : 'Kasware';
     open.title = session.address || 'Connect Kasware or Kastle';
     open.setAttribute('aria-pressed', String(Boolean(session.address)));
   }
@@ -164,9 +164,9 @@ export function mountInstalledWallet() {
   if (!tools || tools.querySelector('[data-wallet-open]')) return;
   const wrap = document.createElement('div');
   wrap.className = 'wallet-shell';
-  wrap.innerHTML = `<button class="wallet-button" type="button" data-wallet-open aria-expanded="false" aria-controls="wallet-panel">Wallet</button>
+  wrap.innerHTML = `<button class="wallet-button" type="button" data-wallet-open aria-expanded="false" aria-controls="wallet-panel">Kasware</button>
     <div class="wallet-panel" id="wallet-panel" data-wallet-panel hidden><div data-wallet-view></div></div>`;
-  tools.prepend(wrap);
+  tools.append(wrap);
   const page = document.querySelector('[data-wallet-page-root]');
   if (page) page.setAttribute('data-wallet-view', '');
   const panel = wrap.querySelector('[data-wallet-panel]');
