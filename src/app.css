@@ -29,7 +29,10 @@
 .welcome::backdrop{background:#111c}
 .welcome-card{padding:22px 22px 24px;border:1px solid var(--rule);border-radius:20px;background:var(--paper);box-shadow:var(--shadow)}
 .welcome-card .eyebrow{margin-bottom:12px}
+.welcome-sound-note{margin:0 0 10px;font-size:.9375rem;font-weight:650;color:var(--green);letter-spacing:.02em}
+.welcome-stage{position:relative}
 .welcome-film{display:block;width:100%;max-height:min(52vh,420px);background:#111;border-radius:14px;border:1px solid var(--rule)}
+.welcome-sound-start{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1}
 .welcome-copy{margin:16px 0 20px;max-width:46ch;line-height:1.55}
 .doors{margin:0 0 40px;max-width:52rem}
 .doors h1{font-size:clamp(2.2rem,4vw,3.2rem);margin:0 0 12px}
