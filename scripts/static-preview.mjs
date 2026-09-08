@@ -14,4 +14,13 @@ export function staticPreview(directory='dist-v1'){
     res.writeHead(code,{'Content-Type':mime[extname(file)]||'application/octet-stream','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(req.method==='HEAD'?undefined:body);
   });
 }
-if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url))staticPreview(process.argv[2]||'dist-v1').listen(Number(process.env.PORT||8899),'127.0.0.1',()=>console.log(`Static preview: http://127.0.0.1:${process.env.PORT||8899}/`));
+if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
+  const port=Number(process.env.PORT||8899);
+  const host=process.env.HOST||'127.0.0.1';
+  const name=process.env.LOCAL_HOST||'kaspaexplained-stp.localhost';
+  staticPreview(process.argv[2]||'dist-v1').listen(port,host,()=>{
+    console.log(`Kaspa Explained STP`);
+    console.log(`http://${host}:${port}/`);
+    console.log(`http://${name}:${port}/`);
+  });
+}
