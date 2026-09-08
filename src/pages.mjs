@@ -2,7 +2,7 @@ import { payment, network, spend, mining, vault, transaction, inspector, section
 import { sources, snapshot } from './site.mjs';
 import {coordinationMarkup} from './coordination-view.mjs';
 import {people} from './doors.mjs';
-import {kgiCard} from './community.mjs';
+import {kgiCard, localFilm} from './community.mjs';
 
 const source = key => link(...sources[key]);
 const routes = items => `<nav class="topic-list" aria-label="Related explanations">${items.map(([title, text, url])=>`<a href="${url}"><div><strong>${title}</strong><p>${text}</p></div><span aria-hidden="true">↗</span></a>`).join('')}</nav>`;
@@ -14,22 +14,7 @@ export const pages = [
     body: `<div class="welcome" data-welcome role="dialog" aria-modal="true" aria-label="Kaspa Explained STP">
         <div class="welcome-card">
           <p class="eyebrow">Kaspa Explained STP</p>
-          <div class="welcome-stage">
-            <video class="welcome-film" muted autoplay playsinline preload="auto" poster="/media/kaspa-roots.jpg" src="/media/kaspa-roots.mp4" disablepictureinpicture>
-              Your browser cannot play this film. <a href="/media/kaspa-roots.mp4">Open the file</a>.
-            </video>
-          </div>
-          <script>
-            (() => {
-              const video = document.currentScript.previousElementSibling.querySelector('video');
-              if (!video) return;
-              video.muted = true;
-              video.defaultMuted = true;
-              video.playsInline = true;
-              video.addEventListener('playing', () => video.classList.add('is-ready'), {once:true});
-              if (video.paused && video.play) video.play().catch(() => {});
-            })();
-          </script>
+          ${localFilm('/media/kaspa-roots.mp4')}
           <p class="welcome-copy">Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br>Proof of stake replaced work with capital. That is a different system.<br>Kaspa stayed with proof of work and made it fast and programmable. No more, no less.</p>
           <button class="primary-button" type="button" data-welcome-close>Continue</button>
         </div>
