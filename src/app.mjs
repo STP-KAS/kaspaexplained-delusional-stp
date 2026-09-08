@@ -15,17 +15,27 @@ mountDoors();
       video?.pause();
       if (dialog.open) dialog.close();
     };
-    const startWithSound = () => {
+    const keepPlaying = () => {
       if (!video || unlocking) return;
       unlocking = true;
-      video.defaultMuted = false;
-      video.removeAttribute('muted');
-      video.muted = false;
       video.volume = 1;
+      const finish = () => { unlocking = false; };
+      const unmute = () => {
+        video.defaultMuted = false;
+        video.removeAttribute('muted');
+        video.muted = false;
+        video.volume = 1;
+      };
+      const playMuted = () => {
+        video.muted = true;
+        const mutedPlay = video.play();
+        if (mutedPlay && mutedPlay.then) mutedPlay.then(() => { unmute(); finish(); }).catch(finish);
+        else { unmute(); finish(); }
+      };
+      unmute();
       const play = video.play();
-      const done = () => { unlocking = false; };
-      if (play && play.then) play.then(done).catch(done);
-      else done();
+      if (play && play.then) play.then(finish).catch(playMuted);
+      else finish();
     };
     dialog.querySelector('[data-welcome-close]')?.addEventListener('click', close);
     dialog.addEventListener('cancel', event => {
@@ -33,22 +43,23 @@ mountDoors();
       close();
     });
     video?.addEventListener('click', () => {
-      if (video.paused) startWithSound();
+      if (video.paused) keepPlaying();
       else video.pause();
     });
     let unmuteTries = 0;
     video?.addEventListener('playing', () => {
-      if (video.muted || video.volume === 0) startWithSound();
+      if (video.muted || video.volume === 0) keepPlaying();
     });
     video?.addEventListener('volumechange', () => {
       if ((video.muted || video.volume === 0) && unmuteTries < 5) {
         unmuteTries += 1;
-        startWithSound();
+        keepPlaying();
       }
     });
-    if (typeof dialog.showModal === 'function') dialog.showModal();
-    else dialog.setAttribute('open', '');
-    startWithSound();
+    if (typeof dialog.showModal === 'function') {
+      if (!dialog.open) dialog.showModal();
+    } else dialog.setAttribute('open', '');
+    keepPlaying();
   }
 }
 import {networkState, spendState, miningState, vaultState, transactionState, formatKas} from './models.mjs';
