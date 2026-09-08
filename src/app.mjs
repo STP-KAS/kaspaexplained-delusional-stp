@@ -15,18 +15,33 @@ mountDoors();
       video?.pause();
       if (dialog.open) dialog.close();
     };
+    const sounding = () => Boolean(video && !video.paused && !video.muted && video.volume > 0);
+    const showSound = () => { if (sound) sound.hidden = sounding(); };
     const startWithSound = () => {
       if (!video) return;
+      video.defaultMuted = false;
       video.muted = false;
       video.volume = 1;
-      video.play().then(() => { if (sound) sound.hidden = true; }).catch(() => { if (sound) sound.hidden = false; });
+      const play = video.play();
+      if (play && play.then) play.then(showSound).catch(showSound);
+      else showSound();
     };
     dialog.querySelector('[data-welcome-close]')?.addEventListener('click', close);
-    sound?.addEventListener('click', startWithSound);
+    sound?.addEventListener('click', event => {
+      event.preventDefault();
+      startWithSound();
+    });
+    dialog.addEventListener('pointerdown', event => {
+      if (event.target.closest('[data-welcome-close]')) return;
+      if (!sounding()) startWithSound();
+    });
     dialog.addEventListener('cancel', event => {
       event.preventDefault();
       close();
     });
+    video?.addEventListener('play', showSound);
+    video?.addEventListener('pause', showSound);
+    video?.addEventListener('volumechange', showSound);
     if (typeof dialog.showModal === 'function') dialog.showModal();
     else dialog.setAttribute('open', '');
     startWithSound();
