@@ -109,7 +109,7 @@ export class FaucetWallet{
 export default{
  async fetch(request,env){
   const url=new URL(request.url),origin=request.headers.get('Origin');
-  const allowed=origin==='https://answered-tear-homepage-spencer.trycloudflare.com'||origin==='https://kaspaexplained.com'||origin==='https://www.kaspaexplained.com'||/^http:\/\/(127\.0\.0\.1|localhost):(8898|8901|8904|8912)$/.test(origin||'');
+  const allowed=origin==='https://answered-tear-homepage-spencer.trycloudflare.com'||origin==='https://kaspaexplained.com'||origin==='https://www.kaspaexplained.com'||origin==='https://stpstpstpstpstpstpstp.club'||origin==='https://www.stpstpstpstpstpstpstp.club'||/^http:\/\/(127\.0\.0\.1|localhost|kaspaexplained-stp\.localhost):(8898|8899|8901|8904|8912)$/.test(origin||'');
   const headers={'Cache-Control':'no-store','Vary':'Origin',...(allowed?{'Access-Control-Allow-Origin':origin,'Access-Control-Allow-Methods':'GET, POST, OPTIONS','Access-Control-Allow-Headers':'Content-Type'}:{})};
   if(request.method==='OPTIONS')return new Response(null,{status:allowed?204:403,headers});
   if(url.pathname==='/api/faucet'&&request.method==='POST'){
