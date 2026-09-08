@@ -182,3 +182,5 @@ button{min-width:44px}
   .pg-session{padding:18px 16px}
   .playground-nav button span{display:none}
 }
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em}
+.reading-rows pre,.main>pre{margin-top:16px;padding:16px 18px;background:var(--soft);border:1px solid var(--rule);border-radius:12px;overflow:auto;font:.8125rem/1.55 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
