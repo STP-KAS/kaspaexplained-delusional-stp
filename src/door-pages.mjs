@@ -20,7 +20,7 @@ function pageBody(door) {
     ${doorKgi()}
     ${peopleChips(door.id)}
     <section class="chapter">
-      <div class="section-title"><h2>Continue</h2><p>The playground is the mechanics. These pages are extra reading.</p></div>
+      <div class="section-title"><h2>Continue</h2><p>The playground is the mechanics. These pages are the next lesson and the extra reading.</p></div>
       ${routes(door.reads)}
     </section>
     <section class="chapter">

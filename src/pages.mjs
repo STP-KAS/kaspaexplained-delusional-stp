@@ -23,12 +23,12 @@ export const pages = [
       <section class="doors" aria-label="Choose an intel door">
         <p class="eyebrow">Four doors</p>
         <h1>Who is reading.</h1>
-        <p>Each door is text: what Kaspa is, and how it sits next to the rest of crypto. The live DAG is below. The mechanics live in the playground.</p>
+        <p>Four lessons, beginner to expert. Door 1 is the basics. Door 4 is how to check a claim. Read the one that matches you, then the next. The live DAG is below. The playground is where the rules move.</p>
         <div class="door-row" aria-label="Knowledge doors">
-          <a href="/door-1">Door 1<br><span>New to crypto</span></a>
-          <a href="/door-2">Door 2<br><span>Crypto, not Kaspa</span></a>
-          <a href="/door-3">Door 3<br><span>Knows Kaspa</span></a>
-          <a href="/door-4">Door 4<br><span>Thinks they know</span></a>
+          <a href="/door-1">Door 1<br><span>Beginner</span></a>
+          <a href="/door-2">Door 2<br><span>Intermediate</span></a>
+          <a href="/door-3">Door 3<br><span>Advanced</span></a>
+          <a href="/door-4">Door 4<br><span>Expert</span></a>
         </div>
         <p class="small">I am… each chip opens the matching door.</p>
         <div class="door-people" aria-label="People">
