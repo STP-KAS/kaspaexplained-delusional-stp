@@ -144,7 +144,11 @@ button{min-width:44px}
 .door-visual svg{display:block;width:100%;height:auto}
 .door-intel-body{max-width:58ch;margin:0 0 28px}
 .door-intel-body h2{font-size:1.35rem;margin:28px 0 8px;letter-spacing:-.03em}
+.door-intel-body h3{font-size:1.05rem;margin:18px 0 6px;letter-spacing:-.02em}
 .door-intel-body p{color:var(--text);max-width:none}
+.door-intel-body ul,.door-intel-body ol{margin:0 0 1em;padding-left:1.25em}
+.door-intel-body li{margin:0 0 .45em;line-height:1.5}
+.door-intel-body li p{margin:0}
 .door-as{margin:0 0 16px;padding:10px 14px;border-left:3px solid var(--green);background:var(--green-soft);max-width:52ch;font-size:.9375rem}
 .pg-session{margin:0 0 36px;padding:24px 28px;border:1px solid var(--rule);border-radius:18px;background:var(--paper)}
 .pg-rule{max-width:62ch;margin:0 0 20px}
