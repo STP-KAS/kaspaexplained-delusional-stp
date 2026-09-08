@@ -5,6 +5,9 @@ export const site = {
   navigation: [
     ['Understand', '/what-is-kaspa'], ['Use KAS', '/why-kaspa-matters'],
     ['Evaluate', '/skeptical-case'], ['Build', '/build-on-kaspa'],
+    ['Explore', '/explore'], ['PegLab', '/peglab'],
+    ['Moonboy', '/moonboy'], ['Practices', '/best-practices'],
+    ['Help', '/help'], ['X', '/x-handles'],
   ],
 };
 

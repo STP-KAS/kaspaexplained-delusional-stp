@@ -9,7 +9,7 @@ export const peglabPage = {
   <div class="page-intro">
     <p class="eyebrow">PegLab · Kaspa Testnet-10</p>
     <h1>A dollar-shaped object with a 2 tKAS pool.</h1>
-    <p class="lead">tPEG is a covenant claim on locked test KAS, priced by one admin key. Mint at the oracle, move the oracle, sell through a pool too small to defend a peg. It is not money.</p>
+    <p class="lead">PegLab is the benchmark for dapps that think they need a stable. It is a proof of concept, not a business. The old Gramlane vision lives here: skip a centralised dollar for apps, then watch a tiny pool fail in public. tPEG is a covenant claim on locked test KAS, priced by one admin key. It is not money.</p>
   </div>
   <p class="peglab-rung"><span>Code</span><span>Audit-lite</span><span>Tiny pool</span><span>Will depeg</span><span>No mainnet</span></p>
   <div class="peglab-board">
@@ -41,7 +41,7 @@ export const peglabPage = {
   <details class="detail">
     <summary>What this is, and what it is not</summary>
     <div class="detail-body">
-      <p>This page runs the PegLab economic engine in your browser. It is the STP Testnet-10 toy from <a href="https://github.com/STP-KAS/peglab-stp">STP-KAS/peglab-stp</a>. Anybody can compile a similarly named series. A name is not authenticity. Verify genesis outpoint, template hash, series bytes, and backing.</p>
+      <p>This page runs the PegLab economic engine in your browser. It is the STP Testnet-10 toy from <a href="https://github.com/STP-KAS/peglab-stp">STP-KAS/peglab-stp</a>. Use it as a benchmark: if your dapp “needs a stable,” run this failure mode first. There is no business model here. Anybody can compile a similarly named series. A name is not authenticity. Verify genesis outpoint, template hash, series bytes, and backing.</p>
       <p>Redeem is tKAS at an admin price, not dollars. Pause blocks new risk; it does not create a peg. No mainnet. Do not put real funds in this.</p>
       <p>Dedicated Testnet-10 wallet: <code>kaspatest:qzpvdakagvwfm95g8pv9ndpupjtndgjfhmve08cg3tv5wgfytjzf7cudwwzv0</code>. The seed is not on this site.</p>
     </div>

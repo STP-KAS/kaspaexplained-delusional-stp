@@ -1,7 +1,8 @@
 import { payment, network, spend, mining, vault, transaction, inspector, section, rows, detail, link, note, walletLesson, tradeoffComparison, evidenceSteps } from './components.mjs';
 import { sources, snapshot } from './site.mjs';
 import {coordinationMarkup} from './coordination-view.mjs';
-import {kaspaFilm} from './doors.mjs';
+import {kaspaFilm, people} from './doors.mjs';
+import {kgiCard} from './community.mjs';
 
 const source = key => link(...sources[key]);
 const routes = items => `<nav class="topic-list" aria-label="Related explanations">${items.map(([title, text, url])=>`<a href="${url}"><div><strong>${title}</strong><p>${text}</p></div><span aria-hidden="true">↗</span></a>`).join('')}</nav>`;
@@ -22,27 +23,17 @@ export const pages = [
           <a href="/door-3">Door 3<br><span>Knows Kaspa</span></a>
           <a href="/door-4">Door 4<br><span>Thinks they know</span></a>
         </div>
-        <p class="small">I am…</p>
+        <p class="small">I am… each chip opens the matching door.</p>
         <div class="door-people" aria-label="People">
-          <a href="/who/new">New to crypto</a>
-          <a href="/who/crypto-not-kaspa">Knows crypto, not Kaspa</a>
-          <a href="/who/kaspa">Knows Kaspa</a>
-          <a href="/who/crypto-and-kaspa">Knows crypto and Kaspa</a>
-          <a href="/who/thinks">Thinks they know crypto</a>
-          <a href="/who/moonboy">Moonboy crypto bro</a>
-          <a href="/who/institution">Institution (speculative)</a>
-          <a href="/who/influencer-tech">Tech influencer</a>
-          <a href="/who/influencer-moon">Moonboy influencer</a>
-          <a href="/who/cyberpunk">Cyberpunk</a>
-          <a href="/who/other-chain">High-tech, other chain</a>
-          <a href="/who/other">Other</a>
+          ${people.map(person => `<a href="/door-${person.door}?as=${person.id}">${person.label}</a>`).join('')}
         </div>
+        ${kgiCard('home')}
       </section>
       <div class="home-introduction"><p class="eyebrow">Kaspa Explained</p><h2>Send money.<br>Let the network verify it.</h2><p>Kaspa lets people send coins without a central payment operator.<br>See why its miners can add blocks in parallel, then follow a payment through the network.</p><a href="#first-look">See how it works <span aria-hidden="true">↓</span></a></div>
       <div id="first-look" class="home-demonstration">${network({introductory:true})}</div>
       <div class="under-experiment">${link('Follow the blocks and the information between them', '/what-is-kaspa')}</div>
       ${section('explore','Explore Kaspa',routes([
-        ...(process.env.KASPA_RELEASE==='v1'?[]:[['Play a KAS economy','Build a greenhouse, hire Pip, sell the harvest and follow the money. Uses free test coins.','/covenants'],['PegLab','A Testnet-10 toy that looks like a dollar, then depegs. Not USD. Tiny pool.','/peglab']]),
+        ...(process.env.KASPA_RELEASE==='v1'?[]:[['Play a KAS economy','Build a greenhouse, hire Pip, sell the harvest and follow the money. Uses free test coins.','/covenants'],['PegLab','Benchmark for dapps that need stables. Proof of concept. Not a business.','/peglab'],['Explore','kaspa.stream for ordinary people, plus the live DAG.','/explore']]),
         ['How the network agrees','Change what miners know. See why parallel blocks happen.','/what-is-kaspa'],
         ['Using KAS','Wallets, sending, receiving, and reading a transaction.','/why-kaspa-matters'],
         ['The tradeoffs','Security assumptions, mining concentration, and what speed does not solve.','/skeptical-case'],
@@ -135,6 +126,19 @@ export const pages = [
         ['Constrain spending',`<p>Specify which outputs are allowed, how state moves, and who can authorize each path. Test rejected transactions as carefully as successful ones.</p><p>${source('programmable')}</p>`],
       ]))}
       ${section('tools','Tools and implementation status', `<div class="status-list">${snapshot.items.filter(i=>['Toccata','Silverscript','Argent','vProgs'].includes(i[0])).map(([name,state,text,url])=>`<article><div><span class="status-tag">${state}</span><h3>${name}</h3></div><div><p>${text}</p>${link('Documentation',url)}</div></article>`).join('')}</div>`)}
+      ${section('official-build','Official builder door', `<p>${link('kaspa.org/build','https://kaspa.org/build')} is the public start: WASM examples, node Docker, docs, KIPs, Testnet-10 faucet, Q&amp;A, and Core R&amp;D Telegram. This page does not replace it.</p>
+        <p>${link('Faucets and mining (Aspectron)','https://kaspa.aspectron.org/faucets-mining.html')} · ${link('Testnet-10 faucet','https://faucet-testnet.kaspanet.io')} · ${link('Kaspa Q&amp;A','https://qa.kas.pa/')} · ${link('Grok share (build notes)','https://grok.com/share/bGVnYWN5_13075cb2-2ed7-48ac-9e88-861102ca4b4b')} · ${link('@manyfest_ note','https://x.com/manyfest_/status/2096312480586748371')}</p>`)}
+      ${section('tn10-node','Testnet-10 node and miner', rows([
+        ['Do not use testnet-12', '<p>Toccata work is on <strong>testnet-10</strong>. IzioDev’s workshop note: skip TN12. Addresses start with <code>kaspatest:</code>.</p>'],
+        ['Run a TN10 node', `<p>Use rusty-kaspa, not the deprecated Go kaspad. Official Docker one-liner for a local node is on ${link('kaspa.org/build','https://kaspa.org/build')}. For a persistent Testnet-10 node, follow ${link('Node operations','https://docs.kaspa.org/integrate/kaspa-node')} and pass the testnet-10 network. You want a synced node with a UTXO index if wallets or faucets will talk to it.</p><p>Release pin from the master file: rusty-kaspa <strong>v2.0.1</strong>.</p>`],
+        ['Mine TN10', `<p>Point a compatible miner at your TN10 node’s work. Aspectron’s ${link('faucets and mining page','https://kaspa.aspectron.org/faucets-mining.html')} is the community map for faucets, stratum, and public node access. Mining testnet does not pay mainnet KAS. Do not point mainnet hardware at testnet by accident.</p>`],
+        ['Get tKAS', `<p>Official-shaped faucet: ${link('faucet-testnet.kaspanet.io','https://faucet-testnet.kaspanet.io')}. Playground on this site can connect Kasware on Testnet 10 or generate a disposable tKAS wallet.</p>`],
+      ]))}
+      ${section('public-node','Public mainnet node operator', rows([
+        ['What you are offering', '<p>A public node is infrastructure: other wallets and apps may use your RPC. There is no protocol subsidy for that. Incentives are operational, not consensus. See the Q&amp;A thread on public node incentives if you want the community argument.</p>'],
+        ['How to run it', `<p>Start from rusty-kaspa v2.0.1. Docker Hub image <code>kaspanet/rusty-kaspad</code> is the short path on ${link('kaspa.org/build','https://kaspa.org/build')}. For capacity you mean to keep, compile or run with persistent storage and inbound P2P. ${link('kHost','https://github.com/aspectron/khost')} is community tooling for contributing node capacity. The ${link('Public Node Network','https://kaspa.aspectron.org/rpc/pnn.html')} is a resolver-fronted pool of community nodes, not an SLA.</p>`],
+        ['Do not skip', '<p>Do not expose an open RPC that can sign or spend. Enable the UTXO index only if callers need address queries. Watch disk, bandwidth, and pruning. A public node is not a miner, and it is not a wallet.</p>'],
+      ]))}
       ${section('application-boundaries','Covenants, shared execution, and proofs',rows([
         ['One agreement', '<p>A buyer can authorize payment to a seller, with a refund path after a deadline. The spending conditions travel with the output. Each permitted exit has to satisfy the contract.</p>'],
         ['An application many people update', '<p>A lending market also needs to coordinate deposits, loans, prices, and competing requests. Individual spending rules do not by themselves supply that shared execution system.</p>'],
@@ -194,7 +198,35 @@ export const pages = [
   {
     file:'playground.html', title:'Kaspa Playground', description:'Explore block propagation, double spending, transaction arithmetic, mining variance, and covenant rules.',
     body:`${intro('Playground','Interactive network models','Start an example and press Continue to see what changes and why. Delay a message, try spending the same coins twice or test a withdrawal rule. These local models move no real money.')}
-      <div class="playground" data-playground><nav class="playground-nav" aria-label="Playground models">${[['network','Network delay'],['spend','Competing spends'],['transaction','Transaction amounts'],['mining','Mining share'],['vault','Spending rules']].map(([id,title],i)=>`<button data-workspace="${id}" aria-pressed="${i===0}" aria-controls="workspace-${id}">${title}</button>`).join('')}</nav><div class="playground-main">${[['network',network],['spend',spend],['transaction',transaction],['mining',mining],['vault',vault]].map(([id,render])=>`<section id="workspace-${id}" data-workspace-panel="${id}"${id!=='network'?' hidden':''}>${render()}</section>`).join('')}</div></div>`,
+      <section class="playground-testnet" data-playground-testnet>
+        <p class="eyebrow">Testnet-10</p>
+        <h2>Use Kasware, or generate a disposable tKAS wallet.</h2>
+        <p>Test coins only. Never paste a recovery phrase. Switch Kasware to Testnet 10 before you connect. The generated wallet stays in this tab and is separate from mainnet Kasware.</p>
+        <div class="playground-wallets">
+          <article>
+            <h3>Kasware · Testnet-10</h3>
+            <p>For people who already have the extension. Connect, then fund the <code>kaspatest:</code> address from the faucet.</p>
+            <button class="primary-button" type="button" data-pg-kasware>Connect Kasware</button>
+            <p class="small">Address: <code data-pg-kasware-address>Not connected</code></p>
+            <p class="small">Network: <span data-pg-kasware-network>Unknown</span></p>
+            <p class="small" data-pg-kasware-warn hidden>This address is not Testnet-10. Switch Kasware to Testnet 10.</p>
+            <p class="small" data-pg-kasware-faucet hidden><a href="https://faucet-testnet.kaspanet.io" target="_blank" rel="noopener noreferrer">Open the Testnet-10 faucet ↗</a></p>
+          </article>
+          <article>
+            <h3>Integrated tKAS wallet</h3>
+            <p>Generate a disposable Testnet-10 key in this tab. Keep this option if you do not want an extension.</p>
+            <button class="quiet-button" type="button" data-pg-generate>Generate tKAS wallet</button>
+            <p class="small">Address: <code data-pg-generated-address>No disposable wallet yet</code></p>
+            <p class="small" data-pg-generated-secret></p>
+            <p class="small" data-pg-generated-faucet hidden><a href="https://faucet-testnet.kaspanet.io" target="_blank" rel="noopener noreferrer">Open the Testnet-10 faucet ↗</a></p>
+            <p class="small" data-pg-generated-lab hidden><a href="/applications">Use this experiment style in the Testnet-10 lab ↗</a></p>
+            <details class="detail"><summary>Show the stored key hex</summary><div class="detail-body"><p>Testnet-10 only. Not a seed phrase. Anyone with this hex can spend the test coins in this tab.</p><pre data-pg-generated-hex></pre></div></details>
+          </article>
+        </div>
+        <p class="small" data-pg-status role="status">Connect Kasware on Testnet-10, or generate a disposable wallet. Faucet: faucet-testnet.kaspanet.io.</p>
+      </section>
+      <div class="playground" data-playground><nav class="playground-nav" aria-label="Playground models">${[['network','Network delay'],['spend','Competing spends'],['transaction','Transaction amounts'],['mining','Mining share'],['vault','Spending rules']].map(([id,title],i)=>`<button data-workspace="${id}" aria-pressed="${i===0}" aria-controls="workspace-${id}">${title}</button>`).join('')}</nav><div class="playground-main">${[['network',network],['spend',spend],['transaction',transaction],['mining',mining],['vault',vault]].map(([id,render])=>`<section id="workspace-${id}" data-workspace-panel="${id}"${id!=='network'?' hidden':''}>${render()}</section>`).join('')}</div></div>
+      <script type="module" src="/assets/playground-testnet.mjs"></script>`,
   },
   {
     file:'wallet.html', title:'Your Kaspa wallet', description:'Connect Kasware or Kastle to see KAS, tokens, and KNS domains for the address in this tab.',
