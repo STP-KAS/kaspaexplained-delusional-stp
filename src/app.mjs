@@ -10,18 +10,26 @@ mountDoors();
   const dialog = document.querySelector('[data-welcome]');
   if (dialog) {
     const video = dialog.querySelector('video');
+    const sound = dialog.querySelector('[data-welcome-sound]');
     const close = () => {
       video?.pause();
       if (dialog.open) dialog.close();
     };
+    const startWithSound = () => {
+      if (!video) return;
+      video.muted = false;
+      video.volume = 1;
+      video.play().then(() => { if (sound) sound.hidden = true; }).catch(() => { if (sound) sound.hidden = false; });
+    };
     dialog.querySelector('[data-welcome-close]')?.addEventListener('click', close);
+    sound?.addEventListener('click', startWithSound);
     dialog.addEventListener('cancel', event => {
       event.preventDefault();
       close();
     });
     if (typeof dialog.showModal === 'function') dialog.showModal();
     else dialog.setAttribute('open', '');
-    video?.play()?.catch(() => {});
+    startWithSound();
   }
 }
 import {networkState, spendState, miningState, vaultState, transactionState, formatKas} from './models.mjs';
