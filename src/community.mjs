@@ -25,7 +25,7 @@ export const xHandles = [
 export function kgiCard(kind = 'door') {
   const lead = kind === 'home'
     ? 'A modest live view of the blockDAG. Open it in its own tab if the frame is quiet.'
-    : 'Default visual on every door: the live blockDAG, not a price chart.';
+    : 'The live blockDAG. This is the picture. The rest of the door is text.';
   return `<figure class="kgi-card">
     <p class="eyebrow">Kaspa Graph Inspector</p>
     <p>${lead}</p>

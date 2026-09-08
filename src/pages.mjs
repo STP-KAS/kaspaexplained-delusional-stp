@@ -1,7 +1,7 @@
 import { payment, network, spend, mining, vault, transaction, inspector, section, rows, detail, link, note, walletLesson, tradeoffComparison, evidenceSteps } from './components.mjs';
 import { sources, snapshot } from './site.mjs';
 import {coordinationMarkup} from './coordination-view.mjs';
-import {kaspaFilm, people} from './doors.mjs';
+import {people} from './doors.mjs';
 import {kgiCard} from './community.mjs';
 
 const source = key => link(...sources[key]);
@@ -15,8 +15,7 @@ export const pages = [
       <section class="doors" aria-label="Choose an intel door">
         <p class="eyebrow">Four doors</p>
         <h1>Who is reading.</h1>
-        <p>Knowledge first. Each door is its own page: text and one film. The demos stay the same.</p>
-        ${kaspaFilm()}
+        <p>Each door is text: what Kaspa is, and how it sits next to the rest of crypto. The live DAG is below. The mechanics live in the playground.</p>
         <div class="door-row" aria-label="Knowledge doors">
           <a href="/door-1">Door 1<br><span>New to crypto</span></a>
           <a href="/door-2">Door 2<br><span>Crypto, not Kaspa</span></a>
@@ -29,21 +28,12 @@ export const pages = [
         </div>
         ${kgiCard('home')}
       </section>
-      <div class="home-introduction"><p class="eyebrow">Kaspa Explained</p><h2>Send money.<br>Let the network verify it.</h2><p>Kaspa lets people send coins without a central payment operator.<br>See why its miners can add blocks in parallel, then follow a payment through the network.</p><a href="#first-look">See how it works <span aria-hidden="true">↓</span></a></div>
-      <div id="first-look" class="home-demonstration">${network({introductory:true})}</div>
-      <div class="under-experiment">${link('Follow the blocks and the information between them', '/what-is-kaspa')}</div>
-      ${section('explore','Explore Kaspa',routes([
-        ...(process.env.KASPA_RELEASE==='v1'?[]:[['Play a KAS economy','Build a greenhouse, hire Pip, sell the harvest and follow the money. Uses free test coins.','/covenants'],['PegLab','Benchmark for dapps that need stables. Proof of concept. Not a business.','/peglab'],['Explore','kaspa.stream for ordinary people, plus the live DAG.','/explore']]),
-        ['How the network agrees','Change what miners know. See why parallel blocks happen.','/what-is-kaspa'],
+      <section class="playground-invitation"><div><p class="eyebrow">Playground</p><h2>Bring your tKAS.<br>See the rules.</h2></div><div><p>Log in with Kasware on Testnet 10, make a local test wallet, or paste a kaspatest: address you already mine to. The models do not spend your coins unless you send.</p><a class="primary-button" href="/playground">Open the playground <span aria-hidden="true">↗</span></a></div></section>
+      ${section('explore','Also here',routes([
+        ...(process.env.KASPA_RELEASE==='v1'?[]:[['PegLab','Benchmark for dapps that need stables. Proof of concept. Not a business.','/peglab'],['Explore','kaspa.stream for ordinary people, plus the live DAG.','/explore']]),
         ['Using KAS','Wallets, sending, receiving, and reading a transaction.','/why-kaspa-matters'],
-        ['The tradeoffs','Security assumptions, mining concentration, and what speed does not solve.','/skeptical-case'],
-        ['Building on Kaspa','Follow a spending rule and find the tools that implement it.','/build-on-kaspa'],
-      ]))}
-      <section class="home-payment"><div class="home-feature-heading"><p class="eyebrow">Sending KAS</p><h2>From wallet<br>to recipient</h2><p>Track submission, inclusion, and acceptance. Each describes a different stage of a payment.</p></div>${payment()}<a class="home-feature-link" href="/why-kaspa-matters">Wallets, fees, and checking a payment <span aria-hidden="true">↗</span></a></section>
-      <section class="playground-invitation"><div><p class="eyebrow">The playground</p><h2>Test the network’s rules</h2></div><div><p>Slow the network. Spend the same money twice. Change a miner’s share. See which rules still hold.</p><a class="primary-button" href="/playground">Try it yourself <span aria-hidden="true">↗</span></a></div></section>
-      ${section('references','Status and history',routes([
-        ['What is live today?','A dated view of the network, proposals, and tools.','/status'],
-        ['Where Kaspa came from','The research, launch, and implementation changes.','/kaspa-origin-story'],
+        ['Building on Kaspa','Node, miner, and current builder docs.','/build-on-kaspa'],
+        ['What is live','Dated status. Live, roadmap, research, wrong.','/status'],
       ]))}`,
   },
   {
@@ -196,43 +186,75 @@ export const pages = [
       ${detail('Independence and corrections','<p>The maintainer may hold KAS. No page is a promise of return or an instruction to buy an asset. Books by guest authors retain their attribution and are not treated as consensus evidence.</p><p>If a claim has changed, compare the linked primary source and its date. The current-status page is a saved research snapshot, not continuous monitoring.</p>')}`,
   },
   {
-    file:'playground.html', title:'Kaspa Playground', description:'Explore block propagation, double spending, transaction arithmetic, mining variance, and covenant rules.',
-    body:`${intro('Playground','Interactive network models','Start an example and press Continue to see what changes and why. Delay a message, try spending the same coins twice or test a withdrawal rule. These local models move no real money.')}
-      <section class="playground-testnet" data-playground-testnet>
-        <p class="eyebrow">Testnet-10</p>
-        <h2>Use Kasware, or generate a disposable tKAS wallet.</h2>
-        <p>Test coins only. Never paste a recovery phrase. Switch Kasware to Testnet 10 before you connect. The generated wallet stays in this tab and is separate from mainnet Kasware.</p>
-        <div class="playground-wallets">
+    file:'playground.html', title:'Kaspa Playground', description:'Bring Testnet-10 tKAS, then see Kaspa’s rules: parallel blocks, double spends, UTXOs, mining share, covenants.',
+    body:`${intro('Playground','Your tKAS, then the rules.','This site does not hand out coins. Mine tKAS, or bring a Testnet-10 address you already have. Kasware must already be on Testnet 10 inside Kasware. The models below explain Kaspa. They do not spend your coins unless you press Send.')}
+      <section class="pg-session" data-playground-testnet>
+        <p class="eyebrow">Testnet-10 wallet</p>
+        <p class="pg-rule">In Kasware: Settings → Network → <strong>Testnet 10</strong>. This page will not switch it for you. Approve Log in when Kasware asks. Never paste a seed.</p>
+        <div class="pg-balance" data-pg-session hidden>
+          <p class="eyebrow" data-pg-kind></p>
+          <p class="pg-amount"><strong data-pg-balance>-</strong> <span>tKAS</span></p>
+          <p class="small" data-pg-network></p>
+          <p class="pg-addr"><code data-pg-address></code> <button class="quiet-button" type="button" data-pg-copy>Copy</button></p>
+          <p class="small" data-pg-mine-hint hidden>Point your TN10 miner at this address. Balance updates when the node sees the reward.</p>
+          <p class="small" data-pg-watch-hint hidden>Read only. To send, Log in with the Kasware that holds this address, or make a local wallet and mine to that.</p>
+          <div class="pg-play" data-pg-play hidden>
+            <label>Send 0.1 tKAS <input data-pg-dest placeholder="kaspatest:… blank sends to yourself" autocomplete="off" spellcheck="false"></label>
+            <button class="primary-button" type="button" data-pg-send>Send 0.1 tKAS</button>
+          </div>
+          <div class="wallet-actions">
+            <button class="quiet-button" type="button" data-pg-refresh>Refresh balance</button>
+            <button class="quiet-button" type="button" data-pg-logout>Log out</button>
+          </div>
+        </div>
+        <div class="pg-paths" data-pg-paths>
           <article>
-            <h3>Kasware · Testnet-10</h3>
-            <p>For people who already have the extension. Connect, then fund the <code>kaspatest:</code> address from the faucet.</p>
-            <button class="primary-button" type="button" data-pg-kasware>Connect Kasware</button>
-            <p class="small">Address: <code data-pg-kasware-address>Not connected</code></p>
-            <p class="small">Network: <span data-pg-kasware-network>Unknown</span></p>
-            <p class="small" data-pg-kasware-warn hidden>This address is not Testnet-10. Switch Kasware to Testnet 10.</p>
-            <p class="small" data-pg-kasware-faucet hidden><a href="https://faucet-testnet.kaspanet.io" target="_blank" rel="noopener noreferrer">Open the Testnet-10 faucet ↗</a></p>
+            <h3>Log in with Kasware</h3>
+            <p>For people who already mine to Kasware. Switch that extension to Testnet 10 first. Then approve Log in. Your balance shows here.</p>
+            <button class="primary-button" type="button" data-pg-kasware>Log in</button>
           </article>
           <article>
-            <h3>Integrated tKAS wallet</h3>
-            <p>Generate a disposable Testnet-10 key in this tab. Keep this option if you do not want an extension.</p>
-            <button class="quiet-button" type="button" data-pg-generate>Generate tKAS wallet</button>
-            <p class="small">Address: <code data-pg-generated-address>No disposable wallet yet</code></p>
-            <p class="small" data-pg-generated-secret></p>
-            <p class="small" data-pg-generated-faucet hidden><a href="https://faucet-testnet.kaspanet.io" target="_blank" rel="noopener noreferrer">Open the Testnet-10 faucet ↗</a></p>
-            <p class="small" data-pg-generated-lab hidden><a href="/applications">Use this experiment style in the Testnet-10 lab ↗</a></p>
-            <details class="detail"><summary>Show the stored key hex</summary><div class="detail-body"><p>Testnet-10 only. Not a seed phrase. Anyone with this hex can spend the test coins in this tab.</p><pre data-pg-generated-hex></pre></div></details>
+            <h3>No Kasware</h3>
+            <p>Make a local Testnet-10 wallet in one click. Copy the address and point your miner at it. Same playground, no extension.</p>
+            <button class="quiet-button" type="button" data-pg-generate>Make a test wallet</button>
+          </article>
+          <article>
+            <h3>I already have a kaspatest: address</h3>
+            <p>Paste the address you mine to. We show the balance. Sending needs Kasware that holds it, or a local wallet you made here.</p>
+            <label class="pg-watch-line">Address<input data-pg-watch placeholder="kaspatest:…" autocomplete="off" spellcheck="false"></label>
+            <button class="quiet-button" type="button" data-pg-watch-go>Show balance</button>
           </article>
         </div>
-        <p class="small" data-pg-status role="status">Connect Kasware on Testnet-10, or generate a disposable wallet. Faucet: faucet-testnet.kaspanet.io.</p>
+        <details class="detail"><summary>Local wallet key hex</summary><div class="detail-body"><p>Only for a wallet made in this tab. Not a seed phrase. Anyone with this hex can spend those test coins.</p><pre data-pg-hex></pre></div></details>
+        <p class="small" data-pg-status role="status">Log in, make a test wallet, or paste a kaspatest: address. No faucet nag. Your miner is the faucet.</p>
       </section>
-      <div class="playground" data-playground><nav class="playground-nav" aria-label="Playground models">${[['network','Network delay'],['spend','Competing spends'],['transaction','Transaction amounts'],['mining','Mining share'],['vault','Spending rules']].map(([id,title],i)=>`<button data-workspace="${id}" aria-pressed="${i===0}" aria-controls="workspace-${id}">${title}</button>`).join('')}</nav><div class="playground-main">${[['network',network],['spend',spend],['transaction',transaction],['mining',mining],['vault',vault]].map(([id,render])=>`<section id="workspace-${id}" data-workspace-panel="${id}"${id!=='network'?' hidden':''}>${render()}</section>`).join('')}</div></div>
+      <section class="pg-ideas">
+        <h2>What you are looking at</h2>
+        <p>The live network is a blockDAG: honest miners can find blocks at the same time, and Kaspa keeps them. Bitcoin throws the extra honest work away. Ethereum left proof of work. These five models are that story, slowed down. They do not move your tKAS unless you use Send above.</p>
+      </section>
+      <div class="playground" data-playground>
+        <nav class="playground-nav" aria-label="Playground models">${[
+          ['network','News is late','Bitcoin discards extra honest blocks. Kaspa keeps them as a DAG. That is the whole trick.'],
+          ['spend','Same coins twice','A DAG does not let you double-spend. Ordering still picks one payment.'],
+          ['transaction','Payment, change, fee','Kaspa is UTXO like Bitcoin, not an account balance like Ethereum.'],
+          ['mining','Many blocks, uneven pay','Ten blocks per second does not make your miner rich. Share still matters.'],
+          ['vault','Spending rules','Toccata lets coins carry conditions. That is not the EVM. Tooling is young.'],
+        ].map(([id,title,why],i)=>`<button data-workspace="${id}" aria-pressed="${i===0}" aria-controls="workspace-${id}"><strong>${title}</strong><span>${why}</span></button>`).join('')}</nav>
+        <div class="playground-main">${[
+          ['network',network,'News is late','Two miners, a delay, parallel blocks. This is why Kaspa is not a chain.'],
+          ['spend',spend,'Same coins twice','One output, two attempts. Speed does not cancel the ledger check.'],
+          ['transaction',transaction,'Payment, change, fee','One input becomes payment, change, and a fee. Same as Bitcoin’s coin model.'],
+          ['mining',mining,'Many blocks, uneven pay','The network can hum while your miner finds almost nothing. Variance is not a bug in the DAG.'],
+          ['vault',vault,'Spending rules','A withdrawal with three conditions. Toccata on L1, not a smart-contract chain.'],
+        ].map(([id,render,title,why])=>`<section id="workspace-${id}" data-workspace-panel="${id}"${id!=='network'?' hidden':''}><div class="pg-why"><h3>${title}</h3><p>${why}</p></div>${render()}</section>`).join('')}</div>
+      </div>
       <script type="module" src="/assets/playground-testnet.mjs"></script>`,
   },
   {
     file:'wallet.html', title:'Your Kaspa wallet', description:'Connect Kasware or Kastle to see KAS, tokens, and KNS domains for the address in this tab.',
     body:`${intro('Wallet','See what this address holds.','Connect Kasware or Kastle. This page reads public indexers. It never asks for a recovery phrase.')}
       <div data-wallet-page-root class="wallet-page"></div>
-      <p class="small">Injected connect is Kasware and Kastle only. Ledger uses KasVault. Mobile and hardware wallets stay in their own apps. The Testnet-10 playground on this site uses a separate disposable wallet.</p>`,
+      <p class="small">Injected connect is Kasware and Kastle only. Ledger uses KasVault. Mobile and hardware wallets stay in their own apps. The playground can log in Kasware on Testnet 10 or make a local test wallet.</p>`,
   },
   {
     file:'404.html', title:'Page not found', description:'Find another Kaspa explanation.',
@@ -240,11 +262,11 @@ export const pages = [
   },
 ];
 
-if(process.env.KASPA_RELEASE!=='v1'){const adventure=`<section class="playground-invitation"><div><p class="eyebrow">Sprout Harbor · Testnet-10</p><h2>What could a KAS economy look like?</h2></div><div><p>Build a greenhouse, pay Pip for work, sell the harvest and deliver it. Follow the actual test-coin payments and explore a recorded bridge to another chain.</p><a class="primary-button" href="/covenants">Play the town economy <span aria-hidden="true">↗</span></a><p>Free test coins. Production and physical delivery are game rules.</p></div></section>`;for(const file of ['build-on-kaspa.html','playground.html'])pages.find(p=>p.file===file).body+=adventure;}
+if(process.env.KASPA_RELEASE!=='v1'){const adventure=`<section class="playground-invitation"><div><p class="eyebrow">Sprout Harbor · Testnet-10</p><h2>What could a KAS economy look like?</h2></div><div><p>Build a greenhouse, pay Pip for work, sell the harvest and deliver it. Use tKAS you already have. Production and physical delivery are game rules.</p><a class="primary-button" href="/covenants">Play the town economy <span aria-hidden="true">↗</span></a></div></section>`;pages.find(p=>p.file==='build-on-kaspa.html').body+=adventure;}
 
 // A next step makes the reading order explicit without hiding direct routes.
 const readingNext={
- 'index.html':['Begin with what the miners see','/what-is-kaspa'],
+ 'index.html':['Open the playground','/playground'],
  'what-is-kaspa.html':['Follow a payment and its fee','/why-kaspa-matters'],
  'why-kaspa-matters.html':['Try the payment and network examples','/playground'],
  'skeptical-case.html':['Check the current evidence','/status'],
