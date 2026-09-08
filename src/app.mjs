@@ -10,37 +10,22 @@ mountDoors();
   const welcome = document.querySelector('[data-welcome]');
   if (welcome) {
     const video = welcome.querySelector('video');
-    let soundUnlocked = false;
-    let triedSound = false;
     const closed = () => welcome.hidden;
-    const kick = () => {
-      if (!video || closed() || !video.paused || video.ended) return;
-      video.playsInline = true;
-      video.autoplay = true;
-      video.volume = 1;
-      if (soundUnlocked) {
-        video.muted = false;
-        video.defaultMuted = false;
-        video.play()?.catch(() => {
-          video.muted = true;
-          video.play()?.catch(() => {});
-        });
-        return;
-      }
-      video.muted = true;
-      video.defaultMuted = true;
-      video.play()?.catch(() => {});
-    };
-    const giveSound = () => {
+    const withSound = () => {
       if (!video || closed()) return;
       video.volume = 1;
       video.muted = false;
       video.defaultMuted = false;
-      video.play()?.then(() => {
-        if (!video.paused && !video.muted) soundUnlocked = true;
-      }).catch(() => {
+    };
+    const kick = () => {
+      if (!video || closed() || video.ended) return;
+      video.playsInline = true;
+      video.autoplay = true;
+      withSound();
+      if (!video.paused) return;
+      video.play()?.catch(() => {
         video.muted = true;
-        video.play()?.catch(() => {});
+        video.play()?.then(() => withSound()).catch(() => {});
       });
     };
     const close = () => {
@@ -53,7 +38,8 @@ mountDoors();
       if (closed()) return;
       if (event.target.closest('[data-welcome-close]')) return;
       if (event.target.closest('.welcome-card')) {
-        giveSound();
+        withSound();
+        video.play()?.catch(() => {});
         return;
       }
       close();
@@ -62,13 +48,7 @@ mountDoors();
       if (event.key === 'Escape' && !closed()) close();
     });
     video?.addEventListener('canplay', kick);
-    video?.addEventListener('loadeddata', kick);
-    video?.addEventListener('stalled', kick);
-    video?.addEventListener('timeupdate', () => {
-      if (!video || closed() || triedSound || video.currentTime < 0.4) return;
-      triedSound = true;
-      giveSound();
-    });
+    video?.addEventListener('playing', withSound);
     kick();
     const timer = setInterval(kick, 250);
   }
