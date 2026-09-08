@@ -29,9 +29,10 @@
 .welcome{position:fixed;inset:0;top:84px;z-index:80;display:grid;place-items:center;padding:16px;background:#111c}
 html[data-welcome-seen] .welcome{display:none!important}
 @media(max-width:760px){.welcome{top:72px}}
-.welcome-card{width:min(720px,calc(100vw - 32px));padding:22px 22px 24px;border:1px solid var(--rule);border-radius:20px;background:var(--paper);box-shadow:var(--shadow)}
+.welcome-card{width:min(720px,calc(100vw - 32px));max-height:calc(100dvh - 116px);overflow:auto;padding:22px 22px 24px;border:1px solid var(--rule);border-radius:20px;background:var(--paper);box-shadow:var(--shadow)}
 .welcome-card .eyebrow{margin-bottom:12px}
-.welcome-card .door-film{margin:0 0 16px}
+.welcome-card .door-film{margin:0 0 16px;max-width:none}
+.welcome-card .door-film video{width:100%;height:auto;aspect-ratio:16/9;max-height:min(32vh,280px);object-fit:contain;background:#111}
 .welcome-copy{margin:16px 0 20px;max-width:46ch;line-height:1.55}
 .doors{margin:0 0 40px;max-width:52rem}
 .doors h1{font-size:clamp(2.2rem,4vw,3.2rem);margin:0 0 12px}

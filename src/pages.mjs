@@ -14,7 +14,7 @@ export const pages = [
     body: `<div class="welcome" data-welcome role="dialog" aria-modal="true" aria-label="Kaspa Explained STP">
         <div class="welcome-card">
           <p class="eyebrow">Kaspa Explained STP</p>
-          ${localFilm('/media/kaspa-roots.mp4')}
+          ${localFilm('/media/kaspa-roots.mp4', '', {preload: 'metadata', poster: '/media/kaspa-roots.jpg'})}
           <p class="welcome-copy">-Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br><br>-Proof of stake replaced work with capital. That is a different system.<br><br>-Kaspa kept Bitcoin\u2019s proof of work and upgraded it: 10 blocks per second on average, now programmable.</p>
           <button class="primary-button" type="button" data-welcome-close>Continue</button>
         </div>
