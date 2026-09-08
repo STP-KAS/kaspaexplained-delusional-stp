@@ -42,6 +42,7 @@ mountDoors();
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape' && !closed()) close();
     });
+    video?.addEventListener('playing', () => video.classList.add('is-ready'));
     video?.addEventListener('canplay', start);
     start();
   }
