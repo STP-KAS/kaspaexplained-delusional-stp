@@ -216,7 +216,7 @@ export const pages = [
           </div>
         </div>
         <div class="pg-paths" data-pg-paths>
-          <article>
+          <article data-pg-kasware-path>
             <h3>Log in with Kasware</h3>
             <p>For people who already mine to Kasware. Switch that extension to Testnet 10 first. Then approve Log in. Your balance shows here.</p>
             <button class="primary-button" type="button" data-pg-kasware>Log in</button>
@@ -261,9 +261,9 @@ export const pages = [
   },
   {
     file:'wallet.html', title:'Your Kaspa wallet', description:'Connect Kasware or Kastle to see KAS, tokens, and KNS domains for the address in this tab.',
-    body:`${intro('Wallet','See what this address holds.','Connect Kasware or Kastle. This page reads public indexers. It never asks for a recovery phrase.')}
+    body:`${intro('Wallet','See what this address holds.','On a phone, connect Kastle. On a computer, Kasware or Kastle. This page reads public indexers. It never asks for a recovery phrase.')}
       <div data-wallet-page-root class="wallet-page"></div>
-      <p class="small">Injected connect is Kasware and Kastle only. Ledger uses KasVault. Mobile and hardware wallets stay in their own apps. The playground can log in Kasware on Testnet 10 or make a local test wallet.</p>`,
+      <p class="small">Injected connect is Kastle on a phone, and Kasware or Kastle on a computer. Ledger uses KasVault. The playground can log in Kasware on Testnet 10 from a desktop, or make a local test wallet.</p>`,
   },
   {
     file:'404.html', title:'Page not found', description:'Find another Kaspa explanation.',

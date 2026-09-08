@@ -50,9 +50,13 @@ function clearSession() {
   } catch {}
 }
 
+function isMobile() {
+  return matchMedia('(pointer:coarse)').matches || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent || '');
+}
+
 function detected() {
   const found = [];
-  if (typeof window.kasware !== 'undefined') found.push('kasware');
+  if (!isMobile() && typeof window.kasware !== 'undefined') found.push('kasware');
   if (typeof window.kastle !== 'undefined') found.push('kastle');
   return found;
 }
@@ -132,10 +136,20 @@ function rows(title, items, empty, error) {
 function renderHoldings(session, holdings, status) {
   if (status) return `<p class="small" role="status">${escape(status)}</p>`;
   if (!session.address) {
-    return `<p>Connect Kasware or Kastle in this tab. This site never asks for a recovery phrase.</p>
-      <div class="wallet-actions"><button class="primary-button" data-wallet-id="kasware">Kasware</button><button class="quiet-button" data-wallet-id="kastle">Kastle</button></div>
+    const mobile = isMobile();
+    const actions = mobile
+      ? '<button class="primary-button" data-wallet-id="kastle">Kastle</button>'
+      : '<button class="primary-button" data-wallet-id="kasware">Kasware</button><button class="quiet-button" data-wallet-id="kastle">Kastle</button>';
+    const lead = mobile
+      ? 'On a phone, connect Kastle in this tab. This site never asks for a recovery phrase.'
+      : 'Connect Kasware or Kastle in this tab. This site never asks for a recovery phrase.';
+    const inject = mobile
+      ? 'On a phone, only Kastle injects here. Kasware is a desktop extension.'
+      : 'Only Kasware and Kastle inject here. The rest stay in their own apps.';
+    return `<p>${lead}</p>
+      <div class="wallet-actions">${actions}</div>
       <p class="small">Detected: ${detected().join(', ') || 'none'}.</p>
-      <section class="wallet-section"><h3>Other wallets</h3><p class="small">Only Kasware and Kastle inject here. The rest stay in their own apps.</p>
+      <section class="wallet-section"><h3>Other wallets</h3><p class="small">${inject}</p>
       <ul class="wallet-catalog">${CATALOG.filter(([, , kind]) => kind !== 'inject').map(([name, url]) => `<li><a href="${url}" target="_blank" rel="noopener noreferrer">${escape(name)}</a></li>`).join('')}</ul></section>`;
   }
   const tokenRows = (holdings?.tokens || []).map(token => `<tr><th>${escape(token.tick)}</th><td>${escape(token.amount)}</td></tr>`).join('');
@@ -152,8 +166,9 @@ function renderHoldings(session, holdings, status) {
 function paint(root, session, holdings, status) {
   const open = root.querySelector('[data-wallet-open]');
   if (open) {
-    open.textContent = session.address ? shortAddress(session.address) : 'Kasware';
-    open.title = session.address || 'Connect Kasware or Kastle';
+    const idle = isMobile() ? 'Kastle' : 'Kasware';
+    open.textContent = session.address ? shortAddress(session.address) : idle;
+    open.title = session.address || (isMobile() ? 'Connect Kastle' : 'Connect Kasware or Kastle');
     open.setAttribute('aria-pressed', String(Boolean(session.address)));
   }
   for (const target of root.querySelectorAll('[data-wallet-view]')) target.innerHTML = renderHoldings(session, holdings, status);
@@ -164,7 +179,7 @@ export function mountInstalledWallet() {
   if (!tools || tools.querySelector('[data-wallet-open]')) return;
   const wrap = document.createElement('div');
   wrap.className = 'wallet-shell';
-  wrap.innerHTML = `<button class="wallet-button" type="button" data-wallet-open aria-expanded="false" aria-controls="wallet-panel">Kasware</button>
+  wrap.innerHTML = `<button class="wallet-button" type="button" data-wallet-open aria-expanded="false" aria-controls="wallet-panel">${isMobile() ? 'Kastle' : 'Kasware'}</button>
     <div class="wallet-panel" id="wallet-panel" data-wallet-panel hidden><div data-wallet-view></div></div>`;
   tools.append(wrap);
   const page = document.querySelector('[data-wallet-page-root]');
@@ -191,7 +206,8 @@ export function mountInstalledWallet() {
   };
 
   const connect = async id => {
-    const session = id === 'kastle' ? await connectKastle() : await connectKasware();
+    const chosen = isMobile() ? 'kastle' : id;
+    const session = chosen === 'kastle' ? await connectKastle() : await connectKasware();
     persist(session.id, session.address);
     panel.hidden = false;
     open.setAttribute('aria-expanded', 'true');
@@ -200,6 +216,17 @@ export function mountInstalledWallet() {
 
   open.addEventListener('click', async () => {
     const session = current();
+    if (!session.address && isMobile()) {
+      try {
+        await connect('kastle');
+        return;
+      } catch (error) {
+        panel.hidden = false;
+        open.setAttribute('aria-expanded', 'true');
+        draw(error.message);
+        return;
+      }
+    }
     if (!session.address && detected().length === 1) {
       try {
         await connect(detected()[0]);
@@ -244,14 +271,20 @@ export function mountInstalledWallet() {
   });
 
   const resume = async () => {
-    const quiet = await kaswareAccountsQuiet();
-    if (quiet[0]) persist('kasware', String(quiet[0]));
+    if (!isMobile()) {
+      const quiet = await kaswareAccountsQuiet();
+      if (quiet[0]) persist('kasware', String(quiet[0]));
+    }
     const session = current();
+    if (isMobile() && session.id === 'kasware') {
+      clearSession();
+      holdings = null;
+    }
     draw();
-    if (session.address) await load();
+    if (current().address) await load();
   };
 
-  if (window.kasware?.on) {
+  if (!isMobile() && window.kasware?.on) {
     window.kasware.on('accountsChanged', accounts => {
       if (!accounts?.[0]) {
         clearSession();
