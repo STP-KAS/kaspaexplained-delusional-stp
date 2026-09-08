@@ -7,6 +7,7 @@ export const site = {
     ['Playground', '/playground'],
     ['Use KAS', '/why-kaspa-matters'],
     ['Build', '/build-on-kaspa'],
+    ['Node', '/node'],
     ['Explore', '/explore'],
     ['PegLab', '/peglab'],
     ['Moonboy', '/moonboy'],

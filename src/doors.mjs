@@ -60,6 +60,7 @@ export const doors = {
       <p>Builder door: kaspa.org/build. Status table on this site. Playground for the mechanics. PegLab if someone says they need a stable for a dapp.</p>`,
     reads: [
       ['Playground', 'The mechanics, plus your Testnet-10 wallet.', '/playground'],
+      ['Node', 'TN10 rusty-kaspa, then tKAS. CPU first.', '/node'],
       ['Build on Kaspa', 'TN10 node, miner, public node, official build door.', '/build-on-kaspa'],
       ['What is live', 'Activation, tools, prototypes.', '/status'],
     ],
