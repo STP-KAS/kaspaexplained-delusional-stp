@@ -11,7 +11,7 @@ const intro = (eyebrow, title, lead) => `<div class="page-intro intro-${eyebrow.
 export const pages = [
   {
     file:'index.html', title:'Kaspa Explained STP', description:'Explore how Kaspa payments, parallel blocks, and spending rules work through interactive explanations.',
-    body: `<dialog class="welcome" data-welcome>
+    body: `<div class="welcome" data-welcome role="dialog" aria-modal="true" aria-label="Kaspa Explained STP">
         <div class="welcome-card">
           <p class="eyebrow">Kaspa Explained STP</p>
           <video class="welcome-film" muted autoplay playsinline preload="auto" src="/media/kaspa-roots.mp4">
@@ -19,28 +19,19 @@ export const pages = [
           </video>
           <script>
             (() => {
-              const dialog = document.querySelector('[data-welcome]');
-              const video = dialog && dialog.querySelector('video');
-              if (dialog && typeof dialog.showModal === 'function' && !dialog.open) dialog.showModal();
-              else if (dialog) dialog.setAttribute('open', '');
-              if (!video) return;
+              const video = document.currentScript.previousElementSibling;
+              if (!video || video.tagName !== 'VIDEO') return;
               video.muted = true;
-              video.volume = 1;
+              video.defaultMuted = true;
+              video.playsInline = true;
               const play = video.play && video.play();
-              const unmute = () => {
-                video.defaultMuted = false;
-                video.removeAttribute('muted');
-                video.muted = false;
-                video.volume = 1;
-              };
-              if (play && play.then) play.then(unmute).catch(() => { video.muted = true; video.play && video.play().then(unmute).catch(() => {}); });
-              else unmute();
+              if (play && play.catch) play.catch(() => { video.muted = true; video.play && video.play().catch(() => {}); });
             })();
           </script>
           <p class="welcome-copy">Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br>Proof of stake replaced work with capital. That is a different system.<br>Kaspa stayed with proof of work and made it fast and programmable. No more, no less.</p>
           <button class="primary-button" type="button" data-welcome-close>Continue</button>
         </div>
-      </dialog>
+      </div>
       <p class="home-ethos">Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br>Proof of stake replaced work with capital. That is a different system.<br>Kaspa stayed with proof of work and made it fast and programmable. No more, no less.</p>
       <section class="doors" aria-label="Choose an intel door">
         <p class="eyebrow">Four doors</p>

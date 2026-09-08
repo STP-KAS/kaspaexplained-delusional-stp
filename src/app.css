@@ -25,11 +25,10 @@
 @media(max-width:760px){.network-presets{padding:16px 20px 0;gap:8px}.network-presets button{padding:10px 12px;font-size:.875rem}}
 
 .home-ethos{margin:0 0 28px;max-width:46ch;font-size:1rem;line-height:1.55;color:var(--muted)}
-.welcome{border:0;padding:0;background:transparent;max-width:min(720px,calc(100vw - 32px))}
-.welcome::backdrop{background:#111c}
-.welcome-card{padding:22px 22px 24px;border:1px solid var(--rule);border-radius:20px;background:var(--paper);box-shadow:var(--shadow)}
+.welcome{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:16px;background:#111c}
+.welcome-card{width:min(720px,calc(100vw - 32px));padding:22px 22px 24px;border:1px solid var(--rule);border-radius:20px;background:var(--paper);box-shadow:var(--shadow)}
 .welcome-card .eyebrow{margin-bottom:12px}
-.welcome-film{display:block;width:100%;max-height:min(52vh,420px);background:#111;border-radius:14px;border:1px solid var(--rule);cursor:pointer}
+.welcome-film{display:block;width:100%;max-height:min(52vh,420px);background:#111;border-radius:14px;border:1px solid var(--rule)}
 .welcome-film::-webkit-media-controls-start-playback-button,
 .welcome-film::-webkit-media-controls-overlay-play-button,
 .welcome-film::-webkit-media-controls-mute-button{display:none!important}

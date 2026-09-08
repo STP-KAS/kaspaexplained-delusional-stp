@@ -7,59 +7,47 @@ document.querySelectorAll('[data-coordination]').forEach(mountCoordination);
 mountInstalledWallet();
 mountDoors();
 {
-  const dialog = document.querySelector('[data-welcome]');
-  if (dialog) {
-    const video = dialog.querySelector('video');
-    let unlocking = false;
+  const welcome = document.querySelector('[data-welcome]');
+  if (welcome) {
+    const video = welcome.querySelector('video');
+    let soundBlocked = false;
+    const closed = () => welcome.hidden;
+    const playMuted = () => {
+      if (!video || closed()) return;
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+      video.play()?.catch(() => {});
+    };
     const close = () => {
       video?.pause();
-      if (dialog.open) dialog.close();
+      welcome.hidden = true;
     };
-    const keepPlaying = () => {
-      if (!video || unlocking) return;
-      unlocking = true;
+    const trySound = () => {
+      if (!video || closed() || soundBlocked || video.paused) return;
       video.volume = 1;
-      const finish = () => { unlocking = false; };
-      const unmute = () => {
-        video.defaultMuted = false;
-        video.removeAttribute('muted');
-        video.muted = false;
-        video.volume = 1;
-      };
-      const playMuted = () => {
-        video.muted = true;
-        const mutedPlay = video.play();
-        if (mutedPlay && mutedPlay.then) mutedPlay.then(() => { unmute(); finish(); }).catch(finish);
-        else { unmute(); finish(); }
-      };
-      unmute();
+      video.defaultMuted = false;
+      video.removeAttribute('muted');
+      video.muted = false;
       const play = video.play();
-      if (play && play.then) play.then(finish).catch(playMuted);
-      else finish();
+      const restore = () => {
+        if (closed() || !video.paused) return;
+        soundBlocked = true;
+        playMuted();
+      };
+      if (play && play.then) play.then(() => {
+        if (video.paused || video.muted) restore();
+      }).catch(restore);
+      else requestAnimationFrame(restore);
     };
-    dialog.querySelector('[data-welcome-close]')?.addEventListener('click', close);
-    dialog.addEventListener('cancel', event => {
-      event.preventDefault();
-      close();
+    welcome.querySelector('[data-welcome-close]')?.addEventListener('click', close);
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !closed()) close();
     });
-    video?.addEventListener('click', () => {
-      if (video.paused) keepPlaying();
-      else video.pause();
-    });
-    let unmuteTries = 0;
-    video?.addEventListener('playing', () => {
-      if (video.muted || video.volume === 0) keepPlaying();
-    });
-    video?.addEventListener('volumechange', () => {
-      if ((video.muted || video.volume === 0) && unmuteTries < 5) {
-        unmuteTries += 1;
-        keepPlaying();
-      }
-    });
-    if (typeof dialog.showModal === 'function') {
-      if (!dialog.open) dialog.showModal();
-    } else dialog.setAttribute('open', '');
-    keepPlaying();
+    video?.addEventListener('loadeddata', playMuted);
+    video?.addEventListener('canplay', playMuted);
+    video?.addEventListener('playing', trySound);
+    playMuted();
   }
 }
 import {networkState, spendState, miningState, vaultState, transactionState, formatKas} from './models.mjs';
