@@ -1,6 +1,6 @@
 export const site = {
   title: 'Kaspa Explained STP',
-  domain: 'https://kaspaexplained.com',
+  domain: 'https://stpstpstpstpstpstpstp.club',
   localHost: 'kaspaexplained-stp.localhost',
   checked: '2026-09-06',
   navigation: [
