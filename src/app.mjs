@@ -15,27 +15,38 @@ mountDoors();
     const video = welcome.querySelector('video');
     const closed = () => welcome.hidden;
     const remember = () => { try { sessionStorage.setItem(key, '1'); } catch {} };
+    const start = () => {
+      if (!video || closed() || !video.paused || video.ended) return;
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+      video.volume = 1;
+      video.play()?.catch(() => {});
+    };
+    const soundOn = () => {
+      if (!video || closed()) return;
+      video.volume = 1;
+      video.muted = false;
+      video.defaultMuted = false;
+    };
     const hide = () => {
       video?.pause();
       welcome.hidden = true;
       remember();
       document.documentElement.dataset.welcomeSeen = '1';
     };
-    const loadFilm = () => {
-      if (!video || closed()) return;
-      video.preload = 'auto';
-      try { video.load(); } catch {}
-    };
     try {
       if (sessionStorage.getItem(key)) hide();
-      else {
-        remember();
-        loadFilm();
-      }
+      else remember();
     } catch {}
     welcome.querySelector('[data-welcome-close]')?.addEventListener('click', hide);
     welcome.addEventListener('pointerdown', event => {
-      if (closed() || event.target.closest('.welcome-card')) return;
+      if (closed()) return;
+      if (event.target.closest('[data-welcome-close]')) return;
+      if (event.target.closest('.welcome-card')) {
+        soundOn();
+        return;
+      }
       hide();
     });
     document.addEventListener('keydown', event => {
@@ -45,6 +56,9 @@ mountDoors();
       if (!event.persisted) return;
       try { if (sessionStorage.getItem(key)) hide(); } catch {}
     });
+    video?.addEventListener('playing', () => video.classList.add('is-ready'));
+    video?.addEventListener('canplay', start);
+    start();
   }
 }
 import {networkState, spendState, miningState, vaultState, transactionState, formatKas} from './models.mjs';
