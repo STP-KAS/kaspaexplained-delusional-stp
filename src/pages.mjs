@@ -15,11 +15,11 @@ export const pages = [
         <div class="welcome-card">
           <p class="eyebrow">Kaspa Explained STP</p>
           ${localFilm('/media/kaspa-roots.mp4')}
-          <p class="welcome-copy">Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br>Proof of stake replaced work with capital. That is a different system.<br>Kaspa stayed with proof of work and made it fast and programmable. No more, no less.</p>
+          <p class="welcome-copy">- Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br>- Proof of stake replaced work with capital. That is a different system.<br>- Kaspa stayed with proof of work and made it fast and programmable. No more, no less.</p>
           <button class="primary-button" type="button" data-welcome-close>Continue</button>
         </div>
       </div>
-      <p class="home-ethos">Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br>Proof of stake replaced work with capital. That is a different system.<br>Kaspa stayed with proof of work and made it fast and programmable. No more, no less.</p>
+      <p class="home-ethos">- Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br>- Proof of stake replaced work with capital. That is a different system.<br>- Kaspa stayed with proof of work and made it fast and programmable. No more, no less.</p>
       <section class="doors" aria-label="Choose an intel door">
         <p class="eyebrow">Four doors</p>
         <h1>Who is reading.</h1>
