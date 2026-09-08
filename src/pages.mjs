@@ -219,10 +219,11 @@ export const pages = [
             <button class="quiet-button" type="button" data-pg-generate>Make a test wallet</button>
           </article>
           <article>
-            <h3>I already have a kaspatest: address</h3>
-            <p>Paste the address you mine to. We show the balance. Sending needs Kasware that holds it, or a local wallet you made here.</p>
-            <label class="pg-watch-line">Address<input data-pg-watch placeholder="kaspatest:…" autocomplete="off" spellcheck="false"></label>
-            <button class="quiet-button" type="button" data-pg-watch-go>Show balance</button>
+            <h3>Your miner address</h3>
+            <p>Pinned Testnet-10 address. One click shows its tKAS. Sending still needs Kasware that holds these keys, or a local wallet you made here.</p>
+            <p class="small"><code>kaspatest:qzpvdakagvwfm95g8pv9ndpupjtndgjfhmve08cg3tv5wgfytjzf7cudwwzv0</code></p>
+            <label class="pg-watch-line">Or another kaspatest: address<input data-pg-watch value="kaspatest:qzpvdakagvwfm95g8pv9ndpupjtndgjfhmve08cg3tv5wgfytjzf7cudwwzv0" autocomplete="off" spellcheck="false"></label>
+            <button class="quiet-button" type="button" data-pg-watch-go>Show my tKAS</button>
           </article>
         </div>
         <details class="detail"><summary>Local wallet key hex</summary><div class="detail-body"><p>Only for a wallet made in this tab. Not a seed phrase. Anyone with this hex can spend those test coins.</p><pre data-pg-hex></pre></div></details>
