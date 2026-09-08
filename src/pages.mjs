@@ -14,18 +14,14 @@ export const pages = [
     body: `<dialog class="welcome" data-welcome>
         <div class="welcome-card">
           <p class="eyebrow">Kaspa Explained STP</p>
-          <p class="welcome-sound-note">Sound on</p>
-          <div class="welcome-stage">
-            <video class="welcome-film" controls playsinline preload="auto" src="/media/kaspa-roots.mp4">
-              Your browser cannot play this film. <a href="/media/kaspa-roots.mp4">Open the file</a>.
-            </video>
-            <button class="primary-button welcome-sound-start" type="button" data-welcome-sound>Sound on</button>
-          </div>
-          <p class="welcome-copy">Crypto started with Bitcoin proof of work, for decentralized money and ownership.<br>Proof of stake left that idea.<br>Kaspa follows the ethos of Satoshi and delivers: fast, programmable proof of work.</p>
+          <video class="welcome-film" controls playsinline autoplay preload="auto" src="/media/kaspa-roots.mp4">
+            Your browser cannot play this film. <a href="/media/kaspa-roots.mp4">Open the file</a>.
+          </video>
+          <p class="welcome-copy">Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br>Proof of stake replaced work with capital. That is a different system.<br>Kaspa stayed with proof of work and made it fast and programmable. No more, no less.</p>
           <button class="primary-button" type="button" data-welcome-close>Continue</button>
         </div>
       </dialog>
-      <p class="home-ethos">Crypto started with Bitcoin proof of work, for decentralized money and ownership.<br>Proof of stake left that idea.<br>Kaspa follows the ethos of Satoshi and delivers: fast, programmable proof of work.</p>
+      <p class="home-ethos">Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br>Proof of stake replaced work with capital. That is a different system.<br>Kaspa stayed with proof of work and made it fast and programmable. No more, no less.</p>
       <section class="doors" aria-label="Choose an intel door">
         <p class="eyebrow">Four doors</p>
         <h1>Who is reading.</h1>
