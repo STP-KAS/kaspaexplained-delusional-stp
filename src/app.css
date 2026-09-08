@@ -48,7 +48,7 @@ html[data-welcome-seen] .welcome{display:none!important}
 .door-people{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
 .door-people a{padding:8px 12px;font-size:.8125rem;border-radius:999px;flex-direction:row;align-items:center}
 .door-film{margin:0 0 28px;max-width:42rem}
-.door-film video{display:block;width:100%;max-height:min(36vh,320px);object-fit:contain;background:#111;border-radius:18px;border:1px solid var(--rule)}
+.door-film video{display:block;width:100%;height:auto;aspect-ratio:16/9;max-height:min(36vh,320px);object-fit:contain;background:#111;border-radius:18px;border:1px solid var(--rule)}
 .door-film figcaption{margin-top:8px}
 .intro-door{display:block;margin-bottom:24px}
 .intro-door h1{max-width:22ch}

@@ -2,7 +2,7 @@ import { payment, network, spend, mining, vault, transaction, inspector, section
 import { sources, snapshot } from './site.mjs';
 import {coordinationMarkup} from './coordination-view.mjs';
 import {people} from './doors.mjs';
-import {kgiCard} from './community.mjs';
+import {kgiCard, localFilm} from './community.mjs';
 
 const source = key => link(...sources[key]);
 const routes = items => `<nav class="topic-list" aria-label="Related explanations">${items.map(([title, text, url])=>`<a href="${url}"><div><strong>${title}</strong><p>${text}</p></div><span aria-hidden="true">↗</span></a>`).join('')}</nav>`;
@@ -35,6 +35,7 @@ export const pages = [
         </div>
       </div>
       <p class="home-ethos">-Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br><br>-Proof of stake replaced work with capital. That is a different system.<br><br>-Kaspa kept Bitcoin\u2019s proof of work and upgraded it: 10 blocks per second on average, now programmable.</p>
+      ${localFilm('/media/kaspa-silver.mp4', 'Kaspa Silver: what Kaspa is.', {preload: 'metadata'})}
       <section class="doors" aria-label="Choose an intel door">
         <p class="eyebrow">Four doors</p>
         <h1>Who is reading.</h1>
