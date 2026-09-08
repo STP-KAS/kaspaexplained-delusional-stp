@@ -15,21 +15,10 @@ export const pages = [
         <div class="welcome-card">
           <p class="eyebrow">Kaspa Explained STP</p>
           <div class="welcome-stage">
-            <video class="welcome-film" muted autoplay playsinline preload="auto" poster="/media/kaspa-roots.jpg" src="/media/kaspa-roots.mp4" disablepictureinpicture>
+            <video class="welcome-film" controls muted autoplay playsinline preload="auto" poster="/media/kaspa-roots.jpg" src="/media/kaspa-roots.mp4">
               Your browser cannot play this film. <a href="/media/kaspa-roots.mp4">Open the file</a>.
             </video>
           </div>
-          <script>
-            (() => {
-              const video = document.currentScript.previousElementSibling.querySelector('video');
-              if (!video) return;
-              video.muted = true;
-              video.defaultMuted = true;
-              video.playsInline = true;
-              video.addEventListener('playing', () => video.classList.add('is-ready'), {once:true});
-              if (video.paused && video.play) video.play().catch(() => {});
-            })();
-          </script>
           <p class="welcome-copy">-Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br><br>-Proof of stake replaced work with capital. That is a different system.<br><br>-Kaspa kept Bitcoin\u2019s proof of work and upgraded it: 10 blocks per second on average, now programmable.</p>
           <button class="primary-button" type="button" data-welcome-close>Continue</button>
         </div>
