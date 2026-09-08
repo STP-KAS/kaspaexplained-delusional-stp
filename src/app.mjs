@@ -10,21 +10,41 @@ mountDoors();
   const dialog = document.querySelector('[data-welcome]');
   if (dialog) {
     const video = dialog.querySelector('video');
+    let unlocking = false;
     const close = () => {
       video?.pause();
       if (dialog.open) dialog.close();
     };
     const startWithSound = () => {
-      if (!video) return;
+      if (!video || unlocking) return;
+      unlocking = true;
       video.defaultMuted = false;
+      video.removeAttribute('muted');
       video.muted = false;
       video.volume = 1;
-      video.play()?.catch(() => {});
+      const play = video.play();
+      const done = () => { unlocking = false; };
+      if (play && play.then) play.then(done).catch(done);
+      else done();
     };
     dialog.querySelector('[data-welcome-close]')?.addEventListener('click', close);
     dialog.addEventListener('cancel', event => {
       event.preventDefault();
       close();
+    });
+    video?.addEventListener('click', () => {
+      if (video.paused) startWithSound();
+      else video.pause();
+    });
+    let unmuteTries = 0;
+    video?.addEventListener('playing', () => {
+      if (video.muted || video.volume === 0) startWithSound();
+    });
+    video?.addEventListener('volumechange', () => {
+      if ((video.muted || video.volume === 0) && unmuteTries < 5) {
+        unmuteTries += 1;
+        startWithSound();
+      }
     });
     if (typeof dialog.showModal === 'function') dialog.showModal();
     else dialog.setAttribute('open', '');

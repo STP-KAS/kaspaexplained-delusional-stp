@@ -14,7 +14,7 @@ export const pages = [
     body: `<dialog class="welcome" data-welcome>
         <div class="welcome-card">
           <p class="eyebrow">Kaspa Explained STP</p>
-          <video class="welcome-film" controls playsinline autoplay preload="auto" src="/media/kaspa-roots.mp4">
+          <video class="welcome-film" playsinline autoplay preload="auto" src="/media/kaspa-roots.mp4">
             Your browser cannot play this film. <a href="/media/kaspa-roots.mp4">Open the file</a>.
           </video>
           <p class="welcome-copy">Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br>Proof of stake replaced work with capital. That is a different system.<br>Kaspa stayed with proof of work and made it fast and programmable. No more, no less.</p>
