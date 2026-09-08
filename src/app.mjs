@@ -9,19 +9,30 @@ mountDoors();
 {
   const welcome = document.querySelector('[data-welcome]');
   if (welcome) {
+    const key = 'kaspa-welcome-seen';
     const video = welcome.querySelector('video');
     const closed = () => welcome.hidden;
-    const close = () => {
+    const remember = () => { try { sessionStorage.setItem(key, '1'); } catch {} };
+    const hide = () => {
       video?.pause();
       welcome.hidden = true;
+      remember();
     };
-    welcome.querySelector('[data-welcome-close]')?.addEventListener('click', close);
+    try {
+      if (sessionStorage.getItem(key)) hide();
+      else remember();
+    } catch {}
+    welcome.querySelector('[data-welcome-close]')?.addEventListener('click', hide);
     welcome.addEventListener('pointerdown', event => {
       if (closed() || event.target.closest('.welcome-card')) return;
-      close();
+      hide();
     });
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && !closed()) close();
+      if (event.key === 'Escape' && !closed()) hide();
+    });
+    window.addEventListener('pageshow', event => {
+      if (!event.persisted) return;
+      try { if (sessionStorage.getItem(key)) hide(); } catch {}
     });
   }
 }
