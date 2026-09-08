@@ -15,8 +15,8 @@ function pageBody(door) {
       <p class="lead">${door.intel}</p>
     </div>
     <p class="door-as" data-door-as hidden></p>
-    ${film}
     <div class="door-intel-body">${door.body}</div>
+    ${film}
     ${doorKgi()}
     ${peopleChips(door.id)}
     <section class="chapter">
