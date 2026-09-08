@@ -1,16 +1,21 @@
 import {doors, demos, doorKgi, peopleChips} from './doors.mjs';
+import {localFilm} from './community.mjs';
 
 const routes = items => `<nav class="topic-list" aria-label="Next reading">${items.map(([title, text, url]) =>
   `<a href="${url}"><div><strong>${title}</strong><p>${text}</p></div><span aria-hidden="true">↗</span></a>`
 ).join('')}</nav>`;
 
 function pageBody(door) {
+  const film = door.id === 1 || door.id === 2
+    ? localFilm('/media/kaspa-silver.mp4', 'Kaspa Silver: what Kaspa is.')
+    : '';
   return `<div class="page-intro intro-door">
       <p class="eyebrow">${door.label}</p>
       <h1>${door.title}</h1>
       <p class="lead">${door.intel}</p>
     </div>
     <p class="door-as" data-door-as hidden></p>
+    ${film}
     <div class="door-intel-body">${door.body}</div>
     ${doorKgi()}
     ${peopleChips(door.id)}
