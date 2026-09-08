@@ -14,12 +14,12 @@ export const pages = [
     body: `<dialog class="welcome" data-welcome>
         <div class="welcome-card">
           <p class="eyebrow">Kaspa Explained STP</p>
-          <p class="welcome-sound-note" data-welcome-sound-note>Sound on</p>
+          <p class="welcome-sound-note">Sound off by default. Press Sound on if you want audio.</p>
           <div class="welcome-stage">
-            <video class="welcome-film" controls playsinline autoplay preload="auto" src="/media/kaspa-roots.mp4">
+            <video class="welcome-film" controls playsinline autoplay muted preload="auto" src="/media/kaspa-roots.mp4">
               Your browser cannot play this film. <a href="/media/kaspa-roots.mp4">Open the file</a>.
             </video>
-            <button class="primary-button welcome-sound-start" type="button" data-welcome-sound hidden>Sound on</button>
+            <button class="primary-button welcome-sound-start" type="button" data-welcome-sound>Sound on</button>
           </div>
           <p class="welcome-copy">Crypto started with Bitcoin proof of work, for decentralized money and ownership.<br>Proof of stake left that idea.<br>Kaspa follows the ethos of Satoshi and delivers: fast, programmable proof of work.</p>
           <button class="primary-button" type="button" data-welcome-close>Continue</button>

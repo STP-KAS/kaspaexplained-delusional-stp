@@ -27,9 +27,13 @@ mountDoors();
       event.preventDefault();
       close();
     });
+    if (video) {
+      video.muted = true;
+      video.volume = 1;
+    }
     if (typeof dialog.showModal === 'function') dialog.showModal();
     else dialog.setAttribute('open', '');
-    startWithSound();
+    video?.play()?.catch(() => {});
   }
 }
 import {networkState, spendState, miningState, vaultState, transactionState, formatKas} from './models.mjs';
