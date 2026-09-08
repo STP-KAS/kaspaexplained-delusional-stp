@@ -54,11 +54,13 @@ export const lanePages = [
     body: `${intro('Explore', 'See the network without a ticker.', 'kaspa.stream is an explorer for the many: blocks, transactions, and a live picture of the DAG. You do not need a thesis to open it. You need a transaction ID, an address, or curiosity.')}
       ${rows([
         ['What kaspa.stream is', '<p>A block explorer with real-time network insight. Paste an address or a transaction. Watch new blocks land. It is a window onto the ledger, not a trading desk.</p><p><a href="https://kaspa.stream/" target="_blank" rel="noopener noreferrer">Open kaspa.stream ↗</a></p>'],
+        ['Testnet-10 explorer', `<p>Same kind of window, for Testnet-10. Paste a <code>kaspatest:</code> address or a test tx. Mainnet kaspa.stream will not show those coins.</p><p>${link('Open tn10.kaspa.stream','https://tn10.kaspa.stream/')}</p>`],
         ['What the Graph Inspector is', `<p>kgi.kaspad.net draws the blockDAG as it grows. Parallel blocks are the point. A candle chart is not.</p><p><a href="${KGI}" target="_blank" rel="noopener noreferrer">Open the Graph Inspector ↗</a></p>`],
         ['Official explorer', '<p>explorer.kaspa.org is the other public ledger view. Use either. Cross-check if a number matters.</p>'],
       ])}
       ${pinList([
         ['kaspa.stream', 'Explorer for ordinary reading of blocks and txs.', 'https://kaspa.stream/'],
+        ['tn10.kaspa.stream', 'Testnet-10 explorer. kaspatest: addresses live here.', 'https://tn10.kaspa.stream/'],
         ['Graph Inspector', 'Live blockDAG.', KGI],
         ['Kaspa Explorer', 'L1 transactions.', 'https://explorer.kaspa.org'],
         ['Kaspa Q&A', 'Community questions.', 'https://qa.kas.pa/'],
