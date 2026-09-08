@@ -13,11 +13,9 @@ export const xHandles = [
   ['Romain Billot', '@IzioDev', 'https://x.com/IzioDev', 'Core / KEF-funded'],
   ['Maxim Biryukov', '@biryukovmaxim', 'https://x.com/biryukovmaxim', 'Core. KIP-21'],
   ['Aviv Zohar', '@Avivz78', 'https://x.com/Avivz78', 'GHOST co-author / research. avivz.net'],
-  ['Shai Wyborski', '@DesheShai', 'https://x.com/DesheShai', 'GHOSTDAG co-author. Left core in 2025. History, not a current core pin'],
   ['Kaspa community X', '@kaspaunchained', 'https://x.com/kaspaunchained', 'Non-representative community account'],
-  ['Kaspa global', '@KASPAglobal', 'https://x.com/KASPAglobal', 'Toccata is live, not coming soon'],
+  ['Kaspa Global', '@KASPAglobal', 'https://x.com/KASPAglobal', 'Toccata is live, not coming soon'],
   ['Kaspa Commons', '@Kaspa_Commons', 'https://x.com/Kaspa_Commons', 'Relays Discord. Not core'],
-  ['STP-KAS', '@StppStp', 'https://x.com/StppStp', 'This overlay. Never DMs you'],
   ['Luke Dunshea', '@elldeeone', 'https://x.com/elldeeone', 'SilverScript v1-rc1. Groth16 builtin'],
   ['Sivan Helfer', '@manyfest_', 'https://x.com/manyfest_', 'SilverScript compiler. Kas Smiths'],
 ];
