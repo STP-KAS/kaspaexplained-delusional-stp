@@ -24,8 +24,11 @@ export const pages = [
               video.muted = true;
               video.defaultMuted = true;
               video.playsInline = true;
-              const play = video.play && video.play();
-              if (play && play.catch) play.catch(() => { video.muted = true; video.play && video.play().catch(() => {}); });
+              video.autoplay = true;
+              const kick = () => { if (video.paused) video.play && video.play().catch(() => {}); };
+              kick();
+              video.addEventListener('canplay', kick);
+              video.addEventListener('loadeddata', kick);
             })();
           </script>
           <p class="welcome-copy">Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br>Proof of stake replaced work with capital. That is a different system.<br>Kaspa stayed with proof of work and made it fast and programmable. No more, no less.</p>

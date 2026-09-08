@@ -10,44 +10,40 @@ mountDoors();
   const welcome = document.querySelector('[data-welcome]');
   if (welcome) {
     const video = welcome.querySelector('video');
-    let soundBlocked = false;
+    let triedSound = false;
     const closed = () => welcome.hidden;
-    const playMuted = () => {
-      if (!video || closed()) return;
+    const kick = () => {
+      if (!video || closed() || !video.paused || video.ended) return;
       video.muted = true;
       video.defaultMuted = true;
       video.playsInline = true;
+      video.autoplay = true;
       video.play()?.catch(() => {});
     };
     const close = () => {
       video?.pause();
       welcome.hidden = true;
-    };
-    const trySound = () => {
-      if (!video || closed() || soundBlocked || video.paused) return;
-      video.volume = 1;
-      video.defaultMuted = false;
-      video.removeAttribute('muted');
-      video.muted = false;
-      const play = video.play();
-      const restore = () => {
-        if (closed() || !video.paused) return;
-        soundBlocked = true;
-        playMuted();
-      };
-      if (play && play.then) play.then(() => {
-        if (video.paused || video.muted) restore();
-      }).catch(restore);
-      else requestAnimationFrame(restore);
+      clearInterval(timer);
     };
     welcome.querySelector('[data-welcome-close]')?.addEventListener('click', close);
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape' && !closed()) close();
     });
-    video?.addEventListener('loadeddata', playMuted);
-    video?.addEventListener('canplay', playMuted);
-    video?.addEventListener('playing', trySound);
-    playMuted();
+    video?.addEventListener('canplay', kick);
+    video?.addEventListener('loadeddata', kick);
+    video?.addEventListener('stalled', kick);
+    video?.addEventListener('timeupdate', () => {
+      if (!video || closed() || triedSound || video.currentTime < 1.5) return;
+      triedSound = true;
+      video.volume = 1;
+      video.muted = false;
+      video.play()?.catch(() => {
+        video.muted = true;
+        kick();
+      });
+    });
+    kick();
+    const timer = setInterval(kick, 250);
   }
 }
 import {networkState, spendState, miningState, vaultState, transactionState, formatKas} from './models.mjs';
