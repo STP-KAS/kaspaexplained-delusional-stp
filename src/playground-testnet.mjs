@@ -3,6 +3,7 @@ const STORE_WATCH = 'kaspa-playground-tn10-watch';
 const TN10_API = 'https://api-tn10.kaspa.org';
 const RPC_URL = 'wss://muon-10.kaspa.blue/kaspa/testnet-10/wrpc/borsh';
 const SEND_SOMPI = 10_000_000n; // 0.1 tKAS
+const MINER_ADDRESS = 'kaspatest:qzpvdakagvwfm95g8pv9ndpupjtndgjfhmve08cg3tv5wgfytjzf7cudwwzv0';
 
 const root = document.querySelector('[data-playground-testnet]');
 if (root) {
@@ -225,22 +226,11 @@ if (root) {
       return;
     }
     const hex = sessionStorage.getItem(STORE_KEY);
-    if (hex) {
-      try {
-        const loaded = await import('/assets/kaspa/kaspa.js');
-        await loaded.default({module_or_path: '/assets/kaspa/kaspa_bg.wasm'});
-        const key = new loaded.PrivateKey(hex);
-        q('hex').textContent = hex;
-        useSession({kind: 'local', address: key.toAddress('testnet-10').toString(), network: 'Testnet-10', keyHex: hex});
-        say('Local test wallet restored from this tab.');
-        return;
-      } catch {}
-    }
-    const watch = sessionStorage.getItem(STORE_WATCH);
-    if (watch && isTn10(watch)) {
-      q('watch').value = watch;
-      useSession({kind: 'watch', address: watch, network: 'Testnet-10', keyHex: ''});
-    }
+    if (hex && q('hex')) q('hex').textContent = hex;
+    const address = MINER_ADDRESS;
+    if (q('watch')) q('watch').value = address;
+    useSession({kind: 'watch', address, network: 'Testnet-10', keyHex: ''});
+    say('Showing your pinned miner address. Log in with Kasware to send from it, or make a local test wallet if you want a different one.');
   }
 
   q('kasware')?.addEventListener('click', () => loginKasware().catch(error => say(error.message || String(error), true)));
