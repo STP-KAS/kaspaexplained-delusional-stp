@@ -40,10 +40,11 @@ html[data-welcome=seen] .welcome{display:none!important}
 .door-row a:hover,.door-people a:hover{border-color:var(--green);color:var(--text)}
 .door-people{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
 .door-people a{padding:8px 12px;font-size:.8125rem;border-radius:999px;flex-direction:row;align-items:center}
-.door-film{margin:0 0 28px}
-.door-film video{display:block;width:100%;max-height:min(70vh,640px);background:#111;border-radius:18px;border:1px solid var(--rule)}
+.door-film{margin:0 0 28px;max-width:42rem}
+.door-film video{display:block;width:100%;max-height:min(36vh,320px);object-fit:contain;background:#111;border-radius:18px;border:1px solid var(--rule)}
 .door-film figcaption{margin-top:8px}
-.intro-door{margin-bottom:24px}
+.intro-door{display:block;margin-bottom:24px}
+.intro-door h1{max-width:22ch}
 .door-kicker{font-size:.875rem;font-weight:600;color:var(--green);margin:0 0 8px}
 .door-intel{max-width:46ch;margin:0 0 16px;line-height:1.55}
 .doors>a{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--green);text-decoration:none;font-weight:550}
