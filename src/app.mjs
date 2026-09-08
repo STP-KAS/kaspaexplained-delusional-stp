@@ -21,9 +21,17 @@ mountDoors();
       remember();
       document.documentElement.dataset.welcomeSeen = '1';
     };
+    const loadFilm = () => {
+      if (!video || closed()) return;
+      video.preload = 'auto';
+      try { video.load(); } catch {}
+    };
     try {
       if (sessionStorage.getItem(key)) hide();
-      else remember();
+      else {
+        remember();
+        loadFilm();
+      }
     } catch {}
     welcome.querySelector('[data-welcome-close]')?.addEventListener('click', hide);
     welcome.addEventListener('pointerdown', event => {

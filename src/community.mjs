@@ -33,9 +33,11 @@ export function kgiCard(kind = 'door') {
   </figure>`;
 }
 
-export function localFilm(src, caption) {
+export function localFilm(src, caption, extras = {}) {
+  const preload = extras.preload || 'none';
+  const poster = extras.poster ? ` poster="${extras.poster}"` : '';
   return `<figure class="door-film">
-    <video controls playsinline preload="none" src="${src}">
+    <video controls playsinline preload="${preload}" src="${src}"${poster}>
       Your browser cannot play this film. <a href="${src}">Open the file</a>.
     </video>
     ${caption ? `<figcaption class="small">${caption}</figcaption>` : ''}
