@@ -25,8 +25,10 @@
 @media(max-width:760px){.network-presets{padding:16px 20px 0;gap:8px}.network-presets button{padding:10px 12px;font-size:.875rem}}
 
 .home-ethos{margin:0 0 28px;max-width:46ch;font-size:1rem;line-height:1.55;color:var(--muted)}
-.welcome{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:16px;background:#111c}
+.site-header{z-index:90}
+.welcome{position:fixed;inset:0;top:84px;z-index:80;display:grid;place-items:center;padding:16px;background:#111c}
 html[data-welcome-seen] .welcome{display:none!important}
+@media(max-width:760px){.welcome{top:72px}}
 .welcome-card{width:min(720px,calc(100vw - 32px));padding:22px 22px 24px;border:1px solid var(--rule);border-radius:20px;background:var(--paper);box-shadow:var(--shadow)}
 .welcome-card .eyebrow{margin-bottom:12px}
 .welcome-card .door-film{margin:0 0 16px}
@@ -86,7 +88,7 @@ html[data-welcome-seen] .welcome{display:none!important}
 @media(min-width:1000px){.network-intro .dag-result{display:grid;grid-template-columns:minmax(240px,.85fr) minmax(0,1.4fr);min-height:270px;gap:28px;padding:20px 36px}.network-intro .dag-result>div{text-align:left}.network-intro .dag-result .network-drawing{max-height:270px}.network-intro .dag-result strong{font-size:1.65rem}.network-intro .dag-result p{font-size:1rem}.network-intro .diagram-caption small{display:block;margin-top:12px}}
 
 /* Interior pages use a compact opening and a composition suited to the subject. */
-.site-header{position:sticky;top:0;z-index:15;background:var(--paper)}
+.site-header{position:sticky;top:0;z-index:90;background:var(--paper)}
 .main{padding-top:44px}.page-intro{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:18px 64px;align-items:end;margin-bottom:36px}.page-intro>.eyebrow{grid-column:1/-1;margin:0}.page-intro h1{font-size:clamp(2.6rem,4.6vw,4rem);max-width:16ch}.page-intro .lead{font-size:1.125rem;line-height:1.65;margin:0;max-width:48ch;padding-bottom:3px}.page-contents{margin:0 0 28px;padding:8px 0;gap:4px 24px}.chapter{padding-top:76px;scroll-margin-top:110px}.page-contents+.chapter,.page-intro+.chapter,.page-intro+.action-row+.chapter{padding-top:16px}.section-title{gap:56px;margin-bottom:28px}.section-title h2{font-size:clamp(1.9rem,3.2vw,2.65rem);max-width:22ch}.section-title>p{font-size:1.0625rem;line-height:1.65}.experiment{box-shadow:0 4px 14px #142c2805;border-color:var(--rule)}.experiment-label{font-size:.8125rem}.experiment-answer{max-width:none}.reading-rows article{gap:48px;padding:26px 0}.reading-rows h3{letter-spacing:-.025em}.source-line{line-height:1.8}.main:has(.intro-current-evidence) .snapshot{margin-top:8px}.main:has(.intro-current-evidence) .status-list article{grid-template-columns:220px 1fr}.main:has(.intro-current-evidence) .status-tag{border:1px solid var(--rule);background:var(--paper)}.main:has(.intro-current-evidence) .status-list article:first-child,.main:has(.intro-current-evidence) .status-list article:nth-child(2){background:linear-gradient(90deg,var(--green-soft),transparent);padding-inline:24px}.main:has(.intro-sources) .source-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px}.source-list a{font-size:1rem}.intro-playground,.intro-find-a-topic{margin-bottom:28px}.intro-playground h1,.intro-find-a-topic h1{font-size:clamp(2.5rem,4vw,3.4rem)}.playground{gap:28px}.playground-nav{align-self:start;position:sticky;top:110px}.playground-nav button{text-align:left;border-radius:12px}.playground-main{min-width:0}.history{position:relative}.history li{grid-template-columns:170px 1fr;gap:64px;padding:48px 0}.history li>span{font-size:1rem}.history li h2{max-width:20ch}.history li:nth-child(even)>div{padding-left:12%;}.history p{max-width:58ch;margin:18px 0}.book-list{margin-top:44px}.book-list article{padding-block:40px}.book-number{font-size:5rem}.action-row{flex-wrap:wrap}.table-scroll{background:var(--paper)}
 
 /* One action, with the changed object and its explanation in the same stage. */
