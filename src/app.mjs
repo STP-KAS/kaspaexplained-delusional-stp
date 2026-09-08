@@ -185,7 +185,7 @@ for(const lesson of all('[data-lesson]')){
   const choose=index=>{steps.forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.lessonStep)===index)));all('[data-lesson-panel]',lesson).forEach(panel=>panel.hidden=Number(panel.dataset.lessonPanel)!==index);};
   steps.forEach(button=>button.addEventListener('click',()=>choose(Number(button.dataset.lessonStep))));
   all('[data-lesson-next]',lesson).forEach(button=>button.addEventListener('click',()=>{const index=Number(button.dataset.lessonNext);choose(index);steps[index].focus({preventScroll:true});}));
-  lesson.querySelector('.lesson-steps').addEventListener('keydown',event=>{const index=steps.indexOf(document.activeElement);if(index<0)return;const next=event.key==='Home'?0:event.key==='End'?steps.length-1:event.key==='ArrowRight'?(index+1)%steps.length:event.key==='ArrowLeft'?(index+steps.length-1)%steps.length:-1;if(next>=0){event.preventDefault();choose(next);steps[next].focus();}});
+  lesson.querySelector('.lesson-steps')?.addEventListener('keydown',event=>{const index=steps.indexOf(document.activeElement);if(index<0)return;const next=event.key==='Home'?0:event.key==='End'?steps.length-1:event.key==='ArrowRight'?(index+1)%steps.length:event.key==='ArrowLeft'?(index+steps.length-1)%steps.length:-1;if(next>=0){event.preventDefault();choose(next);steps[next].focus();}});
 }
 
 // Walkthroughs change the existing model controls; results still come from the model.
