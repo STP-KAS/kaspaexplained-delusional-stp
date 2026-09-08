@@ -10,10 +10,10 @@ const intro = (eyebrow, title, lead) => `<div class="page-intro intro-${eyebrow.
 
 export const pages = [
   {
-    file:'index.html', title:'Kaspa Explained', description:'Explore how Kaspa payments, parallel blocks, and spending rules work through interactive explanations.',
+    file:'index.html', title:'Kaspa Explained STP', description:'Explore how Kaspa payments, parallel blocks, and spending rules work through interactive explanations.',
     body: `<dialog class="welcome" data-welcome>
         <div class="welcome-card">
-          <p class="eyebrow">Kaspa Explained</p>
+          <p class="eyebrow">Kaspa Explained STP</p>
           <video class="welcome-film" controls playsinline autoplay muted preload="auto" src="/media/kaspa-roots.mp4">
             Your browser cannot play this film. <a href="/media/kaspa-roots.mp4">Open the file</a>.
           </video>
