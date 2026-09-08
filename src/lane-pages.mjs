@@ -1,5 +1,5 @@
 import {xHandles, localFilm, pinList, KGI} from './community.mjs';
-import {link} from './components.mjs';
+import {link, section} from './components.mjs';
 
 const intro = (eyebrow, title, lead) =>
   `<div class="page-intro"><p class="eyebrow">${eyebrow}</p><h1>${title}</h1><p class="lead">${lead}</p></div>`;
@@ -85,52 +85,115 @@ export const lanePages = [
   {
     file: 'node.html',
     title: 'Node',
-    description: 'Run a Testnet-10 rusty-kaspa node and mine tKAS today. CPU first. Do not point mainnet hardware at testnet by accident.',
-    body: `${intro('Node', 'A Testnet-10 node, then tKAS.', 'tKAS on TN10 today is a synced rusty-kaspa node, a kaspatest: address, and a miner pointed at that node. It is faucet money. It is not mainnet KAS. Official line: CPU mining so you do not own the tiny testnet.')}
-      <p class="small">Dated lab notes plus official docs. Pin: rusty-kaspa <strong>v2.0.1</strong>. Do not use testnet-12. Addresses start with <code>kaspatest:</code>.</p>
-      ${rows([
-        ['What you actually run', '<p>Node first. Miner second. Mining while unsynced is how you mine a private fork. There is no official <code>kaspa.exe</code>. The Windows node binary is <code>kaspad.exe</code> from the rusty-kaspa zip.</p>'],
-        ['Do not ASIC or pool this', '<p>Wiki line: do not put GPU, FPGA, or ASIC on testnet. Same kHeavyHash, different network, different address prefix. Pointing BzMiner at WoolyPooly or 2Miners is mainnet KAS. Wrong network, wasted power. If you only need coins for scripts, use the faucet.</p>'],
-        ['1. Get a TN10 address', '<p>Kaspa-NG set to Testnet-10, rusty wallet, or Rothschild. Copy an address that starts with <code>kaspatest:</code>. If it starts with <code>kaspa:</code>, stop. Optional: fund it from the faucet so you can test spends without waiting for coinbase to mature.</p>'],
-        ['2. Run the node', `<p>Download the Windows zip from ${link('rusty-kaspa v2.0.1','https://github.com/kaspanet/rusty-kaspa/releases/tag/v2.0.1')} (<code>rusty-kaspa-v2.0.1-win64.zip</code>). Unzip to a real folder. Confirm you see <code>kaspad.exe</code>. It is often in that folder or one level down in <code>bin</code>.</p>
-          <p>PowerShell, from the folder that contains the exe. Leave this window open. Closing it kills the node.</p>
-          <pre>cd C:\\Kaspa
+    description: 'Two jobs: a Testnet-10 node plus CPU-mined tKAS, or a mainnet node that can be public. Do not mix the flags.',
+    body: `${intro('Node', 'Two jobs. Do not mix them.', 'TN10 is a local kaspad plus a CPU miner paying a kaspatest: address. Mainnet is a real node. Public P2P is optional. This page does not tell you to mine mainnet.')}
+      <p class="small">Lab notes from a Windows run, 7 Sep 2026, plus official docs. Pin: rusty-kaspa <strong>v2.0.1</strong> or newer. There is no official <code>kaspa.exe</code>. The node is <code>kaspad</code> / <code>kaspad.exe</code>.</p>
+      <div class="table-scroll" role="region" aria-label="Do not mix these networks"><table>
+        <thead><tr><th></th><th>TN10 mine tKAS</th><th>Mainnet public node</th></tr></thead>
+        <tbody>
+          <tr><th>Flag</th><td><code>--testnet --netsuffix=10</code></td><td>no <code>--testnet</code></td></tr>
+          <tr><th>Address</th><td><code>kaspatest:</code></td><td><code>kaspa:</code> (wallet only; this guide is node-only)</td></tr>
+          <tr><th>Miner port</th><td>16210</td><td>do not mine here</td></tr>
+          <tr><th>P2P</th><td>testnet</td><td>16111 mainnet</td></tr>
+          <tr><th>Coins</th><td>worthless</td><td>real KAS</td></tr>
+          <tr><th>Explorer</th><td>${link('tn10.kaspa.stream','https://tn10.kaspa.stream/')}</td><td>${link('kaspa.stream','https://kaspa.stream/')}</td></tr>
+        </tbody>
+      </table></div>
+      ${section('tn10', 'TN10 + tKAS', `${rows([
+        ['What this is', '<p>A local kaspad on Testnet-10 plus a CPU miner paying a <code>kaspatest:</code> address. tKAS is faucet money. Official line: CPU only so you do not own a tiny testnet.</p>'],
+        ['0. Download, then move it', `<p>GitHub puts the zip in Downloads. Do not run from there. Browser plus OneDrive plus <code>kaspa-miner (3).exe</code> is how paths break.</p>
+          <p>Get ${link('rusty-kaspa latest','https://github.com/kaspanet/rusty-kaspa/releases/latest')}: Windows <code>rusty-kaspa-*-win64.zip</code>, Linux <code>rusty-kaspa-*-linux-amd64.zip</code>, macOS <code>rusty-kaspa-*-osx.zip</code>. CPU miner: ${link('kaspanet/cpuminer','https://github.com/kaspanet/cpuminer/releases')}.</p>
+          <p>Make a dedicated folder and copy the unzipped files there. Windows: <code>C:\\Kaspa\\tn10\\</code>. Ubuntu / Linux / macOS: <code>~/kaspa/tn10/</code>. Confirm you see <code>kaspad.exe</code> or <code>kaspad</code> (sometimes in <code>bin/</code>).</p>
+          <p>Windows after unzip:</p>
+          <pre>New-Item -ItemType Directory -Force -Path C:\\Kaspa\\tn10
+Copy-Item "$env:USERPROFILE\\Downloads\\rusty-kaspa-*\\*" C:\\Kaspa\\tn10 -Recurse</pre>
+          <p>Linux / macOS:</p>
+          <pre>mkdir -p ~/kaspa/tn10
+unzip -o ~/Downloads/rusty-kaspa-*-linux-amd64.zip -d ~/kaspa/tn10
+chmod +x ~/kaspa/tn10/kaspad ~/kaspa/tn10/kaspa-wallet ~/kaspa/tn10/rothschild</pre>
+          <p>If the zip dumped a <code>bin/</code> subfolder, <code>cd</code> there. Copy the miner into the same folder. Rename long GitHub names: <code>kaspa-miner-v0.2.7-win64-amd64 (3).exe</code> becomes <code>kaspa-miner.exe</code>.</p>`],
+        ['1. Get a kaspatest: address', `<p>Must start with <code>kaspatest:</code>. A <code>kaspa:</code> address is the wrong network.</p>
+          <p>${link('Kaspa-NG','https://github.com/aspectron/kaspa-ng/releases')}: network Testnet-10, create wallet, copy receive address. CLI: <code>kaspa-wallet</code> in the node zip, against a running TN10 node with <code>--utxoindex</code>. Throwaway: <code>rothschild</code> in the same zip can print a key plus address. Save the key if you want that bag.</p>
+          <p>Paste the full string into ${link('tn10.kaspa.stream','https://tn10.kaspa.stream/')} search. If it rejects it, you chopped the address or used mainnet. Faucet is optional: ${link('faucet-tn10.kaspanet.io','https://faucet-tn10.kaspanet.io/')}. You do not need it to mine.</p>`],
+        ['2. Start the node (terminal 1, leave it open)', `<p>Windows PowerShell:</p>
+          <pre>cd C:\\Kaspa\\tn10
 dir kaspad.exe
 .\\kaspad.exe --testnet --netsuffix=10 --utxoindex</pre>
-          <p>If you need Borsh RPC as well:</p>
-          <pre>.\\kaspad.exe --testnet --netsuffix=10 --utxoindex --rpclisten-borsh=127.0.0.1:17110</pre>
-          <p>Linux:</p>
-          <pre>./kaspad --testnet --netsuffix=10 --utxoindex --rpclisten-borsh=default</pre>
-          <p>Wait until it is synced and has peers. First run can sit on IBD. That is normal. Windows Firewall: allow private networks.</p>
-          <p>Check the public net is alive before you debug your box: ${link('explorer-tn10.kaspa.org','https://explorer-tn10.kaspa.org/')} · ${link('api-tn10.kaspa.org','https://api-tn10.kaspa.org/')}</p>`],
-        ['3. CPU miner (the intended path)', `<p>Default TN10 gRPC port is <strong>16210</strong>. Start with one thread. Node first, miner second. ${link('kaspanet/cpuminer','https://github.com/kaspanet/cpuminer')} (v0.2.7 lineage):</p>
-          <pre>kaspa-miner --testnet --mining-address kaspatest:YOUR_ADDRESS -p 16210 -t 1</pre>`],
-        ['4. Need coins without mining', `<p>${link('faucet-testnet.kaspanet.io','https://faucet-testnet.kaspanet.io')} (also seen as faucet-tn10.kaspanet.io). Discord #testnet if the faucet is dry. Then bring the address to the <a href="/playground">playground</a>.</p>`],
-        ['GPU, if you still insist', '<p>Official line is still CPU only on TN10. GPU is allowed by physics, not by etiquette. One card can own a network that sits around tens of MH/s. There is no public GPU pool for tKAS. You solo against your own synced node.</p><p>After Toccata, block templates carry extra fields. Old GPU miners talking raw gRPC can hash and still submit invalid blocks. If that happens, use node + stratum-bridge + miner, not more overclock.</p>'],
-        ['BzMiner to the node', '<p><code>bzminer -a kaspa -w kaspatest:YOUR_ADDRESS -p node+tcp://127.0.0.1:16210 --nc 1</code>. Some builds want <code>solo+tcp://</code>. Do not use <code>stratum+tcp://pool...</code>.</p>'],
-        ['Community miner', `<p>${link('tmrlvi/kaspa-miner','https://github.com/tmrlvi/kaspa-miner/releases')} GPU build. <code>./kaspa-miner --testnet --mining-address kaspatest:YOUR_ADDRESS -s 127.0.0.1 -p 16210 -t 0</code>. AMD: add <code>--opencl-enable</code>. This miner is old. Hashing with zero accepted blocks is protocol age, not clocks.</p>`],
-        ['Stratum-bridge (least likely to lie after Toccata)', '<p>Node as above. Bridge pointed at <code>127.0.0.1:16210</code>. Miner to the local stratum port (often 5555, confirm with netstat). Do not port-forward that port to the internet. GPU on another PC: use the node PC LAN IP, not 127.0.0.1.</p>'],
+          <p>Ubuntu / Linux / macOS:</p>
+          <pre>cd ~/kaspa/tn10
+./kaspad --testnet --netsuffix=10 --utxoindex</pre>
+          <p>One line. Enter once. Closing this window kills the node. One kaspad only. Windows Firewall: allow private networks.</p>
+          <p>Fails already hit: command from your home folder is “not recognized” (you are not in the dedicated folder). Two commands glued on one line makes <code>--rpclisten-borsh=default.\\kaspad.exe</code> and “invalid IP”. Missing <code>--testnet</code> puts you on mainnet by accident.</p>`],
+        ['3. Wait until it is actually synced', '<p>Order: validating pruning-point proof (levels counting down). Receiving UTXO set chunks (<code>--utxoindex</code> is slow, hundreds of millions of UTXOs). “Finished receiving the UTXO set” then importing (looks frozen; do not kill it). Live tip: Accepted N blocks via relay every second.</p><p>Only step 4 is ready. Plan 1 to 2 hours on a home line.</p>'],
+        ['4. Start the miner (terminal 2)', `<p>Node stays up. You do not hard-close kaspad to free the miner. Rename the long miner filename first if needed.</p>
+          <p>Windows:</p>
+          <pre>cd C:\\Kaspa\\tn10
+.\\kaspa-miner.exe --testnet --mining-address kaspatest:YOUR_ADDRESS -s 127.0.0.1 -p 16210 -t 1</pre>
+          <p>Linux / macOS:</p>
+          <pre>cd ~/kaspa/tn10
+./kaspa-miner --testnet --mining-address kaspatest:YOUR_ADDRESS -s 127.0.0.1 -p 16210 -t 1</pre>
+          <p>Port <strong>16210</strong> is TN10 gRPC, not mainnet 16110. <code>-t 1</code> is one CPU thread. Enough on TN10.</p>`],
+        ['5. Check rewards', `<p>${link('tn10.kaspa.stream address lookup','https://tn10.kaspa.stream/')}. explorer-tn10.kaspa.org was unreliable. Coinbase stays Confirming until mature. Blue good, red bad. Then bring the address to the <a href="/playground">playground</a>.</p>
+          <p>Change address: Ctrl+C the miner only. Restart with the new <code>kaspatest:</code> string. Old coins stay on the old address.</p>`],
+        ['GPU, if you still insist', `<p>Official line is still CPU only on TN10. GPU is allowed by physics, not by etiquette. One card can own a network that sits around tens of MH/s. There is no public GPU pool for tKAS.</p>
+          <p>BzMiner to the node: <code>bzminer -a kaspa -w kaspatest:YOUR_ADDRESS -p node+tcp://127.0.0.1:16210 --nc 1</code>. Some builds want <code>solo+tcp://</code>. Do not use <code>stratum+tcp://pool...</code>.</p>
+          <p>Or ${link('tmrlvi/kaspa-miner','https://github.com/tmrlvi/kaspa-miner/releases')} GPU build, <code>-t 0</code> for GPU only. After Toccata, old miners can hash and still submit invalid blocks. Then use <code>stratum-bridge.exe</code> from the same zip, miner to <code>127.0.0.1:5555</code>. Do not port-forward stratum.</p>`],
       ])}
-      <div class="table-scroll" role="region" aria-label="Node failures"><table>
+      <div class="table-scroll" role="region" aria-label="TN10 failures"><table>
         <thead><tr><th>Symptom</th><th>Actual cause</th></tr></thead>
         <tbody>
-          <tr><th>Reconnect loop</th><td>Wrong port (16210 vs 16211 vs 16110) or node not listening</td></tr>
-          <tr><th>Invalid address</th><td>You used <code>kaspa:</code></td></tr>
+          <tr><th>not recognized</th><td>Wrong folder. <code>cd</code> to the directory that contains the exe</td></tr>
+          <tr><th>invalid IP / glued flags</th><td>Two commands pasted as one line. One command, then Enter</td></tr>
+          <tr><th>Reconnect loop / connection refused</th><td>Wrong port (16210 vs 16211 vs 16110), node not listening, or still importing UTXOs</td></tr>
+          <tr><th>Invalid address</th><td>You used <code>kaspa:</code> or chopped the string</td></tr>
           <tr><th>Hashing, zero blocks, rejected submit</th><td>Pre-Toccata miner vs Toccata templates. Use the stratum-bridge path</td></tr>
           <tr><th>Mining instantly at start</th><td>Node not synced. You forked yourself</td></tr>
           <tr><th>Pool dashboard on Wooly or F2</th><td>You are on mainnet. Stop</td></tr>
-          <tr><th><code>.\\kaspad.exe</code> not found</th><td>You are not in the extract folder. <code>cd</code> to the directory that contains the exe, then run it</td></tr>
-          <tr><th>invalid IP / glued flags</th><td>Two commands pasted as one line. One command, then Enter</td></tr>
+        </tbody>
+      </table></div>`, 'Local kaspad on Testnet-10 plus a CPU miner paying a kaspatest: address.')}
+      ${section('mainnet-node', 'Mainnet public node', `${rows([
+        ['What this is', '<p>Follow real KAS. This is not a miner guide. Do not add <code>--testnet</code>. Same release zip, different folder: <code>C:\\Kaspa\\mainnet\\</code> or <code>~/kaspa/mainnet/</code>.</p>'],
+        ['Hardware', '<p>SSD. 16 GB RAM minimum, 32 GB more comfortable. 4+ cores. Tens of GB free. Stable link. Mainnet after Crescendo and Toccata is heavier than TN10.</p>'],
+        ['Start', `<p>Linux / Ubuntu / macOS:</p>
+          <pre>cd ~/kaspa/mainnet
+./kaspad --utxoindex</pre>
+          <p>Windows:</p>
+          <pre>cd C:\\Kaspa\\mainnet
+.\\kaspad.exe --utxoindex</pre>
+          <p>Optional local RPC. Keep it local:</p>
+          <pre>./kaspad --utxoindex --rpclisten=127.0.0.1:16110</pre>
+          <p>Do not expose 16110. IBD is long. Same rule: do not kill during UTXO import. One process per data dir.</p>`],
+        ['You are synced when', '<p>Logs look like live tip: accepted blocks via relay, steady processed N blocks, not receiving UTXO set or pruning-level validation. Then a wallet can attach to <code>127.0.0.1:16110</code>.</p>'],
+        ['Background (optional)', `<p>Foreground is fine for learning. Linux user systemd or tmux on Mac. One kaspad per data dir. Two processes on the same data dir is a lock or corruption.</p>
+          <p>Update: stop cleanly, overwrite <code>kaspad</code>, start again. Stay on 2.0.1+ (Toccata). Same data dir. Do not delete the DB unless the release notes say to resync.</p>`],
+        ['Public is optional', `<p>You can sync forever as a private follower. Public means others can dial in on P2P <strong>16111/tcp</strong> on a real public IP.</p>
+          <p>Router: forward 16111 to this machine. Firewall allow 16111 (<code>sudo ufw allow 16111/tcp</code> on Ubuntu). Do not bind P2P to 127.0.0.1. Need a real public IP. CGNAT means you will never list. RPC stays private. Public node is not open RPC.</p>`],
+        ['Check on kaspa.stream', `<p>${link('kaspa.stream/nodes','https://kaspa.stream/nodes')}. Use Check your node. If the crawler sees you, the page highlights you. Want user agent <code>kaspad:2.0.1</code> (Toccata). Wait 10 to 30 minutes after opening the port.</p>
+          <p>Extra port test: ${link('kaspa.host','https://kaspa.host/')} on mainnet 16111. Not listed means private follower. That is still a valid node. The chain does not require you to be on the public list.</p>`],
+      ])}`, 'Follow real KAS. Public P2P is optional. No miner in this guide.')}
+      ${section('do-not-mix', 'Do not mix', `<div class="table-scroll" role="region" aria-label="Wrong mixes"><table>
+        <thead><tr><th>Wrong</th><th>What happens</th></tr></thead>
+        <tbody>
+          <tr><th><code>--testnet</code> on the mainnet folder</th><td>you sync TN10</td></tr>
+          <tr><th><code>kaspa:</code> on the TN10 miner</th><td>wrong network or fail</td></tr>
+          <tr><th>Wooly / F2 / K1 while mining tKAS</th><td>mainnet KAS</td></tr>
+          <tr><th>Two kaspad on one DB</th><td>lock or corruption</td></tr>
+          <tr><th>Binaries left in Downloads</th><td>path and <code>(3).exe</code> mess</td></tr>
+          <tr><th>GPU or ASIC on public TN10</th><td>you can own a tiny network</td></tr>
         </tbody>
       </table></div>
+      <p>TN10: dedicated folder, synced testnet node, one CPU thread on 127.0.0.1:16210, <code>kaspatest:</code> address.</p>
+      <p>Mainnet: dedicated folder, <code>kaspad --utxoindex</code>, optional 16111, then ${link('kaspa.stream/nodes','https://kaspa.stream/nodes')}.</p>`, 'Wrong flag, wrong prefix, wrong pool.')}
       ${pinList([
-        ['rusty-kaspa v2.0.1', 'Windows zip. Run kaspad.exe, not a mystery kaspa.exe.', 'https://github.com/kaspanet/rusty-kaspa/releases/tag/v2.0.1'],
-        ['Node operations', 'Official node docs.', 'https://docs.kaspa.org/integrate/kaspa-node'],
-        ['kaspa.org/build', 'Docker one-liner and builder door.', 'https://kaspa.org/build'],
-        ['TN10 explorer', 'Confirm the public testnet is alive.', 'https://explorer-tn10.kaspa.org/'],
-        ['TN10 faucet', 'Coins without mining.', 'https://faucet-testnet.kaspanet.io'],
+        ['rusty-kaspa latest', 'Run kaspad, not a mystery kaspa.exe.', 'https://github.com/kaspanet/rusty-kaspa/releases/latest'],
+        ['CPU miner', 'kaspanet/cpuminer. Rename the long filename.', 'https://github.com/kaspanet/cpuminer/releases'],
+        ['Kaspa-NG', 'GUI wallet. Set Testnet-10 for tKAS.', 'https://github.com/aspectron/kaspa-ng/releases'],
+        ['TN10 explorer', 'The explorer that worked. explorer-tn10.kaspa.org was unreliable.', 'https://tn10.kaspa.stream/'],
+        ['TN10 faucet', 'Coins without mining.', 'https://faucet-tn10.kaspanet.io'],
+        ['kaspa.stream/nodes', 'Check if your mainnet node is public.', 'https://kaspa.stream/nodes'],
+        ['kaspa.host', 'Independent mainnet 16111 port test.', 'https://kaspa.host/'],
         ['Playground', 'Bring the kaspatest: address here.', '/playground'],
-        ['Lab notes', 'The dated Grok share this tab restates.', 'https://grok.com/share/bGVnYWN5_01c3c778-41eb-4b4c-9013-6fe6424c60d9'],
+        ['Lab notes', 'The dated Grok share this tab restates.', 'https://grok.com/share/bGVnYWN5_b69a688b-75fe-441d-80d7-66c998fe9455'],
       ])}`,
   },
   {
