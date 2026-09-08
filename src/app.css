@@ -122,3 +122,38 @@ button{min-width:44px}
 .model-walkthrough{scroll-margin-top:88px}[data-coordination][data-guided=true] [data-coordination-summary]{display:none}[data-coordination][data-guided=true] .coordination-result{padding:0;border:0}[data-coordination][data-guided=true] .coordination-status{min-height:0;margin:0 0 18px;padding:14px 16px;border-left:3px solid var(--green);background:var(--green-soft)}
 @media(max-width:700px){.model-walkthrough{padding:16px}.model-walkthrough h3{margin:4px 0 8px;font-size:1.0625rem}.model-walkthrough p:last-child{font-size:.875rem;line-height:1.5}.model-walkthrough .eyebrow{font-size:.75rem}.model-walkthrough .walkthrough-actions{margin-top:12px}.model-walkthrough .walkthrough-explore{min-height:44px;margin-top:4px;padding-block:0}.model-walkthrough{gap:8px}[data-lab][data-guided=true]>.experiment-label{padding:12px 16px;font-size:.75rem}[data-lab][data-guided=true] .dag-result{padding:16px;min-height:240px}[data-money][data-guided=true] .money-stage{padding:20px}[data-coordination][data-guided=true] .coordination-people{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:0}[data-coordination][data-guided=true] .coordination-people fieldset{padding:12px}[data-coordination][data-guided=true] .coordination-people p{font-size:.8125rem;line-height:1.4}.coordination .model-walkthrough{margin-bottom:12px}}
 @media(max-width:700px){.network[data-guided=true] .dag-result{display:flex;flex-direction:column;gap:12px}.network[data-guided=true] .diagram-caption p,.network[data-guided=true] .diagram-caption small{display:none}.network[data-guided=true] .diagram-caption strong{font-size:1.0625rem;line-height:1.35}.network[data-guided=true] .dag-result .drawing-small{height:300px;max-height:300px;min-height:0;width:100%}}
+
+.site-header{height:auto;min-height:84px}
+.header-inner{flex-wrap:wrap;height:auto;padding:8px 0;gap:12px 20px}
+.main-nav{gap:12px;font-size:.8125rem;flex-wrap:wrap;justify-content:flex-end}
+.site-footer{flex-wrap:wrap}
+.community-rules{flex-basis:100%;max-width:none;margin:8px 0 0;font-size:.75rem;line-height:1.45;color:var(--muted)}
+.kgi-card{margin:0 0 28px;padding:16px 18px;border:1px solid var(--rule);border-radius:16px;background:var(--paper);max-width:46rem}
+.kgi-card .eyebrow{margin-bottom:8px}
+.kgi-card p{color:var(--muted);max-width:46ch}
+.kgi-link{display:inline-flex;align-items:center;min-height:44px;margin:8px 0 12px;color:var(--green);text-decoration:none;font-weight:550}
+.kgi-frame{display:block;width:100%;height:220px;border:1px solid var(--rule);border-radius:12px;background:var(--soft)}
+.door-visual{margin:0 0 20px;max-width:28rem;color:var(--text)}
+.door-visual svg{display:block;width:100%;height:auto}
+.door-intel-body{max-width:52ch;margin:0 0 20px}
+.door-intel-body p{color:var(--text)}
+.door-as{margin:0 0 16px;padding:10px 14px;border-left:3px solid var(--green);background:var(--green-soft);max-width:52ch;font-size:.9375rem}
+.playground-testnet{margin:0 0 36px;padding:24px 28px;border:1px solid var(--rule);border-radius:18px;background:var(--paper)}
+.playground-testnet h2{font-size:1.5rem;margin:0 0 8px}
+.playground-wallets{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+.playground-wallets article{padding:18px;border:1px solid var(--rule);border-radius:14px;background:var(--soft)}
+.playground-wallets h3{font-size:1rem;margin-bottom:8px}
+.playground-wallets p{font-size:.875rem;color:var(--muted)}
+.playground-wallets code,.playground-wallets pre{overflow-wrap:anywhere;font-size:.75rem}
+.playground-testnet [data-pg-status][data-error=true]{color:var(--danger)}
+@media(max-width:1180px){
+  .menu-button{display:block}
+  .header-inner{position:relative}
+  .main-nav{display:none;position:absolute;left:0;right:0;top:100%;padding:16px 0;background:var(--paper);border-bottom:1px solid var(--rule);z-index:5;flex-direction:column;gap:0;justify-content:flex-start}
+  .site-header[data-open=true] .main-nav{display:flex}
+}
+@media(max-width:760px){
+  .playground-wallets{grid-template-columns:1fr}
+  .kgi-frame{height:180px}
+  .playground-testnet{padding:18px 16px}
+}

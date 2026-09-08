@@ -4,6 +4,7 @@ import {homedir} from 'node:os';
 import {documents,standalone} from '../src/page-registry.mjs';
 import {site} from '../src/site.mjs';
 import {escape} from '../src/components.mjs';
+import {communityRules} from '../src/community.mjs';
 import {withContents} from '../src/page-contents.mjs';
 import {legacyDestination} from './legacy-target.mjs';
 
@@ -12,20 +13,26 @@ await mkdir('.cache',{recursive:true});
 const output=await mkdtemp('.cache/site-build-');
 const destination=standalone?'dist-v1':'dist';
 await mkdir(`${output}/assets`,{recursive:true});
-export const shell=page=>`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}${page.title===site.title?'':' · '+site.title}</title><meta name="description" content="${escape(page.description)}"><link rel="canonical" href="${site.domain}/${page.file==='index.html'?'':page.file.replace('.html','')}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:image" content="${site.domain}/og-kaspa-explained.png"><link rel="stylesheet" href="/assets/app.css"><link rel="stylesheet" href="/assets/network-diagram.css"><link rel="stylesheet" href="/assets/mechanism-diagrams.css"><link rel="stylesheet" href="/assets/flow-diagrams.css"><script>try{const t=new URLSearchParams(location.search).get('theme')||localStorage.getItem('kaspa-theme');if(t==='dark')document.documentElement.dataset.theme='dark';}catch{}</script><script type="module" src="/assets/app.mjs"></script></head><body${page.file==='covenants.html'?' class="covenant-world-page"':''}><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="/"><img src="/favicon.svg" width="28" height="28" alt="">Kaspa Explained</a><nav class="main-nav" id="main-nav" aria-label="Main navigation">${site.navigation.map(([title,href])=>`<a href="${href}"${page.file===href.slice(1)+'.html'?' aria-current="page"':''}>${title}</a>`).join('')}<a href="/playground">Playground</a></nav><div class="header-tools"><a href="/search" aria-label="Search explanations">Search</a><button class="theme-button" data-theme-toggle aria-label="Dark appearance" aria-pressed="false">◐</button><button class="menu-button" data-menu aria-expanded="false" aria-controls="main-nav">Menu</button></div></div></header><main class="main" id="main">${withContents(page)}</main><footer class="site-footer"><p>Independent education about Kaspa.<br>Models explain. Sources let you check.</p><nav aria-label="Footer"><a href="/sources">Sources</a><a href="/status">Current status</a><a href="/search">Search</a></nav></footer></body></html>`;
+export const shell=page=>`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}${page.title===site.title?'':' · '+site.title}</title><meta name="description" content="${escape(page.description)}"><link rel="canonical" href="${site.domain}/${page.file==='index.html'?'':page.file.replace('.html','')}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:image" content="${site.domain}/og-kaspa-explained.png"><link rel="stylesheet" href="/assets/app.css"><link rel="stylesheet" href="/assets/network-diagram.css"><link rel="stylesheet" href="/assets/mechanism-diagrams.css"><link rel="stylesheet" href="/assets/flow-diagrams.css"><script>try{const t=new URLSearchParams(location.search).get('theme')||localStorage.getItem('kaspa-theme');if(t==='dark')document.documentElement.dataset.theme='dark';}catch{}</script><script type="module" src="/assets/app.mjs"></script></head><body${page.file==='covenants.html'?' class="covenant-world-page"':''}><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="/"><img src="/favicon.svg" width="28" height="28" alt="">Kaspa Explained</a><nav class="main-nav" id="main-nav" aria-label="Main navigation">${site.navigation.map(([title,href])=>`<a href="${href}"${page.file===href.slice(1)+'.html'?' aria-current="page"':''}>${title}</a>`).join('')}<a href="/playground"${page.file==='playground.html'?' aria-current="page"':''}>Playground</a></nav><div class="header-tools"><a href="/search" aria-label="Search explanations">Search</a><button class="theme-button" data-theme-toggle aria-label="Dark appearance" aria-pressed="false">◐</button><button class="menu-button" data-menu aria-expanded="false" aria-controls="main-nav">Menu</button></div></div></header><main class="main" id="main">${withContents(page)}</main><footer class="site-footer"><p>Independent education about Kaspa.<br>Models explain. Sources let you check.</p><nav aria-label="Footer"><a href="/sources">Sources</a><a href="/status">Current status</a><a href="/search">Search</a></nav><p class="community-rules">${escape(communityRules)}</p></footer></body></html>`;
 for(const page of documents){
   await mkdir(resolve(output, dirname(page.file)),{recursive:true});
   await writeFile(`${output}/${page.file}`,shell(page));
 }
 await mkdir(`${output}/media`,{recursive:true});
-const filmDest=`${output}/media/kaspa-roots.mp4`;
-const filmSources=[resolve('media/kaspa-roots.mp4'),resolve(homedir(),'Documents/kaspa/EB3LbxCt7_h_jf4u.mp4')];
-let filmCopied=false;
-for(const source of filmSources){
-  try{await access(source);await copyFile(source,filmDest);filmCopied=true;break;}catch{}
+const films=[
+  ['kaspa-roots.mp4',[resolve('media/kaspa-roots.mp4'),resolve(homedir(),'Documents/kaspa/EB3LbxCt7_h_jf4u.mp4')]],
+  ['moonboy.mp4',[resolve('media/moonboy.mp4'),resolve(homedir(),'Documents/kaspa/moonboy/NSMtGVwHggdf8hlU.mp4')]],
+  ['kaspa-silver.mp4',[resolve('media/kaspa-silver.mp4'),resolve(homedir(),'Documents/kaspa/kaspasilver/YTDown.com_Shorts_What-is-Kaspa_Media_F5zOaCSz_OI_001_1080p.mp4')]],
+  ['kaspa-content.mp4',[resolve('media/kaspa-content.mp4'),resolve(homedir(),'Documents/kaspa/content/j4laDA2EmjlHpQby.mp4')]],
+];
+for(const [name,sources] of films){
+  let copied=false;
+  for(const source of sources){
+    try{await access(source);await copyFile(source,`${output}/media/${name}`);copied=true;break;}catch{}
+  }
+  if(!copied)console.warn(`Film not found: /media/${name}`);
 }
-if(!filmCopied)console.warn('Kaspa film not found. Door pages will miss /media/kaspa-roots.mp4');
-for(const name of ['app.mjs','network-diagram.mjs','models.mjs','app.css','money-app.mjs','money-models.mjs','coordination.mjs','coordination.css','network-diagram.css','mechanism-diagrams.mjs','mechanism-diagrams.css','flow-diagrams.mjs','flow-diagrams.css','wallet-holdings.mjs','installed-wallets.mjs','doors.mjs'])await copyFile(`src/${name}`,`${output}/assets/${name}`);
+for(const name of ['app.mjs','network-diagram.mjs','models.mjs','app.css','money-app.mjs','money-models.mjs','coordination.mjs','coordination.css','network-diagram.css','mechanism-diagrams.mjs','mechanism-diagrams.css','flow-diagrams.mjs','flow-diagrams.css','wallet-holdings.mjs','installed-wallets.mjs','doors.mjs','community.mjs','playground-testnet.mjs'])await copyFile(`src/${name}`,`${output}/assets/${name}`);
 if(!standalone){
   await copyFile('docs/wrap-poc-roundtrip-verification.json',`${output}/assets/wrap-poc-roundtrip.json`);
   for(const name of ['wrap-ui.mjs','wrap-local-client.mjs','wrap.css','public-apps.mjs','public-apps.css','public-contracts.mjs','public-recovery.mjs','public-assets-ui.mjs','public-token.mjs','public-receipt.mjs','public-asset-signing.mjs','public-asset-recovery.mjs','public-acceptance.mjs','public-transaction.mjs','peglab-engine.mjs','peglab-ui.mjs','peglab.css'])await copyFile(`src/${name}`,`${output}/assets/${name}`);

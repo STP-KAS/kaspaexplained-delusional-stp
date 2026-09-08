@@ -81,5 +81,17 @@
   "peg": "/peglab",
   "door": "/",
   "doors": "/",
-  "who": "/"
+  "who": "/",
+  "who/new": "/door-1",
+  "who/other": "/door-1",
+  "who/crypto-not-kaspa": "/door-2",
+  "who/institution": "/door-2",
+  "who/cyberpunk": "/door-2",
+  "who/other-chain": "/door-2",
+  "who/kaspa": "/door-3",
+  "who/crypto-and-kaspa": "/door-3",
+  "who/thinks": "/door-4",
+  "who/moonboy": "/door-4",
+  "who/influencer-tech": "/door-4",
+  "who/influencer-moon": "/door-4"
 }
