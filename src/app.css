@@ -45,6 +45,10 @@ html[data-welcome=seen] .welcome{display:none!important}
 .door-film figcaption{margin-top:8px}
 .intro-door{display:block;margin-bottom:24px}
 .intro-door h1{max-width:22ch}
+.page-intro{display:block;width:100%;max-width:100%}
+.page-intro h1{max-width:22ch}
+.page-intro .lead{margin-top:20px}
+.main{display:block;width:auto;min-width:0;min-height:70vh}
 .door-kicker{font-size:.875rem;font-weight:600;color:var(--green);margin:0 0 8px}
 .door-intel{max-width:46ch;margin:0 0 16px;line-height:1.55}
 .doors>a{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--green);text-decoration:none;font-weight:550}
@@ -190,3 +194,7 @@ button{min-width:44px}
 }
 code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em}
 .reading-rows pre,.main>pre{margin-top:16px;padding:16px 18px;background:var(--soft);border:1px solid var(--rule);border-radius:12px;overflow:auto;font:.8125rem/1.55 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+.main{display:block;width:auto;min-width:0;min-height:70vh}
+.page-intro{display:block;width:100%;max-width:none}
+.page-intro h1{max-width:24ch}
+.page-intro .lead{display:block;margin-top:18px;max-width:62ch}
