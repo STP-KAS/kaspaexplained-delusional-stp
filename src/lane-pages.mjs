@@ -72,7 +72,7 @@ export const lanePages = [
       <p><a class="primary-button" href="https://discord.com/channels/599153230659846165/960905681832140850" target="_blank" rel="noopener noreferrer">Open Kaspa Discord ↗</a></p>
       <p class="small">If that channel link does not open, join first: <a href="https://discord.gg/kaspa" target="_blank" rel="noopener noreferrer">discord.gg/kaspa</a>.</p>
       ${rows([
-        ['How to ask well', '<p>Say what you did, which network (mainnet or Testnet-10), which wallet, and the error text. Do not paste a recovery phrase. Do not ask for a price.</p>'],
+        ['How to ask well', '<p>Browse to the correct Discord tab. Say what you did, the problem you encountered, which network (mainnet or Testnet-10), which wallet, the error text, the question you have, and anything else that matters. Do not paste a recovery phrase. Do not ask for a price.</p>'],
         ['Other rooms', '<p>Kaspa Q&A for written questions. Core R&D Telegram is observer-first; recaps are on kaspa.news. Official docs stay at docs.kaspa.org.</p>'],
       ])}
       ${pinList([
