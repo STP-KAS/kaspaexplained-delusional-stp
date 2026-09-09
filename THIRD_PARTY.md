@@ -24,9 +24,9 @@ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 
-## SilverScript v1-rc1
+## SilverScript v1.0.0
 
-Official release: https://github.com/kaspanet/silverscript/releases/tag/v1-rc1
+Official release: https://github.com/kaspanet/silverscript/releases/tag/v1.0.0
 The compiler is installed separately. Refundable transfer follows the recipient-claim/sender-timeout pattern demonstrated by SilverScript and CashScript. The payment split is repository-specific experimental code. Neither is audited.
 
 ISC License

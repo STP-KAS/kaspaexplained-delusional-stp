@@ -1,5 +1,5 @@
-last_checked: 2026-09-06
-recheck_after: 2026-09-07
+last_checked: 2026-09-09
+recheck_after: 2026-09-16
 claims:
   proof_of_work:
     status: live
@@ -28,7 +28,7 @@ claims:
 
   network_snapshot:
     status: measurement_sensitive
-    recheck_after: 2026-09-07
+    recheck_after: 2026-09-16
     summary: At 2026-09-06 10:20 UTC the public endpoints reported DAA score 532696787, 27684582516.56962022 circulating KAS, a 2.18267645 KAS block reward, node v2.0.1, and synced state.
     source: https://api.kaspa.org/info/blockdag
     supporting_source: https://api.kaspa.org/info/coinsupply
@@ -48,7 +48,7 @@ claims:
 
   scheduled_reward_step:
     status: measurement_sensitive
-    recheck_after: 2026-09-07
+    recheck_after: 2026-09-16
     summary: At 2026-09-06 10:20 UTC, DAA 532696787 was above threshold 531207000. Schedule index 52 is active at 2.18267645 KAS per block. The next threshold is DAA 557505000 for 2.06017223 KAS per block; clock time remains an estimate.
     source: https://api.kaspa.org/info/halving
     forbidden_copy:
@@ -77,17 +77,18 @@ claims:
 
   silverscript:
     status: builder_guardrail
-    recheck_after: 2026-09-11
-    summary: Silverscript v1-rc1 is a prerelease; its repository describes the project as experimental and recommends testnet-10 until stable v1.
-    source: https://github.com/kaspanet/silverscript/releases/tag/v1-rc1
+    recheck_after: 2026-09-18
+    summary: Silverscript v1.0.0 is the tagged official v1 language and compiler release (9 Sep 2026). A compiler tag does not establish production applications.
+    source: https://github.com/kaspanet/silverscript/releases/tag/v1.0.0
     supporting_source: https://github.com/kaspanet/silverscript
     forbidden_copy:
-      - Silverscript is production-ready
-      - Silverscript v1 is stable
+      - Silverscript v1-rc1 is the current release
+      - A Silverscript compiler tag proves production applications exist
+      - Silverscript is production-ready applications
 
   argent:
     status: builder_guardrail
-    recheck_after: 2026-09-11
+    recheck_after: 2026-09-16
     summary: Argent contains compiler, artifact, runtime, and example code; its repository says it is not release-ready and requires further auditing and hardening.
     source: https://github.com/argent-lang/argent
     supporting_source: https://github.com/argent-lang/argent/releases
@@ -97,7 +98,7 @@ claims:
 
   vprogs:
     status: research
-    recheck_after: 2026-09-11
+    recheck_after: 2026-09-16
     summary: The vProgs repository describes early development and has no tagged release; it does not establish a live Kaspa application layer.
     source: https://github.com/kaspanet/vprogs
     supporting_source: https://github.com/kaspanet/vprogs/releases
@@ -106,7 +107,7 @@ claims:
 
   dagknight:
     status: research
-    recheck_after: 2026-09-11
+    recheck_after: 2026-09-16
     summary: KIP-2 remains Proposed; development branch work exists; no mainnet activation is documented in the checked KIP or node releases. Mainnet uses GHOSTDAG.
     source: https://raw.githubusercontent.com/kaspanet/kips/master/kip-0002.md
     supporting_source: https://github.com/kaspanet/rusty-kaspa/commit/90e406f8a7c692b171294d8d26b0f83eff530a60
@@ -116,7 +117,7 @@ claims:
 
   kcc_status:
     status: measurement_sensitive
-    recheck_after: 2026-09-11
+    recheck_after: 2026-09-16
     summary: Four KCCs are merged. KCC-0000 is Last Call; KCC-0001, KCC-0002, and KCC-0020 are Draft. KCC-0020 issue 14 remains open.
     source: https://github.com/kaspanet/kccs/blob/main/kcc-0000.md
     supporting_source: https://github.com/kaspanet/kccs/blob/main/kcc-0001.md
