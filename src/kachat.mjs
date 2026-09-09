@@ -27,6 +27,7 @@ function appUrl(session, domain) {
   const params = new URLSearchParams();
   params.set('from', 'explained');
   if (session?.address) params.set('address', session.address);
+  if (session?.id) params.set('wallet', session.id);
   if (domain) params.set('domain', domain);
   return `${APP}?${params}`;
 }
@@ -81,9 +82,9 @@ function connected(session, holdings, phone) {
   return `<p class="small">${escape(nameOf(session.id))} · connected</p>
     <p class="wallet-address"><code>${escape(session.address)}</code></p>
     ${holdings ? domainPicker(holdings, domain) : '<p class="small">Reading domains…</p>'}
-    <p>Next, KaChat Desktop opens not logged in. Create a new wallet there, or import the same wallet you connected here. Your default domain is remembered in this tab.</p>
+    <p>Open KaChat Desktop logged in with this wallet. Kasware or Kastle stays connected in this tab. Your default domain is remembered here.</p>
     <div class="wallet-actions">
-      <a class="primary-button" href="${appUrl(session, domain)}" data-kachat-open="app">Open KaChat Desktop</a>
+      <a class="primary-button" href="${appUrl(session, domain)}" data-kachat-open="app">Log in to KaChat Desktop</a>
       <a class="quiet-button" href="${APP}" data-kachat-open="create">Create a new wallet instead</a>
       <button class="quiet-button" type="button" data-wallet-logout>Disconnect</button>
     </div>
