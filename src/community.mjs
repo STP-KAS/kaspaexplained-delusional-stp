@@ -16,7 +16,7 @@ export const xHandles = [
   ['Kaspa community X', '@kaspaunchained', 'https://x.com/kaspaunchained', 'Non-representative community account'],
   ['Kaspa Global', '@KASPAglobal', 'https://x.com/KASPAglobal', 'Toccata is live, not coming soon'],
   ['Kaspa Commons', '@Kaspa_Commons', 'https://x.com/Kaspa_Commons', 'Relays Discord. Not core'],
-  ['Luke Dunshea', '@elldeeone', 'https://x.com/elldeeone', 'SilverScript v1-rc1. Groth16 builtin'],
+  ['Luke Dunshea', '@elldeeone', 'https://x.com/elldeeone', 'SilverScript v1.0.0. Groth16 builtin'],
   ['Sivan Helfer', '@manyfest_', 'https://x.com/manyfest_', 'SilverScript compiler. Kas Smiths'],
 ];
 

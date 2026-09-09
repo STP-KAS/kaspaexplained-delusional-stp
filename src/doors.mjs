@@ -73,7 +73,7 @@ export const doors = {
       <p>Use these labels. Mix them and you are pitching.</p>
       <ul>
         <li><strong>Live.</strong> GHOSTDAG. 10 BPS (Crescendo). Toccata protocol rules on mainnet. rusty-kaspa v2.0.1 is the maintenance tag checked here.</li>
-        <li><strong>Release candidate.</strong> SilverScript v1-rc1. Experimental. Prefer Testnet-10 until a tagged v1.</li>
+        <li><strong>v1.0.0.</strong> SilverScript compiler tagged 9 Sep 2026. Application readiness is separate.</li>
         <li><strong>Prototype.</strong> Argent. Examples exist. The README says it is not release-ready.</li>
         <li><strong>Research.</strong> vProgs. Repository existence is not production.</li>
         <li><strong>Proposed.</strong> DAGKnight. The rusty <code>dagknight</code> branch is not merged. No mainnet activation is documented in the checked KIP or node releases.</li>
@@ -98,14 +98,14 @@ export const doors = {
     intel: 'Advanced. Skip the pitch. Check dated status, live versus research, and the tradeoffs. If a claim has no source, it is not intel. This door is the machine as of the last check, not a vision deck.',
     body: `<h2>Where the machine actually is</h2>
       <p>Checked on this site: 6 September 2026. Snapshot DAA 532,696,787. rusty-kaspa v2.0.1. Block subsidy about 2.18 KAS. Circulating supply about 27.68 billion. Those numbers age. Open status before you quote them.</p>
-      <p>Toccata activated at DAA 474,165,565 (about 30 Jun 2026). KIPs 16, 17, 20, and 21 are marked Active in the checked repository. 10 BPS is live. SilverScript is v1-rc1, experimental. KCC-0020 is Draft. vProgs have no public product testnet. DAGKnight remains Proposed; the rusty <code>dagknight</code> branch is not merged.</p>
+      <p>Toccata activated at DAA 474,165,565 (about 30 Jun 2026). KIPs 16, 17, 20, and 21 are marked Active in the checked repository. 10 BPS is live. SilverScript v1.0.0 is tagged. KCC-0020 is Draft. vProgs have no public product testnet. DAGKnight remains Proposed; the rusty <code>dagknight</code> branch is not merged.</p>
       <h2>Do not claim</h2>
       <ul>
         <li>100 BPS live</li>
         <li>Instant irreversible payments</li>
         <li>Mature native smart contracts as an Ethereum replacement</li>
         <li>KCC-20 adopted as the token standard</li>
-        <li>SilverScript v1 stable</li>
+        <li>A compiler tag means production dapps exist</li>
         <li>vProgs live</li>
         <li>Kurrent mainnet</li>
         <li>Toccata “coming soon” (it is live)</li>
@@ -113,7 +113,7 @@ export const doors = {
       <h2>Programmability, in the order it actually exists</h2>
       <ol>
         <li><strong>Covenants on L1.</strong> Toccata. Spending rules travel with the output. Live protocol. Wallet and indexer support is separate.</li>
-        <li><strong>SilverScript.</strong> Compiler. v1-rc1. Docs say Testnet-10 until stable v1. Toccata is not this compiler.</li>
+        <li><strong>SilverScript.</strong> Compiler. v1.0.0 tagged 9 Sep 2026. Toccata is not this compiler. Application readiness is separate.</li>
         <li><strong>Argent.</strong> Prototype language. Not release-ready per its own README.</li>
         <li><strong>vProgs.</strong> Research: based programs and validity proofs. Do not demo them as a mainnet product.</li>
       </ol>
