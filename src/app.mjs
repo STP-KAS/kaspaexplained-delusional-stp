@@ -2,11 +2,13 @@ import {transactionFlow} from './flow-diagrams.mjs';
 import {networkDiagram} from './network-diagram.mjs';
 import {mountCoordination} from './coordination.mjs';
 import {mountInstalledWallet} from './installed-wallets.mjs';
+import {mountKachat} from './kachat.mjs';
 import {mountDoors} from './doors.mjs';
 document.documentElement.removeAttribute('hidden');
 delete document.documentElement.dataset.welcome;
 document.querySelectorAll('[data-coordination]').forEach(mountCoordination);
 mountInstalledWallet();
+mountKachat();
 mountDoors();
 {
   const welcome = document.querySelector('.welcome[data-welcome]');

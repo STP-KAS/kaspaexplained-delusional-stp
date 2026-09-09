@@ -9,6 +9,7 @@ export const site = {
     ['Build', '/build-on-kaspa'],
     ['Node', '/node'],
     ['Explore', '/explore'],
+    ['Chat', '/kachat'],
     ['PegLab', '/peglab'],
     ['Moonboy', '/moonboy'],
     ['Practices', '/best-practices'],

@@ -264,10 +264,10 @@ export const pages = [
       <script type="module" src="/assets/playground-testnet.mjs"></script>`,
   },
   {
-    file:'wallet.html', title:'Your Kaspa wallet', description:'Connect Kasware or Kastle to see KAS, tokens, and KNS domains for the address in this tab.',
-    body:`${intro('Wallet','See what this address holds.','On a phone, connect Kastle. On a computer, Kasware or Kastle. This page reads public indexers. It never asks for a recovery phrase.')}
+    file:'wallet.html', title:'Your Kaspa wallet', description:'Pick a wallet. Kasware and Kastle inject in this tab. Other wallets open in their own app. This page reads public indexers.',
+    body:`${intro('Wallet','See what this address holds.','Pick the wallet you already use. Kasware and Kastle connect in this tab. The rest open in their own app. This page reads public indexers. It never asks for a recovery phrase.')}
       <div data-wallet-page-root class="wallet-page"></div>
-      <p class="small">Injected connect is Kastle on a phone, and Kasware or Kastle on a computer. Ledger uses KasVault. The playground can log in Kasware on Testnet 10 from a desktop, or make a local test wallet.</p>`,
+      <p class="small">You choose the wallet. Ledger uses KasVault. Chat login is on <a href="/kachat">KaChat</a>. The playground can log in Kasware on Testnet 10 from a desktop, or make a local test wallet.</p>`,
   },
   {
     file:'404.html', title:'Page not found', description:'Find another Kaspa explanation.',
