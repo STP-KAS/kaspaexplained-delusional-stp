@@ -89,25 +89,25 @@ export const lanePages = [
     file: 'kachat.html',
     title: 'KaChat',
     description: 'Encrypted chat on Kaspa. Log in with the wallet you choose. Kasware and Kastle inject here. Other wallets open in their own app.',
-    body: `${intro('Chat', 'KaChat. Your wallet is the login.', 'KaChat is encrypted messaging on Kaspa, by KaspaSilver. Identity is a Kaspa address. Pick the wallet you already use. This site never asks for a recovery phrase. It does not send chat payloads.')}
+    body: `${intro('Chat', 'KaChat. Your wallet is the login.', 'KaChat is encrypted messaging on Kaspa. STP build: STP-KAS/kaachat-desktop. Identity is a Kaspa address. Pick the wallet you already use. This site never asks for a recovery phrase.')}
       <section class="kachat-board" data-kachat>
         <div class="kachat-login" data-kachat-login></div>
       </section>
       ${rows([
-        ['What KaChat is', '<p>Peer-to-peer messages on the blockDAG. No phone number. No central account. Desktop is a local web app. Android is an APK. iOS is a separate repo. This page is the login door on Kaspa Explained STP, not a copy of the full client.</p>'],
-        ['Desktop', `<p>KaChat Desktop runs on your machine. It stores accounts in that browser. Clone, install, start:</p>
-          <pre>git clone https://github.com/KaspaSilver/KaChat-Desktop.git
-cd KaChat-Desktop
+        ['What KaChat is', '<p>Peer-to-peer messages on the blockDAG. No phone number. No central account. The Chat tab serves the STP desktop client when the build is attached. Android is an APK. iOS is a separate repo.</p>'],
+        ['Desktop', `<p>STP source: ${link('STP-KAS/kaachat-desktop','https://github.com/STP-KAS/kaachat-desktop')}. Upstream: ${link('KaspaSilver/KaChat-Desktop','https://github.com/KaspaSilver/KaChat-Desktop')}. To run it yourself:</p>
+          <pre>git clone https://github.com/STP-KAS/kaachat-desktop.git
+cd kaachat-desktop
 npm install
 npm run dev</pre>
-          <p>Then open the address Vite prints (usually <code>http://localhost:5173/</code>). Log in there with the same wallet you picked here. ${link('KaChat-Desktop on GitHub','https://github.com/KaspaSilver/KaChat-Desktop')}</p>`],
-        ['Phone', `<p>Android APK: ${link('KaChat 4.1 release','https://github.com/KaspaSilver/KaChat-Android/releases/tag/4.1')} (${link('KaChat-4.1-vc39.apk','https://github.com/KaspaSilver/KaChat-Android/releases/download/4.1/KaChat-4.1-vc39.apk')}). Install from that source if Android asks. iOS: ${link('vsmirn0v/KaChat','https://github.com/vsmirn0v/KaChat')}. Kastle injects in a mobile browser. Kasware does not. Kaspium and Tangem stay in their own apps, then inside KaChat.</p>`],
-        ['Wallets', '<p>You choose. Kasware and Kastle connect in this tab. KasVault/Ledger, Kaspium, Kaspa NG, Tangem, OneKey, KasKeeper, Kurncy, and Zelcore open in their own app. KaChat Desktop can import Kasware, Kastle, Kaspium, Ledger, OneKey, and older KDX paths. Never paste a seed on this site.</p>'],
+          <p>Then open the address Vite prints (usually <code>http://localhost:5173/</code>).</p>`],
+        ['Phone', `<p>Android APK: ${link('KaChat 4.1 release','https://github.com/KaspaSilver/KaChat-Android/releases/tag/4.1')} (${link('KaChat-4.1-vc39.apk','https://github.com/KaspaSilver/KaChat-Android/releases/download/4.1/KaChat-4.1-vc39.apk')}). Install from that source if Android asks. iOS: ${link('vsmirn0v/KaChat','https://github.com/vsmirn0v/KaChat')}. Kastle injects in a mobile browser. Kasware does not.</p>`],
+        ['Wallets', '<p>You choose. Kasware and Kastle connect in this tab. KasVault/Ledger, Kaspium, Kaspa NG, Tangem, OneKey, KasKeeper, Kurncy, and Zelcore open in their own app. Never paste a seed on this site.</p>'],
       ])}
       ${pinList([
-        ['KaChat Desktop', 'Source. Run locally.', 'https://github.com/KaspaSilver/KaChat-Desktop'],
+        ['kaachat-desktop', 'STP source. Run locally or use this Chat tab.', 'https://github.com/STP-KAS/kaachat-desktop'],
         ['KaChat Android 4.1', 'APK for a phone.', 'https://github.com/KaspaSilver/KaChat-Android/releases/tag/4.1'],
-        ['KaspaSilver', 'The author.', 'https://github.com/KaspaSilver'],
+        ['KaspaSilver', 'Upstream author.', 'https://github.com/KaspaSilver'],
         ['Help', 'Questions. Discord rooms. No seed. No price.', '/help'],
         ['Explore', 'Live ledger if you need to check an address.', '/explore'],
       ])}`,

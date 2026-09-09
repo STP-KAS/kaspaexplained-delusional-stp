@@ -2,12 +2,13 @@
 
 The educational interface is original repository code. Brand research informs layout and interaction; no competitor artwork, logos, or proprietary font files are bundled. Kaspa identity assets retain their existing attribution in LICENSE.md.
 
-## KaChat (KaspaSilver)
+## KaChat Desktop (STP-KAS)
 
-Linked, not vendored. Desktop: https://github.com/KaspaSilver/KaChat-Desktop
+STP build served at /kachat when the static client is attached.
+Source: https://github.com/STP-KAS/kaachat-desktop
+Upstream: https://github.com/KaspaSilver/KaChat-Desktop
 Android: https://github.com/KaspaSilver/KaChat-Android
-Author: https://github.com/KaspaSilver
-This site is a login door and a pointer. It does not ship KaChat’s WASM wallet, seed screens, or Nextcloud proxy.
+The Chat tab is the desktop client. Nextcloud previews need a /nc-proxy that GitHub Pages does not provide. Chat itself does not.
 
 ## Kaspa SDK v2.0.1
 

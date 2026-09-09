@@ -1,5 +1,5 @@
 import {mkdir,writeFile,readFile,copyFile,cp,mkdtemp,rename,access} from 'node:fs/promises';
-import {dirname,resolve} from 'node:path';
+import {dirname,join,resolve} from 'node:path';
 import {homedir} from 'node:os';
 import {documents,standalone} from '../src/page-registry.mjs';
 import {site} from '../src/site.mjs';
@@ -13,7 +13,7 @@ await mkdir('.cache',{recursive:true});
 const output=await mkdtemp('.cache/site-build-');
 const destination=standalone?'dist-v1':'dist';
 await mkdir(`${output}/assets`,{recursive:true});
-export const shell=page=>`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}${page.title===site.title?'':' · '+site.title}</title><meta name="description" content="${escape(page.description)}"><link rel="canonical" href="${site.domain}/${page.file==='index.html'?'':page.file.replace('.html','')}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:image" content="${site.domain}/og-kaspa-explained.png"><link rel="stylesheet" href="/assets/app.css?v=kachat"><link rel="stylesheet" href="/assets/network-diagram.css"><link rel="stylesheet" href="/assets/mechanism-diagrams.css"><link rel="stylesheet" href="/assets/flow-diagrams.css"><script>try{document.documentElement.removeAttribute('hidden');delete document.documentElement.dataset.welcome;const t=new URLSearchParams(location.search).get('theme')||localStorage.getItem('kaspa-theme');if(t==='dark')document.documentElement.dataset.theme='dark';if(sessionStorage.getItem('kaspa-welcome-seen'))document.documentElement.dataset.welcomeSeen='1';}catch{}</script><script type="module" src="/assets/app.mjs?v=kachat"></script></head><body${page.file==='covenants.html'?' class="covenant-world-page"':''}><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="/"><img src="/favicon.svg" width="28" height="28" alt="">${escape(site.title)}</a><nav class="main-nav" id="main-nav" aria-label="Main navigation">${site.navigation.map(([title,href])=>`<a href="${href}"${page.file===href.slice(1)+'.html'?' aria-current="page"':''}>${title}</a>`).join('')}</nav><div class="header-tools"><a href="/search" aria-label="Search explanations">Search</a><button class="theme-button" data-theme-toggle aria-label="Dark appearance" aria-pressed="false">◐</button><button class="menu-button" data-menu aria-expanded="false" aria-controls="main-nav">Menu</button></div></div></header><main class="main" id="main">${withContents(page)}</main><footer class="site-footer"><p>Kaspa Explained STP · stpstpstpstpstpstpstp.club<br>Independent education about Kaspa. Models explain. Sources let you check.</p><nav aria-label="Footer"><a href="/sources">Sources</a><a href="/status">Current status</a><a href="/search">Search</a></nav><p class="community-rules">${escape(communityRules)}</p></footer></body></html>`;
+export const shell=page=>`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}${page.title===site.title?'':' · '+site.title}</title><meta name="description" content="${escape(page.description)}"><link rel="canonical" href="${site.domain}/${page.file==='index.html'?'':page.file.replace('.html','')}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:image" content="${site.domain}/og-kaspa-explained.png"><link rel="stylesheet" href="/assets/app.css?v=kaachat"><link rel="stylesheet" href="/assets/network-diagram.css"><link rel="stylesheet" href="/assets/mechanism-diagrams.css"><link rel="stylesheet" href="/assets/flow-diagrams.css"><script>try{document.documentElement.removeAttribute('hidden');delete document.documentElement.dataset.welcome;const t=new URLSearchParams(location.search).get('theme')||localStorage.getItem('kaspa-theme');if(t==='dark')document.documentElement.dataset.theme='dark';if(sessionStorage.getItem('kaspa-welcome-seen'))document.documentElement.dataset.welcomeSeen='1';}catch{}</script><script type="module" src="/assets/app.mjs?v=kaachat"></script></head><body${page.file==='covenants.html'?' class="covenant-world-page"':''}><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="/"><img src="/favicon.svg" width="28" height="28" alt="">${escape(site.title)}</a><nav class="main-nav" id="main-nav" aria-label="Main navigation">${site.navigation.map(([title,href])=>`<a href="${href}"${page.file===href.slice(1)+'.html'?' aria-current="page"':''}>${title}</a>`).join('')}</nav><div class="header-tools"><a href="/search" aria-label="Search explanations">Search</a><button class="theme-button" data-theme-toggle aria-label="Dark appearance" aria-pressed="false">◐</button><button class="menu-button" data-menu aria-expanded="false" aria-controls="main-nav">Menu</button></div></div></header><main class="main" id="main">${withContents(page)}</main><footer class="site-footer"><p>Kaspa Explained STP · stpstpstpstpstpstpstp.club<br>Independent education about Kaspa. Models explain. Sources let you check.</p><nav aria-label="Footer"><a href="/sources">Sources</a><a href="/status">Current status</a><a href="/search">Search</a></nav><p class="community-rules">${escape(communityRules)}</p></footer></body></html>`;
 for(const page of documents){
   await mkdir(resolve(output, dirname(page.file)),{recursive:true});
   const html=shell(page);
@@ -60,6 +60,21 @@ await writeFile(`${output}/sitemap.xml`,`<?xml version="1.0"?><urlset xmlns="htt
 await writeFile(`${output}/robots.txt`,`User-agent: *\nAllow: /\nDisallow: /api/\nSitemap: ${site.domain}/sitemap.xml\n`);
 await writeFile(`${output}/CNAME`,'stpstpstpstpstpstpstp.club\n');
 await writeFile(`${output}/.nojekyll`,'');
+{
+  const candidates=[resolve('..','kaachat-desktop','dist'),resolve(homedir(),'kaachat-desktop','dist')];
+  let source=null;
+  for(const dir of candidates){
+    try{await access(join(dir,'index.html'));source=dir;break;}catch{}
+  }
+  if(source){
+    await mkdir(join(output,'kachat'),{recursive:true});
+    await cp(source,join(output,'kachat'),{recursive:true});
+    await copyFile(join(source,'index.html'),join(output,'kachat.html'));
+    console.log(`Attached KaChat Desktop from ${source}`);
+  }else{
+    console.warn('KaChat Desktop static build not found. Chat stays the login door.');
+  }
+}
 // Preserve the previous generated tree until the replacement has been installed.
 const previous=output+'-previous';let moved=false;
 try{await rename(destination,previous);moved=true;}catch(error){if(error.code!=='ENOENT')throw error;}
