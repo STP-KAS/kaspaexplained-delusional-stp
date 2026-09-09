@@ -34,7 +34,7 @@ export const lanePages = [
       ${localFilm('/media/kaspa-silver.mp4', 'Kaspa Silver: what Kaspa is. More of that voice is on YouTube.')}
       <p><a href="https://www.youtube.com/channel/UCv8-2oyrfqDigJAKjZ_RCzQ" target="_blank" rel="noopener noreferrer">Kaspa Silver on YouTube ↗</a></p>
       ${rows([
-        ['Kaspa Silver’s attitude', '<p>He explains the machine. Fair launch, proof of work, the DAG, what shipped. He does not owe you a price. That honesty is the practice: if a clip cannot point at a rule, a release, or a dated observation, skip it.</p>'],
+        ['Kaspa Silver’s attitude', '<p>He explains the machine. Fair launch, proof of work, the DAG, what shipped. He does not owe you a price. That honesty is the practice: if a clip cannot point at a rule, a release, or a dated observation, skip it. KaChat is his messenger: <a href="/kachat">Chat</a>.</p>'],
         ['Aviv Zohar', '<p>GHOST co-author. Research first. Site: <a href="https://avivz.net" target="_blank" rel="noopener noreferrer">avivz.net</a>. X: <a href="https://x.com/Avivz78" target="_blank" rel="noopener noreferrer">@Avivz78</a>.</p>'],
       ])}
       ${localFilm('/media/kaspa-content.mp4', 'More context around Kaspa. Treat it as a film, not a spec.')}
@@ -78,10 +78,38 @@ export const lanePages = [
         ['Other rooms', '<p>Kaspa Q&A for written questions. Core R&D Telegram is observer-first; recaps are on kaspa.news. Official docs stay at docs.kaspa.org.</p>'],
       ])}
       ${pinList([
+        ['KaChat', 'Encrypted chat on Kaspa. Pick a wallet, then open Desktop or Android.', '/kachat'],
         ['Discord invite', 'Join, then browse the topic rooms.', 'https://discord.gg/kaspa'],
         ['Kaspa Q&A', 'Written questions. Not law.', 'https://qa.kas.pa/'],
         ['Telegram R&D', 'Core write-restricted. Recaps: kaspa.news.', 'https://t.me/kasparnd'],
         ['Docs', 'Start here before a chat question.', 'https://docs.kaspa.org'],
+      ])}`,
+  },
+  {
+    file: 'kachat.html',
+    title: 'KaChat',
+    description: 'Encrypted chat on Kaspa. Log in with the wallet you choose. Kasware and Kastle inject here. Other wallets open in their own app.',
+    body: `${intro('Chat', 'KaChat. Your wallet is the login.', 'KaChat is encrypted messaging on Kaspa, by KaspaSilver. Identity is a Kaspa address. Pick the wallet you already use. This site never asks for a recovery phrase. It does not send chat payloads.')}
+      <section class="kachat-board" data-kachat>
+        <div class="kachat-login" data-kachat-login></div>
+      </section>
+      ${rows([
+        ['What KaChat is', '<p>Peer-to-peer messages on the blockDAG. No phone number. No central account. Desktop is a local web app. Android is an APK. iOS is a separate repo. This page is the login door on Kaspa Explained STP, not a copy of the full client.</p>'],
+        ['Desktop', `<p>KaChat Desktop runs on your machine. It stores accounts in that browser. Clone, install, start:</p>
+          <pre>git clone https://github.com/KaspaSilver/KaChat-Desktop.git
+cd KaChat-Desktop
+npm install
+npm run dev</pre>
+          <p>Then open the address Vite prints (usually <code>http://localhost:5173/</code>). Log in there with the same wallet you picked here. ${link('KaChat-Desktop on GitHub','https://github.com/KaspaSilver/KaChat-Desktop')}</p>`],
+        ['Phone', `<p>Android APK: ${link('KaChat 4.1 release','https://github.com/KaspaSilver/KaChat-Android/releases/tag/4.1')} (${link('KaChat-4.1-vc39.apk','https://github.com/KaspaSilver/KaChat-Android/releases/download/4.1/KaChat-4.1-vc39.apk')}). Install from that source if Android asks. iOS: ${link('vsmirn0v/KaChat','https://github.com/vsmirn0v/KaChat')}. Kastle injects in a mobile browser. Kasware does not. Kaspium and Tangem stay in their own apps, then inside KaChat.</p>`],
+        ['Wallets', '<p>You choose. Kasware and Kastle connect in this tab. KasVault/Ledger, Kaspium, Kaspa NG, Tangem, OneKey, KasKeeper, Kurncy, and Zelcore open in their own app. KaChat Desktop can import Kasware, Kastle, Kaspium, Ledger, OneKey, and older KDX paths. Never paste a seed on this site.</p>'],
+      ])}
+      ${pinList([
+        ['KaChat Desktop', 'Source. Run locally.', 'https://github.com/KaspaSilver/KaChat-Desktop'],
+        ['KaChat Android 4.1', 'APK for a phone.', 'https://github.com/KaspaSilver/KaChat-Android/releases/tag/4.1'],
+        ['KaspaSilver', 'The author.', 'https://github.com/KaspaSilver'],
+        ['Help', 'Questions. Discord rooms. No seed. No price.', '/help'],
+        ['Explore', 'Live ledger if you need to check an address.', '/explore'],
       ])}`,
   },
   {

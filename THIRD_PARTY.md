@@ -2,6 +2,13 @@
 
 The educational interface is original repository code. Brand research informs layout and interaction; no competitor artwork, logos, or proprietary font files are bundled. Kaspa identity assets retain their existing attribution in LICENSE.md.
 
+## KaChat (KaspaSilver)
+
+Linked, not vendored. Desktop: https://github.com/KaspaSilver/KaChat-Desktop
+Android: https://github.com/KaspaSilver/KaChat-Android
+Author: https://github.com/KaspaSilver
+This site is a login door and a pointer. It does not ship KaChat’s WASM wallet, seed screens, or Nextcloud proxy.
+
 ## Kaspa SDK v2.0.1
 
 Official distribution: https://github.com/kaspanet/rusty-kaspa/releases/tag/v2.0.1
