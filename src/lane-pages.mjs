@@ -88,13 +88,13 @@ export const lanePages = [
   {
     file: 'kachat.html',
     title: 'KaChat',
-    description: 'Encrypted chat on Kaspa. Log in with the wallet you choose. Kasware and Kastle inject here. Other wallets open in their own app.',
-    body: `${intro('Chat', 'KaChat. Your wallet is the login.', 'KaChat is encrypted messaging on Kaspa. STP build: STP-KAS/kaachat-desktop. Identity is a Kaspa address. Pick the wallet you already use. This site never asks for a recovery phrase.')}
+    description: 'Connect Kasware or another wallet, pick a default domain, or open KaChat Desktop without logging in.',
+    body: `${intro('Chat', 'Connect a wallet, or skip.', 'Chat does not open KaChat until you choose. Connect Kasware or another wallet, pick a default KNS domain, or continue without logging in and create a wallet inside KaChat. This site never asks for a recovery phrase.')}
       <section class="kachat-board" data-kachat>
         <div class="kachat-login" data-kachat-login></div>
       </section>
       ${rows([
-        ['What KaChat is', '<p>Peer-to-peer messages on the blockDAG. No phone number. No central account. The Chat tab serves the STP desktop client when the build is attached. Android is an APK. iOS is a separate repo.</p>'],
+        ['What KaChat is', '<p>Peer-to-peer messages on the blockDAG. No phone number. No central account. This page asks how you want to enter. The desktop client is one step further, at /kachat/app. Android is an APK. iOS is a separate repo.</p>'],
         ['Desktop', `<p>STP source: ${link('STP-KAS/kaachat-desktop','https://github.com/STP-KAS/kaachat-desktop')}. Upstream: ${link('KaspaSilver/KaChat-Desktop','https://github.com/KaspaSilver/KaChat-Desktop')}. To run it yourself:</p>
           <pre>git clone https://github.com/STP-KAS/kaachat-desktop.git
 cd kaachat-desktop
