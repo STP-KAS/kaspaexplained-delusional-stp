@@ -62,7 +62,9 @@ await writeFile(`${output}/CNAME`,'stpstpstpstpstpstpstp.club\n');
 await writeFile(`${output}/.nojekyll`,'');
 {
   const candidates=[
+    resolve('..','KaChat-Desktop','dist'),
     resolve('..','kaachat-desktop','dist'),
+    resolve(homedir(),'KaChat-Desktop','dist'),
     resolve(homedir(),'kaachat-desktop','dist'),
   ];
   let source=null;
