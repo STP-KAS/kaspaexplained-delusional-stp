@@ -61,7 +61,12 @@ await writeFile(`${output}/robots.txt`,`User-agent: *\nAllow: /\nDisallow: /api/
 await writeFile(`${output}/CNAME`,'stpstpstpstpstpstpstp.club\n');
 await writeFile(`${output}/.nojekyll`,'');
 {
-  const candidates=[resolve('..','kaachat-desktop','dist'),resolve(homedir(),'kaachat-desktop','dist')];
+  const candidates=[
+    resolve('..','KaChat-Desktop','dist'),
+    resolve('..','kaachat-desktop','dist'),
+    resolve(homedir(),'KaChat-Desktop','dist'),
+    resolve(homedir(),'kaachat-desktop','dist'),
+  ];
   let source=null;
   for(const dir of candidates){
     try{await access(join(dir,'index.html'));source=dir;break;}catch{}

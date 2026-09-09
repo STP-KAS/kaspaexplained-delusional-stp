@@ -102,7 +102,7 @@ npm install
 npm run dev</pre>
           <p>Then open the address Vite prints (usually <code>http://localhost:5173/</code>).</p>`],
         ['Phone', `<p>Android APK: ${link('KaChat 4.1 release','https://github.com/KaspaSilver/KaChat-Android/releases/tag/4.1')} (${link('KaChat-4.1-vc39.apk','https://github.com/KaspaSilver/KaChat-Android/releases/download/4.1/KaChat-4.1-vc39.apk')}). Install from that source if Android asks. iOS: ${link('vsmirn0v/KaChat','https://github.com/vsmirn0v/KaChat')}. Kastle injects in a mobile browser. Kasware does not.</p>`],
-        ['Wallets', '<p>You choose. Kasware and Kastle connect in this tab. KasVault/Ledger, Kaspium, Kaspa NG, Tangem, OneKey, KasKeeper, Kurncy, and Zelcore open in their own app. Never paste a seed on this site.</p>'],
+        ['Wallets', '<p>You choose. On a computer, Kasware and Kastle link inside the Chat client in this tab. KasVault/Ledger, Kaspium, Kaspa NG, Tangem, OneKey, KasKeeper, Kurncy, and Zelcore stay in their own app. Never paste a seed on this site.</p>'],
       ])}
       ${pinList([
         ['kaachat-desktop', 'STP source. Run locally or use this Chat tab.', 'https://github.com/STP-KAS/kaachat-desktop'],

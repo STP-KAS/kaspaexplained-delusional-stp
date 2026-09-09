@@ -33,7 +33,7 @@ function connected(session, phone) {
     <p class="wallet-address"><code>${escape(session.address)}</code></p>
     <p>That address is your Kaspa identity. KaChat Desktop and the KaChat phone app use the same identity if you log in with the same wallet there. This page does not send messages and does not hold keys.</p>
     <div class="wallet-actions">
-      <a class="primary-button" href="${phone ? 'https://github.com/KaspaSilver/KaChat-Android/releases/tag/4.1' : 'https://github.com/STP-KAS/kaachat-desktop'}" target="_blank" rel="noopener noreferrer">${phone ? 'Get KaChat for Android' : 'Open KaChat Desktop'} ↗</a>
+      <a class="primary-button" href="${phone ? 'https://github.com/KaspaSilver/KaChat-Android/releases/tag/4.1' : '/kachat/'}" ${phone ? 'target="_blank" rel="noopener noreferrer"' : ''}>${phone ? 'Get KaChat for Android ↗' : 'Open KaChat Desktop'}</a>
       <button class="quiet-button" type="button" data-wallet-logout>Disconnect</button>
     </div>
     <p class="small">${escape(shortAddress(session.address))}. Switch wallet: disconnect, then pick another.</p>`;
