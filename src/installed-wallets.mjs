@@ -93,15 +93,21 @@ async function kaswareAccountsQuiet() {
 }
 
 async function connectKasware() {
-  const wallet = await waitForKasware();
-  if (!wallet) {
+  const wallet = window.kasware;
+  if (!wallet?.requestAccounts) {
     window.open('https://www.kasware.xyz', '_blank', 'noopener');
     throw new Error('Kasware is not in this tab. Install the extension, unlock it, then pick Kasware again.');
   }
-  const quiet = await kaswareAccountsQuiet();
-  if (quiet[0]) return {id: 'kasware', address: String(quiet[0])};
-  const accounts = await withTimeout(wallet.requestAccounts(), 45000, 'Kasware connect timed out');
-  if (!accounts?.[0]) throw new Error('Kasware returned no account.');
+  try {
+    if (typeof wallet.disconnect === 'function') {
+      await Promise.race([
+        wallet.disconnect(location.origin),
+        sleep(400),
+      ]);
+    }
+  } catch {}
+  const accounts = await withTimeout(wallet.requestAccounts(), 120000, 'Kasware approval timed out. Open Kasware, unlock it, pick an account, and approve.');
+  if (!accounts?.[0]) throw new Error('Kasware returned no account. Approve the request in the Kasware popup.');
   return {id: 'kasware', address: String(accounts[0])};
 }
 
