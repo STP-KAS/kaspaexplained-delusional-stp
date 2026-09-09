@@ -5,52 +5,38 @@ export const doors = {
     id: 1,
     path: '/door-1',
     label: 'Door 1',
-    title: 'Beginner · New to crypto',
-    intel: 'Beginner. Kaspa is digital cash that does not need a bank. Miners spend energy so nobody can rewrite a payment for free. That is proof of work. This door names the parts, then tells you what they do not mean.',
-    body: `<h2>Start here</h2>
-      <p>You do not need a course. You need a few words, one picture of a payment, and a place to try the rules without risking real money. That is this door, then the playground.</p>
-      <h2>What this is</h2>
-      <p>Ordinary money is an account at a company. They can freeze it, reverse it, or go down. Crypto, in the original sense, is a public ledger that anyone can check. You hold keys. You sign a payment. Miners spend electricity to propose the next records. Other computers check the work. Nobody in the middle has to approve you.</p>
-      <p>That energy is not decoration. It is the cost of lying about history. If rewriting the ledger were cheap, a thief could spend the same coins twice. Proof of work makes that expensive. Proof of stake replaced that cost with a vote of who already holds the coin. Kaspa did not take that turn. It is still proof of work.</p>
-      <h2>Words you will see</h2>
-      <p>Read these once. Come back if a later sentence uses them.</p>
+    title: 'Beginner · Never used crypto',
+    intel: 'Start from zero. Kaspa is public digital cash. You hold keys. Miners spend energy so rewriting history is expensive. That is proof of work. Help is for questions. Explore is to look at real blocks.',
+    body: `<h2>What this is</h2>
+      <p>A bank account is a company’s list. They can freeze it. Crypto, here, is a public list of coins that anyone can check. You hold a secret (keys). You sign a payment. Machines called miners spend electricity to propose the next records. Other computers check the work. Nobody in the middle has to approve you.</p>
+      <p>That energy is the cost of lying. If fake history were cheap, someone could spend the same coins twice. Proof of work makes that expensive. Proof of stake replaced work with a vote of who already holds the coin. Kaspa stayed with proof of work.</p>
+      <h2>Words</h2>
       <ul>
-        <li><strong>Keys.</strong> Secret numbers that prove a payment is yours. If you lose them, the coins are gone. If you share a recovery phrase, you have given the coins away.</li>
-        <li><strong>Wallet.</strong> Software that holds keys and builds payments. It is not a bank account. An exchange account is a claim on a company, not keys you hold.</li>
-        <li><strong>Ledger.</strong> The public list of coins and who can spend them. Anyone can download it. Nobody asks permission to read it.</li>
-        <li><strong>Miner.</strong> A machine that spends electricity to propose the next records. Mining is not a salary from Kaspa. It is a race to find valid work.</li>
-        <li><strong>Node.</strong> A computer that stores the ledger and checks the rules. You can run one. You do not have to. Someone still has to.</li>
-        <li><strong>Block.</strong> A batch of payments plus proof of work. Kaspa can have more than one honest block at the same time. That bunch of blocks is a blockDAG, not a single chain.</li>
-        <li><strong>Fee.</strong> A small amount paid to get into a block. It is not a bank wire fee. If the network is quiet, it can be tiny. If it is busy, it rises.</li>
+        <li><strong>Keys.</strong> The secret that proves a payment is yours. Lose them, the coins are gone. Share a recovery phrase and you gave the coins away.</li>
+        <li><strong>Wallet.</strong> Software that holds keys. It is not a bank. An exchange balance is a claim on a company.</li>
+        <li><strong>Ledger.</strong> The public list. Anyone can download it.</li>
+        <li><strong>Miner.</strong> A machine racing to find valid work. Not a salary from Kaspa.</li>
+        <li><strong>Node.</strong> A computer that stores the ledger and checks the rules.</li>
+        <li><strong>Block.</strong> A batch of payments plus proof of work. Kaspa can keep more than one honest block at the same time. That is a blockDAG, not a single chain.</li>
       </ul>
-      <h2>A payment in four beats</h2>
+      <h2>A payment</h2>
       <ol>
-        <li><strong>You send.</strong> Your wallet signs. The payment is now a message on the network. Sending is not settling.</li>
-        <li><strong>It is included.</strong> A miner puts it in a block. Inclusion is not the same as “done.”</li>
-        <li><strong>It is accepted.</strong> The network’s agreed history now treats that payment as the spend. The old coins cannot be spent again.</li>
-        <li><strong>The recipient waits as they choose.</strong> A coffee and a house sale do not need the same wait. Kaspa does not pick that policy for them.</li>
+        <li>You send. The wallet signs. Sending is not settling.</li>
+        <li>A miner includes it in a block. Inclusion is not “done.”</li>
+        <li>The network accepts it in the agreed history. Those coins cannot be spent again.</li>
+        <li>The recipient waits as they choose. Kaspa does not pick that wait for them.</li>
       </ol>
-      <p>The playground slows this down so you can press the stages. Use it after this page, not instead of reading.</p>
-      <h2>Where Kaspa sits</h2>
-      <p>Bitcoin is the same idea: miners, keys, no premine as a fair-launch story. Bitcoin is a chain. When two honest miners find a block at the same time, one block is thrown away. Kaspa is a blockDAG. Honest parallel blocks stay. GHOSTDAG puts them in order. About ten blocks per second on mainnet today. That is a target rate, not a promise that your coffee is irreversible in a tenth of a second.</p>
-      <p>Most later coins sold speed by changing the security story: staking, a small set of validators, or a company sequencer. Kaspa’s bet is the opposite. Keep Bitcoin’s root. Make the ledger fast enough that payments and, later, spending rules can live on it without a second chain.</p>
-      <h2>What still costs you</h2>
-      <p>If you lose the keys, the coins are gone. If mining concentrates, a few operators matter more than the diagram suggests. Nodes still have to hear every block. Ten blocks per second is work for the network, not free throughput. Inclusion in a block is not the same as acceptance in the agreed history.</p>
-      <h2>How to start without getting hurt</h2>
-      <ul>
-        <li>Do not paste a recovery phrase into a website, a chat, or this site. Nobody here can recover a seed.</li>
-        <li>Learn on Testnet-10 first. tKAS is faucet money. It is not mainnet KAS.</li>
-        <li>Watch the Graph Inspector on this page for the live picture. A candle chart is not that picture.</li>
-        <li>Price talk is not a source. If someone leads with a target, close the tab and come back here.</li>
-        <li>When you have a question, say what you did, which network, and the error text. Ask in Help, not in a random reply.</li>
-      </ul>
-      <p>Door 2 is next if you already know Bitcoin or Ethereum and only need Kaspa placed. If you are still new, open Using KAS, then the playground.</p>`,
+      <h2>Kaspa in one line</h2>
+      <p>Same idea as Bitcoin (keys, miners, public ledger). Bitcoin is a chain: extra honest blocks are thrown away. Kaspa keeps them and orders them. About ten blocks per second on mainnet. That is a target rate, not a promise that a coffee is irreversible in a tenth of a second.</p>
+      <h2>Do this</h2>
+      <p>Do not paste a recovery phrase into a website or a chat. Learn on Testnet-10 if you try a wallet: tKAS is not real KAS. Price talk is not a source.</p>
+      <p>Questions: <a href="/help">Help</a> (Kaspa Discord). Look at blocks and addresses: <a href="/explore">Explore</a>.</p>
+      <p>Next lesson is Door 2 if you already know Bitcoin or Ethereum. If you are still new, stay here, then Help and Explore.</p>`,
     reads: [
-      ['Playground', 'Delay, double spend, mining share, spending rules. Your tKAS if you bring it.', '/playground'],
-      ['Using KAS', 'A payment, change, and a fee.', '/why-kaspa-matters'],
+      ['Help', 'Pick the Discord room. Ask with facts, not a seed or a price.', '/help'],
+      ['Explore', 'kaspa.stream, Testnet-10 explorer, live DAG.', '/explore'],
+      ['Playground', 'Slow the rules down. Bring tKAS if you have it.', '/playground'],
       ['Door 2', 'You know crypto. Place Kaspa next to it.', '/door-2'],
-      ['Help', 'Ask in the rooms that already exist.', '/help'],
-      ['What is live', 'Dated labels, not a pitch.', '/status'],
     ],
   },
   2: {
@@ -58,36 +44,30 @@ export const doors = {
     path: '/door-2',
     label: 'Door 2',
     title: 'Intermediate · Knows crypto, not Kaspa',
-    intel: 'Intermediate. Kaspa is still proof of work. Parallel honest blocks are kept and ordered. Speed is not a new security story. Compare it to the chain you already know, then check what is actually live.',
-    body: `<h2>The one-sentence difference</h2>
-      <p>Bitcoin selects a chain and orphans the rest. Kaspa represents concurrent proof-of-work in a DAG and orders it with GHOSTDAG. The double-spend check still happens after ordering. A DAG is not a free pass to spend twice.</p>
-      <p>If you already think in UTXOs, fees, and confirmation policy, you can skip Door 1. Stay here until you can place Kaspa without borrowing Ethereum’s words.</p>
-      <h2>Against the rest of the map</h2>
-      <p><strong>Bitcoin.</strong> Same PoW cash lineage, UTXO ledger, no premine. Kaspa’s block interval is much shorter. That does not copy Bitcoin’s settlement culture. Recipients still pick a policy. Node bandwidth and validation cost rise with the extra blocks. If a Bitcoiner asks “is it final?”, the honest answer is: inclusion, acceptance, and the recipient’s wait are three different things. Same as Bitcoin, faster blocks.</p>
-      <p><strong>Ethereum.</strong> Ethereum moved to proof of stake and an account virtual machine. Kaspa stayed with miners and UTXOs. Toccata added spending rules (covenants), covenant IDs, a ZK precompile, and sequencing lanes. That is not the EVM. You do not deploy a Solidity app onto Kaspa L1 today and get Ethereum’s tooling. “Smart contracts on Kaspa” is a sentence that needs a label: covenants are live protocol; application compilers are not all stable.</p>
-      <p><strong>High-throughput PoS and L2s.</strong> Fast inclusion is often a sequencer or a validator set. Kaspa’s speed is many proof-of-work blocks. Honest work that arrives late is kept, not discarded. 100 BPS is a research target, not a spec. Crescendo’s 10 BPS is live. If you came from Solana, do not map TPS slogans onto block rate. Nodes still receive, validate, and store every block.</p>
+    intel: 'You already know a chain. Kaspa is still proof of work. Honest parallel blocks are kept and ordered. Speed is not a new security story. Help is for questions. Explore is the live ledger.',
+    body: `<h2>The difference</h2>
+      <p>Bitcoin selects one chain and orphans the rest. Kaspa keeps concurrent proof-of-work blocks in a DAG and orders them with GHOSTDAG. The double-spend check still runs after ordering. A DAG is not a pass to spend twice.</p>
+      <h2>Place it</h2>
+      <p><strong>Bitcoin.</strong> Same PoW, UTXO, no premine. Shorter block interval. Recipients still pick a wait. Inclusion, acceptance, and that wait are three different things. Nodes still hear every block.</p>
+      <p><strong>Ethereum.</strong> Ethereum is proof of stake and accounts. Kaspa is miners and UTXOs. Toccata added spending rules (covenants) on outputs. That is not the EVM. You do not deploy Solidity on Kaspa L1 and get Ethereum’s tooling.</p>
+      <p><strong>Fast PoS and L2s.</strong> Their speed is often a sequencer or a validator set. Kaspa’s speed is many proof-of-work blocks. 10 blocks per second is live. 100 BPS is research, not a spec. Do not map a TPS slogan onto block rate.</p>
       <h2>UTXO, not an account VM</h2>
-      <p>Coins live as unspent outputs. A payment consumes outputs and creates new ones. Change is an output back to you. A covenant is a spending rule attached to an output: wait, limit, name the recipient, require a proof. That is closer to Bitcoin Script than to an EVM contract with storage.</p>
-      <p>Shared execution among many users (a lending pool, an AMM with one global book) is a different problem. Covenants do not by themselves give you that. vProgs are the research name for based programs with validity proofs. They are not a product testnet you can treat as live.</p>
+      <p>A payment consumes outputs and creates new ones. A covenant is a rule on an output. Shared apps with one global book (a pool, an AMM) are a different problem. vProgs are research. They are not a product testnet.</p>
       <h2>Live versus later</h2>
-      <p>Use these labels. Mix them and you are pitching.</p>
       <ul>
-        <li><strong>Live.</strong> GHOSTDAG. 10 BPS (Crescendo). Toccata protocol rules on mainnet. rusty-kaspa v2.0.1 is the maintenance tag checked here.</li>
+        <li><strong>Live.</strong> GHOSTDAG. 10 BPS. Toccata protocol rules. rusty-kaspa v2.0.1 checked here.</li>
         <li><strong>v1.0.0.</strong> SilverScript compiler tagged 9 Sep 2026. Application readiness is separate.</li>
-        <li><strong>Prototype.</strong> Argent. Examples exist. The README says it is not release-ready.</li>
-        <li><strong>Research.</strong> vProgs. Repository existence is not production.</li>
-        <li><strong>Proposed.</strong> DAGKnight. The rusty <code>dagknight</code> branch is not merged. No mainnet activation is documented in the checked KIP or node releases.</li>
+        <li><strong>Prototype.</strong> Argent. Its README says not release-ready.</li>
+        <li><strong>Research.</strong> vProgs.</li>
+        <li><strong>Proposed.</strong> DAGKnight. No mainnet activation in the checked KIP or node releases.</li>
       </ul>
-      <p>A merged Active KIP is law. A tweet, a Discord rumor, and a forum thread are not. Toccata is consensus. silverc is a compiler. People still mix those two in chat.</p>
-      <h2>What speed does not buy</h2>
-      <p>It does not remove miner concentration. It does not make every wallet support covenants. It does not make a repository into a product. It does not make a price chart into evidence. The skeptical list is the same as for any PoW coin, plus the extra node cost of a fast DAG.</p>
-      <p>Door 3 is the dated machine: KIPs, builder network, node. If you only wanted the map, open status and the playground next.</p>`,
+      <p>Toccata is consensus. silverc is a compiler. A tweet is not a KIP.</p>
+      <p>Questions: <a href="/help">Help</a>. Blocks, Testnet-10 explorer, live DAG: <a href="/explore">Explore</a>.</p>`,
     reads: [
-      ['Playground', 'See parallel blocks and a failed double spend without a lecture.', '/playground'],
-      ['What is live', 'Live, roadmap, research, wrong.', '/status'],
-      ['Door 3', 'Dated status, builder path, what not to claim.', '/door-3'],
-      ['The tradeoffs', 'Node cost, mining concentration, what speed does not solve.', '/skeptical-case'],
-      ['Sources', 'How a claim is checked here.', '/sources'],
+      ['Help', 'Discord rooms. Facts, not a seed or a price.', '/help'],
+      ['Explore', 'Mainnet and Testnet-10 explorers, Graph Inspector.', '/explore'],
+      ['Playground', 'Parallel blocks and a failed double spend.', '/playground'],
+      ['Door 3', 'Dated status and what not to claim.', '/door-3'],
     ],
   },
   3: {
@@ -95,82 +75,70 @@ export const doors = {
     path: '/door-3',
     label: 'Door 3',
     title: 'Advanced · Knows Kaspa',
-    intel: 'Advanced. Skip the pitch. Check dated status, live versus research, and the tradeoffs. If a claim has no source, it is not intel. This door is the machine as of the last check, not a vision deck.',
-    body: `<h2>Where the machine actually is</h2>
-      <p>Checked on this site: 6 September 2026. Snapshot DAA 532,696,787. rusty-kaspa v2.0.1. Block subsidy about 2.18 KAS. Circulating supply about 27.68 billion. Those numbers age. Open status before you quote them.</p>
-      <p>Toccata activated at DAA 474,165,565 (about 30 Jun 2026). KIPs 16, 17, 20, and 21 are marked Active in the checked repository. 10 BPS is live. SilverScript v1.0.0 is tagged. KCC-0020 is Draft. vProgs have no public product testnet. DAGKnight remains Proposed; the rusty <code>dagknight</code> branch is not merged.</p>
+    intel: 'Skip the pitch. Dated status, live versus research, and the tradeoffs. If a claim has no source, it is not intel. Help is Discord. Explore is the ledger.',
+    body: `<h2>Checked here</h2>
+      <p>6 September 2026. DAA 532,696,787. rusty-kaspa v2.0.1. Subsidy about 2.18 KAS per block. Supply about 27.68 billion. Those numbers age. Quote them from status, not from memory.</p>
+      <p>Toccata activated at DAA 474,165,565 (about 30 Jun 2026). KIPs 16, 17, 20, and 21 read Active in the checked repository. 10 BPS is live. SilverScript v1.0.0 is tagged. KCC-0020 is Draft. vProgs have no public product testnet. DAGKnight remains Proposed.</p>
       <h2>Do not claim</h2>
       <ul>
         <li>100 BPS live</li>
         <li>Instant irreversible payments</li>
         <li>Mature native smart contracts as an Ethereum replacement</li>
-        <li>KCC-20 adopted as the token standard</li>
+        <li>KCC-20 as the adopted token standard</li>
         <li>A compiler tag means production dapps exist</li>
         <li>vProgs live</li>
-        <li>Kurrent mainnet</li>
-        <li>Toccata “coming soon” (it is live)</li>
+        <li>Toccata still “coming soon” (it is live)</li>
       </ul>
-      <h2>Programmability, in the order it actually exists</h2>
+      <h2>Order of programmability</h2>
       <ol>
-        <li><strong>Covenants on L1.</strong> Toccata. Spending rules travel with the output. Live protocol. Wallet and indexer support is separate.</li>
-        <li><strong>SilverScript.</strong> Compiler. v1.0.0 tagged 9 Sep 2026. Toccata is not this compiler. Application readiness is separate.</li>
-        <li><strong>Argent.</strong> Prototype language. Not release-ready per its own README.</li>
-        <li><strong>vProgs.</strong> Research: based programs and validity proofs. Do not demo them as a mainnet product.</li>
+        <li><strong>Covenants on L1.</strong> Toccata. Live protocol. Wallets and indexers are separate.</li>
+        <li><strong>SilverScript.</strong> Compiler, v1.0.0 tagged 9 Sep 2026. Not the hardfork. Application readiness is separate.</li>
+        <li><strong>Argent.</strong> Prototype. README: not release-ready.</li>
+        <li><strong>vProgs.</strong> Research. Not a mainnet product.</li>
       </ol>
-      <p>The digital-cash story is still the honest one: PoW, UTXO, fair launch. The DAG is how Kaspa tries to keep that story at a payment-like interval. That is a different shape from “EVM L2 on a PoS L1.” It is also earlier. Wallets, indexers, and compilers are catching up. Discord still spends most of its volume on wallet UX, fees, and “is SilverScript the hardfork?” No. Toccata is consensus. silverc is a compiler.</p>
-      <h2>Builder path that does not lie</h2>
-      <p>Testnet-10 is the builder network. Do not use testnet-12. Addresses start with <code>kaspatest:</code>. Official start: kaspa.org/build. This site’s Node tab is the Windows/Linux/mac path that actually ran: dedicated folder, rusty-kaspa v2.0.1, CPU miner on 16210, explorer tn10.kaspa.stream. GPU on public TN10 is physics, not etiquette.</p>
-      <p>If you are mining tKAS, bring the address to the playground. This site does not drip faucet coins at you. Faucet: faucet-tn10.kaspanet.io. PegLab if someone says they need a stable for a dapp. It is a toy that will depeg. Not a business.</p>
-      <h2>Costs you already know and should not skip</h2>
-      <p>Node cost scales with block rate. Mining can still pool. A live opcode is not an audited app. A public node is not a miner and is not a wallet. Do not expose open RPC that can sign. Check kaspa.stream/nodes if you meant to be a public peer.</p>
-      <p>Door 4 is for people who will repeat sentences in public. If you are building, stay on Node, Build, and status until a claim has a KIP or a release tag.</p>`,
+      <h2>Builder network</h2>
+      <p>Testnet-10. Addresses start with <code>kaspatest:</code>. CPU miner first. Explorer: tn10.kaspa.stream. A public mainnet node is not a miner and is not open RPC.</p>
+      <p>Questions: <a href="/help">Help</a>. Mainnet, Testnet-10, live DAG: <a href="/explore">Explore</a>.</p>`,
     reads: [
-      ['Playground', 'The mechanics, plus your Testnet-10 wallet.', '/playground'],
-      ['Node', 'TN10 rusty-kaspa, then tKAS. CPU first. Mainnet node if you mean it.', '/node'],
-      ['Build on Kaspa', 'Covenants, official build door, TN10.', '/build-on-kaspa'],
+      ['Help', 'Discord. Facts, network, error text. No seed. No price.', '/help'],
+      ['Explore', 'kaspa.stream, tn10.kaspa.stream, Graph Inspector.', '/explore'],
+      ['Node', 'TN10 kaspad and CPU tKAS, or a mainnet node.', '/node'],
       ['Door 4', 'How to check a claim before you repeat it.', '/door-4'],
-      ['What is live', 'Activation, tools, prototypes.', '/status'],
     ],
   },
   4: {
     id: 4,
     path: '/door-4',
     label: 'Door 4',
-    title: 'Expert · Thinks they know',
-    intel: 'Expert. Price is not a protocol. A live rule is not an app. A repository is not production. Compare Kaspa to the rest of crypto with labels, not vibes. If you will repeat a sentence, this door is the checklist.',
-    body: `<h2>Stop doing the useless work</h2>
-      <p>Price predictions are not intel. Detailed chart analysis is the same waste. Neither one changes GHOSTDAG, issuance, node cost, or whether a wallet can spend a covenant. If you arrived with a target, this door is the correction. The Moonboy tab exists so this page does not have to shout.</p>
-      <h2>How to place Kaspa without lying</h2>
-      <p>It is PoW cash with a DAG history, not a staking chain, not an EVM, not a rollup brand. 10 BPS is live. Toccata is live. Tooling is young. vProgs are later. DAGKnight is proposed. Those sentences are enough. Extra adjectives are usually a pitch.</p>
-      <p>Bitcoiners will ask about settlement and node cost. Answer: recipients pick a policy; nodes still hear every block; faster interval is not Bitcoin’s culture copied. Ethereum people will look for a VM and a token standard. Answer: covenants on UTXOs, not the EVM; KCC-0020 is Draft. Solana people will look for throughput and then skip the security model. Answer: many PoW blocks, not a leader schedule; capacity is not demand.</p>
-      <h2>Labels, then a source</h2>
-      <p>Use four words and mean them.</p>
+    title: 'Expert · Checks claims',
+    intel: 'Price is not a protocol. A live rule is not an app. A repository is not production. If you will repeat a sentence, check it. Help is Discord. Explore is the ledger.',
+    body: `<h2>What is not intel</h2>
+      <p>Price predictions and chart analysis do not change GHOSTDAG, issuance, node cost, or whether a wallet can spend a covenant. If you arrived with a target, leave it. The Moonboy tab exists for that refuse pile.</p>
+      <h2>Place Kaspa in one paragraph</h2>
+      <p>PoW cash with a DAG history. Not staking. Not an EVM. Not a rollup brand. 10 BPS is live. Toccata is live. SilverScript v1.0.0 is a compiler tag, not production dapps. vProgs are research. DAGKnight is proposed.</p>
+      <h2>Labels</h2>
       <ul>
-        <li><strong>Live.</strong> In a release, activated, observable on the public network. Example: Toccata at a published DAA score.</li>
-        <li><strong>Roadmap.</strong> Written intent with a document. Not a date you invented.</li>
+        <li><strong>Live.</strong> Released, activated, observable. Example: Toccata at a published DAA score.</li>
+        <li><strong>Roadmap.</strong> Written intent in a document. Not a date you invented.</li>
         <li><strong>Research.</strong> A paper, a branch, a prototype. Not a product.</li>
-        <li><strong>Wrong.</strong> Contradicted by the node, the KIP status, or the dated snapshot. Say so.</li>
+        <li><strong>Wrong.</strong> Contradicted by the node, the KIP, or the dated snapshot. Say so.</li>
       </ul>
-      <p>A consensus rule can be live while every product on top is a prototype. A GitHub org is not production. Testnet-10 is not mainnet. “Core” is not a legal title. Yonatan’s rough core list on X is a starting map, not a badge.</p>
-      <h2>How to check a sentence before you post it</h2>
+      <h2>Before you post</h2>
       <ol>
         <li>Does a KIP, a rusty-kaspa release, or docs.kaspa.org say it?</li>
         <li>Is the status Active, Draft, Proposed, or a README warning?</li>
-        <li>Did you date the claim? Supply, DAA, and subsidy move.</li>
-        <li>Are you mixing protocol (Toccata) with a compiler (SilverScript) or a research repo (vProgs)?</li>
+        <li>Did you date the claim? DAA, subsidy, and supply move.</li>
+        <li>Are you mixing protocol (Toccata), compiler (SilverScript), and research (vProgs)?</li>
         <li>Would the sentence still be true if the KAS price were zero?</li>
       </ol>
-      <p>If step 5 fails, you were talking about a market, not the machine. Take it to Moonboy and leave it there.</p>
-      <h2>What an expert still owes</h2>
-      <p>Node cost at 10 BPS. Mining pools. Wallet gaps on covenants. Indexer honesty. Settlement policy chosen by the recipient, not by a slogan. Independent review before mainnet funds in a new spending rule. None of that is solved by being early, loud, or sure.</p>
-      <p>Community rule on this site: be mature. No price predictions. Build. Share ideas. Keep a positive critical mindset. If you will teach, send people to Door 1 through Door 3 in order, then here, then sources. The playground exists so you can break a double spend instead of arguing about one.</p>`,
+      <p>If step 5 fails, you were talking about a market. Stop.</p>
+      <p>Still true at 10 BPS: node cost, mining pools, wallet gaps, indexer honesty, recipient-chosen wait. None of that is solved by being sure.</p>
+      <p>Questions: <a href="/help">Help</a>. Check a block or a <code>kaspatest:</code> address: <a href="/explore">Explore</a>.</p>`,
     reads: [
-      ['Moonboy', 'Why price talk and chart analysis are not intel.', '/moonboy'],
-      ['Playground', 'Break the stories against a model.', '/playground'],
-      ['What is live', 'Labels: live, roadmap, research, wrong.', '/status'],
-      ['Sources', 'How a claim is checked on this site.', '/sources'],
-      ['Best practices', 'People who stay honest.', '/best-practices'],
-      ['Door 1', 'If you are about to explain this to someone new, start them here.', '/door-1'],
+      ['Help', 'Correct Discord tab. Facts. No seed. No price.', '/help'],
+      ['Explore', 'Mainnet and TN10 explorers, live DAG.', '/explore'],
+      ['Moonboy', 'Price talk is not a source.', '/moonboy'],
+      ['Door 1', 'If you will teach someone new, start them here.', '/door-1'],
     ],
   },
 };
