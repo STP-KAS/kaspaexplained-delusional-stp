@@ -14,11 +14,14 @@ function nameOf(id) {
 function appUrl({session, domain, fresh, create} = {}) {
   const params = new URLSearchParams();
   params.set('fresh', '1');
-  if (fresh || session) params.set('from', 'explained');
+  if (session?.address) {
+    params.set('from', 'explained');
+    params.set('address', session.address);
+    if (session.id) params.set('wallet', session.id);
+    if (domain) params.set('domain', domain);
+  }
   if (create) params.set('create', '1');
-  if (session?.address) params.set('address', session.address);
-  if (session?.id) params.set('wallet', session.id);
-  if (domain) params.set('domain', domain);
+  if (fresh && !session?.address) params.set('skip', '1');
   return `${APP}?${params}`;
 }
 
