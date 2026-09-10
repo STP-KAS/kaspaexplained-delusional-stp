@@ -112,10 +112,10 @@ async function connectKasware() {
     window.open('https://www.kasware.xyz', '_blank', 'noopener');
     throw new Error('Kasware is not in this tab. Install the extension, unlock it, then log in again.');
   }
-  try { wallet.disconnect?.(location.origin); } catch {}
   const accounts = await withTimeout(wallet.requestAccounts(), 120000, 'Kasware approval timed out. Open Kasware, unlock it, pick an account, and approve.');
-  if (!accounts?.[0]) throw new Error('Kasware returned no account. Approve the request in the Kasware popup.');
-  return {id: 'kasware', address: String(accounts[0])};
+  const address = String(accounts?.[0]?.address || accounts?.[0] || '');
+  if (!address) throw new Error('Kasware returned no account. Approve Log in in the Kasware popup.');
+  return {id: 'kasware', address};
 }
 
 async function connectKastle() {
@@ -279,11 +279,14 @@ export function mountInstalledWallet() {
     if (pick) {
       try {
         if (pick.dataset.walletId === 'kasware' && window.kasware?.requestAccounts) {
-          try { window.kasware.disconnect?.(location.origin); } catch {}
           const approval = window.kasware.requestAccounts();
-          const accounts = await withTimeout(approval, 120000, 'Kasware approval timed out. Open Kasware, unlock it, pick an account, and approve.');
-          if (!accounts?.[0]) throw new Error('Kasware returned no account. Approve the request in the Kasware popup.');
-          persist('kasware', String(accounts[0]));
+          let accounts = await withTimeout(approval, 120000, 'Kasware approval timed out. Open Kasware, unlock it, pick an account, and approve.');
+          if (!accounts?.[0]) {
+            try { accounts = await window.kasware.getAccounts?.(); } catch { accounts = []; }
+          }
+          const address = String(accounts?.[0]?.address || accounts?.[0] || '');
+          if (!address) throw new Error('Kasware returned no account. Approve Log in in the Kasware popup.');
+          persist('kasware', address);
           panel.hidden = false;
           open.setAttribute('aria-expanded', 'true');
           await load();
