@@ -37,7 +37,7 @@ export const snapshot = {
     ['GHOSTDAG', 'Live', 'Orders the blockDAG. Crescendo set a target of ten blocks per second.', 'https://github.com/kaspanet/kips/blob/master/kip-0014.md'],
     ['Toccata', 'Live protocol', 'Covenant spending rules, identifiers, sequencing commitments, and supported proof verification are active. Application readiness is separate.', 'https://github.com/kaspanet/rusty-kaspa/releases/tag/v2.0.0'],
     ['Silverscript', 'v1.0.0', 'Official language and compiler release, tagged 9 Sep 2026. Application readiness is separate.', 'https://github.com/kaspanet/silverscript/releases/tag/v1.0.0'],
-    ['Argent', 'Prototype', 'Compiler and examples exist. Its README says it is not release-ready.', 'https://github.com/argent-lang/argent'],
+    ['Argent', 'Prototype', 'Not release-ready. Leader and delegate input-group invariants are documented; compiler rules 5 and 6 are marked not implemented.', 'https://github.com/argent-lang/argent/blob/master/docs/security-invariants/leader-delegate-input-groups.md'],
     ['vProgs', 'Research', 'Early implementation. Repository existence does not establish production availability.', 'https://github.com/kaspanet/vprogs'],
     ['DAGKnight', 'Proposed', 'Research code is active. No mainnet activation is documented in the checked KIP or node releases.', 'https://github.com/kaspanet/kips/blob/master/kip-0002.md'],
   ],

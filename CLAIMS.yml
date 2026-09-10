@@ -1,5 +1,5 @@
-last_checked: 2026-09-09
-recheck_after: 2026-09-16
+last_checked: 2026-09-10
+recheck_after: 2026-09-17
 claims:
   proof_of_work:
     status: live
@@ -88,13 +88,16 @@ claims:
 
   argent:
     status: builder_guardrail
-    recheck_after: 2026-09-16
-    summary: Argent contains compiler, artifact, runtime, and example code; its repository says it is not release-ready and requires further auditing and hardening.
-    source: https://github.com/argent-lang/argent
-    supporting_source: https://github.com/argent-lang/argent/releases
+    recheck_after: 2026-09-17
+    summary: Argent is not release-ready. Its repository documents leader and delegate input-group security invariants on KIP-20 (each continuation has one authorizer). Compiler rules 5 and 6 in that document are marked not implemented. A design document is not a live application layer.
+    source: https://github.com/argent-lang/argent/blob/master/docs/security-invariants/leader-delegate-input-groups.md
+    supporting_source: https://github.com/argent-lang/argent
+    supporting_source_2: https://github.com/kaspanet/kips/blob/master/kip-0020.md
     forbidden_copy:
       - Argent is production-ready
       - Argent has a stable release
+      - Argent leader-delegate rules 5 and 6 are implemented
+      - An Argent design document proves production applications exist
 
   vprogs:
     status: research
