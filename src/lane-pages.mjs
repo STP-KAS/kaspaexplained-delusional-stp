@@ -89,7 +89,7 @@ export const lanePages = [
     file: 'kachat.html',
     title: 'KaChat',
     description: 'Connect Kasware or another wallet, pick a default domain, or open KaChat Desktop without logging in.',
-    body: `${intro('Chat', 'Connect a wallet, or skip.', 'Chat does not open KaChat until you choose. Connect Kasware or another wallet, pick a default KNS domain, or continue without logging in and create a wallet inside KaChat. This site never asks for a recovery phrase.')}
+    body: `${intro('Chat', 'Connect a wallet, or skip.', 'Connect Kasware or Kastle, pick the domain you want as your name, then continue. Or skip and create a wallet inside KaChat. This site never asks for a recovery phrase.')}
       <section class="kachat-board" data-kachat>
         <div class="kachat-login" data-kachat-login></div>
       </section>
