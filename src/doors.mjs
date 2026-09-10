@@ -57,7 +57,7 @@ export const doors = {
       <ul>
         <li><strong>Live.</strong> GHOSTDAG. 10 BPS. Toccata protocol rules. rusty-kaspa v2.0.1 checked here.</li>
         <li><strong>v1.0.0.</strong> SilverScript compiler tagged 9 Sep 2026. Application readiness is separate.</li>
-        <li><strong>Prototype.</strong> Argent. Its README says not release-ready.</li>
+        <li><strong>Prototype.</strong> Argent. Not release-ready. Leader/delegate input-group invariants are documented; rules 5 and 6 are marked not implemented.</li>
         <li><strong>Research.</strong> vProgs.</li>
         <li><strong>Proposed.</strong> DAGKnight. No mainnet activation in the checked KIP or node releases.</li>
       </ul>
@@ -93,7 +93,7 @@ export const doors = {
       <ol>
         <li><strong>Covenants on L1.</strong> Toccata. Live protocol. Wallets and indexers are separate.</li>
         <li><strong>SilverScript.</strong> Compiler, v1.0.0 tagged 9 Sep 2026. Not the hardfork. Application readiness is separate.</li>
-        <li><strong>Argent.</strong> Prototype. README: not release-ready.</li>
+        <li><strong>Argent.</strong> Prototype. Not release-ready. Input-group invariants documented; rules 5 and 6 marked not implemented.</li>
         <li><strong>vProgs.</strong> Research. Not a mainnet product.</li>
       </ol>
       <h2>Builder network</h2>
