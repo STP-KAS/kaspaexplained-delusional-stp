@@ -1,5 +1,7 @@
 import {loadHoldings, shortAddress} from './wallet-holdings.mjs';
 
+const STORE_DOMAIN = 'kaspa-explained-default-domain';
+
 const STORE_ID = 'kaspa-explained-wallet-id';
 const STORE_ADDR = 'kaspa-explained-wallet-address';
 
@@ -24,6 +26,18 @@ const withTimeout = (promise, ms, label) => Promise.race([
 
 function escape(value) {
   return String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
+}
+
+export function savedDomain() {
+  try { return sessionStorage.getItem(STORE_DOMAIN) || ''; } catch { return ''; }
+}
+
+export function saveDomain(name) {
+  try {
+    if (name) sessionStorage.setItem(STORE_DOMAIN, name);
+    else sessionStorage.removeItem(STORE_DOMAIN);
+  } catch {}
+  document.dispatchEvent(new CustomEvent('kaspa-domain-changed', {detail: name || ''}));
 }
 
 export function current() {
@@ -179,13 +193,19 @@ function renderHoldings(session, holdings, status) {
       <p class="small">Detected: ${detected().join(', ') || 'none'}.</p>`;
   }
   const tokenRows = (holdings?.tokens || []).map(token => `<tr><th>${escape(token.tick)}</th><td>${escape(token.amount)}</td></tr>`).join('');
-  const domainRows = (holdings?.domains || []).map(domain => `<tr><th>${escape(domain.name)}</th><td>${domain.verified ? 'verified' : escape(domain.status || 'listed')}</td></tr>`).join('');
+  const picked = savedDomain();
+  const domainRows = (holdings?.domains || []).map(domain => {
+    const on = domain.name === picked;
+    return `<tr><th><button class="wallet-domain-pick${on ? ' is-picked' : ''}" type="button" data-pick-domain="${escape(domain.name)}">${escape(domain.name)}</button></th><td>${domain.verified ? 'verified' : escape(domain.status || 'listed')}</td></tr>`;
+  }).join('');
   const name = catalogItem(session.id)?.name || session.id;
-  return `<p class="small">${escape(name)} · ${escape(holdings?.network || 'mainnet')}${holdings?.primary ? ` · ${escape(holdings.primary)}` : ''}</p>
+  const shown = picked || holdings?.primary || '';
+  return `<p class="small">${escape(name)} · ${escape(holdings?.network || 'mainnet')}${shown ? ` · ${escape(shown)}` : ''}</p>
     <p class="wallet-address"><code>${escape(session.address)}</code></p>
     <section class="wallet-section"><h3>KAS</h3><p class="wallet-kas">${holdings?.kas != null ? escape(holdings.kas) : 'Not checked'}</p>${holdings?.kasError ? `<p class="small">${escape(holdings.kasError)}</p>` : ''}</section>
     ${rows('Tokens', tokenRows, 'No KRC-20 tokens reported for this address.', holdings?.tokensError)}
     ${rows('Domains', domainRows, 'No KNS domains reported for this address.', holdings?.domainsError)}
+    <p class="small">${domainRows ? 'Tap a domain to use it as the Chat default.' : ''}</p>
     <div class="wallet-actions"><button class="quiet-button" type="button" data-wallet-refresh>Refresh</button><button class="quiet-button" type="button" data-wallet-logout>Disconnect</button></div>
     <p class="small">Indexer views. Not a proof of spendability. Testnet playground wallets on this site stay separate. Switch wallet: disconnect, then pick another.</p>`;
 }
@@ -193,8 +213,9 @@ function renderHoldings(session, holdings, status) {
 function paint(root, session, holdings, status) {
   const open = root.querySelector('[data-wallet-open]');
   if (open) {
-    open.textContent = session.address ? shortAddress(session.address) : 'Wallet';
-    open.title = session.address || 'Pick a wallet';
+    const domain = savedDomain();
+    open.textContent = session.address ? (domain || shortAddress(session.address)) : 'Wallet';
+    open.title = domain || session.address || 'Pick a wallet';
     open.setAttribute('aria-pressed', String(Boolean(session.address)));
   }
   for (const target of root.querySelectorAll('[data-wallet-view]')) target.innerHTML = renderHoldings(session, holdings, status);
@@ -250,7 +271,15 @@ export function mountInstalledWallet() {
     else draw();
   });
 
+  document.addEventListener('kaspa-domain-changed', () => draw());
+
   document.addEventListener('click', async event => {
+    const domainPick = event.target.closest('[data-pick-domain]');
+    if (domainPick) {
+      saveDomain(domainPick.dataset.pickDomain || '');
+      draw();
+      return;
+    }
     const pick = event.target.closest('[data-wallet-id]');
     if (pick) {
       try {
