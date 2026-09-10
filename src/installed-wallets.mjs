@@ -112,13 +112,8 @@ async function connectKasware() {
     window.open('https://www.kasware.xyz', '_blank', 'noopener');
     throw new Error('Kasware is not in this tab. Install the extension, unlock it, then log in again.');
   }
-  let accounts;
-  try {
-    accounts = await withTimeout(wallet.requestAccounts(), 120000, 'Kasware approval timed out. Open Kasware, unlock it, pick an account, and approve.');
-  } catch (error) {
-    try { accounts = await wallet.getAccounts?.(); } catch { accounts = []; }
-    if (!accounts?.[0]) throw error;
-  }
+  try { wallet.disconnect?.(location.origin); } catch {}
+  const accounts = await withTimeout(wallet.requestAccounts(), 120000, 'Kasware approval timed out. Open Kasware, unlock it, pick an account, and approve.');
   if (!accounts?.[0]) throw new Error('Kasware returned no account. Approve the request in the Kasware popup.');
   return {id: 'kasware', address: String(accounts[0])};
 }
@@ -283,6 +278,17 @@ export function mountInstalledWallet() {
     const pick = event.target.closest('[data-wallet-id]');
     if (pick) {
       try {
+        if (pick.dataset.walletId === 'kasware' && window.kasware?.requestAccounts) {
+          try { window.kasware.disconnect?.(location.origin); } catch {}
+          const approval = window.kasware.requestAccounts();
+          const accounts = await withTimeout(approval, 120000, 'Kasware approval timed out. Open Kasware, unlock it, pick an account, and approve.');
+          if (!accounts?.[0]) throw new Error('Kasware returned no account. Approve the request in the Kasware popup.');
+          persist('kasware', String(accounts[0]));
+          panel.hidden = false;
+          open.setAttribute('aria-expanded', 'true');
+          await load();
+          return;
+        }
         await connect(pick.dataset.walletId);
       } catch (error) {
         panel.hidden = false;
