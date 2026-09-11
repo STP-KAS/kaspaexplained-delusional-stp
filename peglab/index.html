@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PegLab · Kaspa Explained STP</title><meta name="description" content="A Testnet-10 teaching covenant that looks like a dollar and then fails in public. Not USD. Tiny pool. Will depeg."><link rel="canonical" href="http://127.0.0.1:8899/peglab"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta property="og:title" content="PegLab"><meta property="og:description" content="A Testnet-10 teaching covenant that looks like a dollar and then fails in public. Not USD. Tiny pool. Will depeg."><meta property="og:image" content="http://127.0.0.1:8899/og-kaspa-explained.png"><link rel="stylesheet" href="/assets/app.css?v=kasware-login"><link rel="stylesheet" href="/assets/network-diagram.css"><link rel="stylesheet" href="/assets/mechanism-diagrams.css"><link rel="stylesheet" href="/assets/flow-diagrams.css"><script>try{document.documentElement.removeAttribute('hidden');delete document.documentElement.dataset.welcome;const t=new URLSearchParams(location.search).get('theme')||localStorage.getItem('kaspa-theme');if(t==='dark')document.documentElement.dataset.theme='dark';if(sessionStorage.getItem('kaspa-welcome-seen'))document.documentElement.dataset.welcomeSeen='1';}catch{}</script><script type="module" src="/assets/app.mjs?v=kasware-login"></script></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="/"><img src="/favicon.svg" width="28" height="28" alt="">Kaspa Explained STP</a><nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="/playground">Playground</a><a href="/why-kaspa-matters">Use KAS</a><a href="/build-on-kaspa">Build</a><a href="/node">Node</a><a href="/explore">Explore</a><a href="/kachat">Chat</a><a href="/peglab" aria-current="page">PegLab</a><a href="/moonboy">Moonboy</a><a href="/best-practices">Practices</a><a href="/help">Help</a><a href="/x-handles">X</a></nav><div class="header-tools"><a href="/search" aria-label="Search explanations">Search</a><button class="theme-button" data-theme-toggle aria-label="Dark appearance" aria-pressed="false">◐</button><button class="menu-button" data-menu aria-expanded="false" aria-controls="main-nav">Menu</button></div></div></header><main class="main" id="main">
+<link rel="stylesheet" href="/assets/peglab.css">
+<div class="peglab" data-peglab>
+  <p class="peglab-banner">TESTNET TOY. NOT USD. NOT AN ISSUER. WILL DEPEG.</p>
+  <div class="page-intro">
+    <p class="eyebrow">PegLab · Kaspa Testnet-10</p>
+    <h1>A dollar-shaped object with a 2 tKAS pool.</h1>
+    <p class="lead">PegLab is the benchmark for dapps that think they need a stable. It is a proof of concept, not a business. The old Gramlane vision lives here: skip a centralised dollar for apps, then watch a tiny pool fail in public. tPEG is a covenant claim on locked test KAS, priced by one admin key. It is not money.</p>
+  </div>
+  <p class="peglab-rung"><span>Code</span><span>Audit-lite</span><span>Tiny pool</span><span>Will depeg</span><span>No mainnet</span></p>
+  <div class="peglab-board">
+    <section class="peglab-card">
+      <h2>Live state</h2>
+      <div class="peglab-metrics" data-peglab-metrics></div>
+      <div class="peglab-holders" data-peglab-holders></div>
+      <div class="peglab-controls">
+        <button class="primary-button" data-peglab-mint type="button">Mint 100 tPEG</button>
+        <button class="quiet-button" data-peglab-swap type="button">Swap 0.2 tKAS through pool</button>
+        <button class="quiet-button" data-peglab-redeem type="button">Redeem 40 tPEG</button>
+        <button class="quiet-button" data-peglab-oracle type="button">Post oracle +25%</button>
+        <button class="quiet-button" data-peglab-stale type="button">Expire oracle</button>
+        <button class="quiet-button" data-peglab-pause type="button">Pause</button>
+        <button class="quiet-button" data-peglab-reset type="button">Reset genesis</button>
+      </div>
+    </section>
+    <section class="peglab-card">
+      <h2>Wallet prompt</h2>
+      <pre class="peglab-prompt" data-peglab-prompt></pre>
+    </section>
+  </div>
+  <section class="peglab-card">
+    <h2>Depeg lab</h2>
+    <p>Five scripted steps. The last one is the product: target, pool, and redeem disagree, and a 2 tKAS pool cannot pull them together.</p>
+    <div class="peglab-controls"><button class="primary-button" data-peglab-demo type="button">Run depeg lab</button></div>
+    <div class="peglab-steps" data-peglab-steps></div>
+  </section>
+  <details class="detail">
+    <summary>What this is, and what it is not</summary>
+    <div class="detail-body">
+      <p>This page runs the PegLab economic engine in your browser. It is the STP Testnet-10 toy from <a href="https://github.com/STP-KAS/peglab-stp">STP-KAS/peglab-stp</a>. Use it as a benchmark: if your dapp “needs a stable,” run this failure mode first. There is no business model here. Anybody can compile a similarly named series. A name is not authenticity. Verify genesis outpoint, template hash, series bytes, and backing.</p>
+      <p>Redeem is tKAS at an admin price, not dollars. Pause blocks new risk; it does not create a peg. No mainnet. Do not put real funds in this.</p>
+      <p>Dedicated Testnet-10 wallet: <code>kaspatest:qzpvdakagvwfm95g8pv9ndpupjtndgjfhmve08cg3tv5wgfytjzf7cudwwzv0</code>. The seed is not on this site.</p>
+    </div>
+  </details>
+</div>
+<script type="module" src="/assets/peglab-ui.mjs"></script></main><footer class="site-footer"><p>Kaspa Explained STP · local only<br>Independent education about Kaspa. Models explain. Sources let you check.</p><nav aria-label="Footer"><a href="/sources">Sources</a><a href="/status">Current status</a><a href="/search">Search</a></nav><p class="community-rules">Rules for entering the Kaspa community: when engaging online, be mature. No price predictions. Build. Share ideas. Keep a positive critical mindset.</p></footer></body></html>

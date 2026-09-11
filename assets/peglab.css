@@ -1,0 +1,25 @@
+.peglab-banner{margin:0 0 24px;padding:12px 16px;border:1px solid color-mix(in srgb,var(--danger) 35%,var(--rule));background:color-mix(in srgb,var(--danger) 12%,var(--paper));color:var(--danger);font-size:.875rem;font-weight:650;letter-spacing:.04em;text-align:center}
+.peglab-rung{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px}
+.peglab-rung span{border:1px solid var(--rule);background:var(--paper);padding:6px 12px;border-radius:999px;font-size:.8125rem;color:var(--muted)}
+.peglab-board{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;margin-bottom:24px}
+.peglab-card{background:var(--paper);border:1px solid var(--rule);border-radius:18px;padding:22px 24px;box-shadow:var(--shadow)}
+.peglab-card h2{font-size:1.125rem;margin-bottom:16px}
+.peglab-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.peglab-metric{background:var(--soft);border-radius:12px;padding:12px 14px}
+.peglab-metric span{display:block;color:var(--muted);font-size:.75rem}
+.peglab-metric strong{display:block;margin-top:4px;font-variant-numeric:tabular-nums;font-size:1rem}
+.peglab-metric.is-break strong{color:var(--danger)}
+.peglab-holders{margin-top:16px;font-size:.875rem;color:var(--muted)}
+.peglab-holders table{width:100%;border-collapse:collapse}
+.peglab-holders th,.peglab-holders td{text-align:left;padding:6px 0;border-bottom:1px solid var(--rule);font-weight:500}
+.peglab-holders td,.peglab-holders th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.peglab-controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.peglab-prompt{white-space:pre-wrap;background:var(--soft);border-radius:12px;padding:14px;font-size:.8125rem;color:var(--muted);min-height:8.5rem;margin:0;overflow:auto}
+.peglab-steps{display:grid;gap:10px;margin-top:16px}
+.peglab-step{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:start;border:1px solid var(--rule);border-radius:14px;padding:14px 16px}
+.peglab-step b{color:var(--green)}
+.peglab-step p{margin:6px 0 0;color:var(--muted);max-width:none}
+.peglab-nums{font-variant-numeric:tabular-nums;font-size:.875rem;text-align:right;white-space:nowrap}
+.peglab-step.is-active{border-color:var(--green);background:var(--green-soft)}
+.peglab code{font-size:.8125rem;overflow-wrap:anywhere}
+@media(max-width:860px){.peglab-board{grid-template-columns:1fr}.peglab-step{grid-template-columns:auto 1fr;gap:10px}.peglab-nums{grid-column:2;text-align:left}}
