@@ -48,6 +48,11 @@ html[data-welcome-seen] .welcome{display:none!important}
 .door-film.is-portrait{max-width:22rem}
 .door-film.is-portrait video{aspect-ratio:9/16;width:auto;max-width:100%;max-height:min(72vh,640px);margin-inline:auto}
 .door-film figcaption{margin-top:8px}
+.door-ask{max-width:42rem;margin:0 0 36px;padding:20px;border:1px solid var(--rule);border-radius:16px;background:var(--paper)}
+.door-ask h2{margin-bottom:8px}
+.door-ask textarea{display:block;width:100%;min-height:88px;margin:12px 0;padding:10px 12px;border:1px solid var(--rule);border-radius:10px;background:var(--soft);font:inherit}
+.door-ask-q,.door-ask-a{margin:12px 0 4px;max-width:46ch}
+.door-ask-q{color:var(--muted)}
 .intro-door{display:block;margin-bottom:24px}
 .intro-door h1{max-width:22ch}
 .page-intro{display:block;width:100%;max-width:100%}

@@ -1,5 +1,6 @@
 import {doors, demos, doorKgi, peopleChips} from './doors.mjs';
 import {localFilm} from './community.mjs';
+import {doorAskMarkup} from './door-ask.mjs';
 
 const routes = items => `<nav class="topic-list" aria-label="Next reading">${items.map(([title, text, url]) =>
   `<a href="${url}"><div><strong>${title}</strong><p>${text}</p></div><span aria-hidden="true">↗</span></a>`
@@ -14,6 +15,7 @@ function pageBody(door) {
     </div>
     <p class="door-as" data-door-as hidden></p>
     <div class="door-intel-body">${door.body}</div>
+    ${doorAskMarkup(door.id)}
     ${film}
     ${doorKgi()}
     ${peopleChips(door.id)}
