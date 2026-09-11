@@ -55,7 +55,7 @@ export const doors = {
     body: `<h2>Overview</h2>
       <ul>
         <li>Snapshot 6 Sep 2026: rusty-kaspa v2.0.1. Toccata live (KIPs 16, 17, 20, 21 Active). 10 BPS live. Quote DAA and subsidy from <a href="/status">Status</a>; they age.</li>
-        <li>Order: Toccata (live protocol) → SilverScript v1.0.0 (compiler tag, not production apps) → Argent (prototype; rules 5 and 6 not implemented) → vProgs (research). DAGKnight is Proposed.</li>
+        <li>Order: Toccata (live protocol) → SilverScript v1.0.0 (compiler tag, not production apps) → Argent (prototype; rules 5 and 6 not implemented) → vProgs (research). DAGKnight is Proposed. Sutton 11 Sep 2026: world updates in parallel; related events still need order; do not force all mutations through a few sequential bottlenecks. Tweet, not a KIP.</li>
         <li>Do not claim: 100 BPS live, instant finality, Ethereum-class native contracts, KCC-20 adopted, vProgs live, Toccata “coming soon.”</li>
         <li>Build on Testnet-10 (<code>kaspatest:</code>). CPU first. Explorer: tn10.kaspa.stream.</li>
       </ul>
@@ -65,6 +65,7 @@ export const doors = {
       ['Explore', 'kaspa.stream, tn10.kaspa.stream, Graph Inspector.', '/explore'],
       ['Node', 'TN10 kaspad and CPU tKAS, or a mainnet node.', '/node'],
       ['Door 4', 'How to check a claim before you repeat it.', '/door-4'],
+      ['Sutton 11 Sep 2026', 'Parallel DeFi as a question. Not a spec.', 'https://x.com/michaelsuttonil/status/2098204180406026482'],
     ],
   },
   4: {
