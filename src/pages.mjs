@@ -28,7 +28,7 @@ export const pages = [
       <section class="doors" aria-label="Choose an intel door">
         <p class="eyebrow">Four doors</p>
         <h1>Who is reading.</h1>
-        <p>Four lessons, from never used crypto to expert. Door 1 is the words. Door 4 is how to check a claim. Help is questions. Explore is the ledger. Read the door that matches you, then the next.</p>
+        <p>Four short overviews, never used crypto to expert. One screen each. Help is questions. Explore is the ledger.</p>
         <div class="door-row" aria-label="Knowledge doors">
           <a href="/door-1">Door 1<br><span>Never used crypto</span></a>
           <a href="/door-2">Door 2<br><span>Knows crypto</span></a>
