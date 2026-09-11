@@ -13,17 +13,20 @@ export const lanePages = [
   {
     file: 'moonboy.html',
     title: 'Moonboy',
-    description: 'Price predictions and detailed chart analysis are not intel. Kaspa is a network.',
-    body: `${intro('Moonboy', 'Price talk is not a source.', 'Price predictions are useless. Speculation is a time waste. Detailed chart analysis is the same: it does not tell you what the protocol does, what is live, or what still has to be built.')}
+    description: 'A chart is not the protocol. If you came for a moon, the work that pays is still outside the ticker.',
+    body: `${intro('Moonboy', 'A chart cannot pay the rent.', 'Price talk is not a source. That is not an insult. A target, a cycle top, and “next resistance” cannot be checked against a KIP, a node, or a dated snapshot. Keep it real. Then look at the rest of the scheme: money you earn, money you keep, skills that work if KAS is worth zero.')}
       ${localFilm('/media/moonboy.mp4', 'A reminder, not a forecast.')}
       ${rows([
-        ['What this tab refuses', '<p>No target. No cycle top. No “next resistance.” Those sentences cannot be checked against a KIP, a node release, or a dated network snapshot.</p>'],
-        ['What to do instead', '<p>Read what is live. Run a test wallet. Watch the blockDAG. If you arrived for a moon, Door 4 and the status table are the honest next pages.</p>'],
+        ['What this tab refuses', '<p>No price target. No moon date. No chart as proof. Speculation is optional entertainment. It is not intel, and it is not a plan.</p>'],
+        ['What a ticker does not do', '<p>It does not pay wages, cancel debt, or replace a skill. If the number going up is the whole plan, the plan has one moving part you do not control. That is true for any asset, not only crypto.</p>'],
+        ['Outside crypto', '<p>Earn in the economy you already live in. Spend less than that. Keep a cash buffer for rent and food. Learn a skill that still sells if this site disappeared. Those are boring. They work whether Kaspa exists or not.</p>'],
+        ['If you still want Kaspa', '<p>Learn the machine, not the candle. Testnet-10 first. Watch the DAG. Build or ask in Help. Price can stay a private hobby. Do not put next month’s bills on it, and do not teach it as a fact.</p>'],
       ])}
       ${pinList([
-        ['Door 4', 'Thinks they know. Price is not the protocol.', '/door-4'],
+        ['Door 4', 'Check a claim. True if KAS were worth zero?', '/door-4'],
         ['What is live', 'Dated labels: live, roadmap, research, wrong.', '/status'],
-        ['The tradeoffs', 'Node cost, mining concentration, what speed does not solve.', '/skeptical-case'],
+        ['Help', 'Discord. Facts. No seed. No price.', '/help'],
+        ['Explore', 'The ledger, not a ticker.', '/explore'],
       ])}`,
   },
   {

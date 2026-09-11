@@ -54,6 +54,15 @@ claims:
     forbidden_copy:
       - The next reward step occurs at an exact wall-clock time
 
+  price_is_not_protocol:
+    status: narrative_guardrail
+    summary: A market price, chart, or cycle story does not change GHOSTDAG, issuance, or whether a wallet can spend. Work, cash buffers, and skills that sell without a token sit outside the protocol and are not replaced by a ticker.
+    source: https://github.com/kaspanet/rusty-kaspa
+    forbidden_copy:
+      - Price proves the protocol
+      - A chart is a substitute for wages
+      - Kaspa replaces a job
+
   fair_launch:
     status: narrative_guardrail
     summary: Kaspa mainnet began on 2021-11-07 without a premine, presale, or official founder, investor, company, or foundation allocation; post-launch early mining is a separate distribution question.
