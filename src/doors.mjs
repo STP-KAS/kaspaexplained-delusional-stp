@@ -78,13 +78,13 @@ export const doors = {
         <li>PoW cash, DAG history. Not staking. Not an EVM. 10 BPS live. Toccata live. SilverScript v1.0.0 is a compiler tag. vProgs are research. DAGKnight is proposed.</li>
         <li><strong>Live</strong> = activated and observable. <strong>Roadmap</strong> = written intent. <strong>Research</strong> = paper or prototype. <strong>Wrong</strong> = contradicted by the node, a KIP, or the dated snapshot.</li>
         <li>Before you repeat a sentence: primary source (KIP, rusty-kaspa, docs.kaspa.org)? Status Active/Draft/Proposed? Dated? Mixing Toccata / SilverScript / vProgs? True if KAS were worth zero?</li>
-        <li>If the last check fails, it was a market claim. Stop. Node cost, pools, wallets, indexers, and wait time still exist at 10 BPS.</li>
+        <li>If the last check fails, it was a market claim. Stop. Wages, cash buffer, and a skill that sells without a token still exist. Node cost, pools, wallets, and wait time still exist at 10 BPS.</li>
       </ul>
       <p>Questions: <a href="/help">Help</a>. Check a block: <a href="/explore">Explore</a>.</p>`,
     reads: [
       ['Help', 'Correct Discord tab. Facts. No seed. No price.', '/help'],
       ['Explore', 'Mainnet and TN10 explorers, live DAG.', '/explore'],
-      ['Moonboy', 'Price talk is not a source.', '/moonboy'],
+      ['Moonboy', 'Chart is not a plan. Work and cash still sit outside crypto.', '/moonboy'],
       ['Door 1', 'If you will teach someone new, start them here.', '/door-1'],
     ],
   },
@@ -96,7 +96,7 @@ export const people = [
   {id: 'kaspa', door: 3, label: 'Knows Kaspa'},
   {id: 'crypto-and-kaspa', door: 3, label: 'Knows crypto and Kaspa', intel: 'You already have both maps. Use status and the playground. Do not skip the costs.'},
   {id: 'thinks', door: 4, label: 'Thinks they know crypto'},
-  {id: 'moonboy', door: 4, label: 'Moonboy crypto bro', intel: 'No price target lives here. If you came for a moon, read this door, then the Moonboy tab.'},
+  {id: 'moonboy', door: 4, label: 'Moonboy crypto bro', intel: 'No price target lives here. A chart is not a job. Read this door, then Moonboy for what still works outside crypto.'},
   {id: 'institution', door: 2, label: 'Institution (speculative)', intel: 'This is not a prospectus. Settlement, node costs, and what is live. Speculation is labeled speculation.'},
   {id: 'influencer-tech', door: 4, label: 'Tech influencer', intel: 'If you will repeat this, cite a primary source. Live, roadmap, research, and wrong are different labels.'},
   {id: 'influencer-moon', door: 4, label: 'Moonboy influencer', intel: 'If you will repeat this, cite a primary source. Price talk is not intel.'},
