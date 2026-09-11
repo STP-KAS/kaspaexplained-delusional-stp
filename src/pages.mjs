@@ -24,7 +24,7 @@ export const pages = [
         </div>
       </div>
       <p class="home-ethos">-Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br><br>-Proof of stake replaced work with capital. That is a different system.<br><br>-Kaspa kept Bitcoin\u2019s proof of work and upgraded it: 10 blocks per second on average, now programmable.</p>
-      ${localFilm('/media/kaspa-silver.mp4', 'Kaspa Silver: what Kaspa is.', {preload: 'metadata'})}
+      ${localFilm('/media/kaspa-silver.mp4', 'Kaspa Silver: what Kaspa is.', {preload: 'metadata', ratio: '9/16'})}
       <section class="doors" aria-label="Choose an intel door">
         <p class="eyebrow">Four doors</p>
         <h1>Who is reading.</h1>

@@ -6,15 +6,15 @@ const routes = items => `<nav class="topic-list" aria-label="Next reading">${ite
 ).join('')}</nav>`;
 
 function pageBody(door) {
-  const film = localFilm('/media/kaspa-silver.mp4', 'Kaspa Silver: what Kaspa is.', {preload: 'metadata'});
-  return `${film}
-    <div class="page-intro intro-door">
+  const film = localFilm('/media/kaspa-silver.mp4', 'Kaspa Silver: what Kaspa is.', {preload: 'metadata', ratio: '9/16'});
+  return `<div class="page-intro intro-door">
       <p class="eyebrow">${door.label}</p>
       <h1>${door.title}</h1>
       <p class="lead">${door.intel}</p>
     </div>
     <p class="door-as" data-door-as hidden></p>
     <div class="door-intel-body">${door.body}</div>
+    ${film}
     ${doorKgi()}
     ${peopleChips(door.id)}
     <section class="chapter">

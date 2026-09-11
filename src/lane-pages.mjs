@@ -34,7 +34,7 @@ export const lanePages = [
     title: 'Best practices',
     description: 'Honest Kaspa sources: Kaspa Silver, books, Kas Smiths, Aviv Zohar, Q&A, and Core R&D recaps.',
     body: `${intro('Best practices', 'Read people who stay honest.', 'Prefer protocol explainers over price talk. Kaspa Silver is a good example of that attitude: slow, specific, and unwilling to sell you a moon.')}
-      ${localFilm('/media/kaspa-silver.mp4', 'Kaspa Silver: what Kaspa is. More of that voice is on YouTube.')}
+      ${localFilm('/media/kaspa-silver.mp4', 'Kaspa Silver: what Kaspa is. More of that voice is on YouTube.', {preload: 'metadata', ratio: '9/16'})}
       <p><a href="https://www.youtube.com/channel/UCv8-2oyrfqDigJAKjZ_RCzQ" target="_blank" rel="noopener noreferrer">Kaspa Silver on YouTube ↗</a></p>
       ${rows([
         ['Kaspa Silver’s attitude', '<p>He explains the machine. Fair launch, proof of work, the DAG, what shipped. He does not owe you a price. That honesty is the practice: if a clip cannot point at a rule, a release, or a dated observation, skip it. KaChat is his messenger: <a href="/kachat">Chat</a>.</p>'],
