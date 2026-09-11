@@ -4,12 +4,14 @@ import {mountCoordination} from './coordination.mjs';
 import {mountInstalledWallet} from './installed-wallets.mjs';
 import {mountKachat} from './kachat.mjs';
 import {mountDoors} from './doors.mjs';
+import {mountDoorAsk} from './door-ask.mjs';
 document.documentElement.removeAttribute('hidden');
 delete document.documentElement.dataset.welcome;
 document.querySelectorAll('[data-coordination]').forEach(mountCoordination);
 mountInstalledWallet();
 mountKachat();
 mountDoors();
+mountDoorAsk();
 {
   const welcome = document.querySelector('.welcome[data-welcome]');
   if (welcome && welcome !== document.documentElement && welcome !== document.body) {

@@ -1,13 +1,30 @@
 import {createReadStream} from 'node:fs';
 import {stat} from 'node:fs/promises';
 import {createServer} from 'node:http';
-import {resolve, extname, sep} from 'node:path';
+import {resolve, extname, sep, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {answerQuestion, loadIntel, readJsonBody} from './ask-grok.mjs';
 
 export function staticPreview(directory='dist-v1'){
   const root=resolve(directory),mime={'.html':'text/html; charset=utf-8','.css':'text/css','.mjs':'text/javascript','.js':'text/javascript','.wasm':'application/wasm','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.ico':'image/x-icon','.pdf':'application/pdf','.xml':'application/xml','.json':'application/json','.mp4':'video/mp4','.webm':'video/webm'};
   return createServer(async(req,res)=>{
     let path;try{path=decodeURIComponent(new URL(req.url,'http://localhost').pathname);}catch{res.writeHead(400);res.end();return;}
+    if(path==='/ask'){
+      if(req.method==='OPTIONS'){res.writeHead(204,{'Access-Control-Allow-Origin':'*','Access-Control-Allow-Headers':'content-type'});res.end();return;}
+      if(req.method!=='POST'){res.writeHead(405);res.end();return;}
+      try{
+        const payload=await readJsonBody(req);
+        const intel=await loadIntel(join(root,'assets','door-intel.json'));
+        const result=await answerQuestion(intel,payload);
+        const body=JSON.stringify(result);
+        res.writeHead(200,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'});
+        res.end(body);
+      }catch(error){
+        res.writeHead(400,{'Content-Type':'application/json; charset=utf-8'});
+        res.end(JSON.stringify({error:error.message||'Ask failed.'}));
+      }
+      return;
+    }
     let file=resolve(root,'.'+path),code=200;
     if(file!==root&&!file.startsWith(root+sep)){res.writeHead(403);res.end();return;}
     let info;
