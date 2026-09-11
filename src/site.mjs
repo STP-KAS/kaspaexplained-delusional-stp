@@ -38,7 +38,7 @@ export const snapshot = {
     ['Toccata', 'Live protocol', 'Covenant spending rules, identifiers, sequencing commitments, and supported proof verification are active. Application readiness is separate.', 'https://github.com/kaspanet/rusty-kaspa/releases/tag/v2.0.0'],
     ['Silverscript', 'v1.0.0', 'Official language and compiler release, tagged 9 Sep 2026. Application readiness is separate.', 'https://github.com/kaspanet/silverscript/releases/tag/v1.0.0'],
     ['Argent', 'Prototype', 'Not release-ready. Leader and delegate input-group invariants are documented; compiler rules 5 and 6 are marked not implemented.', 'https://github.com/argent-lang/argent/blob/master/docs/security-invariants/leader-delegate-input-groups.md'],
-    ['vProgs', 'Research', 'Early implementation. Repository existence does not establish production availability.', 'https://github.com/kaspanet/vprogs'],
+    ['vProgs', 'Research', 'Early repo, no tagged product. Sutton 11 Sep 2026: global DeFi is not sequential; related events still need order. A tweet is not a spec.', 'https://x.com/michaelsuttonil/status/2098204180406026482'],
     ['DAGKnight', 'Proposed', 'Research code is active. No mainnet activation is documented in the checked KIP or node releases.', 'https://github.com/kaspanet/kips/blob/master/kip-0002.md'],
   ],
 };

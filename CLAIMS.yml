@@ -1,5 +1,5 @@
-last_checked: 2026-09-10
-recheck_after: 2026-09-17
+last_checked: 2026-09-11
+recheck_after: 2026-09-18
 claims:
   proof_of_work:
     status: live
@@ -110,12 +110,24 @@ claims:
 
   vprogs:
     status: research
-    recheck_after: 2026-09-16
+    recheck_after: 2026-09-18
     summary: The vProgs repository describes early development and has no tagged release; it does not establish a live Kaspa application layer.
     source: https://github.com/kaspanet/vprogs
     supporting_source: https://github.com/kaspanet/vprogs/releases
     forbidden_copy:
       - vProgs is live on Kaspa mainnet
+
+  sutton_parallel_defi:
+    status: research
+    recheck_after: 2026-09-18
+    summary: On 11 Sep 2026 Michael Sutton asked whether global DeFi is sequential. Working hypothesis, not a spec: economic events happen in parallel; related events still need relative order (double-spend is the local case); designs should not force all state mutations through a constant number of sequential bottlenecks. He prefers pushing apps toward partitioned, parallel, or replicated state rather than forcing the base layer toward global shared state. Computational scalability is the more fundamental point in that thread. A public question is not a KIP and not a live application layer.
+    source: https://x.com/michaelsuttonil/status/2098204180406026482
+    supporting_source: https://x.com/michaelsuttonil/status/2098089246741397613
+    forbidden_copy:
+      - Sutton proved global DeFi is live on Kaspa
+      - Parallel DeFi is a mainnet product
+      - This tweet is a KIP
+      - Shared-state DeFi is required on Kaspa L1
 
   dagknight:
     status: research
