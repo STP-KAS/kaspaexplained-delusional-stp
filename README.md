@@ -96,3 +96,12 @@ New project-controlled code is offered under **PolyForm Noncommercial 1.0.0**, a
 Earlier MIT and CC BY 4.0 grants remain valid for previously released material. Third-party code, independent contributions and Moose’s books retain their own terms. Preserve the notices in [THIRD_PARTY.md](THIRD_PARTY.md).
 
 Corrections should identify the exact claim or behavior and a supporting primary source.
+
+---
+
+> **Standard disclaimer.** This GitHub, not the topic above.
+>
+> Intentions are good; thought process is questionable. STP remains delusional. Si vis pacem, para bellum.
+>
+> Intern at https://sixpack.wtf/  
+> X: https://x.com/StppStp · GitHub: https://github.com/STP-KAS
