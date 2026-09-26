@@ -4,7 +4,7 @@
 
 # Kaspa Explained · delusional STP
 
-This repository is **STP-KAS** (STP-KAS) working on Kaspa Explained locally: UX, a short PoW ethos line, and Kasware/Kastle holdings. It is the **project delusional** approach: honest labels, no fake inject, no Gramlane product.
+This repository is **STP-KAS** (stp) working on Kaspa Explained locally: UX, a short PoW ethos line, and Kasware/Kastle holdings. It is the **project delusional** approach: honest labels, no fake inject, no Gramlane product.
 
 This overlay is local only: [http://127.0.0.1:8899/](http://127.0.0.1:8899/). No public domain.
 
